@@ -136,9 +136,9 @@ CREATE TABLE horario_segmento (
 CREATE TABLE producto_tienda (
     id_proyecto CHAR(10) PRIMARY KEY,
     RUC CHAR(13),
-    num_factura CHAR(10),
+    num_factura CHAR(50),
     categoria VARCHAR(20),
-    precio DECIMAL(5,2),
+    precio DECIMAL(6,2),
     titulo VARCHAR(20),
     presupuesto INT,
     descripcion VARCHAR(300),

@@ -4,6 +4,7 @@ import tkinter as tk
 from tkinter import ttk
 
 def execute_query(query):
+    connection = None  # Inicializa la variable connection como None
     try:
         connection = mysql.connector.connect(
             host='proyectosbdgrupo8.mysql.database.azure.com',
@@ -22,7 +23,7 @@ def execute_query(query):
     except Error as e:
         print(f"Error al conectar a MySQL: {e}")
     finally:
-        if connection.is_connected():
+        if connection and connection.is_connected():
             connection.close()
 
 def update_table(columns, rows):

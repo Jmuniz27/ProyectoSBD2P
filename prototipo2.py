@@ -4,7 +4,6 @@ import tkinter as tk
 from tkinter import ttk
 
 def execute_query(query):
-    connection = None  # Inicializa la variable connection como None
     try:
         connection = mysql.connector.connect(
             host='proyectosbdgrupo8.mysql.database.azure.com',
@@ -23,23 +22,25 @@ def execute_query(query):
     except Error as e:
         print(f"Error al conectar a MySQL: {e}")
     finally:
-        if connection and connection.is_connected():
+        if connection.is_connected():
             connection.close()
 
 def update_table(columns, rows):
     for col in tree.get_children():
         tree.delete(col)
     
-    tree["columns"] = columns
+    for col in tree["columns"]:
+        tree.column(col, width=0, stretch=tk.NO)
+    tree["columns"] = ()
+
+    tree["columns"] = columns + ("",)
     for col in columns:
         tree.heading(col, text=col)
-        tree.column(col, width=100, anchor='center')
+        tree.column(col, width=100, anchor='center', stretch=tk.NO)
+    tree.column("", width=0, stretch=tk.YES)
 
     for row in rows:
-        tree.insert("", "end", values=row)
-
-    for col in columns:
-        tree.column(col, stretch=tk.YES)
+        tree.insert("", "end", values=row + ("",))
 
 def query1():
     query = "SELECT * FROM EMPLEADO LIMIT 10"

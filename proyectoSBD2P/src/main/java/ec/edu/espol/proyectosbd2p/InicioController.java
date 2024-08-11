@@ -22,25 +22,17 @@ public class InicioController implements Initializable {
     @FXML
     private ImageView imgLogo;
     @FXML
-    private Button consultarSegmento;
-    @FXML
-    private Button consultarProductoTienda;
-    @FXML
-    private Button consultarAnuncioWeb;
-    @FXML
     private Button consultarEmpleado;
     @FXML
     private Button consultarCliente;
     @FXML
-    private ImageView imgSegmento;
-    @FXML
-    private ImageView imgProductoTienda;
-    @FXML
-    private ImageView imgAnuncioWeb;
-    @FXML
     private ImageView imgEmpleado;
     @FXML
     private ImageView imgCliente;
+    @FXML
+    private ImageView imgProyecto;
+    @FXML
+    private Button consultarProyectos;
 
     /**
      * Initializes the controller class.
@@ -51,11 +43,15 @@ public class InicioController implements Initializable {
     }    
 
     @FXML
-    private void clickEnBuscarSegmento(ActionEvent event) {
+    private void clickEnEmpleados(ActionEvent event) {
     }
 
     @FXML
-    private void clickEnBuscarVehiculos(ActionEvent event) {
+    private void clickEnCLientes(ActionEvent event) {
+    }
+
+    @FXML
+    private void clickEnProyectos(ActionEvent event) {
     }
     
 }

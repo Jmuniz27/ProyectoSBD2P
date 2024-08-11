@@ -19,12 +19,12 @@
                <children>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
                      <children>
-                        <ImageView fx:id="imgLogo" fitHeight="66.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="imgLogo" fitHeight="94.0" fitWidth="91.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../../../../../../../../../OneDrive-EscuelaSuperiorPolitécnicadelLitoral/ESPOL/PAOI%20-%202024/Estructuras%20de%20Datos/ProyectoED-G1/src/main/resources/imagenes/logo.png" />
+                              <Image url="@../../../../imagenes/wuanplus-removebg-preview.png" />
                            </image>
                         </ImageView>
-                        <Text fill="#e0252d" strokeType="OUTSIDE" strokeWidth="0.0" text="CarMatch" wrappingWidth="240.4574737548828">
+                        <Text fill="#f96a17" strokeType="OUTSIDE" strokeWidth="0.0" text="WuanPlus" wrappingWidth="240.4574737548828">
                            <font>
                               <Font name="Arial Rounded MT Bold" size="48.0" />
                            </font>
@@ -41,30 +41,43 @@
    <center>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="30.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" />
+            <HBox alignment="CENTER" prefHeight="354.0" prefWidth="1280.0" spacing="70.0">
+               <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="266.0" prefWidth="270.0" spacing="60.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 40; -fx-border-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);">
+                  <children>
+                     <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="328.0">
+                        <children>
+                           <ImageView fx:id="imgSegmento" fitHeight="156.0" fitWidth="153.0" pickOnBounds="true" preserveRatio="true">
+                              <image>
+                                 <Image url="@../../../../imagenes/television_16874998.png" />
+                              </image>
+                           </ImageView>
+                        </children>
+                     </HBox>
+                     <Button fx:id="consultarSegmento" mnemonicParsing="false" onAction="#clickEnBuscarSegmento" prefHeight="32.0" prefWidth="207.0" style="-fx-background-color: f96a17; -fx-background-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);" text="Segmento" textFill="WHITE">
+                        <font>
+                           <Font name="Arial Rounded MT Bold" size="18.0" />
+                        </font>
+                        <cursor>
+                           <Cursor fx:constant="HAND" />
+                        </cursor>
+                     </Button>
+                  </children>
+               </VBox>
+                <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="298.0" prefWidth="330.0" BorderPane.alignment="CENTER">
                <children>
-                  <Text fill="#e0252d" strokeType="OUTSIDE" strokeWidth="0.0" text="¿Listo para encontrar el auto de tus sueños?" textAlignment="CENTER" wrappingWidth="1132.0294342041016">
-                     <font>
-                        <Font name="Arial Rounded MT Bold" size="48.0" />
-                     </font>
-                  </Text>
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" prefHeight="460.0" prefWidth="1280.0" spacing="70.0">
-                <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="460.0" prefWidth="330.0" BorderPane.alignment="CENTER">
-               <children>
-                  <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="398.0" prefWidth="328.0" spacing="60.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 40; -fx-border-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);">
+                  <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="266.0" prefWidth="270.0" spacing="60.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 40; -fx-border-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);">
                      <children>
                         <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="328.0">
                            <children>
-                                 <ImageView fx:id="imgBuscarVehiculos" fitHeight="185.0" fitWidth="170.0" pickOnBounds="true" preserveRatio="true">
+                                 <ImageView fx:id="imgProductoTienda" fitHeight="149.0" fitWidth="159.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                       <Image url="@../../../../../../../../../../../../OneDrive-EscuelaSuperiorPolitécnicadelLitoral/ESPOL/PAOI%20-%202024/Estructuras%20de%20Datos/ProyectoED-G1/src/main/resources/imagenes/carrod.png" />
+                                       <Image url="@../../../../imagenes/buy-online_1374182.png" />
                                     </image>
                                  </ImageView>
                            </children>
                         </HBox>
-                           <Button fx:id="botonBuscarVehiculos" mnemonicParsing="false" onAction="#clickEnBuscarVehiculos" prefHeight="55.0" prefWidth="270.0" style="-fx-background-color: e0252d; -fx-background-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);" text="BUSCAR VEHÍCUILOS" textFill="WHITE">
+                           <Button fx:id="consultarProductoTienda" mnemonicParsing="false" onAction="#clickEnBuscarVehiculos" prefHeight="32.0" prefWidth="207.0" style="-fx-background-color: f96a17; -fx-background-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);" text="Producto en Tienda" textFill="WHITE">
                               <font>
                                  <Font name="Arial Rounded MT Bold" size="18.0" />
                               </font>
@@ -76,56 +89,77 @@
                   </VBox>
                </children>
             </VBox>
-               <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="460.0" prefWidth="330.0">
+               <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="266.0" prefWidth="270.0" spacing="60.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 40; -fx-border-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);">
                   <children>
-                     <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="398.0" prefWidth="328.0" spacing="60.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 40; -fx-border-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);">
+                     <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="328.0">
                         <children>
-                           <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="328.0">
-                              <children>
-                                 <ImageView fx:id="imgVenderVehiculo" fitHeight="120.0" fitWidth="118.0" pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                       <Image url="@../../../../../../../../../../../../OneDrive-EscuelaSuperiorPolitécnicadelLitoral/ESPOL/PAOI%20-%202024/Estructuras%20de%20Datos/ProyectoED-G1/src/main/resources/imagenes/wheel.png" />
-                                    </image>
-                                 </ImageView>
-                              </children>
-                           </HBox>
-                           <Button fx:id="botonVenderVehiculo" mnemonicParsing="false" onAction="#clickEnVenderVehiculo" prefHeight="55.0" prefWidth="270.0" style="-fx-background-color: e0252d; -fx-background-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);" text="VENDER VEHÍCULO" textFill="WHITE">
-                              <font>
-                                 <Font name="Arial Rounded MT Bold" size="18.0" />
-                              </font>
-                              <cursor>
-                                 <Cursor fx:constant="HAND" />
-                              </cursor>
-                           </Button>
+                           <ImageView fx:id="imgAnuncioWeb" fitHeight="155.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                              <image>
+                                 <Image url="@../../../../imagenes/marketing_1450038.png" />
+                              </image>
+                           </ImageView>
                         </children>
-                     </VBox>
+                     </HBox>
+                     <Button fx:id="consultarAnuncioWeb" mnemonicParsing="false" onAction="#clickEnBuscarVehiculos" prefHeight="32.0" prefWidth="207.0" style="-fx-background-color: f96a17; -fx-background-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);" text="Anuncio Web" textFill="WHITE">
+                        <font>
+                           <Font name="Arial Rounded MT Bold" size="18.0" />
+                        </font>
+                        <cursor>
+                           <Cursor fx:constant="HAND" />
+                        </cursor>
+                     </Button>
                   </children>
                </VBox>
-               <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="460.0" prefWidth="330.0">
-                  <children>
-                     <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="398.0" prefWidth="328.0" spacing="60.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 40; -fx-border-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);">
-                        <children>
-                           <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="328.0">
-                              <children>
-                                 <ImageView fx:id="imgVerMisVehiculos" fitHeight="138.0" fitWidth="123.0" pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                       <Image url="@../../../../../../../../../../../../OneDrive-EscuelaSuperiorPolitécnicadelLitoral/ESPOL/PAOI%20-%202024/Estructuras%20de%20Datos/ProyectoED-G1/src/main/resources/imagenes/carro.png" />
-                                    </image>
-                                 </ImageView>
-                              </children>
-                           </HBox>
-                           <Button fx:id="botonVerMisVehiculos" mnemonicParsing="false" onAction="#clickEnVerMisVehiculos" prefHeight="55.0" prefWidth="270.0" style="-fx-background-color: e0252d; -fx-background-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);" text="VER MIS VEHÍCULOS" textFill="WHITE">
-                              <font>
-                                 <Font name="Arial Rounded MT Bold" size="18.0" />
-                              </font>
-                              <cursor>
-                                 <Cursor fx:constant="HAND" />
-                              </cursor>
-                           </Button>
-                        </children>
-                     </VBox>
-                  </children>
-               </VBox>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="223.0" prefHeight="234.0" prefWidth="1280.0" spacing="70.0">
+               <children>
+                  <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="298.0" prefWidth="330.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="266.0" prefWidth="270.0" spacing="60.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 40; -fx-border-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);">
+                           <children>
+                              <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="328.0">
+                                 <children>
+                                    <ImageView fx:id="imgEmpleado" fitHeight="152.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../imagenes/employee_2572970.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </HBox>
+                              <Button fx:id="consultarEmpleado" mnemonicParsing="false" onAction="#clickEnBuscarVehiculos" prefHeight="32.0" prefWidth="207.0" style="-fx-background-color: f96a17; -fx-background-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);" text="Empleado" textFill="WHITE">
+                                 <font>
+                                    <Font name="Arial Rounded MT Bold" size="18.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="266.0" prefWidth="270.0" spacing="60.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 40; -fx-border-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);">
+                     <children>
+                        <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="328.0">
+                           <children>
+                              <ImageView fx:id="imgCliente" fitHeight="156.0" fitWidth="148.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../imagenes/user_1077114.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                        <Button fx:id="consultarCliente" mnemonicParsing="false" onAction="#clickEnBuscarVehiculos" prefHeight="32.0" prefWidth="207.0" style="-fx-background-color: f96a17; -fx-background-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);" text="Cliente" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="18.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                     </children>
+                  </VBox>
+               </children>
             </HBox>
          </children>
       </VBox>

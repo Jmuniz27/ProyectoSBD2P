@@ -25,9 +25,9 @@
                <children>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
                      <children>
-                        <ImageView fx:id="imgLogo" fitHeight="77.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="imgLogo" fitHeight="78.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../../../../../../../../../../../../../Downloads/wuanplus-photoaidcom-cropped.jpg" />
+                              <Image url="@../../../../../../../../../../../../../../OneDrive-EscuelaSuperiorPolitécnicadelLitoral/ESPOL/PAOI%20-%202024/Sistema%20de%20Bases%20de%20Datos/Segundo%20Parcial/ProyectoSBD2P/proyectoSBD2P/src/main/resources/imagenes/logo.jpg" />
                            </image>
                         </ImageView>
                         <Text fill="#f96a17" strokeType="OUTSIDE" strokeWidth="0.0" text="WuanPlus" wrappingWidth="240.4574737548828">
@@ -133,7 +133,7 @@
                         </HBox>
                      </children>
                   </VBox>
-                  <Button fx:id="btnBuscar" mnemonicParsing="false" onAction="#buscarFiltros" prefHeight="39.0" prefWidth="339.0" style="-fx-background-color: #f96a17; -fx-background-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);" text="Buscar" textFill="WHITE">
+                  <Button fx:id="btnBuscar" mnemonicParsing="false" onAction="#buscarFiltros" prefHeight="50.0" prefWidth="339.0" style="-fx-background-color: #f96a17; -fx-background-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);" text="Buscar" textFill="WHITE">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="14.0" />
                      </font>

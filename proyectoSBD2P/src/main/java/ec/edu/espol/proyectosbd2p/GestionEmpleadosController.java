@@ -5,6 +5,11 @@
 package ec.edu.espol.proyectosbd2p;
 
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -19,7 +24,9 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
-
+import ec.edu.espol.proyectosbd2p.modelo.Cliente;
+import java.util.Set;
+import java.util.HashSet;
 /**
  * FXML Controller class
  *
@@ -89,11 +96,18 @@ public class GestionEmpleadosController implements Initializable {
 
     @FXML
     private void buscarFiltros(ActionEvent event) {
-        
-        
+        String ruc = tbRuc.getText();
+        //se crean cuantos filtros necesarios para cada campo
+        Set<Cliente> filtro1 = generarQuery("ruc",ruc);
+        String nombreEmpresa = tbNombreEmpresa.getText();
+        Set<Cliente> filtro2 = generarQuery("nombreEmpresa",nombreEmpresa);
+        filtro1.addAll(filtro2);
+        //falta crear filtro 3 y 4. la idea es q SIEMPRE en filtro 1 se use addAll con el resto de filtros
+        filtro1.addAll(filtro3);
+        filtro1.addAll(filtro4);
     }
 
-
+    
     @FXML
     private void prevPag(ActionEvent event) {
     }
@@ -102,4 +116,27 @@ public class GestionEmpleadosController implements Initializable {
     private void nextPag(ActionEvent event) {
     }
     
+    public Set<Cliente> generarQuery(String columna, String busqueda){
+        Set<Cliente> clientes = new HashSet<>();
+        try {
+            // Obtener la conexión desde DatabaseConnection
+            Connection connection = DatabaseConnection.getConnection();
+            if (connection != null) {
+                Statement statement = connection.createStatement();
+                String sql = "SELECT * FROM cliente WHERE " + columna + "=" + busqueda;
+                ResultSet resultSet = statement.executeQuery(sql);
+
+                while (resultSet.next()) {
+                    int ruc = resultSet.getInt("RUC");
+                    String nombre = resultSet.getString("nombre");
+                    String email = resultSet.getString("email");
+                    Cliente cliente = new Cliente();
+                    clientes.add(cliente);
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println("Error al ejecutar el query: " + e.getMessage());
+        }
+        return clientes;
+    }
 }

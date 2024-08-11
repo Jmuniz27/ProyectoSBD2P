@@ -89,6 +89,8 @@ public class GestionEmpleadosController implements Initializable {
 
     @FXML
     private void buscarFiltros(ActionEvent event) {
+        
+        
     }
 
 

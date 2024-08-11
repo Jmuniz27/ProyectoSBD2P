@@ -158,6 +158,31 @@
                         </Button>
                      </children>
                   </VBox>
+                  <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="298.0" prefWidth="330.0">
+                     <children>
+                        <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="266.0" prefWidth="270.0" spacing="60.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 40; -fx-border-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);">
+                           <children>
+                              <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="328.0">
+                                 <children>
+                                    <ImageView fx:id="imgProyecto" fitHeight="152.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../imagenes/blueprint_6020064.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </HBox>
+                              <Button fx:id="consultarProyectos" mnemonicParsing="false" onAction="#clickEnProyectos" prefHeight="32.0" prefWidth="207.0" style="-fx-background-color: f96a17; -fx-background-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);" text="Proyectos" textFill="WHITE">
+                                 <font>
+                                    <Font name="Arial Rounded MT Bold" size="18.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
                </children>
             </HBox>
          </children>

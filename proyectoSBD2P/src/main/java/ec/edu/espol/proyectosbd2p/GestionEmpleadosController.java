@@ -41,8 +41,6 @@ public class GestionEmpleadosController implements Initializable {
     @FXML
     private VBox containerFAuto;
     @FXML
-    private VBox filtroAuto;
-    @FXML
     private VBox plantillaAutos;
     @FXML
     private ImageView planImg;
@@ -69,17 +67,23 @@ public class GestionEmpleadosController implements Initializable {
     @FXML
     private Label lblNumPagina2;
     @FXML
-    private TextField tbRuc;
-    @FXML
-    private TextField tbNombreEmpresa;
-    @FXML
     private TextField tbDireccion;
-    @FXML
-    private TextField tbSitioWeb;
     @FXML
     private Button btnBuscar;
     @FXML
     private GridPane gridClientes;
+    @FXML
+    private VBox filtroEmpleado;
+    @FXML
+    private TextField tbIDEmpleado;
+    @FXML
+    private TextField tbPuesto;
+    @FXML
+    private TextField tbNombre;
+    @FXML
+    private TextField tbApellido;
+    @FXML
+    private TextField tbSueldo;
 
     /**
      * Initializes the controller class.

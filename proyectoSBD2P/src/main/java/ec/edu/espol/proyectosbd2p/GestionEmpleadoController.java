@@ -10,8 +10,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -23,9 +21,9 @@ import javafx.scene.text.Text;
 /**
  * FXML Controller class
  *
- * @author isabella
+ * @author creditos gonzalez
  */
-public class GestionEmpleadosController implements Initializable {
+public class GestionEmpleadoController implements Initializable {
 
     @FXML
     private ImageView imgLogo;
@@ -33,6 +31,24 @@ public class GestionEmpleadosController implements Initializable {
     private Button botonInicio;
     @FXML
     private VBox containerFAuto;
+    @FXML
+    private VBox filtroAuto;
+    @FXML
+    private TextField tbIdEmpleado;
+    @FXML
+    private TextField tbPuesto;
+    @FXML
+    private TextField tbNombre;
+    @FXML
+    private TextField tbApellido;
+    @FXML
+    private TextField tbSueldo;
+    @FXML
+    private TextField tbDireccion;
+    @FXML
+    private Button btnBuscar;
+    @FXML
+    private GridPane gridClientes;
     @FXML
     private VBox plantillaAutos;
     @FXML
@@ -59,24 +75,6 @@ public class GestionEmpleadosController implements Initializable {
     private Label lblNumPagina1;
     @FXML
     private Label lblNumPagina2;
-    @FXML
-    private TextField tbDireccion;
-    @FXML
-    private Button btnBuscar;
-    @FXML
-    private GridPane gridClientes;
-    @FXML
-    private VBox filtroEmpleado;
-    @FXML
-    private TextField tbIDEmpleado;
-    @FXML
-    private TextField tbPuesto;
-    @FXML
-    private TextField tbNombre;
-    @FXML
-    private TextField tbApellido;
-    @FXML
-    private TextField tbSueldo;
 
     /**
      * Initializes the controller class.
@@ -90,13 +88,9 @@ public class GestionEmpleadosController implements Initializable {
     private void irInicio(ActionEvent event) {
     }
 
-
     @FXML
     private void buscarFiltros(ActionEvent event) {
-        
-        
     }
-
 
     @FXML
     private void prevPag(ActionEvent event) {

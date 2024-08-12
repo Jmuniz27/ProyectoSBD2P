@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.proyectosbd2p.AnadirClienteController">
+<top>
+      <VBox alignment="CENTER" prefHeight="150.0" prefWidth="1280.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER" prefHeight="150.0" prefWidth="1280.0" spacing="600.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../imagenes/wuanplus-removebg-preview.png" />
+                           </image>
+                        </ImageView>
+                        <Text fill="#f96a17" strokeType="OUTSIDE" strokeWidth="0.0" text="WuanPlus" wrappingWidth="240.4574737548828">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="48.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </HBox>
+                  <Button fx:id="botonInicio" mnemonicParsing="false" onAction="#irInicio" prefHeight="55.0" prefWidth="200.0" style="-fx-background-color: f96a17; -fx-background-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);" text="Inicio" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="18.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </HBox>
+            <Line endX="1180.2928466796875" endY="0.20709306001663208" startX="2404.041015625" startY="0.20709538459777832" stroke="#dadada" strokeWidth="3.0" />
+         </children>
+      </VBox>
+   </top>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER" prefHeight="127.0" prefWidth="1280.0">
+               <children>
+                  <Text fill="#f96a17" strokeType="OUTSIDE" strokeWidth="0.0" text="Añadir Cliente" textAlignment="CENTER" wrappingWidth="788.3923034667969">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="40.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="465.0" prefWidth="1277.0" spacing="50.0">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="474.0" prefWidth="731.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <GridPane prefHeight="377.0" prefWidth="730.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label text="RUC:">
+                                 <font>
+                                    <Font name="Arial Rounded MT Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Nombre de la empresa: " GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Arial Rounded MT Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Descripción: " GridPane.rowIndex="2">
+                                 <font>
+                                    <Font name="Arial Rounded MT Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Dirección: " GridPane.rowIndex="3">
+                                 <font>
+                                    <Font name="Arial Rounded MT Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Sitio Web: " GridPane.rowIndex="4">
+                                 <font>
+                                    <Font name="Arial Rounded MT Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label text="ID Persona Contacto: " GridPane.rowIndex="5">
+                                 <font>
+                                    <Font name="Arial Rounded MT Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtRucCliente" GridPane.columnIndex="1" />
+                              <TextField fx:id="txtNombreCliente" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <TextField fx:id="txtDescripcionCliente" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <TextField fx:id="txtDireccionEmpresa" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <TextField fx:id="txtSitioWebEmpresa" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <TextField fx:id="txtPersonaContactoEmpresa" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                           </children>
+                        </GridPane>
+                        <Button fx:id="btnAnadirCliente" contentDisplay="CENTER" mnemonicParsing="false" onAction="#anadirCliente" prefHeight="55.0" prefWidth="200.0" style="-fx-background-color: f96a17; -fx-background-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);" text="Añadir" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="18.0" />
+                           </font>
+                        </Button>
+                     </children></VBox>
+               </children>
+            </HBox>
+         </children>
+         
+      </VBox>
+   </center>
+</BorderPane>

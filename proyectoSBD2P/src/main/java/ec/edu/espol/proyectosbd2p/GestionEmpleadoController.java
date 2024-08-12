@@ -136,7 +136,7 @@ public class GestionEmpleadoController implements Initializable {
             Connection connection = DatabaseConnection.getConnection();
             if (connection != null) {
                 Statement statement = connection.createStatement();
-                String sql = "SELECT * FROM cliente WHERE " + columna + "=" + busqueda;
+                String sql = "SELECT * FROM empleado WHERE " + columna + "=" + busqueda;
                 ResultSet resultSet = statement.executeQuery(sql);
 
                 while (resultSet.next()) {

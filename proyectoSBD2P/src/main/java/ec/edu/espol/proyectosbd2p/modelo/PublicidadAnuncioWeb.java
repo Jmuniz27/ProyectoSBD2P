@@ -13,10 +13,12 @@ import java.util.Date;
 public class PublicidadAnuncioWeb extends Publicidad{
     private String tamanoBanner;
 
-    public PublicidadAnuncioWeb(String tamanoBanner, String idProyecto, String titulo, int presupuesto, String descripcion, Date fechaInicio, Date fechaFin, String ruc, String numFactura, double comisionAEmpresa) {
-        super(idProyecto, titulo, presupuesto, descripcion, fechaInicio, fechaFin, ruc, numFactura, comisionAEmpresa);
+    public PublicidadAnuncioWeb(String idProyecto, String ruc, String numFactura, String titulo, int presupuesto, String descripcion, Date fechaInicio, Date fechaFin, String tamanoBanner, String id_dep_creativo, double comisionAEmpresa) {
+        super(idProyecto, ruc, numFactura, titulo, presupuesto, descripcion, fechaInicio, fechaFin, id_dep_creativo, comisionAEmpresa);
         this.tamanoBanner = tamanoBanner;
     }
+
+    
 
     public String getTamanoBanner() {
         return tamanoBanner;

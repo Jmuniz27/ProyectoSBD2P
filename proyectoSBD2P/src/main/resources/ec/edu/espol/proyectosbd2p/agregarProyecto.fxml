@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox alignment="CENTER" prefHeight="600.0" prefWidth="508.0" spacing="20.0" style="-fx-background-color: 0000000;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.proyectosbd2p.AgregarProyectoController">
+    <children>
+      <HBox alignment="CENTER_RIGHT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="46.0" prefWidth="286.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#regresarBtn" text="Regresar" />
+         </children>
+      </HBox>
+        <Label text="Agregar Proyecto">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </Label>
+        <GridPane hgap="10" prefHeight="386.0" prefWidth="429.0" vgap="10">
+            <children>
+                <Label fx:id="lblProyecto" text="ID Proyecto:" GridPane.columnIndex="0" />
+                <TextField fx:id="txtIDProyecto" editable="false" prefHeight="26.0" prefWidth="140.0" GridPane.columnIndex="1" />
+
+                <Label fx:id="lblRUC" text="RUC:" GridPane.rowIndex="2" />
+                <TextField fx:id="txtRuc" prefHeight="26.0" prefWidth="126.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                <Label fx:id="lblNumFact" prefHeight="18.0" prefWidth="115.0" text="Número de Factura:" GridPane.rowIndex="3" />
+                <TextField fx:id="txtNumFact" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+                <Label fx:id="lblDescripcion" text="Descripción:" GridPane.rowIndex="5" />
+                <TextField fx:id="txtTitulo" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+
+                <Label fx:id="lblPresupuesto" text="Presupuesto:" GridPane.rowIndex="6" />
+                <TextField fx:id="txtDescripcion" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+
+                <Label fx:id="fechaInicio" text="Fecha de Inicio:" GridPane.rowIndex="7" />
+                <TextField fx:id="txtPresupuesto" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+
+                <Label fx:id="lblFechaFin" text="Fecha Final:" GridPane.rowIndex="8" />
+
+                <Label GridPane.rowIndex="8" />
+
+                <Label fx:id="lblCreat" text="ID Dep. Creativo:" GridPane.rowIndex="9" />
+                <TextField fx:id="txtIDDepCreativo" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+
+                <Label fx:id="lblProd" text="ID Dep. Producción:" GridPane.rowIndex="10" />
+                <TextField fx:id="txtIDDepProd" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+
+                <Label fx:id="lblTitulo" text="Título:" GridPane.rowIndex="4" />
+            <ComboBox prefWidth="150.0" GridPane.columnIndex="3" />
+            <Label text="Tipo Proyecto:" GridPane.columnIndex="2" />
+            <Label text="Rating:" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <Label GridPane.rowIndex="11" />
+            <TextField fx:id="txtRating" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <TextField fx:id="txtComision" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Comisión:" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <DatePicker fx:id="dtDateIn" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <DatePicker fx:id="dtDateFin" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tamaño:" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <TextField fx:id="txtTamano" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Categoría:" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Precio:" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+            <TextField fx:id="txtCategoria" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+            <TextField fx:id="txtPrecio" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+            </children>
+         <columnConstraints>
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+         </rowConstraints>
+        </GridPane>
+        <Button onAction="#guardarCambios" prefHeight="40.0" prefWidth="200.0" text="Guardar Cambios" />
+    </children>
+    <padding>
+        <Insets bottom="20" left="20" right="20" top="20" />
+    </padding>
+</VBox>

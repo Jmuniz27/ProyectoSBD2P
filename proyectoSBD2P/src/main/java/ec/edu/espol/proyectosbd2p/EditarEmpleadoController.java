@@ -16,6 +16,7 @@ import java.util.ResourceBundle;
 import ec.edu.espol.proyectosbd2p.modelo.Empleado;
 import ec.edu.espol.proyectosbd2p.DatabaseConnection;
 import javafx.event.ActionEvent;
+import javafx.scene.control.Button;
 
 public class EditarEmpleadoController implements Initializable{
 
@@ -39,6 +40,8 @@ public class EditarEmpleadoController implements Initializable{
     private ComboBox<String> comboBoxDepartamento;
 
     private Empleado empleado;
+    @FXML
+    private Button botonInicio;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -154,10 +157,18 @@ public class EditarEmpleadoController implements Initializable{
         alert.showAndWait();
     }
 
-    @FXML
     private void regresarBtn(ActionEvent event) {
         try{
             App.setRoot("verIndividualEmpleado");
+        } catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void irInicio(ActionEvent event) {
+        try{
+            App.setRoot("menuPrincipal");
         } catch(IOException e){
             e.printStackTrace();
         }

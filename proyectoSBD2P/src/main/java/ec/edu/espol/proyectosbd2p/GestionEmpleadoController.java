@@ -332,5 +332,10 @@ public class GestionEmpleadoController implements Initializable {
 
     @FXML
     private void anadirEmpleado(ActionEvent event) {
+        try{
+            App.setRoot("anadirEmpleado");
+        } catch(IOException e){
+            e.printStackTrace();
+        }
     }
 }

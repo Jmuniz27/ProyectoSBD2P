@@ -40,7 +40,7 @@ public class VerIndividualEmpleadoController implements Initializable {
     @FXML
     private Label txtIDSupervisor;
     
-    private Empleado empleado;
+    public static Empleado empleado;
     @FXML
     private ImageView imgLogo;
     @FXML
@@ -58,6 +58,8 @@ public class VerIndividualEmpleadoController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         empleado = GestionEmpleadoController.empleadoEscogido;
+        System.out.println("empleado");
+        System.out.println(empleado);
         txtIDEmpleado.setText(empleado.getIdEmpleado());
         txtDireccion.setText(empleado.getDireccion());
         txtSueldoBase.setText(empleado.getSueldoBase()+"");
@@ -80,7 +82,7 @@ public class VerIndividualEmpleadoController implements Initializable {
     @FXML
     private void regresar(ActionEvent event) {
         try{
-            App.setRoot("gestionEmpleado");
+            App.setRoot("editarEmpleado");
         } catch(IOException e){
             e.printStackTrace();
         }
@@ -89,7 +91,7 @@ public class VerIndividualEmpleadoController implements Initializable {
     @FXML
     private void editar(ActionEvent event) {
         try{
-            App.setRoot("gestionEmpleado");
+            App.setRoot("editarEmpleado");
         } catch(IOException e){
             e.printStackTrace();
         }

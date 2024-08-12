@@ -1,18 +1,23 @@
 package ec.edu.espol.proyectosbd2p;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
-import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 
+import java.io.IOException;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ResourceBundle;
 
 import ec.edu.espol.proyectosbd2p.modelo.Empleado;
 import ec.edu.espol.proyectosbd2p.DatabaseConnection;
+import javafx.event.ActionEvent;
 
-public class EditarEmpleadoController {
+public class EditarEmpleadoController implements Initializable{
 
     @FXML
     private TextField txtIDEmpleado;
@@ -31,23 +36,25 @@ public class EditarEmpleadoController {
     @FXML
     private TextField txtIDSupervisor;
     @FXML
-    private ChoiceBox<String> choiceBoxDepartamento;
+    private ComboBox<String> comboBoxDepartamento;
 
     private Empleado empleado;
 
-    @FXML
-    private void initialize() {
-        // Inicializar el ChoiceBox con opciones de departamento
-        choiceBoxDepartamento.getItems().addAll("Creativo", "Producción", "Finanzas");
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        empleado = GestionEmpleadoController.empleadoEscogido;
+        System.out.println(empleado);
+        comboBoxDepartamento.getItems().addAll("Creativo", "Producción", "Finanzas");
+        this.setEmpleado(empleado);
     }
-
+    // Método para establecer el objeto empleado y cargar sus datos en los campos de texto
     public void setEmpleado(Empleado empleado) {
         this.empleado = empleado;
         cargarDatosEmpleado();
     }
 
+    // Método para cargar los datos del empleado en los campos de texto
     private void cargarDatosEmpleado() {
-        // Cargar los datos del empleado en los campos de texto y choicebox
         if (empleado != null) {
             txtIDEmpleado.setText(empleado.getIdEmpleado());
             txtSueldoBase.setText(String.valueOf(empleado.getSueldoBase()));
@@ -58,20 +65,20 @@ public class EditarEmpleadoController {
             txtDireccion.setText(empleado.getDireccion());
             txtIDSupervisor.setText(empleado.getIdSupervisor());
 
-            // Seleccionar el departamento correspondiente en el ChoiceBox
+            // Seleccionar el departamento correspondiente en el ComboBox
             if (empleado.getIdDepCreativo() != null) {
-                choiceBoxDepartamento.setValue("Creativo");
+                comboBoxDepartamento.setValue("Creativo");
             } else if (empleado.getIdDepProd() != null) {
-                choiceBoxDepartamento.setValue("Producción");
+                comboBoxDepartamento.setValue("Producción");
             } else if (empleado.getIdDepFinanzas() != null) {
-                choiceBoxDepartamento.setValue("Finanzas");
+                comboBoxDepartamento.setValue("Finanzas");
             }
         }
     }
 
+    // Método para guardar los cambios del empleado en la base de datos
     @FXML
     private void guardarCambios() {
-        // Verificación de campos vacíos
         if (txtSueldoBase.getText().trim().isEmpty() ||
             txtNombre.getText().trim().isEmpty() ||
             txtApellido.getText().trim().isEmpty() ||
@@ -79,7 +86,7 @@ public class EditarEmpleadoController {
             txtContrasena.getText().trim().isEmpty() ||
             txtDireccion.getText().trim().isEmpty() ||
             txtIDSupervisor.getText().trim().isEmpty() ||
-            choiceBoxDepartamento.getValue() == null) {
+            comboBoxDepartamento.getValue() == null) {
             
             showAlert(Alert.AlertType.ERROR, "Error", "Todos los campos deben estar llenos.");
             return;
@@ -95,19 +102,19 @@ public class EditarEmpleadoController {
         empleado.setIdSupervisor(txtIDSupervisor.getText());
 
         // Asignar el departamento correspondiente
-        String departamentoSeleccionado = choiceBoxDepartamento.getValue();
+        String departamentoSeleccionado = comboBoxDepartamento.getValue();
         empleado.setIdDepCreativo(null);
         empleado.setIdDepProd(null);
         empleado.setIdDepFinanzas(null);
         switch (departamentoSeleccionado) {
             case "Creativo":
-                empleado.setIdDepCreativo("dep_creativo");
+                empleado.setIdDepCreativo("DC001");
                 break;
             case "Producción":
-                empleado.setIdDepProd("dep_producción");
+                empleado.setIdDepProd("DP001");
                 break;
             case "Finanzas":
-                empleado.setIdDepFinanzas("dep_finanzas");
+                empleado.setIdDepFinanzas("DF001");
                 break;
         }
 
@@ -139,10 +146,22 @@ public class EditarEmpleadoController {
         }
     }
 
+    // Método para mostrar alertas
     private void showAlert(Alert.AlertType alertType, String title, String message) {
         Alert alert = new Alert(alertType);
         alert.setTitle(title);
         alert.setContentText(message);
         alert.showAndWait();
     }
+
+    @FXML
+    private void regresarBtn(ActionEvent event) {
+        try{
+            App.setRoot("verIndividualEmpleado");
+        } catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+
+
 }

@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -13,11 +14,11 @@
 
 <VBox alignment="CENTER" prefHeight="600.0" prefWidth="400.0" spacing="20.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.proyectosbd2p.EditarEmpleadoController">
     <children>
-      <HBox alignment="CENTER_RIGHT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0">
-         <children>
-            <Button mnemonicParsing="false" onAction="#regresarBtn" text="Regresar" />
-         </children>
-      </HBox>
+        <HBox alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="400.0">
+            <children>
+                <Button mnemonicParsing="false" onAction="#regresarBtn" text="Regresar" />
+            </children>
+        </HBox>
         <Label text="Editar Empleado">
             <font>
                 <Font size="24.0" />
@@ -47,34 +48,26 @@
                 <TextField fx:id="txtDireccion" GridPane.columnIndex="1" GridPane.rowIndex="6" />
 
                 <Label text="ID Supervisor:" GridPane.columnIndex="0" GridPane.rowIndex="7" />
-                <TextField fx:id="txtIDSupervisor" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                <TextField fx:id="txtIDSupervisor" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="7" />
 
-                <Label text="ID Dep. Creativo:" GridPane.columnIndex="0" GridPane.rowIndex="8" />
-                <TextField fx:id="txtIDDepCreativo" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-
-                <Label text="ID Dep. Producción:" GridPane.columnIndex="0" GridPane.rowIndex="9" />
-                <TextField fx:id="txtIDDepProd" GridPane.columnIndex="1" GridPane.rowIndex="9" />
-
-                <Label text="ID Dep. Finanzas:" GridPane.columnIndex="0" GridPane.rowIndex="10" />
-                <TextField fx:id="txtIDDepFinanzas" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                <Label text="Departamento:" GridPane.columnIndex="0" GridPane.rowIndex="8" />
+                <ComboBox fx:id="comboBoxDepartamento" GridPane.columnIndex="1" GridPane.rowIndex="8" />
             </children>
-         <columnConstraints>
-            <ColumnConstraints />
-            <ColumnConstraints />
-         </columnConstraints>
-         <rowConstraints>
+            <columnConstraints>
+                <ColumnConstraints />
+                <ColumnConstraints />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
             <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-         </rowConstraints>
+            </rowConstraints>
         </GridPane>
         <Button onAction="#guardarCambios" prefHeight="40.0" prefWidth="200.0" text="Guardar Cambios" />
     </children>

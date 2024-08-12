@@ -1,4 +1,15 @@
-# Ignorar archivos .class en la carpeta "classes"
-/classes/*.class
-#ignora archivos .lst en la carpeta "classes"
-/classes/*.lst
+# Ignorar archivos .class
+*.class
+
+# Ignorar archivos .lst
+*.lst
+
+# Otros ejemplos comunes de ignorar
+# Ignorar todos los archivos generados por el sistema operativo
+.DS_Store
+Thumbs.db
+
+# Ignorar carpetas de compilación
+/bin/
+/build/
+/target/

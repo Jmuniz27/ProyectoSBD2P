@@ -162,7 +162,7 @@ public class EditarEmpleadoController implements Initializable{
 
     private void irInicio(ActionEvent event) {
         try{
-            App.setRoot("menuPrincipal");
+            App.setRoot("inicio");
         } catch(IOException e){
             e.printStackTrace();
         }

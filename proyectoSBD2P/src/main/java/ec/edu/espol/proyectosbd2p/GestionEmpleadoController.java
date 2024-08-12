@@ -99,9 +99,9 @@ public class GestionEmpleadoController implements Initializable {
     
     private int totalPages;
     @FXML
-    private Button btnAnadir;
-    @FXML
     private Button botonInicio1;
+    @FXML
+    private Button btnEmpleado;
 
     /**
      * Initializes the controller class.
@@ -331,6 +331,11 @@ public class GestionEmpleadoController implements Initializable {
     }
 
     @FXML
-    private void anadirCliente(ActionEvent event) {
+    private void anadirEmpleado(ActionEvent event) {
+        try{
+            App.setRoot("anadirEmpleado");
+        } catch(IOException e){
+            e.printStackTrace();
+        }
     }
 }

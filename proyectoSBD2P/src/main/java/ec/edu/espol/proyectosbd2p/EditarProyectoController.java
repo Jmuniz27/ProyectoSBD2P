@@ -51,7 +51,7 @@ public class EditarProyectoController {
 
     @FXML
     private void initialize() {
-        // Inicialización de campos si es necesario
+        
     }
 
     public void setProyecto(Proyecto proyecto) {

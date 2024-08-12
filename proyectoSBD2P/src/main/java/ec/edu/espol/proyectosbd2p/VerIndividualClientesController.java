@@ -68,7 +68,7 @@ public class VerIndividualClientesController implements Initializable {
     @FXML
     private void regresar(ActionEvent event) {
         try{
-            App.setRoot("gestionCliente");
+            App.setRoot("gestionClientes");
         } catch(IOException e){
             e.printStackTrace();
         }
@@ -77,7 +77,7 @@ public class VerIndividualClientesController implements Initializable {
     @FXML
     private void editar(ActionEvent event) {
         try{
-            App.setRoot("gestionCliente");
+            App.setRoot("editarCliente");
         } catch(IOException e){
             e.printStackTrace();
         }

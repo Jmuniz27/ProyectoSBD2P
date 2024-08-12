@@ -110,12 +110,12 @@
                                     <Font name="Arial Rounded MT Bold" size="14.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="txtRucCliente" GridPane.columnIndex="1" />
+                              <TextField fx:id="txtRuc" GridPane.columnIndex="1" />
                               <TextField fx:id="txtNombreCliente" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                              <TextField fx:id="txtDescripcionCliente" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                              <TextField fx:id="txtDireccionEmpresa" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                              <TextField fx:id="txtSitioWebEmpresa" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                              <TextField fx:id="txtPersonaContactoEmpresa" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                              <TextField fx:id="tfDescrip" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <TextField fx:id="tfDireccion" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <TextField fx:id="tfSitioWeb" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <TextField fx:id="tfPersonaContacto" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                            </children>
                         </GridPane>
                         <Button fx:id="btnAnadirCliente" contentDisplay="CENTER" mnemonicParsing="false" onAction="#anadirCliente" prefHeight="55.0" prefWidth="200.0" style="-fx-background-color: f96a17; -fx-background-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);" text="Añadir" textFill="WHITE">

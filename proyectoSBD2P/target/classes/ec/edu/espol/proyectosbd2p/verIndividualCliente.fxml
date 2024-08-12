@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.proyectosbd2p.VerIndividualClienteController">
+    <top>
+      <VBox alignment="CENTER" prefHeight="150.0" prefWidth="1280.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER" prefHeight="150.0" prefWidth="1280.0" spacing="600.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
+                     <children>
+                        <ImageView fx:id="imgLogo" fitHeight="66.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../imagenes/logo.png" />
+                           </image>
+                        </ImageView>
+                        <Text fill="#e0252d" strokeType="OUTSIDE" strokeWidth="0.0" text="CarMatch" wrappingWidth="240.4574737548828">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="48.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </HBox>
+                  <Button fx:id="botonInicio" mnemonicParsing="false" onAction="#irInicio" prefHeight="55.0" prefWidth="200.0" style="-fx-background-color: e0252d; -fx-background-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);" text="Inicio" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="18.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </HBox>
+            <Line endX="1180.2928466796875" endY="0.20709306001663208" startX="2404.041015625" startY="0.20709538459777832" stroke="#dadada" strokeWidth="3.0" />
+         </children>
+      </VBox>
+   </top>
+   <right>
+      <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="528.0" prefWidth="272.0" spacing="20.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="274.0" prefWidth="248.0" spacing="28.0" style="-fx-border-color: #e0e0e0; -fx-background-radius: 40; -fx-border-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="58.0" prefWidth="206.0" spacing="5.0">
+                     <children>
+                        <ImageView fx:id="ivUsuario" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../imagenes/usuario.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="lblNombreUsuario" text="Isabella Martin">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <Button fx:id="btnTelefono" mnemonicParsing="false" prefHeight="40.0" prefWidth="210.0" style="-fx-border-radius: 15; -fx-background-color: #ffff; -fx-border-color: #e0252d; -fx-background-radius: 15;" text="0986517287" textFill="#e0252d">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="12.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="btnCorreo" mnemonicParsing="false" prefHeight="40.0" prefWidth="210.0" style="-fx-border-radius: 15; -fx-background-color: #ffff; -fx-border-color: #e0252d; -fx-background-radius: 15;" text="user@gmail.com" textFill="#e0252d">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="12.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </Button>
+               </children>
+               <padding>
+                  <Insets left="10.0" right="10.0" />
+               </padding>
+            </VBox>
+            <HBox alignment="CENTER" onDragDetected="#clickFavs" onMouseClicked="#clickFavs" prefHeight="22.0" prefWidth="272.0" spacing="15.0">
+               <children>
+                  <Text fx:id="favTxt" strokeType="OUTSIDE" strokeWidth="0.0" text="Agregar a Favoritos: ">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="12.0" />
+                     </font>
+                  </Text>
+                  <ImageView fx:id="imgHeart" fitHeight="32.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../imagenes/corazon.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </HBox>
+         </children>
+      </VBox>
+   </right>
+   <center>
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="528.0" prefWidth="806.0" spacing="20.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="36.0" prefWidth="783.0" spacing="100.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="400.0">
+                     <children>
+                        <Label fx:id="lblTitulo" text="Titulo">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="30.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="400.0">
+                     <children>
+                        <HBox spacing="10.0">
+                           <children>
+                              <Text fx:id="carroPrecio" fill="#222222" strokeType="OUTSIDE" strokeWidth="0.0" text="\$">
+                                 <font>
+                                    <Font name="Arial Rounded MT Bold" size="30.0" />
+                                 </font>
+                              </Text>
+                              <Label fx:id="lblPrecio" text="000000">
+                                 <font>
+                                    <Font name="Arial Rounded MT Bold" size="30.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="27.0" prefWidth="800.0" spacing="10.0">
+               <children>
+                  <Label fx:id="lblAnio" alignment="CENTER" minWidth="60.0" style="-fx-border-radius: 5; -fx-padding: 5; -fx-border-color: #727272; -fx-border-width: 1;" text="Anio" textFill="#727272">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <HBox alignment="CENTER" prefHeight="27.0" prefWidth="98.0" spacing="2.0">
+                     <children>
+                        <Label fx:id="lblKm" text="00000" textFill="#727272">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label prefHeight="17.0" prefWidth="26.0" text="kms" textFill="#727272">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="13.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <Label fx:id="lblCiudad" text="Ciudad" textFill="#727272">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="13.0" />
+                     </font></Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="413.0" prefWidth="800.0" spacing="50.0">
+               <children>
+                  <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="413.0" prefWidth="309.0" spacing="50.0">
+                     <children>
+                        <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="240.0" prefWidth="302.0">
+                           <children>
+                              <ImageView fx:id="ivPrincipal" fitHeight="261.0" fitWidth="272.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../ProyectoED-G1/src/main/resources/imagenes/default.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </VBox>
+                        <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="281.0" spacing="20.0">
+                           <children>
+                              <Button fx:id="btnAntesImagen" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#verPreviousImg" prefHeight="36.0" prefWidth="36.0" style="-fx-background-color: e0252d; -fx-border-radius: 10; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);" text="&lt;" textFill="WHITE">
+                                 <font>
+                                    <Font name="Arial Black" size="18.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <Label fx:id="lblImageNumber" alignment="CENTER" text="00">
+                                 <font>
+                                    <Font name="Arial Rounded MT Bold" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="btnDespuesImagen" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#verNextImg" prefHeight="36.0" prefWidth="36.0" style="-fx-background-color: e0252d; -fx-background-radius: 10; -fx-border-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);" text="&gt;" textFill="WHITE">
+                                 <font>
+                                    <Font name="Arial Black" size="18.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <Line endY="350.0" stroke="#dadada" strokeWidth="3.0" />
+                  <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="344.0" prefWidth="385.0" spacing="5.0">
+                     <children>
+                        <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="287.0" prefWidth="339.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="213.7391357421875" minWidth="10.0" prefWidth="208.9263916015625" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="158.26690673828125" minWidth="10.0" prefWidth="138.5736083984375" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0" spacing="5.0">
+                                 <children>
+                                    <Label text="Marca">
+                                       <font>
+                                          <Font name="Arial Rounded MT Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="lblMarcaR" text="Honda">
+                                       <font>
+                                          <Font name="Arial Rounded MT" size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0" spacing="5.0" GridPane.rowIndex="1">
+                                 <children>
+                                    <Label text="Año">
+                                       <font>
+                                          <Font name="Arial Rounded MT Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="lblAnioR" text="Honda">
+                                       <font>
+                                          <Font name="Arial Rounded MT" size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0" spacing="5.0" GridPane.columnIndex="1">
+                                 <children>
+                                    <Label text="Modelo">
+                                       <font>
+                                          <Font name="Arial Rounded MT Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="lblModeloR" text="Honda">
+                                       <font>
+                                          <Font name="Arial Rounded MT" size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0" spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <children>
+                                    <Label text="Kilometraje (km)">
+                                       <font>
+                                          <Font name="Arial Rounded MT Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="lblKiloR" text="Honda">
+                                       <font>
+                                          <Font name="Arial Rounded MT" size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0" spacing="5.0" GridPane.rowIndex="2">
+                                 <children>
+                                    <Label text="Motor">
+                                       <font>
+                                          <Font name="Arial Rounded MT Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="lblMotorR" text="Honda">
+                                       <font>
+                                          <Font name="Arial Rounded MT" size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0" spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <children>
+                                    <Label text="Transmisión">
+                                       <font>
+                                          <Font name="Arial Rounded MT Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="lblTransmisionR" text="Honda">
+                                       <font>
+                                          <Font name="Arial Rounded MT" size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0" spacing="5.0" GridPane.rowIndex="3">
+                                 <children>
+                                    <Label text="Peso (kg)">
+                                       <font>
+                                          <Font name="Arial Rounded MT Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="lblPesoR" text="Honda">
+                                       <font>
+                                          <Font name="Arial Rounded MT" size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0" spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                 <children>
+                                    <Label text="Ciudad">
+                                       <font>
+                                          <Font name="Arial Rounded MT Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="lblCiudadR" text="Honda">
+                                       <font>
+                                          <Font name="Arial Rounded MT" size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </GridPane>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
+                           <children>
+                              <Button fx:id="btnReparaciones" mnemonicParsing="false" onAction="#verReparaciones" prefHeight="42.0" prefWidth="153.0" style="-fx-background-color: e0252d; -fx-background-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);" text="Reparaciones" textFill="WHITE">
+                                 <font>
+                                    <Font name="Arial Rounded MT Bold" size="14.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <Button fx:id="btnMantenimientos" mnemonicParsing="false" onAction="#verMantenimientos" prefHeight="42.0" prefWidth="153.0" style="-fx-background-color: e0252d; -fx-background-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);" text="Mantenimientos" textFill="WHITE">
+                                 <font>
+                                    <Font name="Arial Rounded MT Bold" size="14.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+   <padding>
+      <Insets left="50.0" right="50.0" />
+   </padding>
+</BorderPane>

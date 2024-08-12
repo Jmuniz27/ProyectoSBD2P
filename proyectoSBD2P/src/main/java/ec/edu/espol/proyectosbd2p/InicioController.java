@@ -31,10 +31,6 @@ public class InicioController implements Initializable {
     private Button btnEmpleado;
     @FXML
     private Button btnCliente;
-    @FXML
-    private ImageView imgCliente1;
-    @FXML
-    private Button btnProyectos;
 
     /**
      * Initializes the controller class.
@@ -46,10 +42,9 @@ public class InicioController implements Initializable {
     }    
 
 
-    @FXML
     private void clickEnProyectos(ActionEvent event) {
         try{
-            App.setRoot("gestionClientes");
+            App.setRoot("gestionProyecto");
         } catch(IOException e){
             e.printStackTrace();
         }

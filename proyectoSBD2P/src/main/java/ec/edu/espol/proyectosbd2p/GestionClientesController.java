@@ -40,8 +40,6 @@ public class GestionClientesController implements Initializable {
     @FXML
     private ImageView imgLogo;
     @FXML
-    private Button botonInicio;
-    @FXML
     private VBox containerFAuto;
     @FXML
     private VBox plantillaAutos;
@@ -97,6 +95,10 @@ public class GestionClientesController implements Initializable {
     public static Cliente clienteEscogido;
     
     private Cliente currentNode;
+    @FXML
+    private Button btnAnadir;
+    @FXML
+    private Button botonInicio1;
 
     /**
      * Initializes the controller class.
@@ -310,6 +312,10 @@ public class GestionClientesController implements Initializable {
         }
         updateGrid();
         updatePagination();
+    }
+
+    @FXML
+    private void anadirCliente(ActionEvent event) {
     }
 }
 

@@ -106,6 +106,23 @@ public class GestionProyectoController implements Initializable {
 
     @FXML
     private void buscarFiltros(ActionEvent event) {
+        String id_proyecto = "'"+ tbId.getText() + "'";
+        Set<Proyecto> filtro1 = generarQuery("id_proyecto", id_proyecto);
+        String titulo = tbTitulo.getText();
+        Set<Proyecto> filtro2 = generarQuery("titulo", titulo);
+        String presupuesto = tbPresupuesto.getText();
+        Set<Proyecto> filtro3 = generarQuery("presupuesto",presupuesto);
+        String comision_a_empresa = tbComision.getText();
+        Set<Proyecto> filtro4 = generarQuery("comision_a_empresa", comision_a_empresa);
+        String RUC = "'"+tbRUC.getText()+"'";
+        Set<Proyecto> filtro5 = generarQuery("RUC", RUC);
+        
+        filtro1.addAll(filtro2);
+        filtro1.addAll(filtro3);
+        filtro1.addAll(filtro4);
+        filtro1.addAll(filtro5);
+        
+        listaProyectos = new ArrayList<>(filtro1);
     }
 
     @FXML
@@ -117,6 +134,7 @@ public class GestionProyectoController implements Initializable {
     }
     public Set<Proyecto> generarQuery(String columna, String busqueda){
         Set<Proyecto> proyectos = new HashSet<>();
+        
         try {
             // Obtener la conexión desde DatabaseConnection
             Connection connection = DatabaseConnection.getConnection();

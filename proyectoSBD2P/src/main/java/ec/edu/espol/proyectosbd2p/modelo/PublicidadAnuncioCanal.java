@@ -1,0 +1,29 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package ec.edu.espol.proyectosbd2p.modelo;
+
+import java.util.Date;
+
+/**
+ *
+ * @author zahid
+ */
+public class PublicidadAnuncioCanal extends Publicidad {
+    private int duracion;
+
+    public PublicidadAnuncioCanal(int duracion, String idProyecto, String titulo, int presupuesto, String descripcion, Date fechaInicio, Date fechaFin, String ruc, String numFactura, double comisionAEmpresa) {
+        super(idProyecto, titulo, presupuesto, descripcion, fechaInicio, fechaFin, ruc, numFactura, comisionAEmpresa);
+        this.duracion = duracion;
+    }
+
+    public int getDuracion() {
+        return duracion;
+    }
+
+    public void setDuracion(int duracion) {
+        this.duracion = duracion;
+    }
+    
+}

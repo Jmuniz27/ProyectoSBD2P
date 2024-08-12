@@ -82,7 +82,7 @@ public class VerIndividualEmpleadoController implements Initializable {
     @FXML
     private void regresar(ActionEvent event) {
         try{
-            App.setRoot("editarEmpleado");
+            App.setRoot("gestionEmpleado");
         } catch(IOException e){
             e.printStackTrace();
         }

@@ -17,10 +17,10 @@ import ec.edu.espol.proyectosbd2p.modelo.Empleado;
 import ec.edu.espol.proyectosbd2p.DatabaseConnection;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
 
 public class EditarEmpleadoController implements Initializable{
 
-    @FXML
     private TextField txtIDEmpleado;
     @FXML
     private TextField txtSueldoBase;
@@ -35,13 +35,13 @@ public class EditarEmpleadoController implements Initializable{
     @FXML
     private TextField txtDireccion;
     @FXML
-    private TextField txtIDSupervisor;
-    @FXML
     private ComboBox<String> comboBoxDepartamento;
 
     private Empleado empleado;
     @FXML
-    private Button botonInicio;
+    private ImageView imgLogo;
+    @FXML
+    private Button btnRegresar;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -59,14 +59,12 @@ public class EditarEmpleadoController implements Initializable{
     // Método para cargar los datos del empleado en los campos de texto
     private void cargarDatosEmpleado() {
         if (empleado != null) {
-            txtIDEmpleado.setText(empleado.getIdEmpleado());
             txtSueldoBase.setText(String.valueOf(empleado.getSueldoBase()));
             txtNombre.setText(empleado.getNombre());
             txtApellido.setText(empleado.getApellido());
             txtPuesto.setText(empleado.getPuesto());
             txtContrasena.setText(empleado.getContrasena());
             txtDireccion.setText(empleado.getDireccion());
-            txtIDSupervisor.setText(empleado.getIdSupervisor());
 
             // Seleccionar el departamento correspondiente en el ComboBox
             if (empleado.getIdDepCreativo() != null) {
@@ -88,7 +86,6 @@ public class EditarEmpleadoController implements Initializable{
             txtPuesto.getText().trim().isEmpty() ||
             txtContrasena.getText().trim().isEmpty() ||
             txtDireccion.getText().trim().isEmpty() ||
-            txtIDSupervisor.getText().trim().isEmpty() ||
             comboBoxDepartamento.getValue() == null) {
             
             showAlert(Alert.AlertType.ERROR, "Error", "Todos los campos deben estar llenos.");
@@ -102,7 +99,6 @@ public class EditarEmpleadoController implements Initializable{
         empleado.setPuesto(txtPuesto.getText());
         empleado.setContrasena(txtContrasena.getText());
         empleado.setDireccion(txtDireccion.getText());
-        empleado.setIdSupervisor(txtIDSupervisor.getText());
 
         // Asignar el departamento correspondiente
         String departamentoSeleccionado = comboBoxDepartamento.getValue();
@@ -124,7 +120,7 @@ public class EditarEmpleadoController implements Initializable{
         // Guardar los cambios en la base de datos
         try  {
             Connection conn = DatabaseConnection.getConnection();
-            String sql = "UPDATE empleado SET sueldoBase = ?, nombre = ?, apellido = ?, puesto = ?, contrasenia = ?, direccion = ?, idSupervisor = ?, id_dep_creativo = ?, id_dep_prod = ?, id_dep_finanzas = ? WHERE id_empleado = ?";
+            String sql = "UPDATE empleado SET sueldoBase = ?, nombre = ?, apellido = ?, puesto = ?, contrasenia = ?, direccion = ?, id_dep_creativo = ?, id_dep_prod = ?, id_dep_finanzas = ? WHERE id_empleado = ?";
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setInt(1, empleado.getSueldoBase());
             pstmt.setString(2, empleado.getNombre());
@@ -132,11 +128,10 @@ public class EditarEmpleadoController implements Initializable{
             pstmt.setString(4, empleado.getPuesto());
             pstmt.setString(5, empleado.getContrasena());
             pstmt.setString(6, empleado.getDireccion());
-            pstmt.setString(7, empleado.getIdSupervisor());
-            pstmt.setString(8, empleado.getIdDepCreativo());
-            pstmt.setString(9, empleado.getIdDepProd());
-            pstmt.setString(10, empleado.getIdDepFinanzas());
-            pstmt.setString(11, empleado.getIdEmpleado());
+            pstmt.setString(7, empleado.getIdDepCreativo());
+            pstmt.setString(8, empleado.getIdDepProd());
+            pstmt.setString(9, empleado.getIdDepFinanzas());
+            pstmt.setString(10, empleado.getIdEmpleado());
 
             int rowsAffected = pstmt.executeUpdate();
             if (rowsAffected > 0) {
@@ -163,18 +158,20 @@ public class EditarEmpleadoController implements Initializable{
         alert.showAndWait();
     }
 
-    private void regresarBtn(ActionEvent event) {
+ 
+
+    private void irInicio(ActionEvent event) {
         try{
-            App.setRoot("verIndividualEmpleado");
+            App.setRoot("menuPrincipal");
         } catch(IOException e){
             e.printStackTrace();
         }
     }
 
     @FXML
-    private void irInicio(ActionEvent event) {
+    private void regresar(ActionEvent event) {
         try{
-            App.setRoot("menuPrincipal");
+            App.setRoot("verIndividualEmpleado");
         } catch(IOException e){
             e.printStackTrace();
         }

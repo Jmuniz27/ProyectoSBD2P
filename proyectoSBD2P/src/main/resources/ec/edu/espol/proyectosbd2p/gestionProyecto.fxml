@@ -86,7 +86,7 @@
                               </VBox>
                               <VBox alignment="CENTER_LEFT" prefWidth="170.0" spacing="20.0">
                                  <children>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tipo de Proyecto">
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tipo de Proyecto:">
                                        <font>
                                           <Font name="Arial Rounded MT Bold" size="12.0" />
                                        </font>
@@ -114,7 +114,7 @@
                               </VBox>
                               <VBox alignment="CENTER_LEFT" prefWidth="170.0" spacing="20.0">
                                  <children>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Presupuesto">
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Presupuesto:">
                                        <font>
                                           <Font name="Arial Rounded MT Bold" size="12.0" />
                                        </font>
@@ -132,7 +132,7 @@
                            <children>
                               <VBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="170.0" spacing="20.0">
                                  <children>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Comisión a Empresa">
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Comisión a Empresa:">
                                        <font>
                                           <Font name="Arial Rounded MT Bold" size="12.0" />
                                        </font>
@@ -146,7 +146,7 @@
                               </VBox>
                               <VBox alignment="CENTER_LEFT" prefWidth="170.0" spacing="20.0">
                                  <children>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="RUC de Cliente">
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="RUC de Cliente:">
                                        <font>
                                           <Font name="Arial Rounded MT Bold" size="12.0" />
                                        </font>

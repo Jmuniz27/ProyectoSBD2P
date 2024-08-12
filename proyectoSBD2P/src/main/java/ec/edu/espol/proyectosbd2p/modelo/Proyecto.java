@@ -19,15 +19,15 @@ public class Proyecto {
     private String numFactura;
     private double comisionAEmpresa;
 
-    public Proyecto(String idProyecto, String titulo, int presupuesto, String descripcion, Date fechaInicio, Date fechaFin, String ruc, String numFactura, double comisionAEmpresa) {
+    public Proyecto(String idProyecto, String ruc, String numFactura, String titulo, int presupuesto, String descripcion, Date fechaInicio, Date fechaFin, double comisionAEmpresa) {
         this.idProyecto = idProyecto;
+        this.ruc = ruc;
+        this.numFactura = numFactura;
         this.titulo = titulo;
         this.presupuesto = presupuesto;
         this.descripcion = descripcion;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
-        this.ruc = ruc;
-        this.numFactura = numFactura;
         this.comisionAEmpresa = comisionAEmpresa;
     }
 

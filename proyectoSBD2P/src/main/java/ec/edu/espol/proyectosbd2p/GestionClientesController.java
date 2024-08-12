@@ -103,6 +103,7 @@ public class GestionClientesController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        clienteEscogido = null;
         Image img1 = new Image("/imagenes/logo.jpg");
         imgLogo.setImage(img1);
         llenarTodoGrid();
@@ -143,6 +144,12 @@ public class GestionClientesController implements Initializable {
         
         listaMostrada = new ArrayList<>(filtro1);
         System.out.println(listaMostrada);
+        if(filtro1.isEmpty()){
+            llenarTodoGrid();
+        }
+        currentPage = 1;
+        updateGrid();
+        updatePagination();
     }
     public void llenarTodoGrid(){
         Set<Cliente> set = generarQueryTodo();
@@ -160,7 +167,7 @@ public class GestionClientesController implements Initializable {
                 while (resultSet.next()) {
                     String ruc = resultSet.getString("RUC");
                     String nombreEmpresa = resultSet.getString("nombre_empresa");
-                    String descripEmpresa = resultSet.getString("descrip_empresa");
+                    String descripEmpresa = resultSet.getString("decrip_empresa");
                     String direccion = resultSet.getString("direccion");
                     String sitioWeb = resultSet.getString("sitio_web");
                     String idPersonaContacto = resultSet.getString("id_persona_contacto");
@@ -238,6 +245,8 @@ public class GestionClientesController implements Initializable {
                     gridClientes.add(vbCliente, j, i);
                     if(listaMostrada.indexOf(tempNode)+1<listaMostrada.size()){
                         tempNode = listaMostrada.get(listaMostrada.indexOf(tempNode)+1);
+                    } else{
+                        tempNode = null;
                     }
                 }
             }

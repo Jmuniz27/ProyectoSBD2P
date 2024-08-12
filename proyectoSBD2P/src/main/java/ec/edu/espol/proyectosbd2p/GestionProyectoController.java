@@ -4,14 +4,15 @@
  */
 package ec.edu.espol.proyectosbd2p;
 
-import ec.edu.espol.proyectosbd2p.modelo.Cliente;
 import ec.edu.espol.proyectosbd2p.modelo.Empleado;
+import ec.edu.espol.proyectosbd2p.modelo.Proyecto;
+import ec.edu.espol.proyectosbd2p.modelo.PublicidadAnuncioWeb;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.ResourceBundle;
 import java.util.Set;
@@ -19,6 +20,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -32,7 +34,7 @@ import javafx.scene.text.Text;
  *
  * @author creditos gonzalez
  */
-public class GestionEmpleadoController implements Initializable {
+public class GestionProyectoController implements Initializable {
 
     @FXML
     private ImageView imgLogo;
@@ -43,17 +45,17 @@ public class GestionEmpleadoController implements Initializable {
     @FXML
     private VBox filtroAuto;
     @FXML
-    private TextField tbIdEmpleado;
+    private TextField tbId;
     @FXML
-    private TextField tbPuesto;
+    private ComboBox<String> cbTipoProyecto;
     @FXML
-    private TextField tbNombre;
+    private TextField tbTitulo;
     @FXML
-    private TextField tbApellido;
+    private TextField tbPresupuesto;
     @FXML
-    private TextField tbSueldo;
+    private TextField tbComision;
     @FXML
-    private TextField tbDireccion;
+    private TextField tbRUC;
     @FXML
     private Button btnBuscar;
     @FXML
@@ -85,14 +87,14 @@ public class GestionEmpleadoController implements Initializable {
     @FXML
     private Label lblNumPagina2;
     
-    private ArrayList<Empleado> listaMostrada;
+    ArrayList<Proyecto> listaProyectos;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        cbTipoProyecto.getItems().addAll("Segmento", "Producto en Tienda", "Anuncio Web", "Anuncio en Canal");
     }    
 
     @FXML
@@ -101,24 +103,6 @@ public class GestionEmpleadoController implements Initializable {
 
     @FXML
     private void buscarFiltros(ActionEvent event) {
-        String id_empleado = "'"+ tbIdEmpleado.getText() + "'";
-        Set<Empleado> filtro1 = generarQuery("id_empleado", id_empleado);
-        String sueldoBase = tbSueldo.getText();
-        Set<Empleado> filtro2 = generarQuery("sueldoBase", sueldoBase);
-        String nombre = "'" + tbNombre.getText() +"'";
-        Set<Empleado> filtro3 = generarQuery("nombre",nombre);
-        String apellido = "'" + tbApellido.getText() + "'";
-        Set<Empleado> filtro4 = generarQuery("apellido", apellido);
-        String puesto = "'"+tbPuesto.getText()+"'";
-        Set<Empleado> filtro5 = generarQuery("puesto", puesto);
-        String direccion = "'" +tbDireccion.getText() + "'";
-        Set<Empleado> filtro6 = generarQuery("direccion", direccion);
-        filtro1.addAll(filtro2);
-        filtro1.addAll(filtro3);
-        filtro1.addAll(filtro4);
-        filtro1.addAll(filtro5);
-        filtro1.addAll(filtro6);
-        listaMostrada = new ArrayList<>(filtro1);
     }
 
     @FXML
@@ -128,17 +112,37 @@ public class GestionEmpleadoController implements Initializable {
     @FXML
     private void nextPag(ActionEvent event) {
     }
-    
     public Set<Empleado> generarQuery(String columna, String busqueda){
-        Set<Empleado> empleados = new HashSet<>();
+        Set<Proyecto> proyectos = new HashSet<>();
         try {
             // Obtener la conexión desde DatabaseConnection
             Connection connection = DatabaseConnection.getConnection();
             if (connection != null) {
+                
                 Statement statement = connection.createStatement();
-                String sql = "SELECT * FROM empleado WHERE " + columna + "=" + busqueda;
+                String sql = "SELECT * FROM publicidad_anuncio_web WHERE " + columna + "=" + busqueda;
                 ResultSet resultSet = statement.executeQuery(sql);
-
+                
+                while (resultSet.next()) {
+                    String id_proyecto = resultSet.getString("id_proyecto");
+                    String RUC = resultSet.getString("RUC");
+                    String num_factura = resultSet.getString("num_factura");
+                    String titulo = resultSet.getString("titulo");
+                    int presupuesto = resultSet.getInt("presupuesto");
+                    String descripcion = resultSet.getString("descripcion");
+                    Date fechaInicio = resultSet.getDate("fechaInicio");
+                    Date fechaFin = resultSet.getDate("fechaFin");
+                    String tamano_banner = resultSet.getString("tamanoBanner");
+                    String id_dep_creativo = resultSet.getString("id_dep_creativo");
+                    Float comision_a_empresa = resultSet.getFloat("comision_a_empresa");
+                    PublicidadAnuncioWeb publicidadWeb = new PublicidadAnuncioWeb(id_proyecto, RUC, num_factura, titulo, presupuesto, descripcion, fechaInicio, fechaFin, tamano_banner, comision_a_empresa);
+                    proyectos.add(publicidadWeb);
+                }
+                
+                
+                String sql = "SELECT * FROM cliente WHERE " + columna + "=" + busqueda;
+                ResultSet resultSet = statement.executeQuery(sql);
+                
                 while (resultSet.next()) {
                     String id_empleado = resultSet.getString("id_empleado");
                     int sueldoBase = resultSet.getInt("sueldoBase");

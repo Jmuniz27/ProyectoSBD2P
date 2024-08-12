@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -17,7 +18,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.proyectosbd2p.GestionEmpleadoController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.proyectosbd2p.GestionProyectoController">
    <top>
       <VBox alignment="CENTER" prefHeight="150.0" prefWidth="1280.0" BorderPane.alignment="CENTER">
          <children>
@@ -25,9 +26,9 @@
                <children>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
                      <children>
-                        <ImageView fx:id="imgLogo" fitHeight="76.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="imgLogo" fitHeight="97.0" fitWidth="97.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../../../../../../../../../../../OneDrive-EscuelaSuperiorPolitécnicadelLitoral/ESPOL/PAOI%20-%202024/Sistema%20de%20Bases%20de%20Datos/Segundo%20Parcial/ProyectoSBD2P/proyectoSBD2P/src/main/resources/imagenes/logo.jpg" />
+                              <Image url="@../../../../imagenes/wuanplus-removebg-preview.png" />
                            </image>
                         </ImageView>
                         <Text fill="#f96a17" strokeType="OUTSIDE" strokeWidth="0.0" text="WuanPlus" wrappingWidth="240.4574737548828">
@@ -58,7 +59,7 @@
                <children>
                   <HBox alignment="CENTER" prefHeight="51.0" prefWidth="410.0">
                      <children>
-                        <Text fill="#070707" lineSpacing="5.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Búsqueda de Empleados" textAlignment="CENTER" wrappingWidth="313.46739196777344">
+                        <Text fill="#070707" lineSpacing="5.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Búsqueda de Proyectos" textAlignment="CENTER" wrappingWidth="313.46739196777344">
                            <font>
                               <Font name="Arial Rounded MT Bold" size="24.0" />
                            </font>
@@ -71,12 +72,12 @@
                            <children>
                               <VBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="170.0" spacing="20.0">
                                  <children>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ID Empleado:">
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ID Proyecto:">
                                        <font>
                                           <Font name="Arial Rounded MT Bold" size="12.0" />
                                        </font>
                                     </Text>
-                                    <TextField fx:id="tbIdEmpleado" prefWidth="152.0" promptText="ID de Empleado">
+                                    <TextField fx:id="tbId" prefWidth="152.0" promptText="ID Proyecto">
                                        <cursor>
                                           <Cursor fx:constant="TEXT" />
                                        </cursor>
@@ -85,16 +86,12 @@
                               </VBox>
                               <VBox alignment="CENTER_LEFT" prefWidth="170.0" spacing="20.0">
                                  <children>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Puesto:">
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tipo de Proyecto">
                                        <font>
                                           <Font name="Arial Rounded MT Bold" size="12.0" />
                                        </font>
                                     </Text>
-                                    <TextField fx:id="tbPuesto" prefWidth="152.0" promptText="Puesto">
-                                       <cursor>
-                                          <Cursor fx:constant="TEXT" />
-                                       </cursor>
-                                    </TextField>
+                                    <ComboBox fx:id="cbTipoProyecto" prefWidth="150.0" />
                                  </children>
                               </VBox>
                            </children>
@@ -103,12 +100,12 @@
                            <children>
                               <VBox alignment="CENTER_LEFT" prefWidth="170.0" spacing="20.0">
                                  <children>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre:">
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Título:">
                                        <font>
                                           <Font name="Arial Rounded MT Bold" size="12.0" />
                                        </font>
                                     </Text>
-                                    <TextField fx:id="tbNombre" prefWidth="152.0" promptText="Nombre">
+                                    <TextField fx:id="tbTitulo" prefWidth="152.0" promptText="Título">
                                        <cursor>
                                           <Cursor fx:constant="TEXT" />
                                        </cursor>
@@ -117,12 +114,12 @@
                               </VBox>
                               <VBox alignment="CENTER_LEFT" prefWidth="170.0" spacing="20.0">
                                  <children>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Apellido:">
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Presupuesto">
                                        <font>
                                           <Font name="Arial Rounded MT Bold" size="12.0" />
                                        </font>
                                     </Text>
-                                    <TextField fx:id="tbApellido" prefWidth="152.0" promptText="Apellido">
+                                    <TextField fx:id="tbPresupuesto" prefWidth="152.0" promptText="Presupuesto">
                                        <cursor>
                                           <Cursor fx:constant="TEXT" />
                                        </cursor>
@@ -135,12 +132,12 @@
                            <children>
                               <VBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="170.0" spacing="20.0">
                                  <children>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Sueldo:">
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Comisión a Empresa">
                                        <font>
                                           <Font name="Arial Rounded MT Bold" size="12.0" />
                                        </font>
                                     </Text>
-                                    <TextField fx:id="tbSueldo" prefWidth="152.0" promptText="Sueldo">
+                                    <TextField fx:id="tbComision" prefWidth="152.0" promptText="Comision">
                                        <cursor>
                                           <Cursor fx:constant="TEXT" />
                                        </cursor>
@@ -149,12 +146,12 @@
                               </VBox>
                               <VBox alignment="CENTER_LEFT" prefWidth="170.0" spacing="20.0">
                                  <children>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Dirección:">
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="RUC de Cliente">
                                        <font>
                                           <Font name="Arial Rounded MT Bold" size="12.0" />
                                        </font>
                                     </Text>
-                                    <TextField fx:id="tbDireccion" prefWidth="152.0" promptText="Direccion">
+                                    <TextField fx:id="tbRUC" prefWidth="152.0" promptText="RUC de Cliente">
                                        <cursor>
                                           <Cursor fx:constant="TEXT" />
                                        </cursor>

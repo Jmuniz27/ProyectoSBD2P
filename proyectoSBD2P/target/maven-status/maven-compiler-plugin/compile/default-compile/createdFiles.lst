@@ -10,6 +10,7 @@ ec/edu/espol/proyectosbd2p/InicioController.class
 ec/edu/espol/proyectosbd2p/PrimaryController.class
 ec/edu/espol/proyectosbd2p/App.class
 ec/edu/espol/proyectosbd2p/modelo/Empleado.class
+ec/edu/espol/proyectosbd2p/VerIndividualClientesController.class
 ec/edu/espol/proyectosbd2p/modelo/Catalogo.class
 ec/edu/espol/proyectosbd2p/modelo/ProductoTienda.class
 ec/edu/espol/proyectosbd2p/modelo/PublicidadAnuncioWeb.class

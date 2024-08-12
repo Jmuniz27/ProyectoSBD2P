@@ -17,7 +17,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.proyectosbd2p.GestionEmpleadosController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.proyectosbd2p.GestionClientesController">
    <top>
       <VBox alignment="CENTER" prefHeight="150.0" prefWidth="1280.0" BorderPane.alignment="CENTER">
          <children>
@@ -80,6 +80,9 @@
                                        <cursor>
                                           <Cursor fx:constant="TEXT" />
                                        </cursor>
+                                       <font>
+                                          <Font name="Arial Rounded MT" size="12.0" />
+                                       </font>
                                     </TextField>
                                  </children>
                               </VBox>
@@ -94,6 +97,9 @@
                                        <cursor>
                                           <Cursor fx:constant="TEXT" />
                                        </cursor>
+                                       <font>
+                                          <Font name="Arial Rounded MT" size="12.0" />
+                                       </font>
                                     </TextField>
                                  </children>
                               </VBox>
@@ -112,9 +118,33 @@
                                        <cursor>
                                           <Cursor fx:constant="TEXT" />
                                        </cursor>
+                                       <font>
+                                          <Font name="Arial Rounded MT" size="12.0" />
+                                       </font>
                                     </TextField>
                                  </children>
                               </VBox>
+                              <VBox alignment="CENTER_LEFT" prefWidth="170.0" spacing="20.0">
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Descripción">
+                                       <font>
+                                          <Font name="Arial Rounded MT Bold" size="12.0" />
+                                       </font>
+                                    </Text>
+                                    <TextField fx:id="tbDescripcion" prefWidth="152.0" promptText="Descripción">
+                                       <cursor>
+                                          <Cursor fx:constant="TEXT" />
+                                       </cursor>
+                                       <font>
+                                          <Font name="Arial Rounded MT" size="12.0" />
+                                       </font>
+                                    </TextField>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="40.0">
+                           <children>
                               <VBox alignment="CENTER_LEFT" prefWidth="170.0" spacing="20.0">
                                  <children>
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Sitio Web:">
@@ -126,6 +156,9 @@
                                        <cursor>
                                           <Cursor fx:constant="TEXT" />
                                        </cursor>
+                                       <font>
+                                          <Font name="Arial Rounded MT" size="12.0" />
+                                       </font>
                                     </TextField>
                                  </children>
                               </VBox>

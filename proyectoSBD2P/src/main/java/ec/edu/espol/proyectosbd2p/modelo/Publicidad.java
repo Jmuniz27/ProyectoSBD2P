@@ -11,9 +11,13 @@ import java.util.Date;
  * @author zahid
  */
 public class Publicidad extends Proyecto {
+    private String id_dep_creativo;
 
-    public Publicidad(String idProyecto, String titulo, int presupuesto, String descripcion, Date fechaInicio, Date fechaFin, String ruc, String numFactura, double comisionAEmpresa) {
-        super(idProyecto, titulo, presupuesto, descripcion, fechaInicio, fechaFin, ruc, numFactura, comisionAEmpresa);
+    public Publicidad(String idProyecto, String ruc, String numFactura, String titulo, int presupuesto, String descripcion, Date fechaInicio, Date fechaFin, String id_dep_creativo, double comisionAEmpresa) {
+        super(idProyecto, ruc, numFactura, titulo, presupuesto, descripcion, fechaInicio, fechaFin, comisionAEmpresa);
+        this.id_dep_creativo = id_dep_creativo;
     }
+
+    
     
 }

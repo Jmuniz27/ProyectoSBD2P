@@ -11,18 +11,19 @@ import java.util.Date;
  * @author zahid
  */
 public class Segmento extends Proyecto{
-    private int duracion;
     private String rating;
+    private int duracion;
     private boolean estado;
     private String idDepProd;
 
-    public Segmento(int duracion, String rating, boolean estado, String idDepProd, String idProyecto, String titulo, int presupuesto, String descripcion, Date fechaInicio, Date fechaFin, String ruc, String numFactura, double comisionAEmpresa) {
-        super(idProyecto, titulo, presupuesto, descripcion, fechaInicio, fechaFin, ruc, numFactura, comisionAEmpresa);
-        this.duracion = duracion;
+    public Segmento(String idProyecto, String ruc, String numFactura, String rating, int duracion, boolean estado, String titulo, int presupuesto, String descripcion, Date fechaInicio, Date fechaFin, String idDepProd, double comisionAEmpresa) {
+        super(idProyecto, ruc, numFactura, titulo, presupuesto, descripcion, fechaInicio, fechaFin, comisionAEmpresa);
         this.rating = rating;
+        this.duracion = duracion;
         this.estado = estado;
         this.idDepProd = idDepProd;
     }
+
 
     public int getDuracion() {
         return duracion;

@@ -17,7 +17,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.proyectosbd2p.GestionEmpleadoController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.proyectosbd2p.GestionEmpleadoController">
    <top>
       <VBox alignment="CENTER" prefHeight="150.0" prefWidth="1280.0" BorderPane.alignment="CENTER">
          <children>
@@ -25,9 +25,9 @@
                <children>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
                      <children>
-                        <ImageView fx:id="imgLogo" fitHeight="97.0" fitWidth="97.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="imgLogo" fitHeight="76.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../imagenes/wuanplus-removebg-preview.png" />
+                              <Image url="@../../../../../../../../../../../../../../OneDrive-EscuelaSuperiorPolitécnicadelLitoral/ESPOL/PAOI%20-%202024/Sistema%20de%20Bases%20de%20Datos/Segundo%20Parcial/ProyectoSBD2P/proyectoSBD2P/src/main/resources/imagenes/logo.jpg" />
                            </image>
                         </ImageView>
                         <Text fill="#f96a17" strokeType="OUTSIDE" strokeWidth="0.0" text="WuanPlus" wrappingWidth="240.4574737548828">

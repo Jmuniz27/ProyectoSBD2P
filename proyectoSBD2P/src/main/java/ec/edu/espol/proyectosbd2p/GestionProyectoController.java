@@ -14,6 +14,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.ResourceBundle;
@@ -114,7 +115,7 @@ public class GestionProyectoController implements Initializable {
     @FXML
     private void nextPag(ActionEvent event) {
     }
-    public Set<Empleado> generarQuery(String columna, String busqueda){
+    public Set<Proyecto> generarQuery(String columna, String busqueda){
         Set<Proyecto> proyectos = new HashSet<>();
         try {
             // Obtener la conexión desde DatabaseConnection
@@ -146,20 +147,20 @@ public class GestionProyectoController implements Initializable {
                 ResultSet resultSet1 = statement.executeQuery(sql);
                 
                 while (resultSet.next()) {
-                    String id_proyecto = resultSet.getString("id_proyecto");
-                    String RUC = resultSet.getString("RUC");
-                    String num_factura = resultSet.getString("num_factura");
-                    String rating = resultSet.getString("rating");
-                    int duracion = resultSet.getInt("duracion");
-                    int estado = resultSet.getInt("estado");
-                    String titulo = resultSet.getString("titulo");
-                    int presupuesto = resultSet.getInt("presupuesto");
-                    String descripcion = resultSet.getString("descripcion");
-                    Date fechaInicio = resultSet.getDate("fechaInicio");
-                    Date fechaFin = resultSet.getDate("fechaFin");
-                    String id_dep_prod = resultSet.getString("id_dep_prod");
-                    Float comision_a_empresa = resultSet.getFloat("comision_a_empresa");
-                    Segmento segmento = new Segmento(id_proyecto, RUC, num_factura, rating, duracion, estado, titulo, presupuesto, descripcion, fechaInicio, fechaFin, tamano_banner, id_dep_prod, comision_a_empresa);
+                    String id_proyecto = resultSet1.getString("id_proyecto");
+                    String RUC = resultSet1.getString("RUC");
+                    String num_factura = resultSet1.getString("num_factura");
+                    String rating = resultSet1.getString("rating");
+                    int duracion = resultSet1.getInt("duracion");
+                    boolean estado = resultSet1.getBoolean("estado");
+                    String titulo = resultSet1.getString("titulo");
+                    int presupuesto = resultSet1.getInt("presupuesto");
+                    String descripcion = resultSet1.getString("descripcion");
+                    Date fechaInicio = resultSet1.getDate("fechaInicio");
+                    Date fechaFin = resultSet1.getDate("fechaFin");
+                    String id_dep_prod = resultSet1.getString("id_dep_prod");
+                    Float comision_a_empresa = resultSet1.getFloat("comision_a_empresa");
+                    Segmento segmento = new Segmento(id_proyecto, RUC, num_factura, rating, duracion, estado, titulo, presupuesto, descripcion, fechaInicio, fechaFin, id_dep_prod, comision_a_empresa);
                     proyectos.add(segmento);
                 }
                 
@@ -180,7 +181,6 @@ public class GestionProyectoController implements Initializable {
                     String id_dep_prod = resultSet2.getString("id_dep_prod");
                     double comision_a_empresa = resultSet2.getDouble("comision_a_empresa");
                     ProductoTienda producto_tienda = new ProductoTienda(id_proyecto, RUC, num_factura, categoria, precio, titulo, presupuesto, descripcion, fechaInicio, fechaFin, id_dep_prod, comision_a_empresa);
-
                     proyectos.add(producto_tienda);
                 }
             }

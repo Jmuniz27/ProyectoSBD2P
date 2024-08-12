@@ -119,7 +119,8 @@ public class EditarEmpleadoController implements Initializable{
         }
 
         // Guardar los cambios en la base de datos
-        try (Connection conn = DatabaseConnection.getConnection()) {
+        try  {
+            Connection conn = DatabaseConnection.getConnection();
             String sql = "UPDATE empleado SET sueldoBase = ?, nombre = ?, apellido = ?, puesto = ?, contrasenia = ?, direccion = ?, idSupervisor = ?, id_dep_creativo = ?, id_dep_prod = ?, id_dep_finanzas = ? WHERE id_empleado = ?";
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setInt(1, empleado.getSueldoBase());
@@ -143,6 +144,11 @@ public class EditarEmpleadoController implements Initializable{
         } catch (SQLException e) {
             e.printStackTrace();
             showAlert(Alert.AlertType.ERROR, "Error de Base de Datos", e.getMessage());
+        }
+        try{
+            App.setRoot("verIndividualEmpleado");
+        } catch(IOException e){
+            e.printStackTrace();
         }
     }
 

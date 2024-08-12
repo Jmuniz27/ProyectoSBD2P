@@ -237,7 +237,7 @@ public class GestionClientesController implements Initializable {
                     vbCliente.setOnMouseClicked(event -> {
                         clienteEscogido = c;
                         try{
-                            App.setRoot("verIndividualCliente");
+                            App.setRoot("verIndividualClientes");
                         } catch(IOException e){
                             e.printStackTrace();
                         }

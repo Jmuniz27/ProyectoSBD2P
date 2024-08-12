@@ -58,7 +58,7 @@ public class InicioController implements Initializable {
     @FXML
     private void clickEnEmpleado(ActionEvent event) {
         try{
-            App.setRoot("gestionEmpleados");
+            App.setRoot("gestionEmpleado");
         } catch(IOException e){
             e.printStackTrace();
         }

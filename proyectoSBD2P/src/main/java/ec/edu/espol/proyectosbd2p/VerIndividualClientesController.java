@@ -4,6 +4,8 @@
  */
 package ec.edu.espol.proyectosbd2p;
 
+import ec.edu.espol.proyectosbd2p.modelo.Cliente;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -11,6 +13,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 /**
  * FXML Controller class
@@ -19,8 +23,6 @@ import javafx.scene.control.Label;
  */
 public class VerIndividualClientesController implements Initializable {
 
-    @FXML
-    private Button botonInicio;
     @FXML
     private Label txtRUC;
     @FXML
@@ -34,28 +36,56 @@ public class VerIndividualClientesController implements Initializable {
     @FXML
     private Label txtIDPersonaContacto;
     @FXML
-    private Button btnEditarCliente;
+    private ImageView imgLogo;
     @FXML
-    private Button btnEliminarCliente;
+    private Button btnRegresar;
+    @FXML
+    private Button btnEditar;
+    @FXML
+    private Button btnEliminar;
+    
+    private Cliente cliente;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        cliente = GestionClientesController.clienteEscogido;
+        txtRUC.setText(cliente.getRuc());
+        txtDireccion.setText(cliente.getDireccion());
+        txtNombreCliente.setText(cliente.getNombreEmpresa());
+        txtSitioWeb.setText(cliente.getSitioWeb());
+        txtDescripcion.setText(cliente.getDescripEmpresa());
+        txtIDPersonaContacto.setText(cliente.getIdPersonaContacto());
+        
+        Image img1 = new Image("/imagenes/logo.jpg");
+        imgLogo.setImage(img1);
+        
+        
     }    
 
     @FXML
-    private void irInicio(ActionEvent event) {
+    private void regresar(ActionEvent event) {
+        try{
+            App.setRoot("gestionCliente");
+        } catch(IOException e){
+            e.printStackTrace();
+        }
     }
 
     @FXML
-    private void editarEmpleado(ActionEvent event) {
+    private void editar(ActionEvent event) {
+        try{
+            App.setRoot("gestionCliente");
+        } catch(IOException e){
+            e.printStackTrace();
+        }
     }
 
     @FXML
-    private void eliminarEmpleado(ActionEvent event) {
+    private void eliminar(ActionEvent event) {
+        
     }
     
 }

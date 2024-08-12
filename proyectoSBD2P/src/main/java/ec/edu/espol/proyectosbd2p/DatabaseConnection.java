@@ -9,7 +9,7 @@ import java.sql.Statement;
 
 public class DatabaseConnection {
     static Connection connection = null;
-    public static void main(String[] args) {
+    public static void conectaBase() {
         String jdbcURL = "jdbc:mysql://proyectosbdgrupo8.mysql.database.azure.com:3306/wuanplus"; 
         String username = "main";
         String password = "proyectoSBD=Grupo8_";

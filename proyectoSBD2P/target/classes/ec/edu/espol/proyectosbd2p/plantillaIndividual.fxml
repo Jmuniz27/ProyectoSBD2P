@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="192.0" prefWidth="199.0" spacing="5.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #DADADA; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 10, 0.6, 0, 0);" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.proyectosbd2p.PlantillaIndividualController">
+    <cursor>
+       <Cursor fx:constant="HAND" />
+    </cursor>
+    <children>
+       <ImageView fx:id="planImg" fitHeight="83.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
+          <image>
+             <Image url="@../../../../../../../../../../../../../../OneDrive-EscuelaSuperiorPolitécnicadelLitoral/ESPOL/PAOI%20-%202024/Sistema%20de%20Bases%20de%20Datos/Segundo%20Parcial/ProyectoSBD2P/proyectoSBD2P/src/main/resources/imagenes/user.png" />
+          </image>
+          <VBox.margin>
+             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+          </VBox.margin>
+       </ImageView>
+       <VBox alignment="CENTER" prefHeight="73.0" prefWidth="197.0" spacing="10.0">
+          <children>
+             <Text fx:id="planName" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre Clientes">
+                <font>
+                   <Font name="Arial Rounded MT Bold" size="12.0" />
+                </font>
+                <VBox.margin>
+                   <Insets left="10.0" right="10.0" />
+                </VBox.margin>
+             </Text>
+             <HBox alignment="CENTER" prefHeight="23.0" prefWidth="214.0" spacing="5.0">
+                <children>
+                   <Label fx:id="planId" alignment="CENTER" prefHeight="22.0" prefWidth="129.0" style="-fx-border-color: #f96a17; -fx-border-radius: 10; -fx-background-color: #000000+; -fx-border-width: 2;" text="093448832828">
+                      <font>
+                         <Font name="Arial Rounded MT" size="11.0" />
+                      </font>
+    <padding>
+       <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+    </padding>
+                   </Label>
+                </children>
+                <padding>
+                   <Insets bottom="1.5" top="1.5" />
+                </padding>
+                <VBox.margin>
+                   <Insets left="10.0" right="10.0" />
+                </VBox.margin>
+             </HBox>
+          </children>
+          <padding>
+             <Insets bottom="5.0" top="10.0" />
+          </padding>
+       </VBox>
+    </children></VBox>

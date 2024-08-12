@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> anadirCliente
 ec\edu\espol\proyectosbd2p\EditarProyectoController.class
 ec\edu\espol\proyectosbd2p\modelo\Telefono.class
 ec\edu\espol\proyectosbd2p\modelo\Bono.class
@@ -24,6 +27,7 @@ ec\edu\espol\proyectosbd2p\PrimaryController.class
 ec\edu\espol\proyectosbd2p\VerProyectoSegmentoController.class
 ec\edu\espol\proyectosbd2p\GestionClientesController.class
 ec\edu\espol\proyectosbd2p\AnadirClienteController.class
+<<<<<<< HEAD
 ec\edu\espol\proyectosbd2p\modelo\Empleado.class
 module-info.class
 ec\edu\espol\proyectosbd2p\VerIndividualClienteController.class
@@ -86,3 +90,23 @@ ec/edu/espol/proyectosbd2p/GestionClientesController.class
 ec/edu/espol/proyectosbd2p/modelo/DepartamentoFinanzas.class
 ec/edu/espol/proyectosbd2p/modelo/Departamento.class
 >>>>>>> fedc5afb67cf6c2958c6df90edb36b856ccb32cf
+=======
+ec\edu\espol\proyectosbd2p\EditarClienteController.class
+ec\edu\espol\proyectosbd2p\modelo\Empleado.class
+module-info.class
+ec\edu\espol\proyectosbd2p\VerIndividualClienteController.class
+ec\edu\espol\proyectosbd2p\modelo\PublicidadAnuncioCanal.class
+ec\edu\espol\proyectosbd2p\VerPublicidadAnuncioWebController.class
+ec\edu\espol\proyectosbd2p\modelo\Cliente.class
+ec\edu\espol\proyectosbd2p\VerIndividualEmpleadoController.class
+ec\edu\espol\proyectosbd2p\modelo\Segmento.class
+ec\edu\espol\proyectosbd2p\modelo\DepartamentoFinanzas.class
+ec\edu\espol\proyectosbd2p\modelo\HorarioSegmento.class
+ec\edu\espol\proyectosbd2p\VerIndividualClientesController.class
+ec\edu\espol\proyectosbd2p\VerProyectoProductoController.class
+ec\edu\espol\proyectosbd2p\modelo\PersonaContacto.class
+ec\edu\espol\proyectosbd2p\modelo\DepartamentoCreativo.class
+ec\edu\espol\proyectosbd2p\modelo\Proyecto.class
+ec\edu\espol\proyectosbd2p\VerPublicidadAnuncioCanalController.class
+ec\edu\espol\proyectosbd2p\SecondaryController.class
+>>>>>>> anadirCliente

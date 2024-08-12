@@ -316,6 +316,11 @@ public class GestionClientesController implements Initializable {
 
     @FXML
     private void anadirCliente(ActionEvent event) {
+        try{
+            App.setRoot("anadirCliente");
+        } catch(IOException e){
+            e.printStackTrace();
+        }
     }
 }
 

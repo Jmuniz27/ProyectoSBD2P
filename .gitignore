@@ -1,4 +1,4 @@
 # Ignorar archivos .class en la carpeta "classes"
-/classes/*.class
+*.class
 #ignora archivos .lst en la carpeta "classes"
-/classes/*.lst
+*.lst

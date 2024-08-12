@@ -41,8 +41,6 @@ public class GestionEmpleadoController implements Initializable {
     @FXML
     private ImageView imgLogo;
     @FXML
-    private Button botonInicio;
-    @FXML
     private VBox containerFAuto;
     @FXML
     private VBox filtroAuto;
@@ -100,6 +98,10 @@ public class GestionEmpleadoController implements Initializable {
     private static final int ITEMS_PER_PAGE = 4;
     
     private int totalPages;
+    @FXML
+    private Button btnAnadir;
+    @FXML
+    private Button botonInicio1;
 
     /**
      * Initializes the controller class.
@@ -326,5 +328,9 @@ public class GestionEmpleadoController implements Initializable {
             e.printStackTrace();
             return null;
         }
+    }
+
+    @FXML
+    private void anadirCliente(ActionEvent event) {
     }
 }

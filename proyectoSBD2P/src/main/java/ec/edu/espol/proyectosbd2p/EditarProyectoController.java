@@ -1,13 +1,14 @@
 package ec.edu.espol.proyectosbd2p;
 
-import ec.edu.espol.proyectosbd2p.modelo.*;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
-
+import javafx.scene.control.Alert;
+import javafx.scene.control.TextField;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.DatePicker;
+import ec.edu.espol.proyectosbd2p.modelo.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.time.LocalDate;
 
 public class EditarProyectoController {
 
@@ -45,24 +46,13 @@ public class EditarProyectoController {
     private TextField txtRating;
     @FXML
     private CheckBox chkEstado;
-    @FXML
-    private Label lblIdDepCreativo;
-    @FXML
-    private Label lblIdDepProd;
-    @FXML
-    private Label lblDuracion;
-    @FXML
-    private Label lblTamanoBanner;
-    @FXML
-    private Label lblCategoria;
-    @FXML
-    private Label lblPrecio;
-    @FXML
-    private Label lblRating;
-    @FXML
-    private Label lblEstado;
 
     private Proyecto proyecto;
+
+    @FXML
+    private void initialize() {
+        // Inicialización de campos si es necesario
+    }
 
     public void setProyecto(Proyecto proyecto) {
         this.proyecto = proyecto;
@@ -106,34 +96,25 @@ public class EditarProyectoController {
     }
 
     private void configurarCamposPorTipo() {
+        // Ocultar o mostrar campos según el tipo de proyecto
         if (proyecto instanceof Publicidad) {
-            lblIdDepCreativo.setVisible(true);
             txtIdDepCreativo.setVisible(true);
+
+            if (proyecto instanceof PublicidadAnuncioCanal) {
+                txtDuracion.setVisible(true);
+            } else if (proyecto instanceof PublicidadAnuncioWeb) {
+                txtTamanoBanner.setVisible(true);
+            }
         }
         if (proyecto instanceof ProductoTienda) {
-            lblCategoria.setVisible(true);
             txtCategoria.setVisible(true);
-            lblPrecio.setVisible(true);
             txtPrecio.setVisible(true);
-            lblIdDepProd.setVisible(true);
             txtIdDepProd.setVisible(true);
         }
-        if (proyecto instanceof PublicidadAnuncioCanal) {
-            lblDuracion.setVisible(true);
-            txtDuracion.setVisible(true);
-        }
-        if (proyecto instanceof PublicidadAnuncioWeb) {
-            lblTamanoBanner.setVisible(true);
-            txtTamanoBanner.setVisible(true);
-        }
         if (proyecto instanceof Segmento) {
-            lblRating.setVisible(true);
             txtRating.setVisible(true);
-            lblDuracion.setVisible(true);
             txtDuracion.setVisible(true);
-            lblEstado.setVisible(true);
             chkEstado.setVisible(true);
-            lblIdDepProd.setVisible(true);
             txtIdDepProd.setVisible(true);
         }
     }
@@ -164,17 +145,17 @@ public class EditarProyectoController {
 
         if (proyecto instanceof Publicidad) {
             ((Publicidad) proyecto).setIdProyecto(txtIdDepCreativo.getText());
+
+            if (proyecto instanceof PublicidadAnuncioCanal) {
+                ((PublicidadAnuncioCanal) proyecto).setDuracion(Integer.parseInt(txtDuracion.getText()));
+            } else if (proyecto instanceof PublicidadAnuncioWeb) {
+                ((PublicidadAnuncioWeb) proyecto).setTamanoBanner(txtTamanoBanner.getText());
+            }
         }
         if (proyecto instanceof ProductoTienda) {
             ((ProductoTienda) proyecto).setCategoria(txtCategoria.getText());
             ((ProductoTienda) proyecto).setPrecio(Integer.parseInt(txtPrecio.getText()));
             ((ProductoTienda) proyecto).setIdDepProd(txtIdDepProd.getText());
-        }
-        if (proyecto instanceof PublicidadAnuncioCanal) {
-            ((PublicidadAnuncioCanal) proyecto).setDuracion(Integer.parseInt(txtDuracion.getText()));
-        }
-        if (proyecto instanceof PublicidadAnuncioWeb) {
-            ((PublicidadAnuncioWeb) proyecto).setTamanoBanner(txtTamanoBanner.getText());
         }
         if (proyecto instanceof Segmento) {
             ((Segmento) proyecto).setRating(txtRating.getText());
@@ -184,13 +165,74 @@ public class EditarProyectoController {
         }
 
         try (Connection conn = DatabaseConnection.getConnection()) {
-            // Aquí deberás tener una lógica específica para cada tipo de proyecto.
-            // Similar al patrón mostrado en los ejemplos anteriores, deberás construir una consulta SQL que coincida con los atributos del proyecto que estás actualizando.
-            // No se proporciona una consulta exacta ya que dependerá del tipo de proyecto que se esté guardando.
-            showAlert(Alert.AlertType.INFORMATION, "Éxito", "Datos actualizados correctamente.");
+            String sql = generarConsultaSQL();
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            // Asigna valores a los parámetros de la consulta SQL según el tipo de proyecto
+            asignarParametros(pstmt);
+            
+            int rowsAffected = pstmt.executeUpdate();
+            if (rowsAffected > 0) {
+                showAlert(Alert.AlertType.INFORMATION, "Éxito", "Datos actualizados correctamente.");
+            } else {
+                showAlert(Alert.AlertType.ERROR, "Error", "No se pudo actualizar los datos.");
+            }
         } catch (SQLException e) {
             e.printStackTrace();
             showAlert(Alert.AlertType.ERROR, "Error de Base de Datos", e.getMessage());
+        }
+    }
+
+    private String generarConsultaSQL() {
+        if (proyecto instanceof PublicidadAnuncioCanal) {
+            return "UPDATE publicidad_anuncio_canal SET titulo = ?, presupuesto = ?, descripcion = ?, fechaInicio = ?, fechaFin = ?, RUC = ?, numFactura = ?, id_dep_creativo = ?, comisionAEmpresa = ?, duracion = ? WHERE idProyecto = ?";
+        } else if (proyecto instanceof PublicidadAnuncioWeb) {
+            return "UPDATE publicidad_anuncio_web SET titulo = ?, presupuesto = ?, descripcion = ?, fechaInicio = ?, fechaFin = ?, RUC = ?, numFactura = ?, id_dep_creativo = ?, comisionAEmpresa = ?, tamanoBanner = ? WHERE idProyecto = ?";
+        } else if (proyecto instanceof ProductoTienda) {
+            return "UPDATE producto_tienda SET titulo = ?, presupuesto = ?, descripcion = ?, fechaInicio = ?, fechaFin = ?, RUC = ?, numFactura = ?, categoria = ?, precio = ?, id_dep_prod = ?, comisionAEmpresa = ? WHERE idProyecto = ?";
+        } else if (proyecto instanceof Segmento) {
+            return "UPDATE segmento SET titulo = ?, presupuesto = ?, descripcion = ?, fechaInicio = ?, fechaFin = ?, RUC = ?, numFactura = ?, rating = ?, duracion = ?, estado = ?, id_dep_prod = ?, comisionAEmpresa = ? WHERE idProyecto = ?";
+        } else if (proyecto instanceof Publicidad) {
+            return "UPDATE publicidad SET titulo = ?, presupuesto = ?, descripcion = ?, fechaInicio = ?, fechaFin = ?, RUC = ?, numFactura = ?, id_dep_creativo = ?, comisionAEmpresa = ? WHERE idProyecto = ?";
+        } else {
+            return "";
+        }
+    }
+
+    private void asignarParametros(PreparedStatement pstmt) throws SQLException {
+        pstmt.setString(1, proyecto.getTitulo());
+        pstmt.setInt(2, proyecto.getPresupuesto());
+        pstmt.setString(3, proyecto.getDescripcion());
+        pstmt.setDate(4, java.sql.Date.valueOf(dpFechaInicio.getValue()));
+        pstmt.setDate(5, java.sql.Date.valueOf(dpFechaFin.getValue()));
+        pstmt.setString(6, proyecto.getRuc());
+        pstmt.setString(7, proyecto.getNumFactura());
+
+        if (proyecto instanceof Publicidad) {
+            pstmt.setString(8, ((Publicidad) proyecto).getIdProyecto());
+            pstmt.setDouble(9, proyecto.getComisionAEmpresa());
+
+            if (proyecto instanceof PublicidadAnuncioCanal) {
+                pstmt.setInt(10, ((PublicidadAnuncioCanal) proyecto).getDuracion());
+                pstmt.setString(11, proyecto.getIdProyecto());
+            } else if (proyecto instanceof PublicidadAnuncioWeb) {
+                pstmt.setString(10, ((PublicidadAnuncioWeb) proyecto).getTamanoBanner());
+                pstmt.setString(11, proyecto.getIdProyecto());
+            } else {
+                pstmt.setString(10, proyecto.getIdProyecto());
+            }
+        } else if (proyecto instanceof ProductoTienda) {
+            pstmt.setString(8, ((ProductoTienda) proyecto).getCategoria());
+            pstmt.setInt(9, ((ProductoTienda) proyecto).getPrecio());
+            pstmt.setString(10, ((ProductoTienda) proyecto).getIdDepProd());
+            pstmt.setDouble(11, proyecto.getComisionAEmpresa());
+            pstmt.setString(12, proyecto.getIdProyecto());
+        } else if (proyecto instanceof Segmento) {
+            pstmt.setString(8, ((Segmento) proyecto).getRating());
+            pstmt.setInt(9, ((Segmento) proyecto).getDuracion());
+            pstmt.setBoolean(10, ((Segmento) proyecto).isEstado());
+            pstmt.setString(11, ((Segmento) proyecto).getIdDepProd());
+            pstmt.setDouble(12, proyecto.getComisionAEmpresa());
+            pstmt.setString(13, proyecto.getIdProyecto());
         }
     }
 

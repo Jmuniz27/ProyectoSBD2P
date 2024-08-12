@@ -138,10 +138,11 @@ public class GestionClientesController implements Initializable {
         filtro1.addAll(filtro4);
         
         String descripcion = "'" + tbDescripcion.getText() + "'";
-        Set<Cliente> filtro5 = generarQuery("descrip_empresa",descripcion);
+        Set<Cliente> filtro5 = generarQuery("decrip_empresa",descripcion);
         filtro1.addAll(filtro5);
         
         listaMostrada = new ArrayList<>(filtro1);
+        System.out.println(listaMostrada);
     }
     public void llenarTodoGrid(){
         Set<Cliente> set = generarQueryTodo();
@@ -185,7 +186,7 @@ public class GestionClientesController implements Initializable {
                 while (resultSet.next()) {
                     String ruc = resultSet.getString("RUC");
                     String nombreEmpresa = resultSet.getString("nombre_empresa");
-                    String descripEmpresa = resultSet.getString("descrip_empresa");
+                    String descripEmpresa = resultSet.getString("decrip_empresa");
                     String direccion = resultSet.getString("direccion");
                     String sitioWeb = resultSet.getString("sitio_web");
                     String idPersonaContacto = resultSet.getString("id_persona_contacto");
@@ -229,7 +230,7 @@ public class GestionClientesController implements Initializable {
                     vbCliente.setOnMouseClicked(event -> {
                         clienteEscogido = c;
                         try{
-                            App.setRoot("verIndividual");
+                            App.setRoot("verIndividualCliente");
                         } catch(IOException e){
                             e.printStackTrace();
                         }

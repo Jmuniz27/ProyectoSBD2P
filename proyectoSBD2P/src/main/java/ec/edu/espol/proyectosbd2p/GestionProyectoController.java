@@ -5,8 +5,10 @@
 package ec.edu.espol.proyectosbd2p;
 
 import ec.edu.espol.proyectosbd2p.modelo.Empleado;
+import ec.edu.espol.proyectosbd2p.modelo.ProductoTienda;
 import ec.edu.espol.proyectosbd2p.modelo.Proyecto;
 import ec.edu.espol.proyectosbd2p.modelo.PublicidadAnuncioWeb;
+import ec.edu.espol.proyectosbd2p.modelo.Segmento;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -135,33 +137,56 @@ public class GestionProyectoController implements Initializable {
                     String tamano_banner = resultSet.getString("tamanoBanner");
                     String id_dep_creativo = resultSet.getString("id_dep_creativo");
                     Float comision_a_empresa = resultSet.getFloat("comision_a_empresa");
-                    PublicidadAnuncioWeb publicidadWeb = new PublicidadAnuncioWeb(id_proyecto, RUC, num_factura, titulo, presupuesto, descripcion, fechaInicio, fechaFin, tamano_banner, comision_a_empresa);
+                    PublicidadAnuncioWeb publicidadWeb = new PublicidadAnuncioWeb(id_proyecto, RUC, num_factura, titulo, presupuesto, descripcion, fechaInicio, fechaFin, tamano_banner, id_dep_creativo, comision_a_empresa);
                     proyectos.add(publicidadWeb);
                 }
                 
                 
-                String sql = "SELECT * FROM cliente WHERE " + columna + "=" + busqueda;
-                ResultSet resultSet = statement.executeQuery(sql);
+                String sql1 = "SELECT * FROM segmento WHERE " + columna + "=" + busqueda;
+                ResultSet resultSet1 = statement.executeQuery(sql);
                 
                 while (resultSet.next()) {
-                    String id_empleado = resultSet.getString("id_empleado");
-                    int sueldoBase = resultSet.getInt("sueldoBase");
-                    String nombre = resultSet.getString("nombre");
-                    String apellido = resultSet.getString("apellido");
-                    String puesto = resultSet.getString("puesto");
-                    String contrasenia = resultSet.getString("contrasenia");
-                    String direccion = resultSet.getString("direccion");
-                    String idSupervisor = resultSet.getString("idSupervisor");
-                    String id_dep_creativo = resultSet.getString("id_dep_creativo");
+                    String id_proyecto = resultSet.getString("id_proyecto");
+                    String RUC = resultSet.getString("RUC");
+                    String num_factura = resultSet.getString("num_factura");
+                    String rating = resultSet.getString("rating");
+                    int duracion = resultSet.getInt("duracion");
+                    int estado = resultSet.getInt("estado");
+                    String titulo = resultSet.getString("titulo");
+                    int presupuesto = resultSet.getInt("presupuesto");
+                    String descripcion = resultSet.getString("descripcion");
+                    Date fechaInicio = resultSet.getDate("fechaInicio");
+                    Date fechaFin = resultSet.getDate("fechaFin");
                     String id_dep_prod = resultSet.getString("id_dep_prod");
-                    String id_dep_finanzas = resultSet.getString("id_dep_finanzas");
-                    Empleado empleado = new Empleado(id_empleado, sueldoBase, nombre, apellido, puesto, contrasenia, direccion, idSupervisor, id_dep_creativo,id_dep_prod,id_dep_finanzas);
-                    empleados.add(empleado);
+                    Float comision_a_empresa = resultSet.getFloat("comision_a_empresa");
+                    Segmento segmento = new Segmento(id_proyecto, RUC, num_factura, rating, duracion, estado, titulo, presupuesto, descripcion, fechaInicio, fechaFin, tamano_banner, id_dep_prod, comision_a_empresa);
+                    proyectos.add(segmento);
+                }
+                
+                String sql2 = "SELECT * FROM producto_tienda WHERE " + columna + "=" + busqueda;
+                ResultSet resultSet2 = statement.executeQuery(sql);
+                
+                while (resultSet.next()) {
+                    String id_proyecto = resultSet2.getString("id_proyecto");
+                    String RUC = resultSet2.getString("RUC");
+                    String num_factura = resultSet2.getString("num_factura");
+                    String categoria = resultSet2.getString("categoria");
+                    int precio = resultSet2.getInt("precio");
+                    String titulo = resultSet2.getString("titulo");
+                    int presupuesto = resultSet2.getInt("presupuesto");
+                    String descripcion = resultSet2.getString("descripcion");
+                    Date fechaInicio = resultSet2.getDate("fechaInicio");
+                    Date fechaFin = resultSet2.getDate("fechaFin");
+                    String id_dep_prod = resultSet2.getString("id_dep_prod");
+                    double comision_a_empresa = resultSet2.getDouble("comision_a_empresa");
+                    ProductoTienda producto_tienda = new ProductoTienda(id_proyecto, RUC, num_factura, categoria, precio, titulo, presupuesto, descripcion, fechaInicio, fechaFin, id_dep_prod, comision_a_empresa);
+
+                    proyectos.add(producto_tienda);
                 }
             }
         } catch (SQLException e) {
             System.out.println("Error al ejecutar el query: " + e.getMessage());
         }
-        return empleados;
+        return proyectos;
     }
 }

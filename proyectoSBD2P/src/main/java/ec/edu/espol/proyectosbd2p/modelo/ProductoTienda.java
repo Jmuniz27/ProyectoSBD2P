@@ -15,7 +15,7 @@ public class ProductoTienda extends Proyecto{
     private int precio;
     private String idDepProd;
 
-    public ProductoTienda(String idProyecto, String categoria, int precio, String ruc, String numFactura, String titulo, int presupuesto, String descripcion, Date fechaInicio, Date fechaFin, String idDepProd, double comisionAEmpresa) {
+    public ProductoTienda(String idProyecto, String ruc, String numFactura, String categoria, int precio, String titulo, int presupuesto, String descripcion, Date fechaInicio, Date fechaFin, String idDepProd, double comisionAEmpresa) {
         super(idProyecto, ruc, numFactura, titulo, presupuesto, descripcion, fechaInicio, fechaFin, comisionAEmpresa);
         this.categoria = categoria;
         this.precio = precio;

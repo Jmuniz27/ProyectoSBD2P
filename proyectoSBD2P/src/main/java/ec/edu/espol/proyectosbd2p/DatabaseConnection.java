@@ -6,6 +6,9 @@ import java.sql.SQLException;
 
 import java.sql.Statement;
 
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+
 
 public class DatabaseConnection {
     static Connection connection = null;
@@ -19,9 +22,22 @@ public class DatabaseConnection {
             }
         } catch (SQLException e) {
             System.out.println("Error al conectar a la base de datos: " + e.getMessage());
+            if(e.getErrorCode()==1044)
+                alertaAccesoDenegado();
         }
     }
     
+
+    private static void alertaAccesoDenegado() {
+        Alert alert = new Alert(AlertType.ERROR);
+        alert.setTitle("Acceso Denegado");
+        alert.setHeaderText("Acceso Denegado");
+        alert.setContentText("Usted no cuenta con los permisos necesarios para entrar a esta sección.");
+        
+        alert.showAndWait();
+    }
+
+
     public static Connection getConnection(){
         return connection;
     }

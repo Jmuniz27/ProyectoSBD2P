@@ -4,9 +4,6 @@
  */
 package ec.edu.espol.proyectosbd2p;
 
-import static ec.edu.espol.proyectosbd2p.GestionClientesController.clienteEscogido;
-import ec.edu.espol.proyectosbd2p.modelo.Cliente;
-import ec.edu.espol.proyectosbd2p.modelo.Empleado;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -17,6 +14,8 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.ResourceBundle;
 import java.util.Set;
+
+import ec.edu.espol.proyectosbd2p.modelo.Empleado;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -208,14 +207,12 @@ public class GestionEmpleadoController implements Initializable {
                     String nombre = resultSet.getString("nombre");
                     String apellido = resultSet.getString("apellido");
                     String puesto = resultSet.getString("puesto");
-                    String contrasenia = resultSet.getString("contrasenia");
+                    String contrasena = resultSet.getString("contrasena");
                     String direccion = resultSet.getString("direccion");
-                    String idSupervisor = resultSet.getString("idSupervisor");
                     String id_dep_creativo = resultSet.getString("id_dep_creativo");
                     String id_dep_prod = resultSet.getString("id_dep_prod");
                     String id_dep_finanzas = resultSet.getString("id_dep_finanzas");
-                    Empleado empleado = new Empleado(id_empleado, sueldoBase, nombre, apellido, puesto, contrasenia, direccion, idSupervisor, id_dep_creativo,id_dep_prod,id_dep_finanzas);
-                    empleados.add(empleado);
+                    
                 }
             }
         } catch (SQLException e) {
@@ -302,7 +299,7 @@ public class GestionEmpleadoController implements Initializable {
                     String nombre = resultSet.getString("nombre");
                     String apellido = resultSet.getString("apellido");
                     String puesto = resultSet.getString("puesto");
-                    String contrasenia = resultSet.getString("contrasena");
+                    String contrasena = resultSet.getString("contrasena");
                     String direccion = resultSet.getString("direccion");
                     String id_dep_creativo = resultSet.getString("id_dep_creativo");
                     String id_dep_prod = resultSet.getString("id_dep_prod");
@@ -310,7 +307,7 @@ public class GestionEmpleadoController implements Initializable {
                     String id_dir_dep_creativo = resultSet.getString("id_dir_dep_creativo");
                     String id_dir_dep_prod = resultSet.getString("id_dir_dep_prod");
                     String id_dir_dep_finanzas = resultSet.getString("id_dir_dep_finanzas");
-                    Empleado empleado = new Empleado(id_empleado, sueldoBase, nombre, apellido, puesto, contrasenia, direccion, id_dep_creativo,id_dep_prod,id_dep_finanzas,id_dir_dep_creativo,id_dir_dep_prod, id_dir_dep_finanzas);
+                    Empleado empleado = new Empleado(id_empleado, sueldoBase, nombre, apellido, puesto, contrasena, direccion, id_dep_creativo,id_dep_prod,id_dep_finanzas,id_dir_dep_creativo,id_dir_dep_prod, id_dir_dep_finanzas);
                     empleados.add(empleado);
                 }
             }

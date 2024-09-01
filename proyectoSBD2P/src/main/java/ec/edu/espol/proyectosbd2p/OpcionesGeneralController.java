@@ -68,7 +68,7 @@ public class OpcionesGeneralController implements Initializable {
     @FXML
     private void regresar(ActionEvent event) {
         try{
-            App.setRoot("usuariosController");
+            App.setRoot("usuarios");
         } catch(IOException e){
             e.printStackTrace();
         }

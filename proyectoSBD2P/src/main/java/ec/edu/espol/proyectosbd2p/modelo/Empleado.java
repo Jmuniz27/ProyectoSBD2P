@@ -20,8 +20,11 @@ public class Empleado {
     private String idDepCreativo;
     private String idDepProd;
     private String idDepFinanzas;
+    private String id_dir_dep_creativo;
+    private String id_dir_dep_prod;
+    private String id_dir_dep_finanzas;
 
-    public Empleado(String idEmpleado, int sueldoBase, String nombre, String apellido, String puesto, String contrasena, String direccion, String idSupervisor, String idDepCreativo, String idDepProd, String idDepFinanzas) {
+    public Empleado(String idEmpleado, int sueldoBase, String nombre, String apellido, String puesto, String contrasena, String direccion, String idDepCreativo, String idDepProd, String idDepFinanzas, String id_dir_dep_creativo, String id_dir_dep_prod, String id_dir_dep_finanzas) {
         this.idEmpleado = idEmpleado;
         this.sueldoBase = sueldoBase;
         this.nombre = nombre;
@@ -29,10 +32,12 @@ public class Empleado {
         this.puesto = puesto;
         this.contrasena = contrasena;
         this.direccion = direccion;
-        this.idSupervisor = idSupervisor;
         this.idDepCreativo = idDepCreativo;
         this.idDepProd = idDepProd;
         this.idDepFinanzas = idDepFinanzas;
+        this.id_dir_dep_creativo = id_dir_dep_creativo;
+        this.id_dir_dep_prod = id_dir_dep_prod;
+        this.id_dir_dep_finanzas = id_dir_dep_finanzas;
     }
 
     public String getIdEmpleado() {

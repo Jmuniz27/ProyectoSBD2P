@@ -93,7 +93,7 @@ public class AnadirEmpleadoController implements Initializable {
             txtContrasena.getText(),
             txtDireccion.getText(),
             txtIDSupervisor.getText(),
-            null, null, null
+            null, null, null, null, null
         );
 
         // Asignar el departamento correspondiente

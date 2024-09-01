@@ -80,6 +80,11 @@ public class OpcionesGeneralController implements Initializable {
 
     @FXML
     private void clickPubliCanal(ActionEvent event) {
+        try{
+            App.setRoot("publicidadCanal");
+        } catch(IOException e){
+            e.printStackTrace();
+        }
     }
 
     @FXML

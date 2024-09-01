@@ -48,6 +48,8 @@ public class OpcionesGeneralController implements Initializable {
     private ImageView imgEmpleado21;
     @FXML
     private Button btnEmpleado41;
+    @FXML
+    private ImageView imgEmpleado211;
 
     /**
      * Initializes the controller class.
@@ -126,6 +128,10 @@ public class OpcionesGeneralController implements Initializable {
         } catch(IOException e){
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    private void clickReporte(ActionEvent event) {
     }
     
 }

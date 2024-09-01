@@ -6,6 +6,7 @@ ec/edu/espol/proyectosbd2p/EditarEmpleadoController.class
 ec/edu/espol/proyectosbd2p/modelo/Telefono.class
 ec/edu/espol/proyectosbd2p/modelo/RolPago.class
 ec/edu/espol/proyectosbd2p/GestionSegmentoController.class
+ec/edu/espol/proyectosbd2p/EditarEmpleadosController.class
 ec/edu/espol/proyectosbd2p/SecondaryController.class
 ec/edu/espol/proyectosbd2p/AnadirEmpleadoController.class
 ec/edu/espol/proyectosbd2p/UsuariosController.class

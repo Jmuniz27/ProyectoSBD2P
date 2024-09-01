@@ -26,7 +26,7 @@
                 <Font name="Arial Rounded MT Bold" size="24.0" />
             </font>
         </Label>
-        <GridPane hgap="10" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="176.0" prefWidth="276.0" vgap="10">
+        <GridPane hgap="10" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="183.0" prefWidth="276.0" vgap="20.0">
             <children>
 
                 <Label text="Nombre Empresa:" GridPane.columnIndex="0" />
@@ -40,9 +40,6 @@
 
                 <Label text="Sitio Web:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
                 <TextField fx:id="tfSitioWeb" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-
-                <Label text="Id Persona Contacto:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
-                <TextField fx:id="tfPersonaContacto" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             </children>
          <columnConstraints>
             <ColumnConstraints maxWidth="129.5" minWidth="82.5" prefWidth="122.5" />

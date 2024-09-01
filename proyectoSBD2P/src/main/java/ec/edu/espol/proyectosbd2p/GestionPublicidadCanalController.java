@@ -379,7 +379,7 @@ public class GestionPublicidadCanalController implements Initializable {
                     vbPublicidadAnuncioCanal.setOnMouseClicked(event -> {
                         pcEscogido = c;
                         try{
-                            App.setRoot("verPublicidadAnuncioCanal");
+                            App.setRoot("verIndvidualPC");
                         } catch(IOException e){
                             e.printStackTrace();
                         }

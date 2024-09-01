@@ -244,7 +244,7 @@ public class GestionRolPagoController implements Initializable {
                     vbRolPago.setOnMouseClicked(event -> {
                         rolPagoEscogido = rol;
                         try{
-                            App.setRoot("gestionRolPago");
+                            App.setRoot("verIndividualRP");
                         } catch(IOException e){
                             e.printStackTrace();
                         }

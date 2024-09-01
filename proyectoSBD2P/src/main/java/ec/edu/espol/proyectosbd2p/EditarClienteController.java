@@ -116,5 +116,9 @@ public class EditarClienteController implements Initializable {
         alert.setContentText(message);
         alert.showAndWait();
     }
+
+    void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
     
 }

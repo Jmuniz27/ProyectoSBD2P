@@ -125,30 +125,75 @@ public class GestionClientesController implements Initializable {
 
     @FXML
     private void buscarFiltros(ActionEvent event) {
-        String ruc = "'%" + tbRuc.getText() + "%'";
-        Set<Cliente> filtro1 = generarQuery("RUC",ruc);
+        Set<Cliente> respuestas = generarQueryTodo();
+        System.out.println(respuestas);
+        boolean vacia = true;
         
-        String nombreEmpresa = "'%" + tbNombreEmpresa.getText() + "%'";
-        Set<Cliente> filtro2 = generarQuery("nombre_empresa",nombreEmpresa);
-        filtro1.retainAll(filtro2);
         
-        String dir = "'%" + tbDireccion.getText() + "%'";
-        Set<Cliente> filtro3 = generarQuery("direccion",dir);
-        if(!filtro3.isEmpty()){
-            filtro1.retainAll(filtro3);
+        String ruc = "'" + tbRuc.getText() + "'";
+        if(!ruc.equals("''")){
+            Set<Cliente> filtro1 = generarQuery("RUC",ruc);
+            if(!filtro1.isEmpty()){
+                respuestas = interseccion(respuestas,filtro1);
+                if(respuestas.isEmpty()){
+                    vacia = true;
+                } else{
+                vacia = false;}
+            }
         }
         
-        String sitioWeb = "'%" + tbSitioWeb.getText() + "%'";
-        Set<Cliente> filtro4 = generarQuery("sitio_web",sitioWeb);
-        filtro1.retainAll(filtro4);
+        String nombreEmpresa = "'" + tbNombreEmpresa.getText() + "'";
+        if(!nombreEmpresa.equals("''")){
+            Set<Cliente> filtro2 = generarQuery("nombre_empresa",nombreEmpresa);
+            if(!filtro2.isEmpty()){
+                respuestas = interseccion(respuestas,filtro2);
+                if(respuestas.isEmpty()){
+                    vacia = true;
+                } else{
+                vacia = false;}
+            }
+        }
         
-        String descripcion = "'%" + tbDescripcion.getText() + "%'";
-        Set<Cliente> filtro5 = generarQuery("decrip_empresa",descripcion);
-        filtro1.retainAll(filtro5);
+        String dir = "'" + tbDireccion.getText() + "'";
+        if(!dir.equals("''")){
+            Set<Cliente> filtro3 = generarQuery("direccion",dir);
+            if(!filtro3.isEmpty()){
+                respuestas = interseccion(respuestas,filtro3);
+                if(respuestas.isEmpty()){
+                    vacia = true;
+                } else{
+                vacia = false;}
+            }
+        }
         
-        listaMostrada = new ArrayList<>(filtro1);
+        String sitioWeb = "'" + tbSitioWeb.getText() + "'";
+        if(!sitioWeb.equals("''")){
+            Set<Cliente> filtro4 = generarQuery("sitio_web",sitioWeb);
+            if(!filtro4.isEmpty()){
+                respuestas = interseccion(respuestas,filtro4);
+                if(respuestas.isEmpty()){
+                    vacia = true;
+                } else{
+                vacia = false;}
+            }
+        }
+        
+        
+        String descripcion = "'" + tbDescripcion.getText() + "'";
+        if(!descripcion.equals("''")){
+            Set<Cliente> filtro5 = generarQuery("decrip_empresa",descripcion);
+            if(!filtro5.isEmpty()){
+                respuestas = interseccion(respuestas,filtro5);
+                if(respuestas.isEmpty()){
+                    vacia = true;
+                } else{
+                vacia = false;}
+            }
+        }
+        
+        listaMostrada = new ArrayList<>(respuestas);
         System.out.println(listaMostrada);
-        if(filtro1.isEmpty()){
+        if(respuestas.isEmpty()){
             App.mostrarAlerta("No existen clientes", "Error", "No existen clientes para su búsqueda. A continuación se muestran todos los clientes.", Alert.AlertType.ERROR);
             llenarTodoGrid();
         }
@@ -156,6 +201,19 @@ public class GestionClientesController implements Initializable {
         updateGrid();
         updatePagination();
     }
+    
+    public Set<Cliente> interseccion(Set<Cliente> respuestas, Set<Cliente>  filtro){
+        Set<Cliente> nuevo = new HashSet<>();
+        for(Cliente c1: respuestas){
+            for(Cliente c2: filtro){
+                if(c1.getRuc().equals(c2.getRuc())){
+                    nuevo.add(c1);
+                }
+            }
+        }
+        return nuevo;
+    }
+    
     public void llenarTodoGrid(){
         Set<Cliente> set = generarQueryTodo();
         listaMostrada = new ArrayList<>(set);

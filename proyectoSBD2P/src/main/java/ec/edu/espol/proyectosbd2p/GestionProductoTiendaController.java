@@ -310,7 +310,7 @@ public class GestionProductoTiendaController implements Initializable {
                     vbProductoTienda.setOnMouseClicked(event -> {
                         ptEscogido = pt;
                         try{
-                            App.setRoot("verIndividualEmpleado");
+                            App.setRoot("verIndividualPT");
                         } catch(IOException e){
                             e.printStackTrace();
                         }

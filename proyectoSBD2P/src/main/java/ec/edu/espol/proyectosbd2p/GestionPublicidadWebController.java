@@ -368,7 +368,7 @@ public class GestionPublicidadWebController implements Initializable {
                     vbPublicidadAnuncioWeb.setOnMouseClicked(event -> {
                         pwEscogido = c;
                         try{
-                            App.setRoot("verPublicidadAnuncioCanal");
+                            App.setRoot("verIndividualPW");
                         } catch(IOException e){
                             e.printStackTrace();
                         }

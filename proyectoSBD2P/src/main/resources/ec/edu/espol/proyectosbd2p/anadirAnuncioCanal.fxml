@@ -23,7 +23,7 @@
                </font></Button>
          </children>
       </HBox>
-        <Label text="Añadir Anuncio Web" textFill="#f96a17">
+        <Label text="Añadir Anuncio Canal" textFill="#f96a17">
             <font>
                 <Font name="Arial Rounded MT Bold" size="24.0" />
             </font>
@@ -37,7 +37,7 @@
                 <Label text="Presupuesto:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
                 <TextField fx:id="tfanadirWebPresupuesto" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
-                <Label text="Tamaño del Banner:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                <Label text="Duración:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
                 <TextField fx:id="tfanadirTamano" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Comisión:" GridPane.rowIndex="4" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Descripción:" GridPane.rowIndex="5" />
@@ -65,7 +65,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" />
          </rowConstraints>
         </GridPane>
-        <Button onAction="#anadirAnuncioWeb" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #f96a17; -fx-background-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);" text="Guardar Cambios" textFill="WHITE">
+        <Button onAction="#anadirAnuncioCanal" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #f96a17; -fx-background-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);" text="Guardar Cambios" textFill="WHITE">
          <font>
             <Font name="Arial Rounded MT Bold" size="13.0" />
          </font></Button>

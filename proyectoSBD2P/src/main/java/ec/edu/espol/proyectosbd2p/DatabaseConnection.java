@@ -9,10 +9,8 @@ import java.sql.Statement;
 
 public class DatabaseConnection {
     static Connection connection = null;
-    public static void conectaBase() {
+    public static void conectaBase(String username, String password) {
         String jdbcURL = "jdbc:mysql://proyectosbdgrupo8.mysql.database.azure.com:3306/wuanplus"; 
-        String username = "main";
-        String password = "proyectoSBD=Grupo8_";
 
         try {
             connection = DriverManager.getConnection(jdbcURL, username, password);

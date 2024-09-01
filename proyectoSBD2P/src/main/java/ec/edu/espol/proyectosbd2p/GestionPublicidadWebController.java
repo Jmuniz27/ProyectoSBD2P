@@ -4,53 +4,74 @@
  */
 package ec.edu.espol.proyectosbd2p;
 
+import ec.edu.espol.proyectosbd2p.modelo.PublicidadAnuncioWeb;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.ResourceBundle;
+import java.util.Set;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
-import ec.edu.espol.proyectosbd2p.modelo.PublicidadAnuncioCanal;
 
-import java.io.IOException;
-import java.time.format.DateTimeFormatter;
-import java.util.Set;
-import java.util.HashSet;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Alert;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Slider;
-import javafx.scene.image.Image;
 /**
  * FXML Controller class
  *
  * @author isabella
  */
-public class GestionPublicidadCanalController implements Initializable {
+public class GestionPublicidadWebController implements Initializable {
 
     @FXML
     private ImageView imgLogo;
     @FXML
+    private Button btnAnadir;
+    @FXML
+    private Button botonInicio1;
+    @FXML
     private VBox containerFAuto;
     @FXML
-    private VBox plantillaAutos;
+    private VBox filtroAuto;
     @FXML
-    private ImageView planImg;
+    private TextField tbID;
+    @FXML
+    private TextField tbTitulo;
+    @FXML
+    private TextField tbRuc;
+    @FXML
+    private TextField tbDescripcion;
+    @FXML
+    private TextField tbComision;
+    @FXML
+    private TextField tbPresupuesto;
+    @FXML
+    private DatePicker DFechaInicio;
+    @FXML
+    private DatePicker DFechaFin;
+    @FXML
+    private Button btnBuscar;
+    @FXML
+    private GridPane gridClientes;
+    @FXML
+    private VBox plantillaAutos;
     @FXML
     private Text plantVehName;
     @FXML
@@ -73,15 +94,10 @@ public class GestionPublicidadCanalController implements Initializable {
     private Label lblNumPagina1;
     @FXML
     private Label lblNumPagina2;
-    private TextField tbDireccion;
     @FXML
-    private Button btnBuscar;
-    @FXML
-    private GridPane gridClientes;
-    @FXML
-    private VBox filtroAuto;
-    @FXML
-    private TextField tbDescripcion;
+    private TextField tbTamano;
+    
+    public static PublicidadAnuncioWeb pwEscogido;
     
     private static final int ITEMS_PER_PAGE = 4;
     
@@ -89,44 +105,26 @@ public class GestionPublicidadCanalController implements Initializable {
     
     private int totalPages;
     
-    private ArrayList<PublicidadAnuncioCanal> listaMostrada;
+    private ArrayList<PublicidadAnuncioWeb> listaMostrada;
     
-    public static PublicidadAnuncioCanal pcEscogido;
-    
-    private PublicidadAnuncioCanal currentNode;
-    @FXML
-    private Button btnAnadir;
-    @FXML
-    private Button botonInicio1;
-    @FXML
-    private DatePicker DFechaInicio;
-    @FXML
-    private DatePicker DFechaFin;
-    @FXML
-    private TextField tbID;
-    @FXML
-    private TextField tbTitulo;
-    @FXML
-    private TextField tbDura;
-    @FXML
-    private TextField tbRuc;
-    @FXML
-    private TextField tbComision;
-    @FXML
-    private TextField tbPresupuesto;
+    private PublicidadAnuncioWeb currentNode;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        pcEscogido = null;
+        pwEscogido = null;
         Image img1 = new Image("/imagenes/logo.jpg");
         imgLogo.setImage(img1);
         llenarTodoGrid();
         updateGrid();
         updatePagination();
     }    
+
+    @FXML
+    private void anadirCliente(ActionEvent event) {
+    }
 
     @FXML
     private void irInicio(ActionEvent event) {
@@ -137,15 +135,14 @@ public class GestionPublicidadCanalController implements Initializable {
         }
     }
 
-
     @FXML
     private void buscarFiltros(ActionEvent event) {
-        Set<PublicidadAnuncioCanal> respuestas = generarQueryTodo();
+        Set<PublicidadAnuncioWeb> respuestas = generarQueryTodo();
         System.out.println(respuestas);
         boolean vacia = true;
         String id = "'" + tbID.getText() + "'";
         if(!id.equals("''")){
-            Set<PublicidadAnuncioCanal> filtro1 = generarQuery("id_proyecto", id);
+            Set<PublicidadAnuncioWeb> filtro1 = generarQuery("id_proyecto", id);
             if(!filtro1.isEmpty()){
                 respuestas = interseccion(respuestas,filtro1);
                 if(respuestas.isEmpty()){
@@ -157,7 +154,7 @@ public class GestionPublicidadCanalController implements Initializable {
         
         String titulo = "'" + tbTitulo.getText() + "'";
         if(!titulo.equals("''")){
-            Set<PublicidadAnuncioCanal> filtro2 = generarQuery("titulo", titulo);
+            Set<PublicidadAnuncioWeb> filtro2 = generarQuery("titulo", titulo);
             if(!filtro2.isEmpty()){
                 respuestas = interseccion(respuestas,filtro2);
                 if(respuestas.isEmpty()){
@@ -169,7 +166,7 @@ public class GestionPublicidadCanalController implements Initializable {
         
         String presupuesto = tbPresupuesto.getText();
         if(presupuesto.equals("")){
-            Set<PublicidadAnuncioCanal> filtro3 = generarQuery("presupuesto",presupuesto);
+            Set<PublicidadAnuncioWeb> filtro3 = generarQuery("presupuesto",presupuesto);
             if(!filtro3.isEmpty()){
                 respuestas = interseccion(respuestas,filtro3);
                 if(respuestas.isEmpty()){
@@ -179,9 +176,9 @@ public class GestionPublicidadCanalController implements Initializable {
             }
         }
         
-        String duracion = tbDura.getText();
-        if(!duracion.equals("")){
-            Set<PublicidadAnuncioCanal> filtro4 = generarQuery("duracion", duracion);
+        String tamano = "'" + tbTamano.getText() +"'";
+        if(!tamano.equals("''")){
+            Set<PublicidadAnuncioWeb> filtro4 = generarQuery("tamano_banner", tamano);
             if(!filtro4.isEmpty()){
                 respuestas = interseccion(respuestas,filtro4);
                 if(respuestas.isEmpty()){
@@ -194,7 +191,7 @@ public class GestionPublicidadCanalController implements Initializable {
         
         String RUC = "'" + tbRuc.getText() + "'";
         if (!RUC.equals("''")) {
-            Set<PublicidadAnuncioCanal> filtro5 = generarQuery("RUC", RUC);
+            Set<PublicidadAnuncioWeb> filtro5 = generarQuery("RUC", RUC);
             if(!filtro5.isEmpty()){
                 respuestas = interseccion(respuestas,filtro5);
                 if(respuestas.isEmpty()){
@@ -206,7 +203,7 @@ public class GestionPublicidadCanalController implements Initializable {
         
         String descripcion = "'" + tbDescripcion.getText() + "'";
         if (!descripcion.equals("''")) {
-            Set<PublicidadAnuncioCanal> filtro6 = generarQuery("descripcion", descripcion);
+            Set<PublicidadAnuncioWeb> filtro6 = generarQuery("descripcion", descripcion);
             if(!filtro6.isEmpty()){
                 respuestas = interseccion(respuestas,filtro6);
                 if(respuestas.isEmpty()){
@@ -218,7 +215,7 @@ public class GestionPublicidadCanalController implements Initializable {
         
         String comision =tbComision.getText();
         if (!comision.equals("")) {
-            Set<PublicidadAnuncioCanal> filtro7 = generarQuery("comision", comision);
+            Set<PublicidadAnuncioWeb> filtro7 = generarQuery("comision_a_empresa", comision);
             if(!filtro7.isEmpty()){
                 respuestas = interseccion(respuestas,filtro7);
                 if(respuestas.isEmpty()){
@@ -228,12 +225,11 @@ public class GestionPublicidadCanalController implements Initializable {
             }
         }
         
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        
         if (DFechaInicio.getValue() != null) {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
             String fechaInicio = "'" + DFechaInicio.getValue().format(formatter) + "'";
             if (!fechaInicio.equals("''")) {
-                Set<PublicidadAnuncioCanal> filtro8 = generarQuery("fecha_inicio", fechaInicio);
+                Set<PublicidadAnuncioWeb> filtro8 = generarQuery("fechaInicio", fechaInicio);
                 if(!filtro8.isEmpty()){
                    respuestas = interseccion(respuestas,filtro8);
                    if(respuestas.isEmpty()){
@@ -245,9 +241,10 @@ public class GestionPublicidadCanalController implements Initializable {
         }
         
         if (DFechaFin.getValue() != null) {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
             String fechaFin = "'" + DFechaFin.getValue().format(formatter) + "'";
             if (!fechaFin.equals("''")) {
-                Set<PublicidadAnuncioCanal> filtro9 = generarQuery("fecha_Fin", fechaFin);
+                Set<PublicidadAnuncioWeb> filtro9 = generarQuery("fechaFin", fechaFin);
                 if(!filtro9.isEmpty()){
                    respuestas = interseccion(respuestas,filtro9);
                    if(respuestas.isEmpty()){
@@ -263,7 +260,7 @@ public class GestionPublicidadCanalController implements Initializable {
         listaMostrada = new ArrayList<>(respuestas);
         
         if (vacia) {
-            App.mostrarAlerta("No existen publicidades tipo anuncio en canal", "Error", "No existen publicidades tipo anuncio en canal para su búsqueda. A continuación se muestran todos los publicidades tipo anuncio en canal.", Alert.AlertType.ERROR);
+            App.mostrarAlerta("No existen publicidades tipo anuncio web", "Error", "No existen publicidades tipo anuncio web para su búsqueda. A continuación se muestran todos los publicidades tipo anuncio web.", Alert.AlertType.ERROR);
             llenarTodoGrid();
         }
         currentPage = 1;
@@ -271,10 +268,10 @@ public class GestionPublicidadCanalController implements Initializable {
         updatePagination();
     }
     
-    public Set<PublicidadAnuncioCanal> interseccion(Set<PublicidadAnuncioCanal> respuestas, Set<PublicidadAnuncioCanal>  filtro){
-        Set<PublicidadAnuncioCanal> nuevo = new HashSet<>();
-        for(PublicidadAnuncioCanal p1: respuestas){
-            for(PublicidadAnuncioCanal p2: filtro){
+    public Set<PublicidadAnuncioWeb> interseccion(Set<PublicidadAnuncioWeb> respuestas, Set<PublicidadAnuncioWeb>  filtro){
+        Set<PublicidadAnuncioWeb> nuevo = new HashSet<>();
+        for(PublicidadAnuncioWeb p1: respuestas){
+            for(PublicidadAnuncioWeb p2: filtro){
                 if(p1.getIdProyecto().equals(p2.getIdProyecto())){
                     nuevo.add(p1);
                 }
@@ -282,73 +279,44 @@ public class GestionPublicidadCanalController implements Initializable {
         }
         return nuevo;
     }
-
+    
     public void llenarTodoGrid(){
-        Set<PublicidadAnuncioCanal> set = generarQueryTodo();
+        Set<PublicidadAnuncioWeb> set = generarQueryTodo();
         listaMostrada = new ArrayList<>(set);
     }
-    public Set<PublicidadAnuncioCanal> generarQuery(String columna, String busqueda){
-        Set<PublicidadAnuncioCanal> publucidadCana = new HashSet<>();
+    public Set<PublicidadAnuncioWeb> generarQuery(String columna, String busqueda){
+        Set<PublicidadAnuncioWeb> publucidadWeb = new HashSet<>();
         try{
             Connection connection = DatabaseConnection.getConnection();
             if (connection != null) {
                 Statement statement = connection.createStatement();
-                String sql = "SELECT * FROM publicidad_anuncio_canal WHERE " + columna + "=" + busqueda;
+                String sql = "SELECT * FROM publicidad_anuncio_web WHERE " + columna + "=" + busqueda;
                 ResultSet resultSet = statement.executeQuery(sql);
-
-                while (resultSet.next()) {
-                    String idProyecto = resultSet.getString("id_proyecto");
-                    String RUC = resultSet.getString("RUC");
-                    String numFactura = resultSet.getString("num_factura");
-                    String titulo = resultSet.getString("titulo");
-                    int presupuesto = resultSet.getInt("presupuesto");
-                    String descripcion = resultSet.getString("descripcion");
-                    Date fechaInicio = resultSet.getDate("fechaInicio");
-                    Date fechaFin = resultSet.getDate("fechaFin");
-                    int duracion1 = resultSet.getInt("duracion");
-                    String idDepCreativo = resultSet.getString("id_dep_creativo");
-                    double comisionEmpresa = resultSet.getDouble("comision_a_empresa");
-                    PublicidadAnuncioCanal publicidad = new PublicidadAnuncioCanal(idProyecto, RUC, numFactura, titulo, presupuesto, descripcion, fechaInicio, fechaFin, duracion1, idDepCreativo, comisionEmpresa);
-                    publucidadCana.add(publicidad);
-                }
+                publucidadWeb = crearPAW(resultSet);
+                
             }
         } catch (SQLException e) {
             System.out.println("Error al ejecutar el query: " + e.getMessage());
         }
-        return publucidadCana;
+        return publucidadWeb;
     }
     
-    public Set<PublicidadAnuncioCanal> generarQueryTodo(){
-        Set<PublicidadAnuncioCanal> publucidadCana = new HashSet<>();
+    public Set<PublicidadAnuncioWeb> generarQueryTodo(){
+        Set<PublicidadAnuncioWeb> publucidadWeb = new HashSet<>();
         try{
             Connection connection = DatabaseConnection.getConnection();
             if (connection != null) {
                 Statement statement = connection.createStatement();
-                String sql = "SELECT * FROM publicidad_anuncio_canal";
+                String sql = "SELECT * FROM publicidad_anuncio_web";
                 ResultSet resultSet = statement.executeQuery(sql);
 
-                while (resultSet.next()) {
-                    String idProyecto = resultSet.getString("id_proyecto");
-                    String RUC = resultSet.getString("RUC");
-                    String numFactura = resultSet.getString("num_factura");
-                    String titulo = resultSet.getString("titulo");
-                    int presupuesto = resultSet.getInt("presupuesto");
-                    String descripcion = resultSet.getString("descripcion");
-                    Date fechaInicio = resultSet.getDate("fechaInicio");
-                    Date fechaFin = resultSet.getDate("fechaFin");
-                    int duracion1 = resultSet.getInt("duracion");
-                    String idDepCreativo = resultSet.getString("id_dep_creativo");
-                    double comisionEmpresa = resultSet.getDouble("comision_a_empresa");
-                    PublicidadAnuncioCanal publicidad = new PublicidadAnuncioCanal(idProyecto, RUC, numFactura, titulo, presupuesto, descripcion, fechaInicio, fechaFin, duracion1, idDepCreativo, comisionEmpresa);
-                    publucidadCana.add(publicidad);
-                }
+                publucidadWeb = crearPAW(resultSet);
             }
         } catch (SQLException e) {
             System.out.println("Error al ejecutar el query: " + e.getMessage());
         }
-        return publucidadCana;
+        return publucidadWeb;
     }
-    
     @FXML
     private void prevPag(ActionEvent event) {
         if (currentPage > 1) {
@@ -364,27 +332,48 @@ public class GestionPublicidadCanalController implements Initializable {
             goToPage(currentPage);
         }
     }
+    
+    public Set<PublicidadAnuncioWeb> crearPAW(ResultSet resultSet) throws SQLException{
+        Set<PublicidadAnuncioWeb> pacs = new HashSet<>();
+        while (resultSet.next()) {
+            String idProyecto = resultSet.getString("id_proyecto");
+            String RUC = resultSet.getString("RUC");
+            String numFactura = resultSet.getString("num_factura");
+            String titulo = resultSet.getString("titulo");
+            int presupuesto = resultSet.getInt("presupuesto");
+            String descripcion = resultSet.getString("descripcion");
+            Date fechaInicio = resultSet.getDate("fechaInicio");
+            Date fechaFin = resultSet.getDate("fechaFin");
+            String tamano = resultSet.getString("tamano_banner");
+            String idDepCreativo = resultSet.getString("id_dep_creativo");
+            double comisionEmpresa = resultSet.getDouble("comision_a_empresa");
+            PublicidadAnuncioWeb publicidad = new PublicidadAnuncioWeb(idProyecto, RUC, numFactura, titulo, presupuesto, descripcion, fechaInicio, fechaFin, tamano, idDepCreativo, comisionEmpresa);
+            pacs.add(publicidad);
+        }
+        return pacs;
+    }
+    
     private void updateGrid() {
         gridClientes.getChildren().clear();
         if (!listaMostrada.isEmpty()) {
-            PublicidadAnuncioCanal tempNode = listaMostrada.get(0);
+            PublicidadAnuncioWeb tempNode = listaMostrada.get(0);
             int startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
             for (int i = 0; i < startIndex && tempNode != null; i++) {
                 tempNode = listaMostrada.get(i);
             }
             for (int i = 0; i < 2 && tempNode != null; i++) {
                 for (int j = 0; j < 2 && tempNode != null; j++) {
-                    VBox vbPublicidadAnuncioCanal = plantillaPublicidadCanal(tempNode);
-                    PublicidadAnuncioCanal c = tempNode;
-                    vbPublicidadAnuncioCanal.setOnMouseClicked(event -> {
-                        pcEscogido = c;
+                    VBox vbPublicidadAnuncioWeb = plantillaPublicidadWeb(tempNode);
+                    PublicidadAnuncioWeb c = tempNode;
+                    vbPublicidadAnuncioWeb.setOnMouseClicked(event -> {
+                        pwEscogido = c;
                         try{
                             App.setRoot("verPublicidadAnuncioCanal");
                         } catch(IOException e){
                             e.printStackTrace();
                         }
                     });
-                    gridClientes.add(vbPublicidadAnuncioCanal, j, i);
+                    gridClientes.add(vbPublicidadAnuncioWeb, j, i);
                     if(listaMostrada.indexOf(tempNode)+1<listaMostrada.size()){
                         tempNode = listaMostrada.get(listaMostrada.indexOf(tempNode)+1);
                     } else{
@@ -397,7 +386,7 @@ public class GestionPublicidadCanalController implements Initializable {
         }
     }
     
-    private VBox plantillaPublicidadCanal(PublicidadAnuncioCanal publicidad) {
+    private VBox plantillaPublicidadWeb(PublicidadAnuncioWeb publicidad) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("plantillaProyecto.fxml"));
             VBox vbPublicidad = loader.load();
@@ -454,14 +443,4 @@ public class GestionPublicidadCanalController implements Initializable {
         updateGrid();
         updatePagination();
     }
-
-    @FXML
-    private void anadirCliente(ActionEvent event) {
-        try{
-            App.setRoot("anadirCliente");
-        } catch(IOException e){
-            e.printStackTrace();
-        }
-    }
 }
-

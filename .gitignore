@@ -1,7 +1,8 @@
 # Compiled class file
 *.class
 *.lst
-
+proyectoSBD2P/*.class
+proyectoSBD2P/*.lst
 # Log file
 *.log
 

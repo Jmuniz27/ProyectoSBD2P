@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /Users/isabella/Library/CloudStorage/OneDrive-EscuelaSuperiorPolitécnicadelLitoral/ESPOL/PAOI - 2024/Sistema de Bases de Datos/Segundo Parcial/ProyectoSBD2P/proyectoSBD2P/src/main/java/ec/edu/espol/proyectosbd2p/PlantillaProyectoController.java
 /Users/isabella/Library/CloudStorage/OneDrive-EscuelaSuperiorPolitécnicadelLitoral/ESPOL/PAOI - 2024/Sistema de Bases de Datos/Segundo Parcial/ProyectoSBD2P/proyectoSBD2P/src/main/java/ec/edu/espol/proyectosbd2p/GestionPublicidadCanalController.java
 /Users/isabella/Library/CloudStorage/OneDrive-EscuelaSuperiorPolitécnicadelLitoral/ESPOL/PAOI - 2024/Sistema de Bases de Datos/Segundo Parcial/ProyectoSBD2P/proyectoSBD2P/src/main/java/ec/edu/espol/proyectosbd2p/modelo/HorarioSegmento.java
@@ -45,8 +46,67 @@
 /Users/isabella/Library/CloudStorage/OneDrive-EscuelaSuperiorPolitécnicadelLitoral/ESPOL/PAOI - 2024/Sistema de Bases de Datos/Segundo Parcial/ProyectoSBD2P/proyectoSBD2P/src/main/java/ec/edu/espol/proyectosbd2p/modelo/Segmento.java
 /Users/isabella/Library/CloudStorage/OneDrive-EscuelaSuperiorPolitécnicadelLitoral/ESPOL/PAOI - 2024/Sistema de Bases de Datos/Segundo Parcial/ProyectoSBD2P/proyectoSBD2P/src/main/java/ec/edu/espol/proyectosbd2p/GestionProductoTiendaController.java
 /Users/isabella/Library/CloudStorage/OneDrive-EscuelaSuperiorPolitécnicadelLitoral/ESPOL/PAOI - 2024/Sistema de Bases de Datos/Segundo Parcial/ProyectoSBD2P/proyectoSBD2P/src/main/java/ec/edu/espol/proyectosbd2p/VerIndvidualPCController.java
+/Users/isabella/Library/CloudStorage/OneDrive-EscuelaSuperiorPolitécnicadelLitoral/ESPOL/PAOI - 2024/Sistema de Bases de Datos/Segundo Parcial/ProyectoSBD2P/proyectoSBD2P/src/main/java/ec/edu/espol/proyectosbd2p/EditarEmpleadosController.java
 /Users/isabella/Library/CloudStorage/OneDrive-EscuelaSuperiorPolitécnicadelLitoral/ESPOL/PAOI - 2024/Sistema de Bases de Datos/Segundo Parcial/ProyectoSBD2P/proyectoSBD2P/src/main/java/ec/edu/espol/proyectosbd2p/VerIndividualRPController.java
 /Users/isabella/Library/CloudStorage/OneDrive-EscuelaSuperiorPolitécnicadelLitoral/ESPOL/PAOI - 2024/Sistema de Bases de Datos/Segundo Parcial/ProyectoSBD2P/proyectoSBD2P/src/main/java/ec/edu/espol/proyectosbd2p/InicioController.java
 /Users/isabella/Library/CloudStorage/OneDrive-EscuelaSuperiorPolitécnicadelLitoral/ESPOL/PAOI - 2024/Sistema de Bases de Datos/Segundo Parcial/ProyectoSBD2P/proyectoSBD2P/src/main/java/module-info.java
 /Users/isabella/Library/CloudStorage/OneDrive-EscuelaSuperiorPolitécnicadelLitoral/ESPOL/PAOI - 2024/Sistema de Bases de Datos/Segundo Parcial/ProyectoSBD2P/proyectoSBD2P/src/main/java/ec/edu/espol/proyectosbd2p/modelo/Departamento.java
 /Users/isabella/Library/CloudStorage/OneDrive-EscuelaSuperiorPolitécnicadelLitoral/ESPOL/PAOI - 2024/Sistema de Bases de Datos/Segundo Parcial/ProyectoSBD2P/proyectoSBD2P/src/main/java/ec/edu/espol/proyectosbd2p/AnadirEmpleadoController.java
+=======
+c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\DatabaseManager.java
+c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\VerIndividualSegmentoController.java
+c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\EditarProyectoController.java
+c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\EditarClienteController.java
+c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\GestionRolPagoController.java
+c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\anadirProductosenTiendaController.java
+c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\GestionPublicidadWebController.java
+c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\modelo\Departamento.java
+c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\PrimaryController.java
+c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\VerIndvidualPCController.java
+c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\modelo\DepartamentoFinanzas.java
+c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\modelo\Factura.java
+c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\anadirAnuncioWebController.java
+c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\GestionProyectoController.java
+c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\EditarEmpleadoController.java
+c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\modelo\Catalogo.java
+c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\OpcionesGeneralController.java
+c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\DatabaseConnection.java
+c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\module-info.java
+c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\modelo\Cliente.java
+c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\modelo\PublicidadAnuncioCanal.java
+c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\VerIndividualClientesController.java
+c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\UsuariosController.java
+c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\GestionEmpleadoController.java
+c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\GestionProductoTiendaController.java
+c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\GestionPublicidadCanalController.java
+c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\PlantillaProyectoController.java
+c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\VerIndividualEmpleadoController.java
+c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\modelo\DepartamentoProduccion.java
+c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\modelo\DepartamentoCreativo.java
+c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\PlantillaVerController.java
+c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\modelo\Empleado.java
+c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\modelo\Proyecto.java
+c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\modelo\PersonaContacto.java
+c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\GestionClientesController.java
+c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\App.java
+c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\VerIndividualPTController.java
+c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\modelo\Bono.java
+c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\PlantillaIndividualController.java
+c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\GestionSegmentoController.java
+c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\VerIndividualPWController.java
+c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\VerIndividualRPController.java
+c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\modelo\Telefono.java
+c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\AgregarProyectoController.java
+c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\modelo\PublicidadAnuncioWeb.java
+c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\modelo\RolPago.java
+c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\modelo\Segmento.java
+c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\anadirEmpleadosController.java
+c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\InicioController.java
+c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\modelo\Publicidad.java
+c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\AnadirClienteController.java
+c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\modelo\ProductoTienda.java
+c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\SecondaryController.java
+c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\AnadirEmpleadoController.java
+c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\anadirClientesController.java
+c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\modelo\HorarioSegmento.java
+>>>>>>> f988b03f83b33ddda9cc195f59ce009cf4c18df4

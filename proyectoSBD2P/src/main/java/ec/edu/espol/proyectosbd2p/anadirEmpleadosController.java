@@ -6,7 +6,10 @@ package ec.edu.espol.proyectosbd2p;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TextField;
 
 /**
  * FXML Controller class
@@ -15,6 +18,17 @@ import javafx.fxml.Initializable;
  */
 public class anadirEmpleadosController implements Initializable {
 
+    @FXML
+    private TextField tfanadirNombreEmpresa;
+    @FXML
+    private TextField tfanadirDescrip;
+    @FXML
+    private TextField tfanadirDireccion;
+    @FXML
+    private TextField tfanadirSitioWeb;
+    @FXML
+    private TextField tfanadirPersonaContacto;
+
     /**
      * Initializes the controller class.
      */
@@ -22,5 +36,13 @@ public class anadirEmpleadosController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @FXML
+    private void regresarBtn(ActionEvent event) {
+    }
+
+    @FXML
+    private void guardarCambios(ActionEvent event) {
+    }
     
 }

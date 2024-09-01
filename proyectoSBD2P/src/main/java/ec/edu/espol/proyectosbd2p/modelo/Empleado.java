@@ -145,6 +145,30 @@ public class Empleado {
         Empleado other = (Empleado) obj;
         return Objects.equals(this.idEmpleado, other.idEmpleado);
     }
+
+    public String getId_dir_dep_creativo() {
+        return id_dir_dep_creativo;
+    }
+
+    public void setId_dir_dep_creativo(String id_dir_dep_creativo) {
+        this.id_dir_dep_creativo = id_dir_dep_creativo;
+    }
+
+    public String getId_dir_dep_prod() {
+        return id_dir_dep_prod;
+    }
+
+    public void setId_dir_dep_prod(String id_dir_dep_prod) {
+        this.id_dir_dep_prod = id_dir_dep_prod;
+    }
+
+    public String getId_dir_dep_finanzas() {
+        return id_dir_dep_finanzas;
+    }
+
+    public void setId_dir_dep_finanzas(String id_dir_dep_finanzas) {
+        this.id_dir_dep_finanzas = id_dir_dep_finanzas;
+    }
     
     
     

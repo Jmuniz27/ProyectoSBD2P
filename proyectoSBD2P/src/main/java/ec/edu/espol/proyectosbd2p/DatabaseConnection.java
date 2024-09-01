@@ -25,5 +25,15 @@ public class DatabaseConnection {
     public static Connection getConnection(){
         return connection;
     }
+    public static void closeConnection() {
+        if (connection != null) {
+            try {
+                connection.close();
+                System.out.println("Conexión cerrada exitosamente.");
+            } catch (SQLException e) {
+                System.out.println("Error al cerrar la conexión: " + e.getMessage());
+            }
+        }
+    }
 }
 

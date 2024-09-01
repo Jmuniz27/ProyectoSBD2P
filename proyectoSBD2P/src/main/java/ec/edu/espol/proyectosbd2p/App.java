@@ -18,10 +18,9 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         //scene = new Scene(loadFXML("inicio"), 1280, 800);
-        scene = new Scene(loadFXML("inicio"), 1280, 800);
+        scene = new Scene(loadFXML("usuarios"), 1280, 800);
         stage.setScene(scene);
         stage.show();
-        DatabaseConnection.conectaBase();
     }
 
     static void setRoot(String fxml) throws IOException {

@@ -4,7 +4,7 @@
  */
 package ec.edu.espol.proyectosbd2p;
 
-import ec.edu.espol.proyectosbd2p.modelo.Empleado;
+import ec.edu.espol.proyectosbd2p.modelo.PublicidadAnuncioCanal;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -25,7 +25,7 @@ import javafx.scene.text.Text;
  *
  * @author isabella
  */
-public class VerIndividualEmpleadoController implements Initializable {
+public class VerIndvidualPCController implements Initializable {
 
     @FXML
     private ImageView imgLogo;
@@ -38,48 +38,47 @@ public class VerIndividualEmpleadoController implements Initializable {
     @FXML
     private Button btnEliminar;
     
-    private Empleado empleado;
+    private PublicidadAnuncioCanal pc;
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        empleado = GestionEmpleadoController.empleadoEscogido;
+        pc = GestionPublicidadCanalController.pcEscogido;
         
         updateGrid();
         
         Image img1 = new Image("/imagenes/logo.jpg");
         imgLogo.setImage(img1);
-    }    
-
+        
+    }
+    
     private void updateGrid() {
         gridInfo.getChildren().clear();
         gridInfo.setVgap(60); 
         gridInfo.setHgap(60);
         gridInfo.setAlignment(Pos.CENTER);
-        VBox vbId = plantilla("ID Empleado",empleado.getIdEmpleado());
-        gridInfo.add(vbId, 0, 0);
-        VBox vbNom = plantilla("Nombre",empleado.getNombre());
-        gridInfo.add(vbNom, 1, 0);
-        VBox vbApe = plantilla("Apellido",empleado.getApellido());
-        gridInfo.add(vbApe, 2, 0);
-        VBox vbPues = plantilla("Puesto",empleado.getPuesto());
-        gridInfo.add(vbPues, 3, 0);
-        VBox vbSueldo = plantilla("Sueldo Base",empleado.getSueldoBase()+"");
-        gridInfo.add(vbSueldo, 0, 1);
-        VBox vbDir = plantilla("Dirección",empleado.getDireccion());
-        gridInfo.add(vbDir, 1, 1);
-        VBox vbCon = plantilla("Contraseña",empleado.getContrasena());
-        gridInfo.add(vbCon, 2, 1);
-        VBox vbDep = null;
-        if(empleado.getIdDepCreativo()!=null){
-            vbDep = plantilla("Departamento",empleado.getIdDepCreativo());
-        } else if(empleado.getIdDepFinanzas()!=null){
-            vbDep = plantilla("Departamento",empleado.getIdDepFinanzas());
-        } else{
-            vbDep = plantilla("Departamento",empleado.getIdDepProd());
-        }
-        gridInfo.add(vbDep, 3, 1);
+        VBox vbIdp = plantilla("ID Proyecto",pc.getIdProyecto());
+        gridInfo.add(vbIdp, 0, 0);
+        VBox vbRuc = plantilla("RUC del Cliente",pc.getRuc());
+        gridInfo.add(vbRuc, 1, 0);
+        VBox vbFac = plantilla("Número de Factura",pc.getNumFactura());
+        gridInfo.add(vbFac, 2, 0);
+        VBox vbTit = plantilla("Título",pc.getTitulo());
+        gridInfo.add(vbTit, 3, 0);
+        VBox vbPres = plantilla("Presupuesto",pc.getPresupuesto()+"");
+        gridInfo.add(vbPres, 4, 0);
+        VBox vbDescrip = plantilla("Descripción",pc.getDescripcion());
+        gridInfo.add(vbDescrip, 0, 1);
+        VBox vbFechaIni = plantilla("Fecha de Inicio",pc.getFechaInicio()+"");
+        gridInfo.add(vbFechaIni, 1, 1);
+        VBox vbFechaFin = plantilla("Fecha de Fin",pc.getFechaFin()+"");
+        gridInfo.add(vbFechaFin, 2, 1);
+        VBox vbDuracion = plantilla("Duración",pc.getDuracion()+"");
+        gridInfo.add(vbDuracion, 3, 1);
+        VBox vbComision = plantilla("Comisión",pc.getComisionAEmpresa()+"");
+        gridInfo.add(vbComision, 4, 1);
      }
     
     private VBox plantilla(String campo,String texto) {
@@ -103,7 +102,7 @@ public class VerIndividualEmpleadoController implements Initializable {
     @FXML
     private void regresar(ActionEvent event) {
         try{
-            App.setRoot("gestionEmpleado");
+            App.setRoot("gestionPublicidadCanal");
         } catch(IOException e){
             e.printStackTrace();
         }

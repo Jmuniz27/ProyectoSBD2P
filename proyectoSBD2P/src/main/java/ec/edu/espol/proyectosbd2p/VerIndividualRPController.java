@@ -4,7 +4,7 @@
  */
 package ec.edu.espol.proyectosbd2p;
 
-import ec.edu.espol.proyectosbd2p.modelo.Empleado;
+import ec.edu.espol.proyectosbd2p.modelo.RolPago;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -25,7 +25,7 @@ import javafx.scene.text.Text;
  *
  * @author isabella
  */
-public class VerIndividualEmpleadoController implements Initializable {
+public class VerIndividualRPController implements Initializable {
 
     @FXML
     private ImageView imgLogo;
@@ -38,13 +38,14 @@ public class VerIndividualEmpleadoController implements Initializable {
     @FXML
     private Button btnEliminar;
     
-    private Empleado empleado;
+    private RolPago rp;
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        empleado = GestionEmpleadoController.empleadoEscogido;
+        rp = GestionRolPagoController.rolPagoEscogido;
         
         updateGrid();
         
@@ -57,29 +58,13 @@ public class VerIndividualEmpleadoController implements Initializable {
         gridInfo.setVgap(60); 
         gridInfo.setHgap(60);
         gridInfo.setAlignment(Pos.CENTER);
-        VBox vbId = plantilla("ID Empleado",empleado.getIdEmpleado());
+        VBox vbId = plantilla("ID Pago",rp.getIdPago());
         gridInfo.add(vbId, 0, 0);
-        VBox vbNom = plantilla("Nombre",empleado.getNombre());
-        gridInfo.add(vbNom, 1, 0);
-        VBox vbApe = plantilla("Apellido",empleado.getApellido());
-        gridInfo.add(vbApe, 2, 0);
-        VBox vbPues = plantilla("Puesto",empleado.getPuesto());
-        gridInfo.add(vbPues, 3, 0);
-        VBox vbSueldo = plantilla("Sueldo Base",empleado.getSueldoBase()+"");
-        gridInfo.add(vbSueldo, 0, 1);
-        VBox vbDir = plantilla("Dirección",empleado.getDireccion());
-        gridInfo.add(vbDir, 1, 1);
-        VBox vbCon = plantilla("Contraseña",empleado.getContrasena());
-        gridInfo.add(vbCon, 2, 1);
-        VBox vbDep = null;
-        if(empleado.getIdDepCreativo()!=null){
-            vbDep = plantilla("Departamento",empleado.getIdDepCreativo());
-        } else if(empleado.getIdDepFinanzas()!=null){
-            vbDep = plantilla("Departamento",empleado.getIdDepFinanzas());
-        } else{
-            vbDep = plantilla("Departamento",empleado.getIdDepProd());
-        }
-        gridInfo.add(vbDep, 3, 1);
+        VBox vbIdEmp = plantilla("ID Empleado",rp.getIdEmpleado());
+        gridInfo.add(vbIdEmp, 1, 0);
+        VBox vbPago = plantilla("Pago Neto",rp.getPagoNeto()+"");
+        gridInfo.add(vbPago, 2, 0);
+        
      }
     
     private VBox plantilla(String campo,String texto) {
@@ -98,12 +83,11 @@ public class VerIndividualEmpleadoController implements Initializable {
             return null;
         }
     }
-        
 
     @FXML
     private void regresar(ActionEvent event) {
         try{
-            App.setRoot("gestionEmpleado");
+            App.setRoot("gestionRolPago");
         } catch(IOException e){
             e.printStackTrace();
         }

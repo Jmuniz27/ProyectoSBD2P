@@ -315,7 +315,7 @@ public class GestionSegmentoController implements Initializable {
                     vbSegmento.setOnMouseClicked(event -> {
                         segmentoEscogido = seg;
                         try{
-                            App.setRoot("verIndividualEmpleado");
+                            App.setRoot("verIndividualSegmento");
                         } catch(IOException e){
                             e.printStackTrace();
                         }

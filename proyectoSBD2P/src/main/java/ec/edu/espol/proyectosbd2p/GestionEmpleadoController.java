@@ -20,6 +20,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -123,7 +124,7 @@ public class GestionEmpleadoController implements Initializable {
     @FXML
     private void irInicio(ActionEvent event) {
         try{
-            App.setRoot("inicio");
+            App.setRoot("opcionesGeneral");
         } catch(IOException e){
             e.printStackTrace();
         }
@@ -131,49 +132,150 @@ public class GestionEmpleadoController implements Initializable {
 
     @FXML
     private void buscarFiltros(ActionEvent event) {
-        String id_empleado = "'%"+ tbIdEmpleado.getText() + "%'";
-        Set<Empleado> filtro1 = generarQuery("id_empleado", id_empleado);
-        String departamentoSeleccionado = cbDepartamento.getValue();
-        String columnaDepartamento = "";
-        Set<Empleado> filtroDepartamento = generarQueryTodo();
-        switch (departamentoSeleccionado) {
-            case "Creativo":
-                filtroDepartamento = generarQueryDepartamento("id_dep_creativo");
-                break;
-            case "Producción":
-                filtroDepartamento = generarQueryDepartamento("id_dep_prod");
-                break;
-            case "Finanzas":
-                filtroDepartamento = generarQueryDepartamento("id_dep_finanzas");
-                break;
-                
+        Set<Empleado> respuestas = generarQueryTodo();
+        System.out.println(respuestas);
+        boolean vacia = true;
+        String idEmpleado = "'" + tbIdEmpleado.getText() + "'";
+        if(!idEmpleado.equals("''")){
+            Set<Empleado> filtro1 = generarQuery("id_empleado", idEmpleado);
+            if(!filtro1.isEmpty()){
+                respuestas = interseccion(respuestas,filtro1);
+                if(respuestas.isEmpty()){
+                    vacia = true;
+                } else{
+                vacia = false;}
+            }
         }
-        filtro1.retainAll(filtroDepartamento);
-        
+
+        String departamentoSeleccionado = cbDepartamento.getValue();
+        Set<Empleado> filtroDepartamento = generarQueryTodo();
+        if (!departamentoSeleccionado.equals("Todos")) {
+            String columnaDepartamento = "";
+            switch (departamentoSeleccionado) {
+                case "Creativo":
+                    columnaDepartamento = "id_dep_creativo";
+                    break;
+                case "Producción":
+                    columnaDepartamento = "id_dep_prod";
+                    break;
+                case "Finanzas":
+                    columnaDepartamento = "id_dep_finanzas";
+                    break;
+            }
+            filtroDepartamento = generarQueryDepartamento(columnaDepartamento);
+            if(!filtroDepartamento.isEmpty()){
+                respuestas = interseccion(respuestas,filtroDepartamento);
+                if(respuestas.isEmpty()){
+                    vacia = true;
+                } else{
+                vacia = false;}
+            }
+        }
+
         String sueldoBase = tbSueldo.getText();
-        Set<Empleado> filtro2 = generarQuery("sueldoBase", sueldoBase);
-        String nombre = "'%" + tbNombre.getText() +"%'";
-        Set<Empleado> filtro3 = generarQuery("nombre",nombre);
-        String apellido = "'%" + tbApellido.getText() + "%'";
-        Set<Empleado> filtro4 = generarQuery("apellido", apellido);
-        String puesto = "'%"+tbPuesto.getText()+"%'";
-        Set<Empleado> filtro5 = generarQuery("puesto", puesto);
-        String direccion = "'%" +tbDireccion.getText() + "%'";
-        Set<Empleado> filtro6 = generarQuery("direccion", direccion);
-        filtro1.retainAll(filtro2);
-        filtro1.retainAll(filtro3);
-        filtro1.retainAll(filtro4);
-        filtro1.retainAll(filtro5);
-        filtro1.retainAll(filtro6);
-        listaMostrada = new ArrayList<>(filtro1);
-        System.out.println(listaMostrada);
-        if(filtro1.isEmpty()){
+        if (!sueldoBase.isEmpty()) {
+            Set<Empleado> filtro2 = generarQuery("sueldoBase", sueldoBase);
+            if(!filtro2.isEmpty()){
+                respuestas = interseccion(respuestas,filtro2);
+                if(respuestas.isEmpty()){
+                    vacia = true;
+                } else{
+                vacia = false;}
+            }
+        }
+
+        String nombre = "'" + tbNombre.getText() + "'";
+        if (!nombre.equals("''")) {
+            Set<Empleado> filtro3 = generarQuery("nombre", nombre);
+            if(!filtro3.isEmpty()){
+               respuestas = interseccion(respuestas,filtro3);
+               if(respuestas.isEmpty()){
+                    vacia = true;
+                } else{
+                vacia = false;}
+            }
+        }
+
+        String apellido = "'" + tbApellido.getText() + "'";
+        if (!apellido.equals("''")) {
+            Set<Empleado> filtro4 = generarQuery("apellido", apellido);
+            if(!filtro4.isEmpty()){
+                respuestas = interseccion(respuestas,filtro4);
+                if(respuestas.isEmpty()){
+                    vacia = true;
+                } else{
+                vacia = false;}
+            }
+        }
+
+        String puesto = "'" + tbPuesto.getText() + "'";
+        if (!puesto.equals("''")) {
+            Set<Empleado> filtro5 = generarQuery("puesto", puesto);
+            if(!filtro5.isEmpty()){
+                respuestas = interseccion(respuestas,filtro5);
+                if(respuestas.isEmpty()){
+                    vacia = true;
+                } else{
+                vacia = false;}
+            }
+        }
+
+        String direccion = "'" + tbDireccion.getText() + "'";
+        if (!direccion.equals("''")) {
+            Set<Empleado> filtro6 = generarQuery("direccion", direccion);
+            if(!filtro6.isEmpty()){
+                respuestas = interseccion(respuestas,filtro6);
+                if(respuestas.isEmpty()){
+                    vacia = true;
+                } else{
+                vacia = false;}
+            }
+        }
+
+        listaMostrada = new ArrayList<>(respuestas);
+        
+        if (vacia) {
+            App.mostrarAlerta("No existen empleados", "Error", "No existen empleados para su búsqueda. A continuación se muestran todos los empleados.", Alert.AlertType.ERROR);
             llenarTodoGrid();
         }
         currentPage = 1;
         updateGrid();
         updatePagination();
     }
+    
+    public Set<Empleado> interseccion(Set<Empleado> respuestas, Set<Empleado>  filtro){
+        Set<Empleado> nuevo = new HashSet<>();
+        for(Empleado e1: respuestas){
+            for(Empleado e2: filtro){
+                if(e1.getIdEmpleado().equals(e2.getIdEmpleado())){
+                    nuevo.add(e1);
+                }
+            }
+        }
+        return nuevo;
+    }
+
+    private Set<Empleado> generarQuery(String columna, String busqueda) {
+        Set<Empleado> empleados = new HashSet<>();
+        if (!busqueda.equals("")) {
+            try {
+                Connection connection = DatabaseConnection.getConnection();
+                if (connection != null) {
+                    Statement statement = connection.createStatement();
+                    String sql = "SELECT * FROM empleado WHERE " + columna + "=" + busqueda;
+                    ResultSet resultSet = statement.executeQuery(sql);
+                    System.out.println(sql);
+                    
+                    empleados = crearEmpleado(resultSet);
+                    System.out.println(empleados);
+                }
+            } catch (SQLException e) {
+                System.out.println("Error al ejecutar el query: " + e.getMessage());
+            }
+        }
+        return empleados;
+    }
+
 
     @FXML
     private void prevPag(ActionEvent event) {
@@ -189,36 +291,6 @@ public class GestionEmpleadoController implements Initializable {
             currentPage++;
             goToPage(currentPage);
         }
-    }
-    
-    public Set<Empleado> generarQuery(String columna, String busqueda){
-        Set<Empleado> empleados = new HashSet<>();
-        try {
-            // Obtener la conexión desde DatabaseConnection
-            Connection connection = DatabaseConnection.getConnection();
-            if (connection != null) {
-                Statement statement = connection.createStatement();
-                String sql = "SELECT * FROM empleado WHERE " + columna + "=" + busqueda;
-                ResultSet resultSet = statement.executeQuery(sql);
-
-                while (resultSet.next()) {
-                    String id_empleado = resultSet.getString("id_empleado");
-                    int sueldoBase = resultSet.getInt("sueldoBase");
-                    String nombre = resultSet.getString("nombre");
-                    String apellido = resultSet.getString("apellido");
-                    String puesto = resultSet.getString("puesto");
-                    String contrasena = resultSet.getString("contrasena");
-                    String direccion = resultSet.getString("direccion");
-                    String id_dep_creativo = resultSet.getString("id_dep_creativo");
-                    String id_dep_prod = resultSet.getString("id_dep_prod");
-                    String id_dep_finanzas = resultSet.getString("id_dep_finanzas");
-                    
-                }
-            }
-        } catch (SQLException e) {
-            System.out.println("Error al ejecutar el query: " + e.getMessage());
-        }
-        return empleados;
     }
 
     private void llenarTodoGrid() {
@@ -293,23 +365,7 @@ public class GestionEmpleadoController implements Initializable {
                 String sql = "SELECT * FROM empleado";
                 ResultSet resultSet = statement.executeQuery(sql);
 
-                while (resultSet.next()) {
-                    String id_empleado = resultSet.getString("id_empleado");
-                    int sueldoBase = resultSet.getInt("sueldoBase");
-                    String nombre = resultSet.getString("nombre");
-                    String apellido = resultSet.getString("apellido");
-                    String puesto = resultSet.getString("puesto");
-                    String contrasena = resultSet.getString("contrasena");
-                    String direccion = resultSet.getString("direccion");
-                    String id_dep_creativo = resultSet.getString("id_dep_creativo");
-                    String id_dep_prod = resultSet.getString("id_dep_prod");
-                    String id_dep_finanzas = resultSet.getString("id_dep_finanzas");
-                    String id_dir_dep_creativo = resultSet.getString("id_dir_dep_creativo");
-                    String id_dir_dep_prod = resultSet.getString("id_dir_dep_prod");
-                    String id_dir_dep_finanzas = resultSet.getString("id_dir_dep_finanzas");
-                    Empleado empleado = new Empleado(id_empleado, sueldoBase, nombre, apellido, puesto, contrasena, direccion, id_dep_creativo,id_dep_prod,id_dep_finanzas,id_dir_dep_creativo,id_dir_dep_prod, id_dir_dep_finanzas);
-                    empleados.add(empleado);
-                }
+                empleados = crearEmpleado(resultSet);
             }
         } catch (SQLException e) {
             System.out.println("Error al ejecutar el query: " + e.getMessage());
@@ -326,24 +382,7 @@ public class GestionEmpleadoController implements Initializable {
                 Statement statement = connection.createStatement();
                 String sql = "SELECT * FROM empleado WHERE " + dep + " IS NOT NULL";
                 ResultSet resultSet = statement.executeQuery(sql);
-
-                while (resultSet.next()) {
-                    String id_empleado = resultSet.getString("id_empleado");
-                    int sueldoBase = resultSet.getInt("sueldoBase");
-                    String nombre = resultSet.getString("nombre");
-                    String apellido = resultSet.getString("apellido");
-                    String puesto = resultSet.getString("puesto");
-                    String contrasenia = resultSet.getString("contrasena");
-                    String direccion = resultSet.getString("direccion");
-                    String id_dep_creativo = resultSet.getString("id_dep_creativo");
-                    String id_dep_prod = resultSet.getString("id_dep_prod");
-                    String id_dep_finanzas = resultSet.getString("id_dep_finanzas");
-                    String id_dir_dep_creativo = resultSet.getString("id_dir_dep_creativo");
-                    String id_dir_dep_prod = resultSet.getString("id_dir_dep_prod");
-                    String id_dir_dep_finanzas = resultSet.getString("id_dir_dep_finanzas");
-                    Empleado empleado = new Empleado(id_empleado, sueldoBase, nombre, apellido, puesto, contrasenia, direccion, id_dep_creativo,id_dep_prod,id_dep_finanzas,id_dir_dep_creativo,id_dir_dep_prod, id_dir_dep_finanzas);
-                    empleados.add(empleado);
-                }
+                empleados = crearEmpleado(resultSet);
             }
         } catch (SQLException e) {
             System.out.println("Error al ejecutar el query: " + e.getMessage());
@@ -392,5 +431,27 @@ public class GestionEmpleadoController implements Initializable {
         } catch(IOException e){
             e.printStackTrace();
         }
+    }
+    
+    public Set<Empleado> crearEmpleado(ResultSet resultSet) throws SQLException{
+        Set<Empleado> emps = new HashSet<>();
+        while (resultSet.next()) {
+            String id_empleado = resultSet.getString("id_empleado");
+            int sueldoBase = resultSet.getInt("sueldoBase");
+            String nombre = resultSet.getString("nombre");
+            String apellido = resultSet.getString("apellido");
+            String puesto = resultSet.getString("puesto");
+            String contrasenia = resultSet.getString("contrasena");
+            String direccion = resultSet.getString("direccion");
+            String id_dep_creativo = resultSet.getString("id_dep_creativo");
+            String id_dep_prod = resultSet.getString("id_dep_prod");
+            String id_dep_finanzas = resultSet.getString("id_dep_finanzas");
+            String id_dir_dep_creativo = resultSet.getString("id_dir_dep_creativo");
+            String id_dir_dep_prod = resultSet.getString("id_dir_dep_prod");
+            String id_dir_dep_finanzas = resultSet.getString("id_dir_dep_finanzas");
+            Empleado empleado = new Empleado(id_empleado, sueldoBase, nombre, apellido, puesto, contrasenia, direccion, id_dep_creativo,id_dep_prod,id_dep_finanzas,id_dir_dep_creativo,id_dir_dep_prod, id_dir_dep_finanzas);
+            emps.add(empleado);
+        }
+        return emps;
     }
 }

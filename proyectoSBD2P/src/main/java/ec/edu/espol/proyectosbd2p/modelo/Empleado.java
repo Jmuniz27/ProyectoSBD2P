@@ -4,6 +4,8 @@
  */
 package ec.edu.espol.proyectosbd2p.modelo;
 
+import java.util.Objects;
+
 /**
  *
  * @author zahid
@@ -126,6 +128,22 @@ public class Empleado {
 
     public void setIdDepFinanzas(String idDepFinanzas) {
         this.idDepFinanzas = idDepFinanzas;
+    }
+
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        Empleado other = (Empleado) obj;
+        return Objects.equals(this.idEmpleado, other.idEmpleado);
     }
     
     

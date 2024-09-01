@@ -4,33 +4,32 @@
  */
 package ec.edu.espol.proyectosbd2p;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.ResourceBundle;
+import java.util.Set;
+
+import ec.edu.espol.proyectosbd2p.modelo.Cliente;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
-import ec.edu.espol.proyectosbd2p.modelo.Cliente;
-import java.io.IOException;
-import java.util.Set;
-import java.util.HashSet;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Alert;
-import javafx.scene.image.Image;
 /**
  * FXML Controller class
  *
@@ -117,7 +116,7 @@ public class GestionClientesController implements Initializable {
     @FXML
     private void irInicio(ActionEvent event) {
         try{
-            App.setRoot("inicio");
+            App.setRoot("opcionesGeneral");
         } catch(IOException e){
             e.printStackTrace();
         }
@@ -135,7 +134,9 @@ public class GestionClientesController implements Initializable {
         
         String dir = "'%" + tbDireccion.getText() + "%'";
         Set<Cliente> filtro3 = generarQuery("direccion",dir);
-        filtro1.retainAll(filtro3);
+        if(!filtro3.isEmpty()){
+            filtro1.retainAll(filtro3);
+        }
         
         String sitioWeb = "'%" + tbSitioWeb.getText() + "%'";
         Set<Cliente> filtro4 = generarQuery("sitio_web",sitioWeb);

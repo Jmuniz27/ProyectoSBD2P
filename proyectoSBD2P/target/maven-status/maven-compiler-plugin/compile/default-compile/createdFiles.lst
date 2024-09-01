@@ -6,6 +6,7 @@ ec/edu/espol/proyectosbd2p/EditarEmpleadoController.class
 ec/edu/espol/proyectosbd2p/modelo/Telefono.class
 ec/edu/espol/proyectosbd2p/VerProyectoProductoController.class
 ec/edu/espol/proyectosbd2p/modelo/RolPago.class
+ec/edu/espol/proyectosbd2p/GestionSegmentoController.class
 ec/edu/espol/proyectosbd2p/SecondaryController.class
 ec/edu/espol/proyectosbd2p/AnadirEmpleadoController.class
 ec/edu/espol/proyectosbd2p/UsuariosController.class
@@ -21,6 +22,7 @@ ec/edu/espol/proyectosbd2p/EditarProyectoController.class
 ec/edu/espol/proyectosbd2p/VerIndividualClientesController.class
 ec/edu/espol/proyectosbd2p/modelo/Catalogo.class
 ec/edu/espol/proyectosbd2p/AnadirClienteController.class
+ec/edu/espol/proyectosbd2p/GestionPublicidadCanalController.class
 ec/edu/espol/proyectosbd2p/modelo/ProductoTienda.class
 ec/edu/espol/proyectosbd2p/modelo/PublicidadAnuncioWeb.class
 module-info.class
@@ -38,6 +40,7 @@ ec/edu/espol/proyectosbd2p/modelo/Proyecto.class
 ec/edu/espol/proyectosbd2p/AgregarProyectoController.class
 ec/edu/espol/proyectosbd2p/GestionProyectoController.class
 ec/edu/espol/proyectosbd2p/modelo/Segmento.class
+ec/edu/espol/proyectosbd2p/GestionRolPagoController.class
 ec/edu/espol/proyectosbd2p/EditarClienteController.class
 ec/edu/espol/proyectosbd2p/VerIndividualClienteController.class
 ec/edu/espol/proyectosbd2p/GestionClientesController.class

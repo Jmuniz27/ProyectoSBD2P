@@ -76,6 +76,11 @@ public class OpcionesGeneralController implements Initializable {
 
     @FXML
     private void clickEmpleado(ActionEvent event) {
+        try{
+            App.setRoot("gestionEmpleado");
+        } catch(IOException e){
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -88,6 +93,11 @@ public class OpcionesGeneralController implements Initializable {
 
     @FXML
     private void clickSegmento(ActionEvent event) {
+        try{
+            App.setRoot("gestionSegmento");
+        } catch(IOException e){
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -96,6 +106,11 @@ public class OpcionesGeneralController implements Initializable {
 
     @FXML
     private void clickRolPago(ActionEvent event) {
+        try{
+            App.setRoot("gestionRolPago");
+        } catch(IOException e){
+            e.printStackTrace();
+        }
     }
     
 }

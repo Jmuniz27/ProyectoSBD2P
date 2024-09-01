@@ -72,6 +72,11 @@ public class Cliente {
     public void setIdPersonaContacto(String idPersonaContacto) {
         this.idPersonaContacto = idPersonaContacto;
     }
+
+    @Override
+    public String toString() {
+        return "Cliente{" + "ruc=" + ruc + ", nombreEmpresa=" + nombreEmpresa + ", descripEmpresa=" + descripEmpresa + ", direccion=" + direccion + ", sitioWeb=" + sitioWeb + ", idPersonaContacto=" + idPersonaContacto + '}';
+    }
     
     
 }

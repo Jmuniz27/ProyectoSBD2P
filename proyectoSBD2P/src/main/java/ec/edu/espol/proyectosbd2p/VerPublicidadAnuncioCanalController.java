@@ -48,7 +48,7 @@ public class VerPublicidadAnuncioCanalController implements Initializable {
     private Button btnEditarAnuncioCanal;
     @FXML
     private Button btnEliminarAnuncioCanal;
-    Proyecto clienteEscogido = publicidadCanalController.clienteEscogido;
+    Proyecto clienteEscogido = GestionPublicidadCanalController.pcEscogido;
     /**
      * Initializes the controller class.
      */

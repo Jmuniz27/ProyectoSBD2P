@@ -86,7 +86,7 @@ public class OpcionesGeneralController implements Initializable {
     @FXML
     private void clickPubliCanal(ActionEvent event) {
         try{
-            App.setRoot("publicidadCanal");
+            App.setRoot("gestionPublicidadCanal");
         } catch(IOException e){
             e.printStackTrace();
         }
@@ -94,6 +94,11 @@ public class OpcionesGeneralController implements Initializable {
 
     @FXML
     private void clickPubliWeb(ActionEvent event) {
+        try{
+            App.setRoot("gestionPublicidadWeb");
+        } catch(IOException e){
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -107,6 +112,11 @@ public class OpcionesGeneralController implements Initializable {
 
     @FXML
     private void clickEnTienda(ActionEvent event) {
+        try{
+            App.setRoot("gestionProductoTienda");
+        } catch(IOException e){
+            e.printStackTrace();
+        }
     }
 
     @FXML

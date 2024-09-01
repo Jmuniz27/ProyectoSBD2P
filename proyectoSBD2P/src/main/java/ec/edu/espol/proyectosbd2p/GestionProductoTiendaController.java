@@ -4,9 +4,7 @@
  */
 package ec.edu.espol.proyectosbd2p;
 
-import static ec.edu.espol.proyectosbd2p.GestionEmpleadoController.empleadoEscogido;
-import ec.edu.espol.proyectosbd2p.modelo.Empleado;
-import ec.edu.espol.proyectosbd2p.modelo.Segmento;
+import ec.edu.espol.proyectosbd2p.modelo.ProductoTienda;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -40,7 +38,7 @@ import javafx.scene.text.Text;
  *
  * @author isabella
  */
-public class GestionSegmentoController implements Initializable {
+public class GestionProductoTiendaController implements Initializable {
 
     @FXML
     private ImageView imgLogo;
@@ -55,11 +53,7 @@ public class GestionSegmentoController implements Initializable {
     @FXML
     private TextField tbTitulo;
     @FXML
-    private TextField tbRating;
-    @FXML
     private TextField tbPresupuesto;
-    @FXML
-    private TextField tbDuracion;
     @FXML
     private TextField tbComision;
     @FXML
@@ -86,24 +80,29 @@ public class GestionSegmentoController implements Initializable {
     private Label lblNumPagina1;
     @FXML
     private Label lblNumPagina2;
+    @FXML
+    private TextField tbCategoria;
+    @FXML
+    private TextField tbPrecio;
     
-    private ArrayList<Segmento> listaMostrada;
+    private ArrayList<ProductoTienda> listaMostrada;
     
     private int currentPage = 1;
     
-    private Segmento currentNode;
+    private ProductoTienda currentNode;
     
-    public static Segmento segmentoEscogido;
+    public static ProductoTienda ptEscogido;
     
     private static final int ITEMS_PER_PAGE = 4;
     
     private int totalPages;
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        segmentoEscogido = null;
+        ptEscogido = null;
         Image img1 = new Image("/imagenes/logo.jpg");
         imgLogo.setImage(img1);
         llenarTodoGrid();
@@ -111,9 +110,6 @@ public class GestionSegmentoController implements Initializable {
         updatePagination();
     }    
 
-    @FXML
-    private void anadirSegmento(ActionEvent event) {
-    }
 
     @FXML
     private void regresar(ActionEvent event) {
@@ -126,12 +122,12 @@ public class GestionSegmentoController implements Initializable {
 
     @FXML
     private void buscarFiltros(ActionEvent event) {
-        Set<Segmento> respuestas = generarQueryTodo();
+        Set<ProductoTienda> respuestas = generarQueryTodo();
         System.out.println(respuestas);
         boolean vacia = true;
         String idProyecto = "'" + tbIdProyecto.getText() + "'";
         if(!idProyecto.equals("''")){
-            Set<Segmento> filtro1 = generarQuery("id_proyecto", idProyecto);
+            Set<ProductoTienda> filtro1 = generarQuery("id_proyecto", idProyecto);
             if(!filtro1.isEmpty()){
                 respuestas = interseccion(respuestas,filtro1);
                 if(respuestas.isEmpty()){
@@ -143,7 +139,7 @@ public class GestionSegmentoController implements Initializable {
 
         String RUC = "'" + tbRuc.getText() + "'";
         if (!RUC.isEmpty()) {
-            Set<Segmento> filtro2 = generarQuery("RUC", RUC);
+            Set<ProductoTienda> filtro2 = generarQuery("RUC", RUC);
             if(!filtro2.isEmpty()){
                 respuestas = interseccion(respuestas,filtro2);
                 if(respuestas.isEmpty()){
@@ -155,7 +151,7 @@ public class GestionSegmentoController implements Initializable {
 
         String titulo = "'" + tbTitulo.getText() + "'";
         if (!titulo.equals("''")) {
-            Set<Segmento> filtro3 = generarQuery("titulo", titulo);
+            Set<ProductoTienda> filtro3 = generarQuery("titulo", titulo);
             if(!filtro3.isEmpty()){
                respuestas = interseccion(respuestas,filtro3);
                if(respuestas.isEmpty()){
@@ -165,9 +161,9 @@ public class GestionSegmentoController implements Initializable {
             }
         }
 
-        String rating = "'" + tbRating.getText() + "'";
-        if (!rating.equals("''")) {
-            Set<Segmento> filtro4 = generarQuery("rating", rating);
+        String categoria = "'" + tbCategoria.getText() + "'";
+        if (!categoria.equals("''")) {
+            Set<ProductoTienda> filtro4 = generarQuery("categoria", categoria);
             if(!filtro4.isEmpty()){
                 respuestas = interseccion(respuestas,filtro4);
                 if(respuestas.isEmpty()){
@@ -177,9 +173,9 @@ public class GestionSegmentoController implements Initializable {
             }
         }
 
-        String duracion = tbDuracion.getText();
-        if (!duracion.equals("")) {
-            Set<Segmento> filtro5 = generarQuery("duracion", duracion);
+        String precio = tbPrecio.getText();
+        if (!precio.equals("")) {
+            Set<ProductoTienda> filtro5 = generarQuery("precio", precio);
             if(!filtro5.isEmpty()){
                 respuestas = interseccion(respuestas,filtro5);
                 if(respuestas.isEmpty()){
@@ -191,7 +187,7 @@ public class GestionSegmentoController implements Initializable {
 
         String presupuesto =  tbPresupuesto.getText();
         if (!presupuesto.equals("")) {
-            Set<Segmento> filtro6 = generarQuery("presupuesto", presupuesto);
+            Set<ProductoTienda> filtro6 = generarQuery("presupuesto", presupuesto);
             if(!filtro6.isEmpty()){
                 respuestas = interseccion(respuestas,filtro6);
                 if(respuestas.isEmpty()){
@@ -203,7 +199,7 @@ public class GestionSegmentoController implements Initializable {
         
         String comision = tbComision.getText();
         if (!comision.equals("''")) {
-            Set<Segmento> filtro7 = generarQuery("comision_a_empresa", comision);
+            Set<ProductoTienda> filtro7 = generarQuery("comision_a_empresa", comision);
             if(!filtro7.isEmpty()){
                respuestas = interseccion(respuestas,filtro7);
                if(respuestas.isEmpty()){
@@ -215,7 +211,7 @@ public class GestionSegmentoController implements Initializable {
         
         String descripcion = "'" + tbDescripcion.getText() + "'";
         if (!descripcion.equals("''")) {
-            Set<Segmento> filtro8 = generarQuery("descripcion", descripcion);
+            Set<ProductoTienda> filtro8 = generarQuery("descripcion", descripcion);
             if(!filtro8.isEmpty()){
                respuestas = interseccion(respuestas,filtro8);
                if(respuestas.isEmpty()){
@@ -228,7 +224,7 @@ public class GestionSegmentoController implements Initializable {
         if (dpFechaInicio.getValue() != null) {
             String fechaInicio = "'" + dpFechaInicio.getValue().format(formatter) + "'";
             if (!fechaInicio.equals("''")) {
-                Set<Segmento> filtro9 = generarQuery("fechaInicio", fechaInicio);
+                Set<ProductoTienda> filtro9 = generarQuery("fechaInicio", fechaInicio);
                 if(!filtro9.isEmpty()){
                    respuestas = interseccion(respuestas,filtro9);
                    if(respuestas.isEmpty()){
@@ -243,7 +239,7 @@ public class GestionSegmentoController implements Initializable {
             
             String fechaFin = "'" + dpFechaFin.getValue().format(formatter) + "'";
             if (!fechaFin.equals("''")) {
-                Set<Segmento> filtro10 = generarQuery("fechaFin", fechaFin);
+                Set<ProductoTienda> filtro10 = generarQuery("fechaFin", fechaFin);
                 if(!filtro10.isEmpty()){
                    respuestas = interseccion(respuestas,filtro10);
                    if(respuestas.isEmpty()){
@@ -258,21 +254,20 @@ public class GestionSegmentoController implements Initializable {
         listaMostrada = new ArrayList<>(respuestas);
         
         if (vacia) {
-            App.mostrarAlerta("No existen segmentos", "Error", "No existen segmentos para su búsqueda. A continuación se muestran todos los segmentos.", Alert.AlertType.ERROR);
+            App.mostrarAlerta("No existen productos tienda", "Error", "No existen productos tienda para su búsqueda. A continuación se muestran todos los productos tienda.", Alert.AlertType.ERROR);
             llenarTodoGrid();
         }
         currentPage = 1;
         updateGrid();
         updatePagination();
-        
     }
     
-    public Set<Segmento> interseccion(Set<Segmento> respuestas, Set<Segmento>  filtro){
-        Set<Segmento> nuevo = new HashSet<>();
-        for(Segmento s1: respuestas){
-            for(Segmento s2: filtro){
-                if(s1.getIdProyecto().equals(s2.getIdProyecto())){
-                    nuevo.add(s1);
+    public Set<ProductoTienda> interseccion(Set<ProductoTienda> respuestas, Set<ProductoTienda>  filtro){
+        Set<ProductoTienda> nuevo = new HashSet<>();
+        for(ProductoTienda p1: respuestas){
+            for(ProductoTienda p2: filtro){
+                if(p1.getIdProyecto().equals(p2.getIdProyecto())){
+                    nuevo.add(p1);
                 }
             }
         }
@@ -294,33 +289,33 @@ public class GestionSegmentoController implements Initializable {
             goToPage(currentPage);
         }
     }
-
+    
     private void llenarTodoGrid() {
-        Set<Segmento> set = generarQueryTodo();
+        Set<ProductoTienda> set = generarQueryTodo();
         listaMostrada = new ArrayList<>(set);
     }
 
     private void updateGrid() {
         gridClientes.getChildren().clear();
         if (!listaMostrada.isEmpty()) {
-            Segmento tempNode = listaMostrada.get(0);
+            ProductoTienda tempNode = listaMostrada.get(0);
             int startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
             for (int i = 0; i < startIndex && tempNode != null; i++) {
                 tempNode = listaMostrada.get(i);
             }
             for (int i = 0; i < 2 && tempNode != null; i++) {
                 for (int j = 0; j < 2 && tempNode != null; j++) {
-                    VBox vbSegmento = plantillaSegmento(tempNode);
-                    Segmento seg = tempNode;
-                    vbSegmento.setOnMouseClicked(event -> {
-                        segmentoEscogido = seg;
+                    VBox vbProductoTienda = plantillaProductoTienda(tempNode);
+                    ProductoTienda pt = tempNode;
+                    vbProductoTienda.setOnMouseClicked(event -> {
+                        ptEscogido = pt;
                         try{
                             App.setRoot("verIndividualEmpleado");
                         } catch(IOException e){
                             e.printStackTrace();
                         }
                     });
-                    gridClientes.add(vbSegmento, j, i);
+                    gridClientes.add(vbProductoTienda, j, i);
                     if(listaMostrada.indexOf(tempNode)+1<listaMostrada.size()){
                         tempNode = listaMostrada.get(listaMostrada.indexOf(tempNode)+1);
                     } else{
@@ -329,7 +324,7 @@ public class GestionSegmentoController implements Initializable {
                 }
             }
         } else {
-            System.out.println("La lista de clientes está vacía.");
+            System.out.println("La lista de Producto Tienda está vacía.");
         }
         
     }
@@ -371,74 +366,72 @@ public class GestionSegmentoController implements Initializable {
         updatePagination();
     }
     
-    private VBox plantillaSegmento(Segmento seg) {
+    private VBox plantillaProductoTienda(ProductoTienda pt) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("plantillaIndividual.fxml"));
-            VBox vbSegmento = loader.load();
-            ImageView planImg = (ImageView) vbSegmento.lookup("#planImg");
-            Text planName = (Text) vbSegmento.lookup("#planName");
-            Label planId = (Label) vbSegmento.lookup("#planId");
+            VBox vbProductoTienda = loader.load();
+            ImageView planImg = (ImageView) vbProductoTienda.lookup("#planImg");
+            Text planName = (Text) vbProductoTienda.lookup("#planName");
+            Label planId = (Label) vbProductoTienda.lookup("#planId");
             
             Image image = new Image("imagenes/user.png");
             planImg.setImage(image);
             
-            planName.setText(seg.getTitulo());
-            planId.setText(seg.getIdProyecto());
+            planName.setText(pt.getTitulo());
+            planId.setText(pt.getIdProyecto());
 
-            return vbSegmento;
+            return vbProductoTienda;
         } catch (IOException e) {
             e.printStackTrace();
             return null;
         }
     }
-
-    private Set<Segmento> generarQueryTodo() {
-        Set<Segmento> segmentos = new HashSet<>();
+    private Set<ProductoTienda> generarQueryTodo() {
+        Set<ProductoTienda> pts = new HashSet<>();
         try {
             // Obtener la conexión desde DatabaseConnection
             Connection connection = DatabaseConnection.getConnection();
             if (connection != null) {
                 Statement statement = connection.createStatement();
-                String sql = "SELECT * FROM segmento";
+                String sql = "SELECT * FROM producto_tienda";
                 ResultSet resultSet = statement.executeQuery(sql);
 
-                segmentos = crearSegmento(resultSet);
+                pts = crearProductoTienda(resultSet);
             }
         } catch (SQLException e) {
             System.out.println("Error al ejecutar el query: " + e.getMessage());
         }
-        return segmentos;
+        return pts;
     }
-    private Set<Segmento> generarQuery(String columna, String busqueda) {
-        Set<Segmento> segmentos = new HashSet<>();
+    private Set<ProductoTienda> generarQuery(String columna, String busqueda) {
+        Set<ProductoTienda> pts = new HashSet<>();
         if (!busqueda.equals("")) {
             try {
                 Connection connection = DatabaseConnection.getConnection();
                 if (connection != null) {
                     Statement statement = connection.createStatement();
-                    String sql = "SELECT * FROM segmento WHERE " + columna + "=" + busqueda;
+                    String sql = "SELECT * FROM producto_tienda WHERE " + columna + "=" + busqueda;
                     ResultSet resultSet = statement.executeQuery(sql);
                     System.out.println(sql);
                     
-                    segmentos = crearSegmento(resultSet);
-                    System.out.println(segmentos);
+                    pts = crearProductoTienda(resultSet);
+                    System.out.println(pts);
                 }
             } catch (SQLException e) {
                 System.out.println("Error al ejecutar el query: " + e.getMessage());
             }
         }
-        return segmentos;
+        return pts;
     }
 
-    private Set<Segmento> crearSegmento(ResultSet resultSet) throws SQLException {
-        Set<Segmento> segmentos = new HashSet<>();
+    private Set<ProductoTienda> crearProductoTienda(ResultSet resultSet) throws SQLException {
+        Set<ProductoTienda> pts = new HashSet<>();
         while (resultSet.next()) {
             String id_proyecto = resultSet.getString("id_proyecto");
             String RUC = resultSet.getString("RUC");
             String num_factura = resultSet.getString("num_factura");
-            String rating = resultSet.getString("rating");
-            int duracion = resultSet.getInt("duracion");
-            boolean estado = resultSet.getBoolean("estado");
+            String categoria = resultSet.getString("categoria");
+            int precio = resultSet.getInt("precio");
             String titulo = resultSet.getString("titulo");
             int presupuesto = resultSet.getInt("presupuesto");
             String descripcion = resultSet.getString("descripcion");
@@ -446,11 +439,13 @@ public class GestionSegmentoController implements Initializable {
             Date fecha_Fin = resultSet.getDate("fecha_Fin");
             String id_dep_prod = resultSet.getString("id_dep_prod");
             Double comision_a_empresa = resultSet.getDouble("comision_a_empresa");
-            Segmento segmento = new Segmento(id_proyecto, RUC, num_factura, rating, duracion, estado, titulo, presupuesto,descripcion,fecha_inicio,fecha_Fin,id_dep_prod, comision_a_empresa);
-            segmentos.add(segmento);
+            ProductoTienda segmento = new ProductoTienda(id_proyecto, RUC, num_factura, categoria, precio, titulo, presupuesto,descripcion,fecha_inicio,fecha_Fin,id_dep_prod, comision_a_empresa);
+            pts.add(segmento);
         }
-        return segmentos;
+        return pts;
     }
-    
+    @FXML
+    private void anadirProducto(ActionEvent event) {
+    }
     
 }

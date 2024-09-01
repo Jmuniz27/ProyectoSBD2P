@@ -19,6 +19,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -122,6 +123,56 @@ public class GestionRolPagoController implements Initializable {
 
     @FXML
     private void buscarFiltros(ActionEvent event) {
+        Set<RolPago> respuestas = generarQueryTodo();
+        System.out.println(respuestas);
+        boolean vacia = true;
+        String idPago = "'" + tbIdRolPago.getText() + "'";
+        if(!idPago.equals("''")){
+            Set<RolPago> filtro1 = generarQuery("id_pago", idPago);
+            if(!filtro1.isEmpty()){
+                respuestas = interseccion(respuestas,filtro1);
+                if(respuestas.isEmpty()){
+                    vacia = true;
+                } else{
+                vacia = false;}
+            }
+        }
+        
+        String idEmpleado = "'" + tbIdEmpleado.getText() + "'";
+        if(!idEmpleado.equals("''")){
+            Set<RolPago> filtro2 = generarQuery("id_empleado", idEmpleado);
+            if(!filtro2.isEmpty()){
+                respuestas = interseccion(respuestas,filtro2);
+                if(respuestas.isEmpty()){
+                    vacia = true;
+                } else{
+                vacia = false;}
+            }
+        }
+        
+        String precioNeto = tbPrecioNeto.getText();
+        if(!precioNeto.equals("")){
+            Set<RolPago> filtro3= generarQuery("precio_neto", precioNeto);
+            if(!filtro3.isEmpty()){
+                respuestas = interseccion(respuestas,filtro3);
+                if(respuestas.isEmpty()){
+                    vacia = true;
+                } else{
+                vacia = false;}
+            }
+        }
+        
+        listaMostrada = new ArrayList<>(respuestas);
+        
+        if (vacia) {
+            App.mostrarAlerta("No existen roles de pago", "Error", "No existen roles de pago para su búsqueda. A continuación se muestran todos los roles de pago.", Alert.AlertType.ERROR);
+            llenarTodoGrid();
+        }
+        currentPage = 1;
+        updateGrid();
+        updatePagination();
+        
+        
     }
 
     @FXML

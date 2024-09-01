@@ -21,7 +21,7 @@ public class Empleado {
     private String idDepProd;
     private String idDepFinanzas;
 
-    public Empleado(String idEmpleado, int sueldoBase, String nombre, String apellido, String puesto, String contrasena, String direccion, String idSupervisor, String idDepCreativo, String idDepProd, String idDepFinanzas) {
+    public Empleado(String idEmpleado, int sueldoBase, String nombre, String apellido, String puesto, String contrasena, String direccion, String idDepCreativo, String idDepProd, String idDepFinanzas) {
         this.idEmpleado = idEmpleado;
         this.sueldoBase = sueldoBase;
         this.nombre = nombre;
@@ -29,7 +29,6 @@ public class Empleado {
         this.puesto = puesto;
         this.contrasena = contrasena;
         this.direccion = direccion;
-        this.idSupervisor = idSupervisor;
         this.idDepCreativo = idDepCreativo;
         this.idDepProd = idDepProd;
         this.idDepFinanzas = idDepFinanzas;

@@ -186,13 +186,12 @@ public class GestionEmpleadoController implements Initializable {
                     String nombre = resultSet.getString("nombre");
                     String apellido = resultSet.getString("apellido");
                     String puesto = resultSet.getString("puesto");
-                    String contrasenia = resultSet.getString("contrasenia");
+                    String contrasena = resultSet.getString("contrasena");
                     String direccion = resultSet.getString("direccion");
-                    String idSupervisor = resultSet.getString("idSupervisor");
                     String id_dep_creativo = resultSet.getString("id_dep_creativo");
                     String id_dep_prod = resultSet.getString("id_dep_prod");
                     String id_dep_finanzas = resultSet.getString("id_dep_finanzas");
-                    Empleado empleado = new Empleado(id_empleado, sueldoBase, nombre, apellido, puesto, contrasenia, direccion, idSupervisor, id_dep_creativo,id_dep_prod,id_dep_finanzas);
+                    Empleado empleado = new Empleado(id_empleado, sueldoBase, nombre, apellido, puesto, contrasena, direccion, id_dep_creativo,id_dep_prod,id_dep_finanzas);
                     empleados.add(empleado);
                 }
             }
@@ -280,13 +279,12 @@ public class GestionEmpleadoController implements Initializable {
                     String nombre = resultSet.getString("nombre");
                     String apellido = resultSet.getString("apellido");
                     String puesto = resultSet.getString("puesto");
-                    String contrasenia = resultSet.getString("contrasenia");
+                    String contrasena = resultSet.getString("contrasena");
                     String direccion = resultSet.getString("direccion");
-                    String idSupervisor = resultSet.getString("idSupervisor");
                     String id_dep_creativo = resultSet.getString("id_dep_creativo");
                     String id_dep_prod = resultSet.getString("id_dep_prod");
                     String id_dep_finanzas = resultSet.getString("id_dep_finanzas");
-                    Empleado empleado = new Empleado(id_empleado, sueldoBase, nombre, apellido, puesto, contrasenia, direccion, idSupervisor, id_dep_creativo,id_dep_prod,id_dep_finanzas);
+                    Empleado empleado = new Empleado(id_empleado, sueldoBase, nombre, apellido, puesto, contrasena, direccion, id_dep_creativo,id_dep_prod,id_dep_finanzas);
                     empleados.add(empleado);
                 }
             }

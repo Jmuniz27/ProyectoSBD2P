@@ -39,7 +39,7 @@
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="500.0" spacing="50.0">
                      <children>
-                        <Button fx:id="btnAnadir" mnemonicParsing="false" onAction="#anadirRolPago" prefHeight="55.0" prefWidth="230.0" style="-fx-background-color: f96a17; -fx-background-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);" text="Añadir Rol de Pago" textFill="WHITE">
+                        <Button fx:id="btnAnadir" mnemonicParsing="false" onAction="#anadirRolPago" prefHeight="55.0" prefWidth="200.0" style="-fx-background-color: f96a17; -fx-background-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);" text="Añadir Rol de Pago" textFill="WHITE">
                            <font>
                               <Font name="Arial Rounded MT Bold" size="18.0" />
                            </font>
@@ -88,7 +88,7 @@
                                           <Font name="Arial Rounded MT Bold" size="12.0" />
                                        </font>
                                     </Text>
-                                    <TextField fx:id="tbIdRolPago" prefWidth="152.0" promptText="RUC" text="ID">
+                                    <TextField fx:id="tbIdRolPago" prefWidth="152.0" promptText="ID Rol de Pago">
                                        <cursor>
                                           <Cursor fx:constant="TEXT" />
                                        </cursor>
@@ -109,7 +109,7 @@
                                           <Font name="Arial Rounded MT Bold" size="12.0" />
                                        </font>
                                     </Text>
-                                    <TextField fx:id="tbPrecioNeto" prefWidth="152.0" promptText="Dirección" text="Precio neto">
+                                    <TextField fx:id="tbPrecioNeto" prefWidth="152.0" promptText="Precio neto">
                                        <cursor>
                                           <Cursor fx:constant="TEXT" />
                                        </cursor>
@@ -130,7 +130,7 @@
                                           <Font name="Arial Rounded MT Bold" size="12.0" />
                                        </font>
                                     </Text>
-                                    <TextField fx:id="tbIdEmpleado" prefWidth="152.0" promptText="Nombre de la empresa" text="ID">
+                                    <TextField fx:id="tbIdEmpleado" prefWidth="152.0" promptText="ID Empleado">
                                        <cursor>
                                           <Cursor fx:constant="TEXT" />
                                        </cursor>

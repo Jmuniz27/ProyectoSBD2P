@@ -71,7 +71,7 @@
                <children>
                   <HBox alignment="CENTER" prefHeight="51.0" prefWidth="410.0">
                      <children>
-                        <Text fill="#070707" lineSpacing="5.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Búsqueda de empleados" textAlignment="CENTER" wrappingWidth="313.46739196777344">
+                        <Text fill="#f96a17" lineSpacing="5.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Búsqueda de empleados" textAlignment="CENTER" wrappingWidth="313.46739196777344">
                            <font>
                               <Font name="Arial Rounded MT Bold" size="24.0" />
                            </font>

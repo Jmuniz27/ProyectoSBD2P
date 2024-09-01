@@ -135,7 +135,7 @@
                                           <Font name="Arial Rounded MT Bold" size="12.0" />
                                        </font>
                                     </Text>
-                                    <TextField fx:id="tbRating" prefWidth="152.0" promptText="Apellido" text="Rating">
+                                    <TextField fx:id="tbRating" prefWidth="152.0" promptText="Rating">
                                        <cursor>
                                           <Cursor fx:constant="TEXT" />
                                        </cursor>
@@ -149,7 +149,7 @@
                                           <Font name="Arial Rounded MT Bold" size="12.0" />
                                        </font>
                                     </Text>
-                                    <TextField fx:id="tbPresupuesto" prefWidth="152.0" promptText="Sueldo" text="Presupuesto">
+                                    <TextField fx:id="tbPresupuesto" prefWidth="152.0" promptText="Presupuesto">
                                        <cursor>
                                           <Cursor fx:constant="TEXT" />
                                        </cursor>
@@ -163,7 +163,7 @@
                                           <Font name="Arial Rounded MT Bold" size="12.0" />
                                        </font>
                                     </Text>
-                                    <TextField fx:id="tbDuracion" prefWidth="152.0" promptText="Direccion" text="Duración">
+                                    <TextField fx:id="tbDuracion" prefWidth="152.0" promptText="Duración">
                                        <cursor>
                                           <Cursor fx:constant="TEXT" />
                                        </cursor>
@@ -181,7 +181,7 @@
                                           <Font name="Arial Rounded MT Bold" size="12.0" />
                                        </font>
                                     </Text>
-                                    <TextField fx:id="tbComision" prefWidth="152.0" promptText="Sueldo" text="Comisión">
+                                    <TextField fx:id="tbComision" prefWidth="152.0" promptText="Comisión">
                                        <cursor>
                                           <Cursor fx:constant="TEXT" />
                                        </cursor>
@@ -195,7 +195,7 @@
                                           <Font name="Arial Rounded MT Bold" size="12.0" />
                                        </font>
                                     </Text>
-                                    <TextField fx:id="tbDescripcion" prefWidth="152.0" promptText="Direccion" text="Descripción">
+                                    <TextField fx:id="tbDescripcion" prefWidth="152.0" promptText="Descripción">
                                        <cursor>
                                           <Cursor fx:constant="TEXT" />
                                        </cursor>

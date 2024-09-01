@@ -6,15 +6,26 @@ package ec.edu.espol.proyectosbd2p;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 
 /**
  * FXML Controller class
  *
  * @author isabella
  */
-public class GestionPublicidadCanalController implements Initializable {
+public class PlantillaProyectoController implements Initializable {
+
+    @FXML
+    private ImageView planImg;
+    @FXML
+    private Text planName;
+    @FXML
+    private Label planId;
 
     /**
      * Initializes the controller class.
@@ -22,6 +33,7 @@ public class GestionPublicidadCanalController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
+        // TODO
     }    
     
 }

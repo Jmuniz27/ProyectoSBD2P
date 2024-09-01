@@ -3,7 +3,9 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -17,7 +19,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.proyectosbd2p.GestionClientesController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.proyectosbd2p.publicidadCanalController">
    <top>
       <VBox alignment="CENTER" prefHeight="150.0" prefWidth="1280.0" BorderPane.alignment="CENTER">
          <children>
@@ -39,7 +41,7 @@
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="500.0" spacing="50.0">
                      <children>
-                        <Button fx:id="btnAnadir" mnemonicParsing="false" onAction="#anadirCliente" prefHeight="55.0" prefWidth="200.0" style="-fx-background-color: f96a17; -fx-background-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);" text="Añadir Cliente" textFill="WHITE">
+                        <Button fx:id="btnAnadir" alignment="CENTER" mnemonicParsing="false" onAction="#anadirCliente" prefHeight="55.0" prefWidth="200.0" style="-fx-background-color: f96a17; -fx-background-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);" text="Añadir Publicidad" textFill="WHITE">
                            <font>
                               <Font name="Arial Rounded MT Bold" size="18.0" />
                            </font>
@@ -47,7 +49,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button fx:id="botonInicio1" mnemonicParsing="false" onAction="#irInicio" prefHeight="55.0" prefWidth="200.0" style="-fx-background-color: f96a17; -fx-background-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);" text="Regresar" textFill="WHITE">
+                        <Button fx:id="botonInicio1" alignment="CENTER" mnemonicParsing="false" onAction="#irInicio" prefHeight="55.0" prefWidth="200.0" style="-fx-background-color: f96a17; -fx-background-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);" text="Inicio" textFill="WHITE">
                            <font>
                               <Font name="Arial Rounded MT Bold" size="18.0" />
                            </font>
@@ -70,7 +72,7 @@
                <children>
                   <HBox alignment="CENTER" prefHeight="51.0" prefWidth="410.0">
                      <children>
-                        <Text fill="#f96a17" lineSpacing="5.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Búsqueda de clientes" textAlignment="CENTER" wrappingWidth="313.46739196777344">
+                        <Text fill="#f96a17" lineSpacing="5.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Búsqueda de Publicidad Canal" textAlignment="CENTER" wrappingWidth="313.46739196777344">
                            <font>
                               <Font name="Arial Rounded MT Bold" size="24.0" />
                            </font>
@@ -83,12 +85,12 @@
                            <children>
                               <VBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="170.0" spacing="20.0">
                                  <children>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="RUC:">
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ID:">
                                        <font>
                                           <Font name="Arial Rounded MT Bold" size="12.0" />
                                        </font>
                                     </Text>
-                                    <TextField fx:id="tbRuc" prefWidth="152.0" promptText="RUC">
+                                    <TextField fx:id="tbID" prefWidth="152.0" promptText="ID">
                                        <cursor>
                                           <Cursor fx:constant="TEXT" />
                                        </cursor>
@@ -100,50 +102,12 @@
                               </VBox>
                               <VBox alignment="CENTER_LEFT" prefWidth="170.0" spacing="20.0">
                                  <children>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre de la empresa:">
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Titulo:">
                                        <font>
                                           <Font name="Arial Rounded MT Bold" size="12.0" />
                                        </font>
                                     </Text>
-                                    <TextField fx:id="tbNombreEmpresa" prefWidth="152.0" promptText="Nombre de la empresa">
-                                       <cursor>
-                                          <Cursor fx:constant="TEXT" />
-                                       </cursor>
-                                       <font>
-                                          <Font name="Arial Rounded MT" size="12.0" />
-                                       </font>
-                                    </TextField>
-                                 </children>
-                              </VBox>
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="40.0">
-                           <children>
-                              <VBox alignment="CENTER_LEFT" prefWidth="170.0" spacing="20.0">
-                                 <children>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Dirección:">
-                                       <font>
-                                          <Font name="Arial Rounded MT Bold" size="12.0" />
-                                       </font>
-                                    </Text>
-                                    <TextField fx:id="tbDireccion" prefWidth="152.0" promptText="Dirección">
-                                       <cursor>
-                                          <Cursor fx:constant="TEXT" />
-                                       </cursor>
-                                       <font>
-                                          <Font name="Arial Rounded MT" size="12.0" />
-                                       </font>
-                                    </TextField>
-                                 </children>
-                              </VBox>
-                              <VBox alignment="CENTER_LEFT" prefWidth="170.0" spacing="20.0">
-                                 <children>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Descripción">
-                                       <font>
-                                          <Font name="Arial Rounded MT Bold" size="12.0" />
-                                       </font>
-                                    </Text>
-                                    <TextField fx:id="tbDescripcion" prefWidth="152.0" promptText="Descripción">
+                                    <TextField fx:id="tbTitulo" prefWidth="152.0" promptText="Nombre del titulo">
                                        <cursor>
                                           <Cursor fx:constant="TEXT" />
                                        </cursor>
@@ -159,12 +123,60 @@
                            <children>
                               <VBox alignment="CENTER_LEFT" prefWidth="170.0" spacing="20.0">
                                  <children>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Sitio Web:">
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Presupuesto min:">
                                        <font>
                                           <Font name="Arial Rounded MT Bold" size="12.0" />
                                        </font>
                                     </Text>
-                                    <TextField fx:id="tbSitioWeb" prefWidth="152.0" promptText="Sitio Web">
+                                    <Slider fx:id="precMinSlid" max="500.0" prefHeight="50.0" prefWidth="170.0" showTickLabels="true" />
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER_LEFT" prefWidth="170.0" spacing="20.0">
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Presupuesto max:">
+                                       <font>
+                                          <Font name="Arial Rounded MT Bold" size="12.0" />
+                                       </font>
+                                    </Text>
+                                    <Slider fx:id="precMaxSlid" max="1000.0" min="500.0" prefHeight="50.0" prefWidth="170.0" showTickLabels="true" value="1000.0" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="40.0">
+                           <children>
+                              <VBox alignment="CENTER_LEFT" prefWidth="170.0" spacing="20.0">
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha Inicio: ">
+                                       <font>
+                                          <Font name="Arial Rounded MT Bold" size="12.0" />
+                                       </font>
+                                    </Text>
+                                    <DatePicker fx:id="DFechaInicio" />
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER_LEFT" prefWidth="170.0" spacing="20.0">
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha Fin: ">
+                                       <font>
+                                          <Font name="Arial Rounded MT Bold" size="12.0" />
+                                       </font>
+                                    </Text>
+                                    <DatePicker fx:id="DFechaFin" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="40.0">
+                           <children>
+                              <VBox alignment="CENTER_LEFT" prefWidth="170.0" spacing="20.0">
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Duracion:">
+                                       <font>
+                                          <Font name="Arial Rounded MT Bold" size="12.0" />
+                                       </font>
+                                    </Text>
+                                    <TextField fx:id="tbDura" prefWidth="152.0" promptText="Descripción" text="Duracion">
                                        <cursor>
                                           <Cursor fx:constant="TEXT" />
                                        </cursor>
@@ -178,7 +190,7 @@
                         </HBox>
                      </children>
                   </VBox>
-                  <Button fx:id="btnBuscar" mnemonicParsing="false" onAction="#buscarFiltros" prefHeight="50.0" prefWidth="339.0" style="-fx-background-color: #f96a17; -fx-background-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);" text="Buscar" textFill="WHITE">
+                  <Button fx:id="btnBuscar" alignment="CENTER" mnemonicParsing="false" onAction="#buscarFiltros" prefHeight="50.0" prefWidth="339.0" style="-fx-background-color: #f96a17; -fx-background-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);" text="Buscar" textFill="WHITE">
 
                      <font>
                         <Font name="Arial Rounded MT Bold" size="14.0" />

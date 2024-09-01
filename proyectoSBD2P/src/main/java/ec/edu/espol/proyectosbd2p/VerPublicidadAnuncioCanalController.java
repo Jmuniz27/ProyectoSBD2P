@@ -10,6 +10,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import ec.edu.espol.proyectosbd2p.modelo.Proyecto;
+import ec.edu.espol.proyectosbd2p.modelo.PublicidadAnuncioCanal;
+import ec.edu.espol.proyectosbd2p.modelo.PublicidadAnuncioCanal;
 import javafx.scene.control.Label;
 
 /**
@@ -45,13 +48,23 @@ public class VerPublicidadAnuncioCanalController implements Initializable {
     private Button btnEditarAnuncioCanal;
     @FXML
     private Button btnEliminarAnuncioCanal;
-
+    Proyecto clienteEscogido = publicidadCanalController.clienteEscogido;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        txtIDProyecto.setText(clienteEscogido.getIdProyecto());
+        txtDescripcion.setText(clienteEscogido.getDescripcion());
+        txtTitulo.setText(clienteEscogido.getTitulo());
+        txtFechaInicio.setText(clienteEscogido.getFechaInicio().toString());
+        txtRUC.setText(clienteEscogido.getRuc());
+        txtNumFactura.setText(clienteEscogido.getNumFactura());
+        int dura = ((PublicidadAnuncioCanal) clienteEscogido).getDuracion();
+        txtDuracion.setText(dura + "");
+        txtPresupuesto.setText(clienteEscogido.getPresupuesto()+"");
+        txtFechaFin.setText(clienteEscogido.getFechaFin().toString());
+        txtComision.setText(clienteEscogido.getComisionAEmpresa()+"");
     }    
 
     @FXML

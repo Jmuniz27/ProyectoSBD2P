@@ -7,7 +7,8 @@ CREATE TABLE persona_contacto (
     cedula CHAR(10) PRIMARY KEY,
     nombre VARCHAR(20),
     apellido VARCHAR(20),
-    email VARCHAR(100)
+    email VARCHAR(20),
+    telefono VARCHAR(20)
 );
 
 CREATE TABLE cliente (
@@ -24,24 +25,21 @@ CREATE TABLE departamento_creativo (
     id_departamento CHAR(10) PRIMARY KEY,
     descripcion VARCHAR(300),
     nombre VARCHAR(20),
-    email VARCHAR(100),
-    id_director CHAR(10)
+    email VARCHAR(20)
 );
 
 CREATE TABLE departamento_produccion (
     id_departamento CHAR(10) PRIMARY KEY,
     descripcion VARCHAR(300),
     nombre VARCHAR(20),
-    email VARCHAR(100),
-    id_director CHAR(10)
+    email VARCHAR(20)
 );
 
 CREATE TABLE departamento_finanzas (
     id_departamento CHAR(10) PRIMARY KEY,
     descripcion VARCHAR(300),
     nombre VARCHAR(20),
-    email VARCHAR(100),
-    id_director CHAR(10)
+    email VARCHAR(20)
 );
 
 CREATE TABLE empleado (
@@ -50,26 +48,21 @@ CREATE TABLE empleado (
     nombre VARCHAR(20),
     apellido VARCHAR(20),
     puesto VARCHAR(20),
-    contrasenia VARCHAR(20),
+    contrasena VARCHAR(20),
     direccion VARCHAR(20),
-    idSupervisor CHAR(10),
     id_dep_creativo CHAR(10),
     id_dep_prod CHAR(10),
     id_dep_finanzas CHAR(10),
-    FOREIGN KEY (idSupervisor) REFERENCES empleado(id_empleado),
+    id_dir_dep_creativo CHAR(10),
+    id_dir_dep_prod CHAR(10),
+    id_dir_dep_finanzas CHAR(10),
     FOREIGN KEY (id_dep_creativo) REFERENCES departamento_creativo(id_departamento),
     FOREIGN KEY (id_dep_prod) REFERENCES departamento_produccion(id_departamento),
-    FOREIGN KEY (id_dep_finanzas) REFERENCES departamento_finanzas(id_departamento)
+    FOREIGN KEY (id_dep_finanzas) REFERENCES departamento_finanzas(id_departamento),
+    FOREIGN KEY (id_dir_dep_creativo) REFERENCES departamento_creativo(id_departamento),
+    FOREIGN KEY (id_dir_dep_prod) REFERENCES departamento_produccion(id_departamento),
+    FOREIGN KEY (id_dir_dep_finanzas) REFERENCES departamento_finanzas(id_departamento)
 );
-
-ALTER TABLE departamento_creativo
-ADD FOREIGN KEY (id_director) REFERENCES empleado(id_empleado);
-
-ALTER TABLE departamento_produccion
-ADD FOREIGN KEY (id_director) REFERENCES empleado(id_empleado);
-
-ALTER TABLE departamento_finanzas
-ADD FOREIGN KEY (id_director) REFERENCES empleado(id_empleado);
 
 CREATE TABLE factura (
     num_factura CHAR(10) PRIMARY KEY,
@@ -83,9 +76,10 @@ CREATE TABLE factura (
 
 CREATE TABLE rol_pago (
     id_pago CHAR(10),
-    pagoNeto INT,
+    pago_neto INT,
     id_empleado CHAR(10),
     id_dep_finanzas CHAR(10),
+    unique(id_pago),
     PRIMARY KEY (id_pago, id_empleado),
     FOREIGN KEY (id_empleado) REFERENCES empleado(id_empleado),
     FOREIGN KEY (id_dep_finanzas) REFERENCES departamento_finanzas(id_departamento)
@@ -105,7 +99,6 @@ CREATE TABLE catalogo (
     FOREIGN KEY (id_pago) REFERENCES rol_pago(id_pago)
 );
 
--- Luego crea las tablas que tienen referencias a las anteriores
 CREATE TABLE segmento (
     id_proyecto CHAR(10) PRIMARY KEY,
     RUC CHAR(13),
@@ -125,20 +118,12 @@ CREATE TABLE segmento (
     FOREIGN KEY (id_dep_prod) REFERENCES departamento_produccion(id_departamento)
 );
 
-CREATE TABLE horario_segmento (
-    id_horario_segmento CHAR(10),
-    id_segmento CHAR(10),
-    horario VARCHAR(20),
-    PRIMARY KEY (id_horario_segmento, id_segmento),
-    FOREIGN KEY (id_segmento) REFERENCES segmento(id_proyecto)
-);
-
 CREATE TABLE producto_tienda (
     id_proyecto CHAR(10) PRIMARY KEY,
     RUC CHAR(13),
     num_factura CHAR(50),
     categoria VARCHAR(20),
-    precio DECIMAL(6,2),
+    precio DECIMAL(5,2),
     titulo VARCHAR(20),
     presupuesto INT,
     descripcion VARCHAR(300),
@@ -149,16 +134,6 @@ CREATE TABLE producto_tienda (
     FOREIGN KEY (RUC) REFERENCES cliente(RUC),
     FOREIGN KEY (num_factura) REFERENCES factura(num_factura),
     FOREIGN KEY (id_dep_prod) REFERENCES departamento_produccion(id_departamento)
-);
-
-CREATE TABLE Comision (
-    id_comision CHAR(10) PRIMARY KEY,
-    id_producto_tienda CHAR(10),
-    num_factura CHAR(10),
-    valor_neto DECIMAL(5,2),
-    porcentaje DECIMAL(5,2),
-    FOREIGN KEY (id_producto_tienda) REFERENCES producto_tienda(id_proyecto),
-    FOREIGN KEY (num_factura) REFERENCES factura(num_factura)
 );
 
 CREATE TABLE publicidad_anuncio_canal (
@@ -193,12 +168,4 @@ CREATE TABLE publicidad_anuncio_web (
     FOREIGN KEY (RUC) REFERENCES cliente(RUC),
     FOREIGN KEY (num_factura) REFERENCES factura(num_factura),
     FOREIGN KEY (id_dep_creativo) REFERENCES departamento_creativo(id_departamento)
-);
-
-CREATE TABLE telefono (
-    id_telefono CHAR(10),
-    cedula CHAR(10),
-    telefono VARCHAR(20),
-    PRIMARY KEY (id_telefono, cedula),
-    FOREIGN KEY (cedula) REFERENCES persona_contacto(cedula)
 );

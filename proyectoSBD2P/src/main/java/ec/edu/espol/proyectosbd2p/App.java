@@ -7,6 +7,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 
 /**
  * JavaFX App
@@ -35,5 +37,13 @@ public class App extends Application {
     public static void main(String[] args) {
         launch();
     }
+    public static void mostrarAlerta(String titulo, String cabecera, String contenido, AlertType tipo) {
+    Alert alert = new Alert(tipo);
+    alert.setTitle(titulo);
+    alert.setHeaderText(cabecera);
+    alert.setContentText(contenido);
+    
+    alert.showAndWait();
+}
 
 }

@@ -4,6 +4,7 @@
  */
 package ec.edu.espol.proyectosbd2p;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -53,14 +54,24 @@ public class OpcionesGeneralController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
     }    
     @FXML
     private void clickCliente(ActionEvent event) {
+        try{
+            App.setRoot("gestionClientes");
+        } catch(IOException e){
+            e.printStackTrace();
+        }
     }
 
     @FXML
     private void regresar(ActionEvent event) {
+        try{
+            App.setRoot("usuariosController");
+        } catch(IOException e){
+            e.printStackTrace();
+        }
     }
 
     @FXML

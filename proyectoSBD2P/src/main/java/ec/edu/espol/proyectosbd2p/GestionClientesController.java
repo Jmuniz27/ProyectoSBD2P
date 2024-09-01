@@ -29,6 +29,7 @@ import java.io.IOException;
 import java.util.Set;
 import java.util.HashSet;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
 /**
  * FXML Controller class
@@ -125,28 +126,29 @@ public class GestionClientesController implements Initializable {
 
     @FXML
     private void buscarFiltros(ActionEvent event) {
-        String ruc = "'" + tbRuc.getText() + "'";
+        String ruc = "'%" + tbRuc.getText() + "%'";
         Set<Cliente> filtro1 = generarQuery("RUC",ruc);
         
-        String nombreEmpresa = "'" + tbNombreEmpresa.getText() + "'";
+        String nombreEmpresa = "'%" + tbNombreEmpresa.getText() + "%'";
         Set<Cliente> filtro2 = generarQuery("nombre_empresa",nombreEmpresa);
-        filtro1.addAll(filtro2);
+        filtro1.retainAll(filtro2);
         
-        String dir = "'" + tbDireccion.getText() + "'";
+        String dir = "'%" + tbDireccion.getText() + "%'";
         Set<Cliente> filtro3 = generarQuery("direccion",dir);
-        filtro1.addAll(filtro3);
+        filtro1.retainAll(filtro3);
         
-        String sitioWeb = "'" + tbSitioWeb.getText() + "'";
+        String sitioWeb = "'%" + tbSitioWeb.getText() + "%'";
         Set<Cliente> filtro4 = generarQuery("sitio_web",sitioWeb);
-        filtro1.addAll(filtro4);
+        filtro1.retainAll(filtro4);
         
-        String descripcion = "'" + tbDescripcion.getText() + "'";
+        String descripcion = "'%" + tbDescripcion.getText() + "%'";
         Set<Cliente> filtro5 = generarQuery("decrip_empresa",descripcion);
-        filtro1.addAll(filtro5);
+        filtro1.retainAll(filtro5);
         
         listaMostrada = new ArrayList<>(filtro1);
         System.out.println(listaMostrada);
         if(filtro1.isEmpty()){
+            App.mostrarAlerta("No existen clientes", "Error", "No existen clientes para su búsqueda. A continuación se muestran todos los clientes.", Alert.AlertType.ERROR);
             llenarTodoGrid();
         }
         currentPage = 1;

@@ -56,7 +56,7 @@ public class UsuariosController implements Initializable {
     private void clickDGeneral(ActionEvent event) {
         DatabaseConnection.conectaBase("director_general", "password123");
         try{
-            App.setRoot("inicio");
+            App.setRoot("opcionesGeneral");
         } catch(IOException e){
             e.printStackTrace();
         }

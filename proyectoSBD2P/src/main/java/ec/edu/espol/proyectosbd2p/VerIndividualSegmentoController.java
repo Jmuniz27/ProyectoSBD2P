@@ -67,7 +67,7 @@ public class VerIndividualSegmentoController implements Initializable {
         gridInfo.setVgap(60); 
         gridInfo.setHgap(60);
         gridInfo.setAlignment(Pos.CENTER);
-        VBox vbIdp = plantilla("ID Proyecto",seg.getIdProyecto());
+        VBox vbIdp = plantilla("ID Proyecto",seg.getIdProyecto()+"");
         gridInfo.add(vbIdp, 0, 0);
         VBox vbRuc = plantilla("RUC del Cliente",seg.getRuc());
         gridInfo.add(vbRuc, 1, 0);
@@ -162,7 +162,7 @@ public class VerIndividualSegmentoController implements Initializable {
                 Connection conn = DatabaseConnection.getConnection();
                 CallableStatement cstmt = conn.prepareCall(sql);
 
-                cstmt.setString(1, seg.getIdProyecto());  // Establecer el ID del pago como parámetro
+                cstmt.setInt(1, seg.getIdProyecto());  // Establecer el ID del pago como parámetro
                 cstmt.execute();  // Ejecutar el procedimiento almacenado
 
                 showAlert(Alert.AlertType.INFORMATION, "Eliminación Completa", "Segmento eliminado con éxito.");

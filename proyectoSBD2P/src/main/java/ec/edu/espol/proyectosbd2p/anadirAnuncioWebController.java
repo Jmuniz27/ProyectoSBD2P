@@ -18,32 +18,22 @@ import javafx.scene.Node;
 
 public class anadirAnuncioWebController implements Initializable {
 
+    @FXML
     private TextField tfanadirWebTitulo;
+    @FXML
     private TextField tfanadirWebPresupuesto;
+    @FXML
     private TextField tfanadirTamano;
     @FXML
     private TextField tfanadirWebComision;
+    @FXML
     private TextField tfanadirWebRuc;
+    @FXML
     private DatePicker dtanadirWebFechaInicio;
+    @FXML
     private DatePicker dtanadirWebFechaFin;
-    private TextField tfanadirDescrip;
-    private TextField tfNumFactura;  // Campo para ingresar num_factura si se tiene, puede ser opcional
     @FXML
-    private TextField tfanadirSegmentoTitulo;
-    @FXML
-    private TextField tfanadirSegmentoPresupuesto;
-    @FXML
-    private TextField tfanadirSegmentoRating;
-    @FXML
-    private TextField tfanadirSegmentoDescripcion;
-    @FXML
-    private TextField tfanadirSegmentoRuc;
-    @FXML
-    private DatePicker dtanadirSegmentoFechaInicio;
-    @FXML
-    private DatePicker dtanadirSegmentoFechaFin;
-    @FXML
-    private TextField tfanadirSegmentoDuracion;
+    private TextField tfanadirDescrip; 
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -84,15 +74,6 @@ public class anadirAnuncioWebController implements Initializable {
 
             // Convertir la comisión a BigDecimal
             BigDecimal comision = new BigDecimal(tfanadirWebComision.getText().trim());
-
-            // Generar IDs
-            String idProyecto = generateIdProyecto(); // Generar el ID del proyecto
-            String numFactura = tfNumFactura.getText().trim(); // Obtener el num_factura si se ingresó
-
-            // Si no se proporciona un num_factura, se pasa NULL
-            if (numFactura.isEmpty()) {
-                numFactura = null;
-            }
 
             // Conectar a la base de datos
             conn = DatabaseConnection.getConnection();

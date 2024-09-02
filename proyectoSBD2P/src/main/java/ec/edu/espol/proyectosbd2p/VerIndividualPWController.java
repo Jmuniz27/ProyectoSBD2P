@@ -65,7 +65,7 @@ public class VerIndividualPWController implements Initializable {
         gridInfo.setVgap(60); 
         gridInfo.setHgap(60);
         gridInfo.setAlignment(Pos.CENTER);
-        VBox vbIdp = plantilla("ID Proyecto",pw.getIdProyecto());
+        VBox vbIdp = plantilla("ID Proyecto",pw.getIdProyecto()+"");
         gridInfo.add(vbIdp, 0, 0);
         VBox vbRuc = plantilla("RUC del Cliente",pw.getRuc());
         gridInfo.add(vbRuc, 1, 0);
@@ -156,7 +156,7 @@ public class VerIndividualPWController implements Initializable {
                 Connection conn = DatabaseConnection.getConnection();
                 CallableStatement cstmt = conn.prepareCall(sql);
 
-                cstmt.setString(1, pw.getIdProyecto());  // Establecer el ID del pago como parámetro
+                cstmt.setInt(1, pw.getIdProyecto());  // Establecer el ID del pago como parámetro
                 cstmt.execute();  // Ejecutar el procedimiento almacenado
 
                 showAlert(Alert.AlertType.INFORMATION, "Eliminación Completa", "Publicidad Web eliminado con éxito.");

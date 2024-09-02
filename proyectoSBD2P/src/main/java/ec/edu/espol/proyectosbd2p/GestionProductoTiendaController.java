@@ -21,6 +21,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.chart.PieChart.Data;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
@@ -105,7 +106,12 @@ public class GestionProductoTiendaController implements Initializable {
         ptEscogido = null;
         Image img1 = new Image("/imagenes/logo.jpg");
         imgLogo.setImage(img1);
-        llenarTodoGrid();
+        try {
+            llenarTodoGrid();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            DatabaseConnection.handleSQLException(e);
+        }
         updateGrid();
         updatePagination();
     }    
@@ -121,7 +127,7 @@ public class GestionProductoTiendaController implements Initializable {
     }
 
     @FXML
-    private void buscarFiltros(ActionEvent event) {
+    private void buscarFiltros(ActionEvent event) throws SQLException {
         Set<ProductoTienda> respuestas = generarQueryTodo();
         System.out.println(respuestas);
         boolean vacia = true;
@@ -290,7 +296,7 @@ public class GestionProductoTiendaController implements Initializable {
         }
     }
     
-    private void llenarTodoGrid() {
+    private void llenarTodoGrid() throws SQLException {
         Set<ProductoTienda> set = generarQueryTodo();
         listaMostrada = new ArrayList<>(set);
     }
@@ -386,9 +392,8 @@ public class GestionProductoTiendaController implements Initializable {
             return null;
         }
     }
-    private Set<ProductoTienda> generarQueryTodo() {
+    private Set<ProductoTienda> generarQueryTodo() throws SQLException {
         Set<ProductoTienda> pts = new HashSet<>();
-        try {
             // Obtener la conexión desde DatabaseConnection
             Connection connection = DatabaseConnection.getConnection();
             if (connection != null) {
@@ -398,15 +403,11 @@ public class GestionProductoTiendaController implements Initializable {
 
                 pts = crearProductoTienda(resultSet);
             }
-        } catch (SQLException e) {
-            System.out.println("Error al ejecutar el query: " + e.getMessage());
-        }
         return pts;
     }
-    private Set<ProductoTienda> generarQuery(String columna, String busqueda) {
+    private Set<ProductoTienda> generarQuery(String columna, String busqueda) throws SQLException {
         Set<ProductoTienda> pts = new HashSet<>();
         if (!busqueda.equals("")) {
-            try {
                 Connection connection = DatabaseConnection.getConnection();
                 if (connection != null) {
                     Statement statement = connection.createStatement();
@@ -417,9 +418,6 @@ public class GestionProductoTiendaController implements Initializable {
                     pts = crearProductoTienda(resultSet);
                     System.out.println(pts);
                 }
-            } catch (SQLException e) {
-                System.out.println("Error al ejecutar el query: " + e.getMessage());
-            }
         }
         return pts;
     }

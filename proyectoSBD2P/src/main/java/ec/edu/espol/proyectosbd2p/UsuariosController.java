@@ -41,7 +41,7 @@ public class UsuariosController implements Initializable {
     private ImageView imgEmpleado11;
     @FXML
     private Button btnEmpleado32;
-    public static String usuario;
+    public static String usuario = "General";
 
     /**
      * Initializes the controller class.

@@ -106,7 +106,11 @@ public class GestionSegmentoController implements Initializable {
         segmentoEscogido = null;
         Image img1 = new Image("/imagenes/logo.jpg");
         imgLogo.setImage(img1);
-        llenarTodoGrid();
+        try {
+            llenarTodoGrid();
+        } catch (DatabaseException e) {
+            DatabaseConnection.handleSQLException(e);
+        }
         updateGrid();
         updatePagination();
     }    
@@ -125,7 +129,7 @@ public class GestionSegmentoController implements Initializable {
     }
 
     @FXML
-    private void buscarFiltros(ActionEvent event) {
+    private void buscarFiltros(ActionEvent event) throws SQLException {
         Set<Segmento> respuestas = generarQueryTodo();
         System.out.println(respuestas);
         boolean vacia = true;
@@ -295,7 +299,7 @@ public class GestionSegmentoController implements Initializable {
         }
     }
 
-    private void llenarTodoGrid() {
+    private void llenarTodoGrid() throws DatabaseException{
         Set<Segmento> set = generarQueryTodo();
         listaMostrada = new ArrayList<>(set);
     }
@@ -392,20 +396,19 @@ public class GestionSegmentoController implements Initializable {
         }
     }
 
-    private Set<Segmento> generarQueryTodo() {
+    private Set<Segmento> generarQueryTodo() throws DatabaseException {
         Set<Segmento> segmentos = new HashSet<>();
-        try {
-            // Obtener la conexión desde DatabaseConnection
-            Connection connection = DatabaseConnection.getConnection();
-            if (connection != null) {
-                Statement statement = connection.createStatement();
+        // Obtener la conexión desde DatabaseConnection
+        Connection connection = DatabaseConnection.getConnection();
+        if (connection != null) {
+            try (Statement statement = connection.createStatement()) {
                 String sql = "SELECT * FROM segmento";
                 ResultSet resultSet = statement.executeQuery(sql);
 
                 segmentos = crearSegmento(resultSet);
+            } catch (SQLException e) {
+                throw new DatabaseException(e.getMessage(), e.getErrorCode());
             }
-        } catch (SQLException e) {
-            System.out.println("Error al ejecutar el query: " + e.getMessage());
         }
         return segmentos;
     }

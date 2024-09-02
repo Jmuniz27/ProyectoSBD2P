@@ -115,17 +115,17 @@ WHERE
 
 -- Reporte de Empleados por Departamento
 CREATE VIEW reporte_empleados_creativo AS
-SELECT e.id_empleado, e.nombre, e.apellido, e.puesto, e.sueldoBase
+SELECT *
 FROM empleado e
 WHERE e.id_dep_creativo = e.id_dir_dep_creativo;
 
 CREATE VIEW reporte_empleados_produccion AS
-SELECT e.id_empleado, e.nombre, e.apellido, e.puesto, e.sueldoBase
+SELECT *
 FROM empleado e
 WHERE e.id_dep_prod = e.id_dir_dep_prod;
 
 CREATE VIEW reporte_empleados_finanzas AS
-SELECT e.id_empleado, e.nombre, e.apellido, e.puesto, e.sueldoBase
+SELECT *
 FROM empleado e
 WHERE e.id_dep_finanzas = e.id_dir_dep_finanzas;
 

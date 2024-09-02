@@ -120,7 +120,12 @@ public class GestionPublicidadWebController implements Initializable {
         pwEscogido = null;
         Image img1 = new Image("/imagenes/logo.jpg");
         imgLogo.setImage(img1);
-        llenarTodoGrid();
+        try {
+            llenarTodoGrid();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            DatabaseConnection.handleSQLException(e);
+        }
         updateGrid();
         updatePagination();
     }    
@@ -159,7 +164,7 @@ public class GestionPublicidadWebController implements Initializable {
     }
 
     @FXML
-    private void buscarFiltros(ActionEvent event) {
+    private void buscarFiltros(ActionEvent event) throws SQLException {
         Set<PublicidadAnuncioWeb> respuestas = generarQueryTodo();
         System.out.println(respuestas);
         boolean vacia = true;
@@ -303,13 +308,12 @@ public class GestionPublicidadWebController implements Initializable {
         return nuevo;
     }
     
-    public void llenarTodoGrid(){
+    public void llenarTodoGrid() throws SQLException{
         Set<PublicidadAnuncioWeb> set = generarQueryTodo();
         listaMostrada = new ArrayList<>(set);
     }
-    public Set<PublicidadAnuncioWeb> generarQuery(String columna, String busqueda){
+    public Set<PublicidadAnuncioWeb> generarQuery(String columna, String busqueda) throws SQLException{
         Set<PublicidadAnuncioWeb> publucidadWeb = new HashSet<>();
-        try{
             Connection connection = DatabaseConnection.getConnection();
             if (connection != null) {
                 Statement statement = connection.createStatement();
@@ -318,15 +322,11 @@ public class GestionPublicidadWebController implements Initializable {
                 publucidadWeb = crearPAW(resultSet);
                 
             }
-        } catch (SQLException e) {
-            System.out.println("Error al ejecutar el query: " + e.getMessage());
-        }
         return publucidadWeb;
     }
     
-    public Set<PublicidadAnuncioWeb> generarQueryTodo(){
+    public Set<PublicidadAnuncioWeb> generarQueryTodo() throws SQLException{
         Set<PublicidadAnuncioWeb> publucidadWeb = new HashSet<>();
-        try{
             Connection connection = DatabaseConnection.getConnection();
             if (connection != null) {
                 Statement statement = connection.createStatement();
@@ -335,9 +335,6 @@ public class GestionPublicidadWebController implements Initializable {
 
                 publucidadWeb = crearPAW(resultSet);
             }
-        } catch (SQLException e) {
-            System.out.println("Error al ejecutar el query: " + e.getMessage());
-        }
         return publucidadWeb;
     }
     @FXML

@@ -1,5 +1,6 @@
 package ec.edu.espol.proyectosbd2p;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -49,12 +50,18 @@ public class DatabaseConnection {
         return result;
     }
 
-    private static void handleSQLException(SQLException e) {
+    public static void handleSQLException(SQLException e) {
         System.out.println("Error SQL: " + e.getMessage());
         if (e.getErrorCode() == 1045 || e.getErrorCode() == 1142 || e.getErrorCode() == 1044) {
             alertaAccesoDenegado();
         } else {
             alertaErrorGeneral(e.getMessage());
+        }
+        try {
+            App.setRoot("usuarios");
+        } catch (IOException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
         }
     }
 

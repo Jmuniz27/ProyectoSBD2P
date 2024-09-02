@@ -69,7 +69,7 @@ public class EditarEmpleadosController implements Initializable {
     }
 
     @FXML
-    private void guardarCambios(ActionEvent event) {
+    private void guardarCambios(ActionEvent event) throws SQLException {
         if (tfDireccion.getText().trim().isEmpty() ||
             tfNombre.getText().trim().isEmpty() ||
             tfApellido.getText().trim().isEmpty() ||
@@ -110,7 +110,6 @@ public class EditarEmpleadosController implements Initializable {
             String idDepFinanzas = cbDepartamento.getValue().equals("Finanzas") ? "DF001" : null;
 
             // Llamar al procedimiento almacenado
-            try{
                 Connection conn = DatabaseConnection.getConnection();
                 String sql = "{CALL actualizar_Empleado(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
                 try (CallableStatement cstmt = conn.prepareCall(sql)) {
@@ -129,12 +128,16 @@ public class EditarEmpleadosController implements Initializable {
                     cstmt.setString(13, empleado.getId_dir_dep_finanzas());
 
                     // Ejecutar el procedimiento
-                    cstmt.executeUpdate();
+                    try {
+                        cstmt.executeUpdate();
+                    } catch (SQLException ex) {
+                        DatabaseConnection.handleSQLException(ex);
+                        ex.printStackTrace();
+                        showAlert(Alert.AlertType.ERROR, "Error", "No se pudo actualizar los datos.");
+                        return;
+                    }
                     showAlert(Alert.AlertType.INFORMATION, "Éxito", "Datos actualizados correctamente.");
                 }
-            } catch (SQLException e) {
-                showAlert(Alert.AlertType.ERROR, "Error al actualizar el empleado", e.getMessage());
-            }
 
             // Cerrar la ventana después de guardar
             Stage stage = (Stage) tfNombre.getScene().getWindow();

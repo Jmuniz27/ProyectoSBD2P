@@ -42,14 +42,19 @@ public class MostrarFacturasProductosClientesController implements Initializable
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        cargarDatos(report);
+        try {
+            cargarDatos(report);
+        } catch (SQLException e) {
+            DatabaseConnection.handleSQLException(e);
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
         
     }    
    
-    private void cargarDatos(String view) {
+    private void cargarDatos(String view) throws SQLException {
         Connection conn = DatabaseConnection.getConnection();
         if (conn != null) {
-            try {
                 lblTítuloReporte.setText(view);
                 String query = "SELECT * FROM "+view;
                 Statement stmt = conn.createStatement();
@@ -71,9 +76,6 @@ public class MostrarFacturasProductosClientesController implements Initializable
                     data.add(row);
                 }
                 tablaDeReportes.setItems(data);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
         }
     }
     public static void cambiarReporte(String reporte){

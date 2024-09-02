@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
+import javafx.scene.text.Text;
 
 /**
  * FXML Controller class
@@ -50,7 +51,7 @@ public class OpcionesGeneralController implements Initializable {
     private Button btnEmpleado41;
     @FXML
     private ImageView imgEmpleado211;
-
+    private Text txtHeader;
     /**
      * Initializes the controller class.
      */

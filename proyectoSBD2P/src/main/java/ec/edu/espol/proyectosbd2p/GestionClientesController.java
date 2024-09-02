@@ -20,6 +20,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -30,6 +31,8 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 /**
  * FXML Controller class
  *
@@ -108,7 +111,13 @@ public class GestionClientesController implements Initializable {
         clienteEscogido = null;
         Image img1 = new Image("/imagenes/logo.jpg");
         imgLogo.setImage(img1);
-        llenarTodoGrid();
+        try {
+            llenarTodoGrid();
+        } catch (SQLException e) {
+            if (e.getErrorCode() == 1044)
+                DatabaseConnection.alertaAccesoDenegado();
+            System.out.println("Error al ejecutar el query: " + e.getMessage());
+        }
         updateGrid();
         updatePagination();
     }    
@@ -124,7 +133,7 @@ public class GestionClientesController implements Initializable {
 
 
     @FXML
-    private void buscarFiltros(ActionEvent event) {
+    private void buscarFiltros(ActionEvent event) throws SQLException {
         Set<Cliente> respuestas = generarQueryTodo();
         System.out.println(respuestas);
         boolean vacia = true;
@@ -214,7 +223,7 @@ public class GestionClientesController implements Initializable {
         return nuevo;
     }
     
-    public void llenarTodoGrid(){
+    public void llenarTodoGrid() throws SQLException{
         Set<Cliente> set = generarQueryTodo();
         listaMostrada = new ArrayList<>(set);
     }
@@ -239,34 +248,32 @@ public class GestionClientesController implements Initializable {
                 }
             }
         } catch (SQLException e) {
+            if(e.getErrorCode()==1044)
+                DatabaseConnection.alertaAccesoDenegado();
             System.out.println("Error al ejecutar el query: " + e.getMessage());
         }
         return clientes;
     }
     
-    public Set<Cliente> generarQueryTodo(){
+    public Set<Cliente> generarQueryTodo() throws SQLException{
         Set<Cliente> clientes = new HashSet<>();
-        try{
-            Connection connection = DatabaseConnection.getConnection();
-            if (connection != null) {
-                Statement statement = connection.createStatement();
-                String sql = "SELECT * FROM cliente";
-                ResultSet resultSet = statement.executeQuery(sql);
+        Connection connection = DatabaseConnection.getConnection();
+        if (connection != null) {
+            Statement statement = connection.createStatement();
+            String sql = "SELECT * FROM cliente";
+            ResultSet resultSet = statement.executeQuery(sql);
 
-                while (resultSet.next()) {
-                    String ruc = resultSet.getString("RUC");
-                    String nombreEmpresa = resultSet.getString("nombre_empresa");
-                    String descripEmpresa = resultSet.getString("decrip_empresa");
-                    String direccion = resultSet.getString("direccion");
-                    String sitioWeb = resultSet.getString("sitio_web");
-                    String idPersonaContacto = resultSet.getString("id_persona_contacto");
-                    Cliente cliente = new Cliente(ruc,nombreEmpresa,descripEmpresa,direccion,sitioWeb,idPersonaContacto);
-                    clientes.add(cliente);
-                }
+            while (resultSet.next()) {
+                String ruc = resultSet.getString("RUC");
+                String nombreEmpresa = resultSet.getString("nombre_empresa");
+                String descripEmpresa = resultSet.getString("decrip_empresa");
+                String direccion = resultSet.getString("direccion");
+                String sitioWeb = resultSet.getString("sitio_web");
+                String idPersonaContacto = resultSet.getString("id_persona_contacto");
+                Cliente cliente = new Cliente(ruc,nombreEmpresa,descripEmpresa,direccion,sitioWeb,idPersonaContacto);
+                clientes.add(cliente);
             }
-        } catch (SQLException e) {
-            System.out.println("Error al ejecutar el query: " + e.getMessage());
-        }
+            }
         return clientes;
     }
     
@@ -378,7 +385,22 @@ public class GestionClientesController implements Initializable {
     @FXML
     private void anadirCliente(ActionEvent event) {
         try{
-            App.setRoot("anadirCliente");
+        // Cargar el archivo FXML de la vista de edición
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("anadirClientes.fxml"));
+        VBox root = loader.load();
+
+        // Pasar el cliente actual al controlador de la vista de edición
+
+        // Crear un nuevo Stage para la ventana emergente
+        Stage stage = new Stage();
+        stage.setTitle("Añadir Cliente");
+        stage.setScene(new Scene(root));
+        stage.initModality(Modality.APPLICATION_MODAL); // Bloquea la ventana anterior hasta que se cierre esta
+        stage.showAndWait(); // Mostrar la ventana y esperar a que se cierre
+        App.setRoot("usuarios");
+
+        // Actualizar la vista principal después de la edición
+        updateGrid();
         } catch(IOException e){
             e.printStackTrace();
         }

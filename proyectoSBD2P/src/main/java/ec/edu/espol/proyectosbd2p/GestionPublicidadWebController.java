@@ -21,6 +21,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
@@ -32,6 +33,8 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -117,13 +120,38 @@ public class GestionPublicidadWebController implements Initializable {
         pwEscogido = null;
         Image img1 = new Image("/imagenes/logo.jpg");
         imgLogo.setImage(img1);
-        llenarTodoGrid();
+        try {
+            llenarTodoGrid();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            DatabaseConnection.handleSQLException(e);
+        }
         updateGrid();
         updatePagination();
     }    
 
     @FXML
     private void anadirCliente(ActionEvent event) {
+        try{
+        // Cargar el archivo FXML de la vista de edición
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("anadirAnuncioWeb.fxml"));
+        VBox root = loader.load();
+
+        // Pasar el cliente actual al controlador de la vista de edición
+
+        // Crear un nuevo Stage para la ventana emergente
+        Stage stage = new Stage();
+        stage.setTitle("Añadir Publicidad Web");
+        stage.setScene(new Scene(root));
+        stage.initModality(Modality.APPLICATION_MODAL); // Bloquea la ventana anterior hasta que se cierre esta
+        stage.showAndWait(); // Mostrar la ventana y esperar a que se cierre
+        App.setRoot("usuarios");
+
+        // Actualizar la vista principal después de la edición
+        updateGrid();
+        } catch(IOException e){
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -136,7 +164,7 @@ public class GestionPublicidadWebController implements Initializable {
     }
 
     @FXML
-    private void buscarFiltros(ActionEvent event) {
+    private void buscarFiltros(ActionEvent event) throws SQLException {
         Set<PublicidadAnuncioWeb> respuestas = generarQueryTodo();
         System.out.println(respuestas);
         boolean vacia = true;
@@ -280,13 +308,12 @@ public class GestionPublicidadWebController implements Initializable {
         return nuevo;
     }
     
-    public void llenarTodoGrid(){
+    public void llenarTodoGrid() throws SQLException{
         Set<PublicidadAnuncioWeb> set = generarQueryTodo();
         listaMostrada = new ArrayList<>(set);
     }
-    public Set<PublicidadAnuncioWeb> generarQuery(String columna, String busqueda){
+    public Set<PublicidadAnuncioWeb> generarQuery(String columna, String busqueda) throws SQLException{
         Set<PublicidadAnuncioWeb> publucidadWeb = new HashSet<>();
-        try{
             Connection connection = DatabaseConnection.getConnection();
             if (connection != null) {
                 Statement statement = connection.createStatement();
@@ -295,15 +322,11 @@ public class GestionPublicidadWebController implements Initializable {
                 publucidadWeb = crearPAW(resultSet);
                 
             }
-        } catch (SQLException e) {
-            System.out.println("Error al ejecutar el query: " + e.getMessage());
-        }
         return publucidadWeb;
     }
     
-    public Set<PublicidadAnuncioWeb> generarQueryTodo(){
+    public Set<PublicidadAnuncioWeb> generarQueryTodo() throws SQLException{
         Set<PublicidadAnuncioWeb> publucidadWeb = new HashSet<>();
-        try{
             Connection connection = DatabaseConnection.getConnection();
             if (connection != null) {
                 Statement statement = connection.createStatement();
@@ -312,9 +335,6 @@ public class GestionPublicidadWebController implements Initializable {
 
                 publucidadWeb = crearPAW(resultSet);
             }
-        } catch (SQLException e) {
-            System.out.println("Error al ejecutar el query: " + e.getMessage());
-        }
         return publucidadWeb;
     }
     @FXML

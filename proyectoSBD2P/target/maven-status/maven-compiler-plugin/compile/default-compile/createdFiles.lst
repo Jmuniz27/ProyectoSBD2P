@@ -12,9 +12,11 @@ ec\edu\espol\proyectosbd2p\InicioController.class
 ec\edu\espol\proyectosbd2p\modelo\ProductoTienda.class
 ec\edu\espol\proyectosbd2p\AnadirEmpleadoController.class
 ec\edu\espol\proyectosbd2p\GestionPublicidadCanalController.class
+ec\edu\espol\proyectosbd2p\EditarPWController.class
 ec\edu\espol\proyectosbd2p\modelo\PublicidadAnuncioWeb.class
 ec\edu\espol\proyectosbd2p\DatabaseConnection.class
 ec\edu\espol\proyectosbd2p\modelo\Departamento.class
+ec\edu\espol\proyectosbd2p\EditarPTController.class
 ec\edu\espol\proyectosbd2p\AgregarProyectoController.class
 ec\edu\espol\proyectosbd2p\modelo\Catalogo.class
 ec\edu\espol\proyectosbd2p\VerIndvidualPCController.class
@@ -29,7 +31,6 @@ ec\edu\espol\proyectosbd2p\OpcionesDeReportesController.class
 ec\edu\espol\proyectosbd2p\modelo\HorarioSegmento.class
 ec\edu\espol\proyectosbd2p\VerIndividualClientesController.class
 ec\edu\espol\proyectosbd2p\GestionPublicidadWebController.class
-ec\edu\espol\proyectosbd2p\EditarProyectoController.class
 ec\edu\espol\proyectosbd2p\modelo\Bono.class
 ec\edu\espol\proyectosbd2p\modelo\RolPago.class
 ec\edu\espol\proyectosbd2p\MostrarFacturasProductosClientesController.class
@@ -46,10 +47,12 @@ ec\edu\espol\proyectosbd2p\GestionClientesController.class
 ec\edu\espol\proyectosbd2p\AnadirClienteController.class
 ec\edu\espol\proyectosbd2p\EditarClienteController.class
 ec\edu\espol\proyectosbd2p\VerIndividualRPController.class
+ec\edu\espol\proyectosbd2p\EditarPCController.class
 ec\edu\espol\proyectosbd2p\modelo\PublicidadAnuncioCanal.class
 ec\edu\espol\proyectosbd2p\modelo\Cliente.class
 ec\edu\espol\proyectosbd2p\VerIndividualEmpleadoController.class
 ec\edu\espol\proyectosbd2p\modelo\Segmento.class
+ec\edu\espol\proyectosbd2p\EditarRPController.class
 ec\edu\espol\proyectosbd2p\modelo\DepartamentoFinanzas.class
 ec\edu\espol\proyectosbd2p\PlantillaProyectoController.class
 ec\edu\espol\proyectosbd2p\modelo\PersonaContacto.class

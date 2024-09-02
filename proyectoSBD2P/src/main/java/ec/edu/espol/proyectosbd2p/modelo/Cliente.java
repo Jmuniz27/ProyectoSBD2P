@@ -25,6 +25,24 @@ public class Cliente {
         this.idPersonaContacto = idPersonaContacto;
     }
 
+    public Cliente(String ruc, String nombreEmpresa, String descripEmpresa, String direccion, String sitioWeb, int idPersonaContacto) {
+
+        // Constructor implementation
+    
+        this.ruc = ruc;
+    
+        this.nombreEmpresa = nombreEmpresa;
+    
+        this.descripEmpresa = descripEmpresa;
+    
+        this.direccion = direccion;
+    
+        this.sitioWeb = sitioWeb;
+    
+        this.idPersonaContacto = idPersonaContacto+"";
+    
+    }
+    
     public String getRuc() {
         return ruc;
     }

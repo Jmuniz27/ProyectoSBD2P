@@ -60,7 +60,7 @@ public class EditarClienteController implements Initializable {
     }
 
     @FXML
-    private void guardarCambios(ActionEvent event) {
+    private void guardarCambios(ActionEvent event) throws IOException {
         if (tfNombreEmpresa.getText().trim().isEmpty() ||
             tfDescrip.getText().trim().isEmpty() ||
             tfDireccion.getText().trim().isEmpty() ||
@@ -104,8 +104,19 @@ public class EditarClienteController implements Initializable {
                 } else {
                     showAlert(Alert.AlertType.ERROR, "Error", "No se pudo actualizar los datos.");
                 }
-            } catch (SQLException e) {
-                showAlert(AlertType.ERROR, "Error al actualizar el cliente",e.getMessage());
+            } catch (SQLException e) {        // Verificar si el error es de acceso denegado
+                if (e.getErrorCode() == 1370||e.getErrorCode() == 1045 || e.getErrorCode() == 1142 || e.getErrorCode() == 1044) {
+                    // Código de error 1045: Acceso denegado para el usuario
+                    // Código de error 1142: Permiso denegado para una operación específica
+                    // Código de error 1044: Acceso denegado a la base de datos
+                    showAlert(Alert.AlertType.ERROR, "Acceso Denegado", "No tienes permisos suficientes para realizar esta operación.");
+                } else {
+                    // Mostrar cualquier otro error SQL
+                    showAlert(Alert.AlertType.ERROR, "Error SQL", "Ha ocurrido un error al intentar acceder a la base de datos: " + e.getMessage() + e.getErrorCode());
+                }
+                Stage stage = (Stage) tfNombreEmpresa.getScene().getWindow();
+                stage.close();
+                App.setRoot("usuarios");
             }
 
             // Cerrar la ventana después de guardar

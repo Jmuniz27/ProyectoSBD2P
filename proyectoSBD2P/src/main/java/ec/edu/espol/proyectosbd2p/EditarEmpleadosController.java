@@ -69,13 +69,13 @@ public class EditarEmpleadosController implements Initializable {
     }
 
     @FXML
-    private void guardarCambios(ActionEvent event) {
+    private void guardarCambios(ActionEvent event) throws SQLException {
         if (tfDireccion.getText().trim().isEmpty() ||
             tfNombre.getText().trim().isEmpty() ||
             tfApellido.getText().trim().isEmpty() ||
             tfContrasena.getText().trim().isEmpty() ||
             tfSueldo.getText().trim().isEmpty() ||
-            cbDepartamento.getValue().trim().isEmpty()) {
+            cbDepartamento.getValue()==null) {
             
             showAlert(Alert.AlertType.ERROR, "Error", "Todos los campos deben estar llenos.");
             return;
@@ -93,6 +93,9 @@ public class EditarEmpleadosController implements Initializable {
             empleado.setDireccion(tfDireccion.getText());
             empleado.setContrasena(tfContrasena.getText());
             empleado.setSueldoBase(Integer.parseInt(tfSueldo.getText()));
+            empleado.setIdDepCreativo(null);
+            empleado.setIdDepFinanzas(null);
+            empleado.setIdDepProd(null);
             if(cbDepartamento.getValue().equals("Creativo")){
                 empleado.setIdDepCreativo("DC001");
             } else if(cbDepartamento.getValue().equals("Producción")){
@@ -107,8 +110,8 @@ public class EditarEmpleadosController implements Initializable {
             String idDepFinanzas = cbDepartamento.getValue().equals("Finanzas") ? "DF001" : null;
 
             // Llamar al procedimiento almacenado
-            try (Connection conn = DatabaseConnection.getConnection()) {
-                String sql = "{CALL actualizar_Empleado(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
+                Connection conn = DatabaseConnection.getConnection();
+                String sql = "{CALL actualizar_Empleado(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
                 try (CallableStatement cstmt = conn.prepareCall(sql)) {
                     cstmt.setString(1, empleado.getIdEmpleado());
                     cstmt.setInt(2, empleado.getSueldoBase());
@@ -125,12 +128,16 @@ public class EditarEmpleadosController implements Initializable {
                     cstmt.setString(13, empleado.getId_dir_dep_finanzas());
 
                     // Ejecutar el procedimiento
-                    cstmt.executeUpdate();
+                    try {
+                        cstmt.executeUpdate();
+                    } catch (SQLException ex) {
+                        DatabaseConnection.handleSQLException(ex);
+                        ex.printStackTrace();
+                        showAlert(Alert.AlertType.ERROR, "Error", "No se pudo actualizar los datos.");
+                        return;
+                    }
                     showAlert(Alert.AlertType.INFORMATION, "Éxito", "Datos actualizados correctamente.");
                 }
-            } catch (SQLException e) {
-                showAlert(Alert.AlertType.ERROR, "Error al actualizar el empleado", e.getMessage());
-            }
 
             // Cerrar la ventana después de guardar
             Stage stage = (Stage) tfNombre.getScene().getWindow();

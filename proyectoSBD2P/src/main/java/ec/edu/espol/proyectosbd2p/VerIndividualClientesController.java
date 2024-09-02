@@ -110,7 +110,7 @@ public class VerIndividualClientesController implements Initializable {
     @FXML
     private void regresar(ActionEvent event) {
         try{
-            App.setRoot("gestionClientes");
+            App.setRoot("usuarios");
         } catch(IOException e){
             e.printStackTrace();
         }

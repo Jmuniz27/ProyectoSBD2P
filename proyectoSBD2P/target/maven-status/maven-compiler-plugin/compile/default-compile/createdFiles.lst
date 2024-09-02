@@ -26,10 +26,12 @@ ec\edu\espol\proyectosbd2p\PrimaryController.class
 ec\edu\espol\proyectosbd2p\anadirEmpleadosController.class
 ec\edu\espol\proyectosbd2p\modelo\Empleado.class
 module-info.class
+ec\edu\espol\proyectosbd2p\AnadirProductoTiendaController.class
 ec\edu\espol\proyectosbd2p\OpcionesDeReportesController.class
 ec\edu\espol\proyectosbd2p\modelo\HorarioSegmento.class
 ec\edu\espol\proyectosbd2p\VerIndividualClientesController.class
 ec\edu\espol\proyectosbd2p\GestionPublicidadWebController.class
+ec\edu\espol\proyectosbd2p\AnadirSegmentoController.class
 ec\edu\espol\proyectosbd2p\modelo\Bono.class
 ec\edu\espol\proyectosbd2p\modelo\RolPago.class
 ec\edu\espol\proyectosbd2p\MostrarFacturasProductosClientesController.class

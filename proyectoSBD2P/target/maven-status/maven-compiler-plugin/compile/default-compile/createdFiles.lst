@@ -1,9 +1,11 @@
+ec\edu\espol\proyectosbd2p\VerIndividualSegmentoController.class
 ec\edu\espol\proyectosbd2p\modelo\Telefono.class
 ec\edu\espol\proyectosbd2p\VerIndividualPTController.class
 ec\edu\espol\proyectosbd2p\EditarEmpleadosController.class
 ec\edu\espol\proyectosbd2p\modelo\Factura.class
 ec\edu\espol\proyectosbd2p\GestionProductoTiendaController.class
 ec\edu\espol\proyectosbd2p\OpcionesGeneralController.class
+ec\edu\espol\proyectosbd2p\VerIndividualPWController.class
 ec\edu\espol\proyectosbd2p\DatabaseException.class
 ec\edu\espol\proyectosbd2p\GestionEmpleadoController.class
 ec\edu\espol\proyectosbd2p\InicioController.class
@@ -38,6 +40,7 @@ ec\edu\espol\proyectosbd2p\anadirAnuncioWebController.class
 ec\edu\espol\proyectosbd2p\DatabaseManager.class
 ec\edu\espol\proyectosbd2p\GestionSegmentoController.class
 ec\edu\espol\proyectosbd2p\modelo\DepartamentoProduccion.class
+ec\edu\espol\proyectosbd2p\AnadirRolPagoController.class
 ec\edu\espol\proyectosbd2p\App.class
 ec\edu\espol\proyectosbd2p\PlantillaIndividualController.class
 ec\edu\espol\proyectosbd2p\UsuariosController.class

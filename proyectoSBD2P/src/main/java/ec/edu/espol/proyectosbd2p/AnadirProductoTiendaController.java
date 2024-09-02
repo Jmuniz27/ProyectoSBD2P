@@ -1,20 +1,17 @@
 package ec.edu.espol.proyectosbd2p;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.CallableStatement;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.SQLException;
-import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 
 public class AnadirProductoTiendaController implements Initializable {
 
@@ -64,13 +61,38 @@ public class AnadirProductoTiendaController implements Initializable {
             return;
         }
 
-        // Confirmación antes de insertar
-        Alert confirmacion = new Alert(Alert.AlertType.CONFIRMATION);
-        confirmacion.setTitle("Confirmar");
-        confirmacion.setHeaderText("¿Seguro que desea añadir este producto a la tienda?");
-        Optional<ButtonType> resultado = confirmacion.showAndWait();
-        if (resultado.isPresent() && resultado.get() == ButtonType.OK) {
-            // Llamar al procedimiento almacenado
+        Connection conn = null;
+        CallableStatement cstmt = null;
+
+        try {
+            conn = DatabaseConnection.getConnection();
+
+            // Llamar al procedimiento almacenado `crear_ProductoTienda`
+            String sql = "{CALL crear_ProductoTienda(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
+            cstmt = conn.prepareCall(sql);
+            cstmt.setString(1, tfRuc.getText());
+            cstmt.setString(2, tfCategoria.getText());
+            cstmt.setBigDecimal(3, new java.math.BigDecimal(tfPrecio.getText()));
+            cstmt.setString(4, tfTitulo.getText());
+            cstmt.setInt(5, Integer.parseInt(tfPresupuesto.getText()));
+            cstmt.setString(6, tfDescripcion.getText());
+            cstmt.setDate(7, java.sql.Date.valueOf(dpFechaInicio.getValue()));
+            cstmt.setDate(8, java.sql.Date.valueOf(dpFechaFin.getValue()));
+            cstmt.setString(9, "DEP001"); // ID fijo para el departamento de producción
+            cstmt.setBigDecimal(10, new java.math.BigDecimal(tfComision.getText()));
+
+            cstmt.executeUpdate();
+
+            // Mostrar alerta de confirmación
+            showAlert(Alert.AlertType.INFORMATION, "Éxito", "Producto creado correctamente.");
+
+            // Redirigir a la ventana de productos de tienda
+            App.setRoot("productosTienda");
+
+        } catch (SQLException | IOException e) {
+            e.printStackTrace();
+            showAlert(Alert.AlertType.ERROR, "Error", "No se pudo realizar la operación: " + e.getMessage());
+        } finally {
             try {
                 Connection conn = DatabaseConnection.getConnection();
                 String sql = "{CALL crear_ProductoTienda(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
@@ -100,6 +122,7 @@ public class AnadirProductoTiendaController implements Initializable {
         }
     }
 
+    // Método para mostrar alertas
     private void showAlert(Alert.AlertType alertType, String title, String message) {
         Alert alert = new Alert(alertType);
         alert.setTitle(title);
@@ -113,7 +136,6 @@ public class AnadirProductoTiendaController implements Initializable {
     }
 
     private String obtenerNumFactura() {
-        // Lógica para obtener el número de factura
         return "FAC" + System.currentTimeMillis(); // Ejemplo simple, usa tu propia lógica
     }
 

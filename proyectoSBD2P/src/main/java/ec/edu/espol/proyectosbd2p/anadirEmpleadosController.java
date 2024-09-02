@@ -2,12 +2,10 @@ package ec.edu.espol.proyectosbd2p;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.CallableStatement;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -18,7 +16,9 @@ import javafx.scene.control.TextField;
 public class anadirEmpleadosController implements Initializable {
 
     @FXML
-    private TextField tfanadirDireccion;
+    private TextField tfanadirEmpleado;
+    @FXML
+    private TextField tfSueldoBase;
     @FXML
     private TextField tfanadirNombre;
     @FXML
@@ -28,13 +28,13 @@ public class anadirEmpleadosController implements Initializable {
     @FXML
     private TextField tfanadirContrasena;
     @FXML
-    private ComboBox<String> cbDepartamento;
+    private TextField tfanadirDireccion;
     @FXML
-    private TextField tfanadirEmpleado;
+    private ComboBox<String> cbDepartamento;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // Inicializar el ComboBox con las opciones de departamentos
+        // Inicializar ComboBox con opciones de departamentos
         cbDepartamento.getItems().addAll("Creativo", "Producción", "Finanzas");
     }
 
@@ -52,97 +52,68 @@ public class anadirEmpleadosController implements Initializable {
     private void guardarCambios(ActionEvent event) {
         // Validar que todos los campos estén llenos
         if (tfanadirEmpleado.getText().trim().isEmpty() ||
+            tfSueldoBase.getText().trim().isEmpty() ||
             tfanadirNombre.getText().trim().isEmpty() ||
             tfanadirApellido.getText().trim().isEmpty() ||
             tfanadirPuesto.getText().trim().isEmpty() ||
             tfanadirContrasena.getText().trim().isEmpty() ||
             tfanadirDireccion.getText().trim().isEmpty() ||
             cbDepartamento.getValue() == null) {
-            
+
             showAlert(Alert.AlertType.ERROR, "Error", "Todos los campos deben estar llenos.");
             return;
         }
 
         Connection conn = null;
-        PreparedStatement pstmt = null;
+        CallableStatement cstmt = null;
 
         try {
             conn = DatabaseConnection.getConnection();
 
-            // Verificar si el empleado ya existe
-            String sqlCheck = "SELECT COUNT(*) FROM empleado WHERE id_empleado = ?";
-            pstmt = conn.prepareStatement(sqlCheck);
-            pstmt.setString(1, tfanadirEmpleado.getText());
-            ResultSet rs = pstmt.executeQuery();
-            rs.next();
-            int count = rs.getInt(1);
+            // Llamar al procedimiento almacenado `crear_Empleado`
+            String sql = "{CALL crear_Empleado(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
+            cstmt = conn.prepareCall(sql);
+            cstmt.setString(1, tfanadirEmpleado.getText());
+            cstmt.setInt(2, Integer.parseInt(tfSueldoBase.getText()));
+            cstmt.setString(3, tfanadirNombre.getText());
+            cstmt.setString(4, tfanadirApellido.getText());
+            cstmt.setString(5, tfanadirPuesto.getText());
+            cstmt.setString(6, tfanadirContrasena.getText());
+            cstmt.setString(7, tfanadirDireccion.getText());
 
-            if (count == 0) {
-                // Si el empleado no existe, inserta un nuevo registro
-                String sqlEmpleado = "INSERT INTO empleado (id_empleado, nombre, apellido, puesto, contrasena, direccion, id_dep_creativo, id_dep_prod, id_dep_finanzas) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-                pstmt = conn.prepareStatement(sqlEmpleado);
-                pstmt.setString(1, tfanadirEmpleado.getText());
-                pstmt.setString(2, tfanadirNombre.getText());
-                pstmt.setString(3, tfanadirApellido.getText());
-                pstmt.setString(4, tfanadirPuesto.getText());
-                pstmt.setString(5, tfanadirContrasena.getText());
-                pstmt.setString(6, tfanadirDireccion.getText());
-
-                // Asignar el departamento correspondiente
-                String departamentoSeleccionado = cbDepartamento.getValue();
-                switch (departamentoSeleccionado) {
-                    case "Creativo":
-                        pstmt.setString(7, "DC001"); // id_dep_creativo
-                        pstmt.setString(8, null);    // id_dep_prod
-                        pstmt.setString(9, null);    // id_dep_finanzas
-                        break;
-                    case "Producción":
-                        pstmt.setString(7, null);    // id_dep_creativo
-                        pstmt.setString(8, "DP001"); // id_dep_prod
-                        pstmt.setString(9, null);    // id_dep_finanzas
-                        break;
-                    case "Finanzas":
-                        pstmt.setString(7, null);    // id_dep_creativo
-                        pstmt.setString(8, null);    // id_dep_prod
-                        pstmt.setString(9, "DF001"); // id_dep_finanzas
-                        break;
-                }
-                pstmt.executeUpdate();
-            } else {
-                // Si el empleado ya existe, actualizar su información
-                String sqlUpdate = "UPDATE empleado SET nombre = ?, apellido = ?, puesto = ?, contrasena = ?, direccion = ?, id_dep_creativo = ?, id_dep_prod = ?, id_dep_finanzas = ? WHERE id_empleado = ?";
-                pstmt = conn.prepareStatement(sqlUpdate);
-                pstmt.setString(1, tfanadirNombre.getText());
-                pstmt.setString(2, tfanadirApellido.getText());
-                pstmt.setString(3, tfanadirPuesto.getText());
-                pstmt.setString(4, tfanadirContrasena.getText());
-                pstmt.setString(5, tfanadirDireccion.getText());
-
-                // Asignar el departamento correspondiente
-                String departamentoSeleccionado = cbDepartamento.getValue();
-                switch (departamentoSeleccionado) {
-                    case "Creativo":
-                        pstmt.setString(6, "DC001"); // id_dep_creativo
-                        pstmt.setString(7, null);    // id_dep_prod
-                        pstmt.setString(8, null);    // id_dep_finanzas
-                        break;
-                    case "Producción":
-                        pstmt.setString(6, null);    // id_dep_creativo
-                        pstmt.setString(7, "DP001"); // id_dep_prod
-                        pstmt.setString(8, null);    // id_dep_finanzas
-                        break;
-                    case "Finanzas":
-                        pstmt.setString(6, null);    // id_dep_creativo
-                        pstmt.setString(7, null);    // id_dep_prod
-                        pstmt.setString(8, "DF001"); // id_dep_finanzas
-                        break;
-                }
-                pstmt.setString(9, tfanadirEmpleado.getText());
-                pstmt.executeUpdate();
+            // Asignar el departamento seleccionado
+            String departamentoSeleccionado = cbDepartamento.getValue();
+            switch (departamentoSeleccionado) {
+                case "Creativo":
+                    cstmt.setString(8, "DC001");
+                    cstmt.setString(9, null);
+                    cstmt.setString(10, null);
+                    cstmt.setString(11, "DC001");
+                    cstmt.setString(12, null);
+                    cstmt.setString(13, null);
+                    break;
+                case "Producción":
+                    cstmt.setString(8, null);
+                    cstmt.setString(9, "DP001");
+                    cstmt.setString(10, null);
+                    cstmt.setString(11, null);
+                    cstmt.setString(12, "DP001");
+                    cstmt.setString(13, null);
+                    break;
+                case "Finanzas":
+                    cstmt.setString(8, null);
+                    cstmt.setString(9, null);
+                    cstmt.setString(10, "DF001");
+                    cstmt.setString(11, null);
+                    cstmt.setString(12, null);
+                    cstmt.setString(13, "DF001");
+                    break;
             }
 
+            cstmt.executeUpdate();
+
             // Mostrar alerta de confirmación
-            showAlert(Alert.AlertType.INFORMATION, "Éxito", "Empleado creado o actualizado correctamente.");
+            showAlert(Alert.AlertType.INFORMATION, "Éxito", "Empleado creado correctamente.");
 
             // Redirigir a la ventana de usuarios
             App.setRoot("usuarios");
@@ -152,7 +123,7 @@ public class anadirEmpleadosController implements Initializable {
             showAlert(Alert.AlertType.ERROR, "Error", "No se pudo realizar la operación: " + e.getMessage());
         } finally {
             try {
-                if (pstmt != null) pstmt.close();
+                if (cstmt != null) cstmt.close();
                 if (conn != null) conn.close();
             } catch (SQLException ex) {
                 ex.printStackTrace();

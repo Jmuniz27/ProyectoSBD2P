@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="TOP_CENTER" prefHeight="400.0" prefWidth="450.0" spacing="20.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.proyectosbd2p.AnadirRolPagoController">
+    <children>
+        <HBox alignment="CENTER_RIGHT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="49.0" prefWidth="360.0">
+            <children>
+                <Button mnemonicParsing="false" onAction="#regresarBtn" prefHeight="39.0" prefWidth="101.0" style="-fx-background-color: #f96a17; -fx-background-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);" text="Regresar" textFill="WHITE">
+                    <font>
+                        <Font name="Arial Rounded MT Bold" size="11.0" />
+                    </font>
+                </Button>
+            </children>
+        </HBox>
+        <Label text="Añadir Rol de Pago" textFill="#f96a17">
+            <font>
+                <Font name="Arial Rounded MT Bold" size="24.0" />
+            </font>
+        </Label>
+        <GridPane hgap="10" vgap="10" prefHeight="200.0" prefWidth="300.0">
+            <children>
+                <Label text="ID Pago:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                <TextField fx:id="tfIdPago" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+                <Label text="Pago Neto:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                <TextField fx:id="tfPagoNeto" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+                <Label text="ID Empleado:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                <TextField fx:id="tfIdEmpleado" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+            </children>
+            <columnConstraints>
+                <ColumnConstraints minWidth="150.0" prefWidth="200.0" />
+                <ColumnConstraints minWidth="200.0" prefWidth="250.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="30.0" prefHeight="40.0" />
+                <RowConstraints minHeight="30.0" prefHeight="40.0" />
+                <RowConstraints minHeight="30.0" prefHeight="40.0" />
+            </rowConstraints>
+        </GridPane>
+        <Button onAction="#guardarRolPago" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #f96a17; -fx-background-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);" text="Guardar" textFill="WHITE">
+            <font>
+                <Font name="Arial Rounded MT Bold" size="13.0" />
+            </font>
+        </Button>
+    </children>
+    <padding>
+        <Insets bottom="20" left="20" right="20" top="20" />
+    </padding>
+</VBox>

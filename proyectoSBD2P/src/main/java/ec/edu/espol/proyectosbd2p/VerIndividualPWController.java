@@ -155,8 +155,8 @@ public class VerIndividualPWController implements Initializable {
             try {
                 Connection conn = DatabaseConnection.getConnection();
                 CallableStatement cstmt = conn.prepareCall(sql);
-
                 cstmt.setInt(1, pw.getIdProyecto());  // Establecer el ID del pago como parámetro
+
                 cstmt.execute();  // Ejecutar el procedimiento almacenado
 
                 showAlert(Alert.AlertType.INFORMATION, "Eliminación Completa", "Publicidad Web eliminado con éxito.");

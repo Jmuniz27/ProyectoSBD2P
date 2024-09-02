@@ -82,9 +82,9 @@ public class anadirAnuncioWebController implements Initializable {
             String sql = "{CALL crear_PublicidadAnuncioWeb(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
             cstmt = conn.prepareCall(sql);
 
-            cstmt.setString(1, idProyecto);
+            //cstmt.setString(1, idProyecto);
             cstmt.setString(2, tfanadirWebRuc.getText());
-            cstmt.setString(3, numFactura);
+            //cstmt.setString(3, numFactura);
             cstmt.setString(4, tfanadirWebTitulo.getText());
             cstmt.setInt(5, presupuesto);
             cstmt.setString(6, tfanadirDescrip.getText());

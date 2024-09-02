@@ -162,7 +162,11 @@ public class VerIndividualSegmentoController implements Initializable {
                 Connection conn = DatabaseConnection.getConnection();
                 CallableStatement cstmt = conn.prepareCall(sql);
 
+<<<<<<< HEAD
                 cstmt.setInt(1, seg.getIdProyecto());  // Establecer el ID del pago como parámetro
+=======
+                cstmt.setString(1, seg.getIdProyecto()+"");  // Establecer el ID del pago como parámetro
+>>>>>>> 02d1077301063655eabe2fba7dda57f35099959a
                 cstmt.execute();  // Ejecutar el procedimiento almacenado
 
                 showAlert(Alert.AlertType.INFORMATION, "Eliminación Completa", "Segmento eliminado con éxito.");

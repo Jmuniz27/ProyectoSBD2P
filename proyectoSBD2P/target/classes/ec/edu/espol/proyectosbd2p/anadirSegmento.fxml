@@ -28,27 +28,29 @@
                 <Font name="Arial Rounded MT Bold" size="24.0" />
             </font>
         </Label>
-        <GridPane hgap="10" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="317.0" prefWidth="276.0" vgap="10">
+        <GridPane hgap="10" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="333.0" prefWidth="276.0" vgap="10">
             <children>
 
                 <Label text="Titulo" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-                <TextField fx:id="tfanadirWebTitulo" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <TextField fx:id="tfanadirSegmentoTitulo" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
                 <Label text="Presupuesto:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-                <TextField fx:id="tfanadirWebPresupuesto" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <TextField fx:id="tfanadirSegmentoPresupuesto" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
-                <Label text="Tamaño del Banner:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
-                <TextField fx:id="tfanadirTamano" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Comisión:" GridPane.rowIndex="4" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Descripción:" GridPane.rowIndex="5" />
-            <TextField fx:id="tfanadirWebComision" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                <Label text="Rating:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                <TextField fx:id="tfanadirSegmentoRating" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Comisión:" GridPane.rowIndex="5" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Descripción:" GridPane.rowIndex="6" />
             <TextField fx:id="tfanadirWebComision" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextField fx:id="tfanadirSegmentoDescripcion" GridPane.columnIndex="1" GridPane.rowIndex="6" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="RUC Cliente:" />
-            <TextField fx:id="tfanadirWebRuc" GridPane.columnIndex="1" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha de Inicio:" GridPane.rowIndex="6" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha Fin:" GridPane.rowIndex="7" />
-            <DatePicker fx:id="dtanadirWebFechaInicio" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-            <DatePicker fx:id="dtanadirWebFechaFin" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <TextField fx:id="tfanadirSegmentoRuc" GridPane.columnIndex="1" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha de Inicio:" GridPane.rowIndex="7" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha Fin:" GridPane.rowIndex="8" />
+            <DatePicker fx:id="dtanadirSegmentoFechaInicio" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <DatePicker fx:id="dtanadirSegmentoFechaFin" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Duracion:" GridPane.rowIndex="4" />
+            <TextField fx:id="tfanadirSegmentoDuracion" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             </children>
          <columnConstraints>
             <ColumnConstraints maxWidth="129.5" minWidth="82.5" prefWidth="122.5" />
@@ -59,6 +61,7 @@
             <RowConstraints />
             <RowConstraints />
             <RowConstraints />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" />

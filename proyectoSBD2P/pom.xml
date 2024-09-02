@@ -23,7 +23,8 @@
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
-            <version>22</version>
+            <version>20</version>
+            <type>jar</type>
         </dependency>
         <dependency>
             <groupId>com.mysql</groupId>

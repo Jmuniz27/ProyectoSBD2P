@@ -13,12 +13,14 @@ public class PersonaContacto {
     private String nombre;
     private String apellido;
     private String email;
+    private String telefono;
 
-    public PersonaContacto(String cedula, String nombre, String apellido, String email) {
+    public PersonaContacto(String cedula, String nombre, String apellido, String email, String telefono) {
         this.cedula = cedula;
         this.nombre = nombre;
         this.apellido = apellido;
         this.email = email;
+        this.telefono=telefono;
     }
 
     public String getCedula() {
@@ -51,6 +53,14 @@ public class PersonaContacto {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
     
     

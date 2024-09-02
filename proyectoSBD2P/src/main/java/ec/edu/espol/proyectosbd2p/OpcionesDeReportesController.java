@@ -11,6 +11,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 /**
@@ -48,7 +49,8 @@ public class OpcionesDeReportesController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        Image img1 = new Image("/imagenes/logo.jpg");
+        imgLogo.setImage(img1);
     }    
 
     @FXML

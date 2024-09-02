@@ -87,7 +87,8 @@ public class EditarClienteController implements Initializable {
             cliente.setSitioWeb(tfSitioWeb.getText());
 
             // Llamar al procedimiento almacenado
-            try (Connection conn = DatabaseConnection.getConnection()) {
+            try {
+                Connection conn = DatabaseConnection.getConnection();
                 System.out.println('1');
                 String sql = "{CALL actualizar_Cliente(?, ?, ?, ?, ?, ?)}";
                 CallableStatement cstmt = conn.prepareCall(sql);

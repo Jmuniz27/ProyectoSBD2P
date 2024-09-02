@@ -11,73 +11,68 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="450.0" spacing="20.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.proyectosbd2p.AnadirProductoTiendaController">
+<VBox alignment="TOP_CENTER" prefHeight="575.0" prefWidth="434.0" spacing="50.0" style="-fx-background-color: ffffff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.proyectosbd2p.AnadirProductoTiendaController">
     <children>
-        <HBox alignment="CENTER_RIGHT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="49.0" prefWidth="360.0">
-            <children>
-                <Button mnemonicParsing="false" onAction="#regresarBtn" prefHeight="39.0" prefWidth="101.0" style="-fx-background-color: #f96a17; -fx-background-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);" text="Regresar" textFill="WHITE">
-                    <font>
-                        <Font name="Arial Rounded MT Bold" size="11.0" />
-                    </font>
-                </Button>
-            </children>
-        </HBox>
-        <Label text="Añadir Producto Tienda" textFill="#f96a17">
+      <HBox alignment="CENTER_RIGHT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="49.0" prefWidth="360.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#regresarBtn" prefHeight="39.0" prefWidth="101.0" style="-fx-background-color: #f96a17; -fx-background-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);" text="Regresar" textFill="WHITE">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="11.0" />
+               </font></Button>
+         </children>
+      </HBox>
+        <Label text="Añadir Producto en Tienda" textFill="#f96a17">
             <font>
                 <Font name="Arial Rounded MT Bold" size="24.0" />
             </font>
         </Label>
-        <GridPane hgap="10" vgap="10" prefHeight="350.0" prefWidth="400.0">
+        <GridPane hgap="10" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="317.0" prefWidth="276.0" vgap="10">
             <children>
-                <Label text="RUC Cliente:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
-                <TextField fx:id="tfRuc" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
 
-                <Label text="Categoría:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
-                <TextField fx:id="tfCategoria" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                <Label text="Titulo" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                <TextField fx:id="tfanadirTiendaTitulo" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
-                <Label text="Precio:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
-                <TextField fx:id="tfPrecio" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                <Label text="Categoria" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                <TextField fx:id="tfCategoria" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
-                <Label text="Título:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
-                <TextField fx:id="tfTitulo" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                <Label text="Presupuesto:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                <TextField fx:id="tfanadirTiendaPresupuesto" GridPane.columnIndex="1" GridPane.rowIndex="3" />
 
-                <Label text="Presupuesto:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
-                <TextField fx:id="tfPresupuesto" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
-
-                <Label text="Descripción:" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
-                <TextField fx:id="tfDescripcion" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
-
-                <Label text="Fecha de Inicio:" GridPane.columnIndex="0" GridPane.rowIndex="6"/>
-                <DatePicker fx:id="dpFechaInicio" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
-
-                <Label text="Fecha Fin:" GridPane.columnIndex="0" GridPane.rowIndex="7"/>
-                <DatePicker fx:id="dpFechaFin" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
-
-                <Label text="Comisión:" GridPane.columnIndex="0" GridPane.rowIndex="8"/>
-                <TextField fx:id="tfComision" GridPane.columnIndex="1" GridPane.rowIndex="8"/>
+                <Label text="Precio:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                <TextField fx:id="tfanadirPrecio" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Comisión:" GridPane.rowIndex="5" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Descripción:" GridPane.rowIndex="6" />
+            <TextField fx:id="tfanadirTiendaComision" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextField fx:id="tfanadirTiendaDescripcion" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="RUC Cliente:" />
+            <TextField fx:id="tfanadirTiendaRuc" GridPane.columnIndex="1" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha de Inicio:" GridPane.rowIndex="7" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha Fin:" GridPane.rowIndex="8" />
+            <DatePicker fx:id="dtanadirTiendaFechaInicio" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <DatePicker fx:id="dtanadirTiendaFechaFin" GridPane.columnIndex="1" GridPane.rowIndex="8" />
             </children>
-            <columnConstraints>
-                <ColumnConstraints minWidth="150.0" prefWidth="200.0" />
-                <ColumnConstraints minWidth="200.0" prefWidth="250.0" />
-            </columnConstraints>
-            <rowConstraints>
-                <RowConstraints minHeight="30.0" prefHeight="40.0" />
-                <RowConstraints minHeight="30.0" prefHeight="40.0" />
-                <RowConstraints minHeight="30.0" prefHeight="40.0" />
-                <RowConstraints minHeight="30.0" prefHeight="40.0" />
-                <RowConstraints minHeight="30.0" prefHeight="40.0" />
-                <RowConstraints minHeight="30.0" prefHeight="40.0" />
-                <RowConstraints minHeight="30.0" prefHeight="40.0" />
-                <RowConstraints minHeight="30.0" prefHeight="40.0" />
-                <RowConstraints minHeight="30.0" prefHeight="40.0" />
-            </rowConstraints>
+         <columnConstraints>
+            <ColumnConstraints maxWidth="129.5" minWidth="82.5" prefWidth="122.5" />
+            <ColumnConstraints maxWidth="152.5" minWidth="123.5" prefWidth="140.5" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" />
+         </rowConstraints>
         </GridPane>
-        <Button onAction="#guardarProductoTienda" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #f96a17; -fx-background-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);" text="Guardar" textFill="WHITE">
-            <font>
-                <Font name="Arial Rounded MT Bold" size="13.0" />
-            </font>
-        </Button>
+        <Button onAction="#anadirProductoTienda" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #f96a17; -fx-background-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);" text="Guardar Cambios" textFill="WHITE">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="13.0" />
+         </font></Button>
     </children>
     <padding>
         <Insets bottom="20" left="20" right="20" top="20" />

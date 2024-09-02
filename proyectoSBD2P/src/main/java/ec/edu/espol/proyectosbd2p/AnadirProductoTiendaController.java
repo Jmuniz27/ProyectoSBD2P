@@ -16,51 +16,46 @@ import javafx.scene.control.TextField;
 public class AnadirProductoTiendaController implements Initializable {
 
     @FXML
-    private TextField tfRuc;
+    private TextField tfanadirPrecio;
+    @FXML
+    private TextField tfanadirTiendaTitulo;
     @FXML
     private TextField tfCategoria;
     @FXML
-    private TextField tfPrecio;
+    private TextField tfanadirTiendaPresupuesto;
     @FXML
-    private TextField tfTitulo;
+    private TextField tfanadirTiendaComision;
     @FXML
-    private TextField tfPresupuesto;
+    private TextField tfanadirTiendaDescripcion;
     @FXML
-    private TextField tfDescripcion;
+    private TextField tfanadirTiendaRuc;
     @FXML
-    private DatePicker dpFechaInicio;
+    private DatePicker dtanadirTiendaFechaInicio;
     @FXML
-    private DatePicker dpFechaFin;
-    @FXML
-    private TextField tfComision;
+    private DatePicker dtanadirTiendaFechaFin;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // No se requiere inicialización especial en este caso
-    }
+        // Inicialización si es necesario
+    }    
 
     @FXML
     private void regresarBtn(ActionEvent event) {
-        // Volver a la vista anterior
-        try {
-            App.setRoot("productosTienda");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        // Cierra la ventana actual sin guardar cambios
+        Stage stage = (Stage) tfanadirTiendaTitulo.getScene().getWindow();
+        stage.close();
     }
 
-    @FXML
-    private void guardarProductoTienda(ActionEvent event) {
-        // Validar que todos los campos estén llenos
-        if (tfRuc.getText().trim().isEmpty() ||
+    private void guardarCambios(ActionEvent event) {
+        if (tfanadirTiendaTitulo.getText().trim().isEmpty() ||
             tfCategoria.getText().trim().isEmpty() ||
-            tfPrecio.getText().trim().isEmpty() ||
-            tfTitulo.getText().trim().isEmpty() ||
-            tfPresupuesto.getText().trim().isEmpty() ||
-            tfDescripcion.getText().trim().isEmpty() ||
-            dpFechaInicio.getValue() == null ||
-            dpFechaFin.getValue() == null ||
-            tfComision.getText().trim().isEmpty()) {
+            tfanadirPrecio.getText().trim().isEmpty() ||
+            tfanadirTiendaComision.getText().trim().isEmpty() ||
+            tfanadirTiendaDescripcion.getText().trim().isEmpty() ||
+            tfanadirTiendaRuc.getText().trim().isEmpty() ||
+            dtanadirTiendaFechaInicio.getValue() == null ||
+            dtanadirTiendaFechaFin.getValue() == null||
+                tfanadirTiendaPresupuesto.getText().trim().isEmpty()) {
 
             showAlert(Alert.AlertType.ERROR, "Error", "Todos los campos deben estar llenos.");
             return;
@@ -99,11 +94,31 @@ public class AnadirProductoTiendaController implements Initializable {
             showAlert(Alert.AlertType.ERROR, "Error", "No se pudo realizar la operación: " + e.getMessage());
         } finally {
             try {
-                if (cstmt != null) cstmt.close();
-                if (conn != null) conn.close();
-            } catch (SQLException ex) {
-                ex.printStackTrace();
+                Connection conn = DatabaseConnection.getConnection();
+                String sql = "{CALL crear_ProductoTienda(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
+                CallableStatement cstmt = conn.prepareCall(sql);
+                cstmt.setString(1, tfanadirTiendaRuc.getText());
+                cstmt.setString(2, tfCategoria.getText());
+                cstmt.setDouble(3, Double.parseDouble(tfanadirPrecio.getText()));
+                cstmt.setString(4, tfanadirTiendaTitulo.getText());
+                cstmt.setInt(5, Integer.parseInt(tfanadirTiendaPresupuesto.getText()));
+                cstmt.setString(6, tfanadirTiendaDescripcion.getText());
+                cstmt.setDate(7, Date.valueOf(dtanadirTiendaFechaInicio.getValue()));
+                cstmt.setDate(8, Date.valueOf(dtanadirTiendaFechaFin.getValue()));
+                cstmt.setString(9, "DP001"); 
+                cstmt.setDouble(10, Double.parseDouble(tfanadirTiendaComision.getText()));
+
+                // Ejecutar el procedimiento
+                cstmt.executeUpdate();
+                showAlert(Alert.AlertType.INFORMATION, "Éxito", "Producto añadido correctamente.");
+                
+            } catch (SQLException e) {
+                showAlert(Alert.AlertType.ERROR, "Error al añadir el producto", e.getMessage());
             }
+
+            // Cerrar la ventana después de añadir
+            Stage stage = (Stage) tfanadirTiendaTitulo.getScene().getWindow();
+            stage.close();
         }
     }
 
@@ -113,5 +128,24 @@ public class AnadirProductoTiendaController implements Initializable {
         alert.setTitle(title);
         alert.setContentText(message);
         alert.showAndWait();
+    }
+
+    private String generarIdProyecto() {
+        // Lógica para generar un ID de proyecto único
+        return "PROJ" + System.currentTimeMillis(); // Ejemplo simple, usa tu propia lógica
+    }
+
+    private String obtenerNumFactura() {
+        return "FAC" + System.currentTimeMillis(); // Ejemplo simple, usa tu propia lógica
+    }
+
+    private int obtenerPresupuesto() {
+        // Lógica para obtener el presupuesto (puedes ajustar esto según tus necesidades)
+        return 10000; // Valor de ejemplo, ajusta según la lógica de tu sistema
+    }
+
+    @FXML
+    private void anadirProductoTienda(ActionEvent event) {
+        this.guardarCambios(event);
     }
 }

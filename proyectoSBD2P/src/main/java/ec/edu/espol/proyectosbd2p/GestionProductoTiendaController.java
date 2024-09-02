@@ -460,7 +460,6 @@ public class GestionProductoTiendaController implements Initializable {
         stage.setScene(new Scene(root));
         stage.initModality(Modality.APPLICATION_MODAL); // Bloquea la ventana anterior hasta que se cierre esta
         stage.showAndWait(); // Mostrar la ventana y esperar a que se cierre
-        App.setRoot("usuarios");
 
         // Actualizar la vista principal después de la edición
         updateGrid();

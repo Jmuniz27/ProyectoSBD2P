@@ -1,3 +1,13 @@
+<<<<<<< HEAD
+ec/edu/espol/proyectosbd2p/modelo/RolPago.class
+ec/edu/espol/proyectosbd2p/EditarRPController.class
+ec/edu/espol/proyectosbd2p/PlantillaProyectoController.class
+ec/edu/espol/proyectosbd2p/GestionPublicidadCanalController.class
+module-info.class
+ec/edu/espol/proyectosbd2p/modelo/PublicidadAnuncioCanal.class
+ec/edu/espol/proyectosbd2p/modelo/Publicidad.class
+ec/edu/espol/proyectosbd2p/modelo/Proyecto.class
+=======
 ec\edu\espol\proyectosbd2p\modelo\Telefono.class
 ec\edu\espol\proyectosbd2p\VerIndividualPTController.class
 ec\edu\espol\proyectosbd2p\EditarEmpleadosController.class
@@ -60,3 +70,4 @@ ec\edu\espol\proyectosbd2p\PlantillaVerController.class
 ec\edu\espol\proyectosbd2p\modelo\DepartamentoCreativo.class
 ec\edu\espol\proyectosbd2p\modelo\Proyecto.class
 ec\edu\espol\proyectosbd2p\SecondaryController.class
+>>>>>>> 02d1077301063655eabe2fba7dda57f35099959a

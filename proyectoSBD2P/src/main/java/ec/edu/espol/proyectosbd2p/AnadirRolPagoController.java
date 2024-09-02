@@ -42,8 +42,7 @@ public class AnadirRolPagoController implements Initializable {
                 tfIdPago.setText(rs.getString("nuevo_id"));
             }
         } catch (SQLException e) {
-            e.printStackTrace();
-            showAlert(Alert.AlertType.ERROR, "Error", "No se pudo generar el ID de pago automáticamente: " + e.getMessage());
+            DatabaseConnection.handleSQLException(e);
         } finally {
             try {
                 if (rs != null) rs.close();
@@ -97,10 +96,13 @@ public class AnadirRolPagoController implements Initializable {
             // Redirigir a la ventana de roles de pago
             App.setRoot("rolesPago");
 
-        } catch (SQLException | IOException e) {
+        } catch (SQLException e) {
+            DatabaseConnection.handleSQLException(e);
+        } catch(IOException e) {
             e.printStackTrace();
-            showAlert(Alert.AlertType.ERROR, "Error", "No se pudo realizar la operación: " + e.getMessage());
-        } finally {
+            showAlert(Alert.AlertType.ERROR, "Error", "No se pudo redirigir a la ventana de roles de pago: " + e.getMessage());
+        }
+        finally {
             try {
                 if (cstmt != null) cstmt.close();
                 if (conn != null) conn.close();

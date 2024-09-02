@@ -120,18 +120,8 @@ public class anadirClientesController implements Initializable {
                 if (!hadResults) {
                     showAlert(Alert.AlertType.INFORMATION, "Éxito", "Datos actualizados correctamente.");
                 }
-            } catch (SQLException e) {        // Verificar si el error es de acceso denegado
-                if (e.getErrorCode() == 1370||e.getErrorCode() == 1045 || e.getErrorCode() == 1142 || e.getErrorCode() == 1044) {
-                    // Código de error 1045: Acceso denegado para el usuario
-                    // Código de error 1142: Permiso denegado para una operación específica
-                    // Código de error 1044: Acceso denegado a la base de datos
-                    showAlert(Alert.AlertType.ERROR, "Acceso Denegado", "No tienes permisos suficientes para realizar esta operación.");
-                } else {
-                    // Mostrar cualquier otro error SQL
-                    showAlert(Alert.AlertType.ERROR, "Error SQL", "Ha ocurrido un error al intentar acceder a la base de datos: " + e.getMessage() + e.getErrorCode());
-                }
-                Stage stage = (Stage) tfCedulaContacto.getScene().getWindow();
-                stage.close();
+            } catch (SQLException e) { 
+                DatabaseConnection.handleSQLException(e);
             }
 
             // Cerrar la ventana después de guardar

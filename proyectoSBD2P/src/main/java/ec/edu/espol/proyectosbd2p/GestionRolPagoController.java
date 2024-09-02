@@ -195,7 +195,7 @@ public class GestionRolPagoController implements Initializable {
         Set<RolPago> nuevo = new HashSet<>();
         for(RolPago rp1: respuestas){
             for(RolPago rp2: filtro){
-                if(rp1.getIdPago().equals(rp2.getIdPago())){
+                if(rp1==rp2){
                     nuevo.add(rp1);
                 }
             }
@@ -329,7 +329,7 @@ public class GestionRolPagoController implements Initializable {
             planImg.setImage(image);
             
             planName.setText(obtenerNombreEmpleado(rp.getIdEmpleado()));
-            planId.setText(rp.getIdPago());
+            planId.setText(rp.getIdPago()+"");
 
             return vbRolPago;
         } catch (IOException e) {
@@ -360,7 +360,7 @@ public class GestionRolPagoController implements Initializable {
     public Set<RolPago> crearRolPago(ResultSet resultSet) throws SQLException{
         Set<RolPago> rps = new HashSet<>();
         while (resultSet.next()) {
-            String id_pago = resultSet.getString("id_pago");
+            int id_pago = resultSet.getInt("id_pago");
             int pago_neto = resultSet.getInt("pago_neto");
             String id_empleado = resultSet.getString("id_empleado");
             String id_dep_finanzas = resultSet.getString("id_dep_finanzas");

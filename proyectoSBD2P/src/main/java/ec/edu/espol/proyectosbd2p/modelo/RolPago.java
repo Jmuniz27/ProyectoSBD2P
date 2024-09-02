@@ -9,23 +9,23 @@ package ec.edu.espol.proyectosbd2p.modelo;
  * @author zahid
  */
 public class RolPago {
-    private String idPago;
+    private int idPago;
     private int pagoNeto;
     private String idEmpleado;
     private String idDepFinanzas;
 
-    public RolPago(String idPago, int pagoNeto, String idEmpleado, String idDepFinanzas) {
+    public RolPago(int idPago, int pagoNeto, String idEmpleado, String idDepFinanzas) {
         this.idPago = idPago;
         this.pagoNeto = pagoNeto;
         this.idEmpleado = idEmpleado;
         this.idDepFinanzas = idDepFinanzas;
     }
 
-    public String getIdPago() {
+    public int getIdPago() {
         return idPago;
     }
 
-    public void setIdPago(String idPago) {
+    public void setIdPago(int idPago) {
         this.idPago = idPago;
     }
 

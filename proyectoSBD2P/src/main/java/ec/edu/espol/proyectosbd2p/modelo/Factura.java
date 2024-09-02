@@ -11,13 +11,13 @@ import java.util.Date;
  * @author zahid
  */
 public class Factura {
-    private String numFactura;
+    private int numFactura;
     private String ruc;
     private int precioTotal;
     private Date fecha;
     private String idDepFinanzas;
 
-    public Factura(String numFactura, String ruc, int precioTotal, Date fecha, String idDepFinanzas) {
+    public Factura(int numFactura, String ruc, int precioTotal, Date fecha, String idDepFinanzas) {
         this.numFactura = numFactura;
         this.ruc = ruc;
         this.precioTotal = precioTotal;
@@ -25,11 +25,11 @@ public class Factura {
         this.idDepFinanzas = idDepFinanzas;
     }
 
-    public String getNumFactura() {
+    public int getNumFactura() {
         return numFactura;
     }
 
-    public void setNumFactura(String numFactura) {
+    public void setNumFactura(int numFactura) {
         this.numFactura = numFactura;
     }
 

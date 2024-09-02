@@ -7,6 +7,10 @@ package ec.edu.espol.proyectosbd2p;
 import ec.edu.espol.proyectosbd2p.modelo.RolPago;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,6 +20,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
@@ -62,7 +67,7 @@ public class VerIndividualRPController implements Initializable {
         gridInfo.setVgap(60); 
         gridInfo.setHgap(60);
         gridInfo.setAlignment(Pos.CENTER);
-        VBox vbId = plantilla("ID Pago",rp.getIdPago());
+        VBox vbId = plantilla("ID Pago",rp.getIdPago()+"");
         gridInfo.add(vbId, 0, 0);
         VBox vbIdEmp = plantilla("ID Empleado",rp.getIdEmpleado());
         gridInfo.add(vbIdEmp, 1, 0);
@@ -134,6 +139,28 @@ public class VerIndividualRPController implements Initializable {
 
     @FXML
     private void eliminar(ActionEvent event) {
+        Alert confirmacion = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmacion.setTitle("Confirmar eliminación");
+        confirmacion.setHeaderText("¿Estás seguro de que deseas eliminar este rol de pago?");
+        confirmacion.setContentText("Esta acción no se puede deshacer.");
+
+        Optional<ButtonType> resultado = confirmacion.showAndWait();
+        if (resultado.isPresent() && resultado.get() == ButtonType.OK) {
+            String sql = "{CALL eliminar_RolPago(?)}";  // Llamada al procedimiento almacenado
+            try {
+                Connection conn = DatabaseConnection.getConnection();
+                CallableStatement cstmt = conn.prepareCall(sql);
+
+                cstmt.setInt(1, rp.getIdPago());  // Establecer el ID del pago como parámetro
+                cstmt.execute();  // Ejecutar el procedimiento almacenado
+
+                showAlert(Alert.AlertType.INFORMATION, "Eliminación Completa", "Rol de pago eliminado con éxito.");
+                regresar(event);
+                
+            } catch (SQLException e) {
+                showAlert(Alert.AlertType.ERROR, "Error de Base de Datos", "No se pudo eliminar el rol de pago: " + e.getMessage());
+            }
+        }
     }
     
 }

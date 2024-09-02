@@ -9,7 +9,7 @@ import java.util.Date;
  * @author zahid
  */
 public class Proyecto {
-    private String idProyecto;
+    private int idProyecto;
     private String titulo;
     private int presupuesto;
     private String descripcion;
@@ -19,7 +19,7 @@ public class Proyecto {
     private String numFactura;
     private double comisionAEmpresa;
 
-    public Proyecto(String idProyecto, String ruc, String numFactura, String titulo, int presupuesto, String descripcion, Date fechaInicio, Date fechaFin, double comisionAEmpresa) {
+    public Proyecto(int idProyecto, String ruc, String numFactura, String titulo, int presupuesto, String descripcion, Date fechaInicio, Date fechaFin, double comisionAEmpresa) {
         this.idProyecto = idProyecto;
         this.ruc = ruc;
         this.numFactura = numFactura;
@@ -31,11 +31,11 @@ public class Proyecto {
         this.comisionAEmpresa = comisionAEmpresa;
     }
 
-    public String getIdProyecto() {
+    public int getIdProyecto() {
         return idProyecto;
     }
 
-    public void setIdProyecto(String idProyecto) {
+    public void setIdProyecto(int idProyecto) {
         this.idProyecto = idProyecto;
     }
 

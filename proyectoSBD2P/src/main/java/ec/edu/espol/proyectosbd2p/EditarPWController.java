@@ -94,7 +94,7 @@ public class EditarPWController implements Initializable {
                 Connection conn = DatabaseConnection.getConnection();
                 String sql = "{CALL actualizar_PublicidadAnuncioWeb(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
                 try (CallableStatement cstmt = conn.prepareCall(sql)) {
-                    cstmt.setString(1, pw.getIdProyecto());
+                    cstmt.setInt(1, pw.getIdProyecto());
                     cstmt.setString(2, pw.getRuc());
                     cstmt.setString(3, pw.getNumFactura());
                     cstmt.setString(4, pw.getTitulo());

@@ -280,7 +280,7 @@ public class GestionPublicidadCanalController implements Initializable {
         Set<PublicidadAnuncioCanal> nuevo = new HashSet<>();
         for(PublicidadAnuncioCanal p1: respuestas){
             for(PublicidadAnuncioCanal p2: filtro){
-                if(p1.getIdProyecto().equals(p2.getIdProyecto())){
+                if(p1==p2){
                     nuevo.add(p1);
                 }
             }
@@ -301,7 +301,7 @@ public class GestionPublicidadCanalController implements Initializable {
                 ResultSet resultSet = statement.executeQuery(sql);
 
                 while (resultSet.next()) {
-                    String idProyecto = resultSet.getString("id_proyecto");
+                    int idProyecto = resultSet.getInt("id_proyecto");
                     String RUC = resultSet.getString("RUC");
                     String numFactura = resultSet.getString("num_factura");
                     String titulo = resultSet.getString("titulo");
@@ -328,7 +328,7 @@ public class GestionPublicidadCanalController implements Initializable {
                 ResultSet resultSet = statement.executeQuery(sql);
 
                 while (resultSet.next()) {
-                    String idProyecto = resultSet.getString("id_proyecto");
+                    int idProyecto = resultSet.getInt("id_proyecto");
                     String RUC = resultSet.getString("RUC");
                     String numFactura = resultSet.getString("num_factura");
                     String titulo = resultSet.getString("titulo");
@@ -407,7 +407,7 @@ public class GestionPublicidadCanalController implements Initializable {
             planImg.setImage(image);
 
             nomPro.setText(publicidad.getTitulo());
-            planIdPro.setText(publicidad.getIdProyecto());
+            planIdPro.setText(publicidad.getIdProyecto()+"");
 
             return vbPublicidad;
         } catch (IOException e) {

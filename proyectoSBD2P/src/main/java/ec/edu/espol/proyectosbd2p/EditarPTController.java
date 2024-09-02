@@ -94,7 +94,7 @@ public class EditarPTController implements Initializable {
                 Connection conn = DatabaseConnection.getConnection();
                 String sql = "{CALL actualizar_ProductoTienda(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
                 try (CallableStatement cstmt = conn.prepareCall(sql)) {
-                    cstmt.setString(1, pt.getIdProyecto());
+                    cstmt.setInt(1, pt.getIdProyecto());
                     cstmt.setString(2, pt.getRuc());
                     cstmt.setString(3, pt.getNumFactura());
                     cstmt.setString(4, pt.getCategoria());

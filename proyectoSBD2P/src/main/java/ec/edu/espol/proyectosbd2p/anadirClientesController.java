@@ -9,6 +9,9 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import ec.edu.espol.proyectosbd2p.modelo.Cliente;
+import ec.edu.espol.proyectosbd2p.modelo.PersonaContacto;
+import java.sql.CallableStatement;
+import java.util.Optional;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -16,6 +19,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.scene.Node;
+import javafx.scene.control.ButtonType;
 
 public class anadirClientesController implements Initializable {
 
@@ -37,6 +41,8 @@ public class anadirClientesController implements Initializable {
     private TextField tfInfoContactoEmail;
     @FXML
     private TextField tfInfoContactoTelefono;
+    @FXML
+    private TextField tfApellido;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -64,85 +70,77 @@ public class anadirClientesController implements Initializable {
             tfanadirPersonaContacto.getText().trim().isEmpty() ||
             tfCedulaContacto.getText().trim().isEmpty() ||
             tfInfoContactoEmail.getText().trim().isEmpty() ||
-            tfInfoContactoTelefono.getText().trim().isEmpty()) {
+            tfInfoContactoTelefono.getText().trim().isEmpty()||tfApellido.getText().trim().isEmpty()) {
 
             showAlert(Alert.AlertType.ERROR, "Error", "Todos los campos deben estar llenos.");
             return;
         }
 
-        Connection conn = null;
-        PreparedStatement pstmt = null;
-
-        try {
-            conn = DatabaseConnection.getConnection();
-
-            // Verificar si la cédula ya existe
-            String sqlCheck = "SELECT COUNT(*) FROM persona_contacto WHERE cedula = ?";
-            pstmt = conn.prepareStatement(sqlCheck);
-            pstmt.setString(1, tfCedulaContacto.getText());
-            ResultSet rs = pstmt.executeQuery();
-            rs.next();
-            int count = rs.getInt(1);
-
-            if (count == 0) {
-                // Si la cédula no existe, inserta un nuevo registro en persona_contacto
-                String sqlPersonaContacto = "INSERT INTO persona_contacto (cedula, nombre, email, telefono) VALUES (?, ?, ?, ?)";
-                pstmt = conn.prepareStatement(sqlPersonaContacto);
-                pstmt.setString(1, tfCedulaContacto.getText());
-                pstmt.setString(2, tfanadirPersonaContacto.getText());
-                pstmt.setString(3, tfInfoContactoEmail.getText());
-                pstmt.setString(4, tfInfoContactoTelefono.getText());
-                pstmt.executeUpdate();
-            }
-
-            // Crear un nuevo cliente con la cédula de la persona de contacto
-            Cliente nuevoCliente = new Cliente(
-                tfAnadirRuc.getText(),
-                tfanadirNombreEmpresa.getText(),
-                tfanadirDescrip.getText(),
-                tfanadirDireccion.getText(),
-                tfanadirSitioWeb.getText(),
-                tfCedulaContacto.getText()  // Usamos la cédula como la referencia en cliente
-            );
-
-            // Insertar el nuevo cliente en la base de datos
-            String sqlCliente = "INSERT INTO cliente (RUC, nombre_empresa, decrip_empresa, direccion, sitio_web, id_persona_contacto) VALUES (?, ?, ?, ?, ?, ?)";
-            pstmt = conn.prepareStatement(sqlCliente);
-            pstmt.setString(1, nuevoCliente.getRuc());
-            pstmt.setString(2, nuevoCliente.getNombreEmpresa());
-            pstmt.setString(3, nuevoCliente.getDescripEmpresa());
-            pstmt.setString(4, nuevoCliente.getDireccion());
-            pstmt.setString(5, nuevoCliente.getSitioWeb());
-            pstmt.setString(6, nuevoCliente.getIdPersonaContacto());
-
-            int rowsAffected = pstmt.executeUpdate();
-            if (rowsAffected > 0) {
-                // Mostrar alerta de confirmación
-                showAlert(Alert.AlertType.INFORMATION, "Éxito", "Cliente y Persona de Contacto creados correctamente.");
-                
-                // Cerrar la ventana actual
-                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                stage.close();
-                App.setRoot("usuarios");
-            } else {
-                showAlert(Alert.AlertType.ERROR, "Error", "No se pudo crear el cliente.");
-            }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-            showAlert(Alert.AlertType.ERROR, "Error de Base de Datos", e.getMessage());
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } finally {
+        // Confirmación antes de guardar
+        Alert confirmacion = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmacion.setTitle("Confirmar cambios");
+        confirmacion.setHeaderText("¿Seguro que desea guardar los cambios?");
+        Optional<ButtonType> resultado = confirmacion.showAndWait();
+        
+        if (resultado.isPresent() && resultado.get() == ButtonType.OK) {
+            
+            // Llamar al procedimiento almacenado
             try {
-                if (pstmt != null) pstmt.close();
-                if (conn != null) conn.close();
-            } catch (SQLException ex) {
-                ex.printStackTrace();
+                Connection conn = DatabaseConnection.getConnection();
+                // Verificar si la cédula ya existe
+                String sqlCheck = "SELECT COUNT(*) FROM persona_contacto WHERE cedula = ?";
+                PreparedStatement pstmt = conn.prepareStatement(sqlCheck);
+                pstmt.setString(1, tfCedulaContacto.getText());
+                ResultSet rs = pstmt.executeQuery();
+                rs.next();
+                int count = rs.getInt(1);
+
+                if (count == 0) {
+                    // Si la cédula no existe, inserta un nuevo registro en persona_contacto
+                    String sql = "{CALL crear_PersonaContacto(?, ?, ?, ?, ?)}";
+                    CallableStatement cstmt1 = conn.prepareCall(sql);
+                    cstmt1.setString(1, tfCedulaContacto.getText());
+                    cstmt1.setString(2, tfanadirPersonaContacto.getText());
+                    cstmt1.setString(3, tfApellido.getText());
+                    cstmt1.setString(4, tfInfoContactoEmail.getText());
+                    cstmt1.setString(5, tfInfoContactoTelefono.getText());
+                    cstmt1.execute();
+                }
+                Cliente cliente = new Cliente(tfAnadirRuc.getText(),tfanadirNombreEmpresa.getText(), tfanadirDescrip.getText(),tfanadirDireccion.getText(),tfanadirSitioWeb.getText(),tfCedulaContacto.getText());
+
+                String sql = "{CALL crear_Cliente(?, ?, ?, ?, ?, ?)}";
+                CallableStatement cstmt = conn.prepareCall(sql);
+                cstmt.setString(1, cliente.getRuc());
+                cstmt.setString(2, cliente.getNombreEmpresa());
+                cstmt.setString(3, cliente.getDescripEmpresa());
+                cstmt.setString(4, cliente.getDireccion());
+                cstmt.setString(5, cliente.getSitioWeb());
+                cstmt.setString(6, cliente.getIdPersonaContacto());
+                boolean hadResults = cstmt.execute();
+                if (!hadResults) {
+                    showAlert(Alert.AlertType.INFORMATION, "Éxito", "Datos actualizados correctamente.");
+                }
+            } catch (SQLException e) {        // Verificar si el error es de acceso denegado
+                if (e.getErrorCode() == 1370||e.getErrorCode() == 1045 || e.getErrorCode() == 1142 || e.getErrorCode() == 1044) {
+                    // Código de error 1045: Acceso denegado para el usuario
+                    // Código de error 1142: Permiso denegado para una operación específica
+                    // Código de error 1044: Acceso denegado a la base de datos
+                    showAlert(Alert.AlertType.ERROR, "Acceso Denegado", "No tienes permisos suficientes para realizar esta operación.");
+                } else {
+                    // Mostrar cualquier otro error SQL
+                    showAlert(Alert.AlertType.ERROR, "Error SQL", "Ha ocurrido un error al intentar acceder a la base de datos: " + e.getMessage() + e.getErrorCode());
+                }
+                Stage stage = (Stage) tfCedulaContacto.getScene().getWindow();
+                stage.close();
             }
+
+            // Cerrar la ventana después de guardar
+            Stage stage = (Stage) tfCedulaContacto.getScene().getWindow();
+            stage.close();
         }
     }
+            
+        
 
     private void showAlert(Alert.AlertType alertType, String title, String message) {
         Alert alert = new Alert(alertType);

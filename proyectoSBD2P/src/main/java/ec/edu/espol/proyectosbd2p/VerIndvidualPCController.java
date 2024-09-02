@@ -68,7 +68,7 @@ public class VerIndvidualPCController implements Initializable {
         gridInfo.setVgap(60); 
         gridInfo.setHgap(60);
         gridInfo.setAlignment(Pos.CENTER);
-        VBox vbIdp = plantilla("ID Proyecto",pc.getIdProyecto());
+        VBox vbIdp = plantilla("ID Proyecto",pc.getIdProyecto()+"");
         gridInfo.add(vbIdp, 0, 0);
         VBox vbRuc = plantilla("RUC del Cliente",pc.getRuc());
         gridInfo.add(vbRuc, 1, 0);
@@ -159,7 +159,7 @@ public class VerIndvidualPCController implements Initializable {
                 Connection conn = DatabaseConnection.getConnection();
                 CallableStatement cstmt = conn.prepareCall(sql);
 
-                cstmt.setString(1, pc.getIdProyecto());  // Establecer el ID del pago como parámetro
+                cstmt.setInt(1, pc.getIdProyecto());  // Establecer el ID del pago como parámetro
                 cstmt.execute();  // Ejecutar el procedimiento almacenado
 
                 showAlert(Alert.AlertType.INFORMATION, "Eliminación Completa", "Publicidad Canal eliminado con éxito.");

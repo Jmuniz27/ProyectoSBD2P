@@ -275,7 +275,7 @@ public class GestionProductoTiendaController implements Initializable {
         Set<ProductoTienda> nuevo = new HashSet<>();
         for(ProductoTienda p1: respuestas){
             for(ProductoTienda p2: filtro){
-                if(p1.getIdProyecto().equals(p2.getIdProyecto())){
+                if(p1==p2){
                     nuevo.add(p1);
                 }
             }
@@ -387,7 +387,7 @@ public class GestionProductoTiendaController implements Initializable {
             planImg.setImage(image);
             
             planName.setText(pt.getTitulo());
-            planId.setText(pt.getIdProyecto());
+            planId.setText(pt.getIdProyecto()+"");
 
             return vbProductoTienda;
         } catch (IOException e) {
@@ -428,7 +428,7 @@ public class GestionProductoTiendaController implements Initializable {
     private Set<ProductoTienda> crearProductoTienda(ResultSet resultSet) throws SQLException {
         Set<ProductoTienda> pts = new HashSet<>();
         while (resultSet.next()) {
-            String id_proyecto = resultSet.getString("id_proyecto");
+            int id_proyecto = resultSet.getInt("id_proyecto");
             String RUC = resultSet.getString("RUC");
             String num_factura = resultSet.getString("num_factura");
             String categoria = resultSet.getString("categoria");

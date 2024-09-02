@@ -298,7 +298,7 @@ public class GestionSegmentoController implements Initializable {
         Set<Segmento> nuevo = new HashSet<>();
         for(Segmento s1: respuestas){
             for(Segmento s2: filtro){
-                if(s1.getIdProyecto().equals(s2.getIdProyecto())){
+                if(s1==s2){
                     nuevo.add(s1);
                 }
             }
@@ -410,7 +410,7 @@ public class GestionSegmentoController implements Initializable {
             planImg.setImage(image);
             
             planName.setText(seg.getTitulo());
-            planId.setText(seg.getIdProyecto());
+            planId.setText(seg.getIdProyecto()+"");
 
             return vbSegmento;
         } catch (IOException e) {
@@ -459,7 +459,7 @@ public class GestionSegmentoController implements Initializable {
     private Set<Segmento> crearSegmento(ResultSet resultSet) throws SQLException {
         Set<Segmento> segmentos = new HashSet<>();
         while (resultSet.next()) {
-            String id_proyecto = resultSet.getString("id_proyecto");
+            int id_proyecto = resultSet.getInt("id_proyecto");
             String RUC = resultSet.getString("RUC");
             String num_factura = resultSet.getString("num_factura");
             String rating = resultSet.getString("rating");

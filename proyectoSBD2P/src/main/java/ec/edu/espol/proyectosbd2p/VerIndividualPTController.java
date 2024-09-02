@@ -66,7 +66,7 @@ public class VerIndividualPTController implements Initializable {
     private void updateGrid() {
         hbInfo1.getChildren().clear();
         hbInfo2.getChildren().clear();
-        VBox vbIdp = plantilla("ID Proyecto",pt.getIdProyecto());
+        VBox vbIdp = plantilla("ID Proyecto",pt.getIdProyecto()+"");
         hbInfo1.getChildren().add(vbIdp);
         VBox vbRuc = plantilla("RUC del Cliente",pt.getRuc());
         hbInfo1.getChildren().add(vbRuc);
@@ -158,7 +158,7 @@ public class VerIndividualPTController implements Initializable {
                 Connection conn = DatabaseConnection.getConnection();
                 CallableStatement cstmt = conn.prepareCall(sql);
 
-                cstmt.setString(1, pt.getIdProyecto());  // Establecer el ID del pago como parámetro
+                cstmt.setInt(1, pt.getIdProyecto());  // Establecer el ID del pago como parámetro
                 cstmt.execute();  // Ejecutar el procedimiento almacenado
 
                 showAlert(Alert.AlertType.INFORMATION, "Eliminación Completa", "Producto Tienda eliminado con éxito.");

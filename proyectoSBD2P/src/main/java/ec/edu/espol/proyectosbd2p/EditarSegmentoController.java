@@ -95,7 +95,7 @@ public class EditarSegmentoController implements Initializable {
                 Connection conn = DatabaseConnection.getConnection();
                 String sql = "{CALL actualizar_segmento(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
                 try (CallableStatement cstmt = conn.prepareCall(sql)) {
-                    cstmt.setString(1, seg.getIdProyecto());
+                    cstmt.setInt(1, seg.getIdProyecto());
                     cstmt.setString(2, seg.getRuc());
                     cstmt.setString(3, seg.getNumFactura());
                     cstmt.setString(4, seg.getRating());

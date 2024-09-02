@@ -95,7 +95,7 @@ public class EditarPCController implements Initializable {
                 Connection conn = DatabaseConnection.getConnection();
                 String sql = "{CALL actualizar_PublicidadAnuncioCanal(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
                 try (CallableStatement cstmt = conn.prepareCall(sql)) {
-                    cstmt.setString(1, pc.getIdProyecto());
+                    cstmt.setInt(1, pc.getIdProyecto());
                     cstmt.setString(2, pc.getRuc());
                     cstmt.setString(3, pc.getNumFactura());
                     cstmt.setString(4, pc.getTitulo());

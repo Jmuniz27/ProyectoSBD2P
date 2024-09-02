@@ -16,7 +16,7 @@ public class Segmento extends Proyecto{
     private boolean estado;
     private String idDepProd;
 
-    public Segmento(String idProyecto, String ruc, String numFactura, String rating, int duracion, boolean estado, String titulo, int presupuesto, String descripcion, Date fechaInicio, Date fechaFin, String idDepProd, double comisionAEmpresa) {
+    public Segmento(int idProyecto, String ruc, String numFactura, String rating, int duracion, boolean estado, String titulo, int presupuesto, String descripcion, Date fechaInicio, Date fechaFin, String idDepProd, double comisionAEmpresa) {
         super(idProyecto, ruc, numFactura, titulo, presupuesto, descripcion, fechaInicio, fechaFin, comisionAEmpresa);
         this.rating = rating;
         this.duracion = duracion;

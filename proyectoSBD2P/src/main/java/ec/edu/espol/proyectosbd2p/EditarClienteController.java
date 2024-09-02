@@ -86,19 +86,14 @@ public class EditarClienteController implements Initializable {
             try (Connection conn = DatabaseConnection.getConnection()) {
                 System.out.println('1');
                 String sql = "{CALL actualizar_Cliente(?, ?, ?, ?, ?, ?)}";
-                System.out.println('2');
                 CallableStatement cstmt = conn.prepareCall(sql);
-                System.out.println('3');
-                cstmt.setString(1, "'"+cliente.getRuc() +"'");
-                System.out.println('4');
-                cstmt.setString(2, "'"+cliente.getNombreEmpresa()+"'");
-                cstmt.setString(3, "'"+cliente.getDescripEmpresa()+"'");
-                cstmt.setString(4, "'"+cliente.getDireccion()+"'");
-                cstmt.setString(5, "'"+cliente.getSitioWeb()+"'");
-                cstmt.setString(6, "'"+cliente.getIdPersonaContacto()+"'");
-                System.out.println('5');
+                cstmt.setString(1, cliente.getRuc());
+                cstmt.setString(2, cliente.getNombreEmpresa());
+                cstmt.setString(3, cliente.getDescripEmpresa());
+                cstmt.setString(4, cliente.getDireccion());
+                cstmt.setString(5, cliente.getSitioWeb());
+                cstmt.setString(6, cliente.getIdPersonaContacto());
                 boolean hadResults = cstmt.execute();
-                System.out.println('6');
                 if (!hadResults) {
                     showAlert(Alert.AlertType.INFORMATION, "Éxito", "Datos actualizados correctamente.");
                 } else {
@@ -116,7 +111,6 @@ public class EditarClienteController implements Initializable {
                 }
                 Stage stage = (Stage) tfNombreEmpresa.getScene().getWindow();
                 stage.close();
-                App.setRoot("usuarios");
             }
 
             // Cerrar la ventana después de guardar

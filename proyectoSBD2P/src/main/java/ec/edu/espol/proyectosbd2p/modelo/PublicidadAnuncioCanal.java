@@ -13,7 +13,7 @@ import java.util.Date;
 public class PublicidadAnuncioCanal extends Publicidad {
     private int duracion;
 
-    public PublicidadAnuncioCanal(String idProyecto, String ruc, String numFactura, String titulo, int presupuesto, String descripcion, Date fechaInicio, Date fechaFin, int duracion, String id_dep_creativo, double comisionAEmpresa) {
+    public PublicidadAnuncioCanal(int idProyecto, String ruc, String numFactura, String titulo, int presupuesto, String descripcion, Date fechaInicio, Date fechaFin, int duracion, String id_dep_creativo, double comisionAEmpresa) {
         super(idProyecto, ruc, numFactura, titulo, presupuesto, descripcion, fechaInicio, fechaFin, id_dep_creativo, comisionAEmpresa);
         this.duracion = duracion;
     }

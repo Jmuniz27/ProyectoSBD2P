@@ -60,14 +60,14 @@ public class EditarRPController implements Initializable {
         Optional<ButtonType> resultado = confirmacion.showAndWait();
         if (resultado.isPresent() && resultado.get() == ButtonType.OK) {
             // Actualizar los datos del cliente
-            rp.setIdPago(tfPago.getText());
+            rp.setPagoNeto(Integer.parseInt(tfPago.getText()));
             rp.setIdEmpleado(tfEmpleado.getText());
             // Llamar al procedimiento almacenado
             try{
                 Connection conn = DatabaseConnection.getConnection();
                 String sql = "{CALL actualizar_RolPago(?, ?, ?, ?)}";
                 try (CallableStatement cstmt = conn.prepareCall(sql)) {
-                    cstmt.setString(1, rp.getIdPago());
+                    cstmt.setInt(1, rp.getIdPago());
                     cstmt.setInt(2, rp.getPagoNeto());
                     cstmt.setString(3, rp.getIdEmpleado());
                     cstmt.setString(4, rp.getIdDepFinanzas());

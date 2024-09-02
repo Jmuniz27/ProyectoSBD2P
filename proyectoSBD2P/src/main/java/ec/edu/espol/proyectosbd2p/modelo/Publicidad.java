@@ -18,6 +18,14 @@ public class Publicidad extends Proyecto {
         this.id_dep_creativo = id_dep_creativo;
     }
 
+    public String getId_dep_creativo() {
+        return id_dep_creativo;
+    }
+
+    public void setId_dep_creativo(String id_dep_creativo) {
+        this.id_dep_creativo = id_dep_creativo;
+    }
+
     
     
 }

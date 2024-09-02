@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\DatabaseManager.java
 c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\VerIndividualSegmentoController.java
 c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\EditarProyectoController.java
@@ -59,6 +60,9 @@ c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\e
 c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\anadirClientesController.java
 c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\modelo\HorarioSegmento.java
 =======
+=======
+/Users/isabella/Library/CloudStorage/OneDrive-EscuelaSuperiorPolitécnicadelLitoral/ESPOL/PAOI - 2024/Sistema de Bases de Datos/Segundo Parcial/ProyectoSBD2P/proyectoSBD2P/src/main/java/ec/edu/espol/proyectosbd2p/EditarRPController.java
+>>>>>>> b5fee932978f2b0b4dece0366eee72c36486dd70
 /Users/isabella/Library/CloudStorage/OneDrive-EscuelaSuperiorPolitécnicadelLitoral/ESPOL/PAOI - 2024/Sistema de Bases de Datos/Segundo Parcial/ProyectoSBD2P/proyectoSBD2P/src/main/java/ec/edu/espol/proyectosbd2p/PlantillaProyectoController.java
 /Users/isabella/Library/CloudStorage/OneDrive-EscuelaSuperiorPolitécnicadelLitoral/ESPOL/PAOI - 2024/Sistema de Bases de Datos/Segundo Parcial/ProyectoSBD2P/proyectoSBD2P/src/main/java/ec/edu/espol/proyectosbd2p/anadirAnuncioWebController.java
 /Users/isabella/Library/CloudStorage/OneDrive-EscuelaSuperiorPolitécnicadelLitoral/ESPOL/PAOI - 2024/Sistema de Bases de Datos/Segundo Parcial/ProyectoSBD2P/proyectoSBD2P/src/main/java/ec/edu/espol/proyectosbd2p/GestionPublicidadCanalController.java
@@ -68,6 +72,8 @@ c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\e
 /Users/isabella/Library/CloudStorage/OneDrive-EscuelaSuperiorPolitécnicadelLitoral/ESPOL/PAOI - 2024/Sistema de Bases de Datos/Segundo Parcial/ProyectoSBD2P/proyectoSBD2P/src/main/java/ec/edu/espol/proyectosbd2p/modelo/DepartamentoFinanzas.java
 /Users/isabella/Library/CloudStorage/OneDrive-EscuelaSuperiorPolitécnicadelLitoral/ESPOL/PAOI - 2024/Sistema de Bases de Datos/Segundo Parcial/ProyectoSBD2P/proyectoSBD2P/src/main/java/ec/edu/espol/proyectosbd2p/modelo/Catalogo.java
 /Users/isabella/Library/CloudStorage/OneDrive-EscuelaSuperiorPolitécnicadelLitoral/ESPOL/PAOI - 2024/Sistema de Bases de Datos/Segundo Parcial/ProyectoSBD2P/proyectoSBD2P/src/main/java/ec/edu/espol/proyectosbd2p/modelo/PersonaContacto.java
+/Users/isabella/Library/CloudStorage/OneDrive-EscuelaSuperiorPolitécnicadelLitoral/ESPOL/PAOI - 2024/Sistema de Bases de Datos/Segundo Parcial/ProyectoSBD2P/proyectoSBD2P/src/main/java/ec/edu/espol/proyectosbd2p/EditarPTController.java
+/Users/isabella/Library/CloudStorage/OneDrive-EscuelaSuperiorPolitécnicadelLitoral/ESPOL/PAOI - 2024/Sistema de Bases de Datos/Segundo Parcial/ProyectoSBD2P/proyectoSBD2P/src/main/java/ec/edu/espol/proyectosbd2p/EditarPCController.java
 /Users/isabella/Library/CloudStorage/OneDrive-EscuelaSuperiorPolitécnicadelLitoral/ESPOL/PAOI - 2024/Sistema de Bases de Datos/Segundo Parcial/ProyectoSBD2P/proyectoSBD2P/src/main/java/ec/edu/espol/proyectosbd2p/GestionSegmentoController.java
 /Users/isabella/Library/CloudStorage/OneDrive-EscuelaSuperiorPolitécnicadelLitoral/ESPOL/PAOI - 2024/Sistema de Bases de Datos/Segundo Parcial/ProyectoSBD2P/proyectoSBD2P/src/main/java/ec/edu/espol/proyectosbd2p/modelo/Cliente.java
 /Users/isabella/Library/CloudStorage/OneDrive-EscuelaSuperiorPolitécnicadelLitoral/ESPOL/PAOI - 2024/Sistema de Bases de Datos/Segundo Parcial/ProyectoSBD2P/proyectoSBD2P/src/main/java/ec/edu/espol/proyectosbd2p/PlantillaIndividualController.java
@@ -77,6 +83,7 @@ c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\e
 /Users/isabella/Library/CloudStorage/OneDrive-EscuelaSuperiorPolitécnicadelLitoral/ESPOL/PAOI - 2024/Sistema de Bases de Datos/Segundo Parcial/ProyectoSBD2P/proyectoSBD2P/src/main/java/ec/edu/espol/proyectosbd2p/anadirClientesController.java
 /Users/isabella/Library/CloudStorage/OneDrive-EscuelaSuperiorPolitécnicadelLitoral/ESPOL/PAOI - 2024/Sistema de Bases de Datos/Segundo Parcial/ProyectoSBD2P/proyectoSBD2P/src/main/java/ec/edu/espol/proyectosbd2p/EditarClienteController.java
 /Users/isabella/Library/CloudStorage/OneDrive-EscuelaSuperiorPolitécnicadelLitoral/ESPOL/PAOI - 2024/Sistema de Bases de Datos/Segundo Parcial/ProyectoSBD2P/proyectoSBD2P/src/main/java/ec/edu/espol/proyectosbd2p/PrimaryController.java
+/Users/isabella/Library/CloudStorage/OneDrive-EscuelaSuperiorPolitécnicadelLitoral/ESPOL/PAOI - 2024/Sistema de Bases de Datos/Segundo Parcial/ProyectoSBD2P/proyectoSBD2P/src/main/java/ec/edu/espol/proyectosbd2p/EditarSegmentoController.java
 /Users/isabella/Library/CloudStorage/OneDrive-EscuelaSuperiorPolitécnicadelLitoral/ESPOL/PAOI - 2024/Sistema de Bases de Datos/Segundo Parcial/ProyectoSBD2P/proyectoSBD2P/src/main/java/ec/edu/espol/proyectosbd2p/anadirProductosenTiendaController.java
 /Users/isabella/Library/CloudStorage/OneDrive-EscuelaSuperiorPolitécnicadelLitoral/ESPOL/PAOI - 2024/Sistema de Bases de Datos/Segundo Parcial/ProyectoSBD2P/proyectoSBD2P/src/main/java/ec/edu/espol/proyectosbd2p/modelo/Factura.java
 /Users/isabella/Library/CloudStorage/OneDrive-EscuelaSuperiorPolitécnicadelLitoral/ESPOL/PAOI - 2024/Sistema de Bases de Datos/Segundo Parcial/ProyectoSBD2P/proyectoSBD2P/src/main/java/ec/edu/espol/proyectosbd2p/PlantillaVerController.java
@@ -105,11 +112,11 @@ c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\e
 /Users/isabella/Library/CloudStorage/OneDrive-EscuelaSuperiorPolitécnicadelLitoral/ESPOL/PAOI - 2024/Sistema de Bases de Datos/Segundo Parcial/ProyectoSBD2P/proyectoSBD2P/src/main/java/ec/edu/espol/proyectosbd2p/GestionPublicidadWebController.java
 /Users/isabella/Library/CloudStorage/OneDrive-EscuelaSuperiorPolitécnicadelLitoral/ESPOL/PAOI - 2024/Sistema de Bases de Datos/Segundo Parcial/ProyectoSBD2P/proyectoSBD2P/src/main/java/ec/edu/espol/proyectosbd2p/modelo/Telefono.java
 /Users/isabella/Library/CloudStorage/OneDrive-EscuelaSuperiorPolitécnicadelLitoral/ESPOL/PAOI - 2024/Sistema de Bases de Datos/Segundo Parcial/ProyectoSBD2P/proyectoSBD2P/src/main/java/ec/edu/espol/proyectosbd2p/DatabaseManager.java
-/Users/isabella/Library/CloudStorage/OneDrive-EscuelaSuperiorPolitécnicadelLitoral/ESPOL/PAOI - 2024/Sistema de Bases de Datos/Segundo Parcial/ProyectoSBD2P/proyectoSBD2P/src/main/java/ec/edu/espol/proyectosbd2p/EditarProyectoController.java
 /Users/isabella/Library/CloudStorage/OneDrive-EscuelaSuperiorPolitécnicadelLitoral/ESPOL/PAOI - 2024/Sistema de Bases de Datos/Segundo Parcial/ProyectoSBD2P/proyectoSBD2P/src/main/java/ec/edu/espol/proyectosbd2p/modelo/Segmento.java
 /Users/isabella/Library/CloudStorage/OneDrive-EscuelaSuperiorPolitécnicadelLitoral/ESPOL/PAOI - 2024/Sistema de Bases de Datos/Segundo Parcial/ProyectoSBD2P/proyectoSBD2P/src/main/java/ec/edu/espol/proyectosbd2p/GestionProductoTiendaController.java
 /Users/isabella/Library/CloudStorage/OneDrive-EscuelaSuperiorPolitécnicadelLitoral/ESPOL/PAOI - 2024/Sistema de Bases de Datos/Segundo Parcial/ProyectoSBD2P/proyectoSBD2P/src/main/java/ec/edu/espol/proyectosbd2p/VerIndvidualPCController.java
 /Users/isabella/Library/CloudStorage/OneDrive-EscuelaSuperiorPolitécnicadelLitoral/ESPOL/PAOI - 2024/Sistema de Bases de Datos/Segundo Parcial/ProyectoSBD2P/proyectoSBD2P/src/main/java/ec/edu/espol/proyectosbd2p/EditarEmpleadosController.java
+/Users/isabella/Library/CloudStorage/OneDrive-EscuelaSuperiorPolitécnicadelLitoral/ESPOL/PAOI - 2024/Sistema de Bases de Datos/Segundo Parcial/ProyectoSBD2P/proyectoSBD2P/src/main/java/ec/edu/espol/proyectosbd2p/EditarPWController.java
 /Users/isabella/Library/CloudStorage/OneDrive-EscuelaSuperiorPolitécnicadelLitoral/ESPOL/PAOI - 2024/Sistema de Bases de Datos/Segundo Parcial/ProyectoSBD2P/proyectoSBD2P/src/main/java/ec/edu/espol/proyectosbd2p/VerIndividualRPController.java
 /Users/isabella/Library/CloudStorage/OneDrive-EscuelaSuperiorPolitécnicadelLitoral/ESPOL/PAOI - 2024/Sistema de Bases de Datos/Segundo Parcial/ProyectoSBD2P/proyectoSBD2P/src/main/java/ec/edu/espol/proyectosbd2p/InicioController.java
 /Users/isabella/Library/CloudStorage/OneDrive-EscuelaSuperiorPolitécnicadelLitoral/ESPOL/PAOI - 2024/Sistema de Bases de Datos/Segundo Parcial/ProyectoSBD2P/proyectoSBD2P/src/main/java/module-info.java

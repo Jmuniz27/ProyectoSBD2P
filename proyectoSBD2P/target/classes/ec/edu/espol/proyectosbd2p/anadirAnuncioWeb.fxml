@@ -17,7 +17,15 @@
         <Insets top="20" right="20" bottom="20" left="20"/>
     </padding>
     <children>
-        <Label text="Añadir Anuncio Web" style="-fx-font-size: 24px;">
+      <HBox alignment="CENTER_RIGHT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="49.0" prefWidth="360.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#regresarBtn" prefHeight="39.0" prefWidth="101.0" style="-fx-background-color: #f96a17; -fx-background-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);" text="Regresar" textFill="WHITE">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="11.0" />
+               </font></Button>
+         </children>
+      </HBox>
+        <Label text="Añadir Anuncio Web" textFill="#f96a17">
             <font>
                 <Font name="Arial Bold" size="24.0"/>
             </font>

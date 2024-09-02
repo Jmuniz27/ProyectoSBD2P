@@ -35,6 +35,7 @@ public class MostrarFacturasProductosClientesController implements Initializable
     @FXML
     private TableView<ObservableList<String>> tablaDeReportes;
     public static String report;
+    public static String title;
     @FXML
     private Button btnRegresar;
     /**
@@ -42,15 +43,15 @@ public class MostrarFacturasProductosClientesController implements Initializable
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        cargarDatos(report);
+        cargarDatos(report, title);
         
     }    
    
-    private void cargarDatos(String view) {
+    private void cargarDatos(String view, String title) {
         Connection conn = DatabaseConnection.getConnection();
         if (conn != null) {
             try {
-                lblTítuloReporte.setText(view);
+                lblTítuloReporte.setText(title);
                 String query = "SELECT * FROM "+view;
                 Statement stmt = conn.createStatement();
                 ResultSet rs = stmt.executeQuery(query);
@@ -76,8 +77,9 @@ public class MostrarFacturasProductosClientesController implements Initializable
             }
         }
     }
-    public static void cambiarReporte(String reporte){
+    public static void cambiarReporte(String reporte, String tit){
         report = reporte;
+        title= tit;
     }
 
     @FXML

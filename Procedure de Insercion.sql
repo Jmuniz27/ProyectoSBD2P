@@ -11,7 +11,6 @@ DELIMITER //
 
 CREATE PROCEDURE crear_Segmento(
     IN p_RUC CHAR(13),
-    IN p_num_factura CHAR(10),
     IN p_rating VARCHAR(20),
     IN p_duracion INT,
     IN p_estado BOOLEAN,
@@ -56,7 +55,6 @@ DELIMITER //
 
 CREATE PROCEDURE crear_PublicidadAnuncioCanal(
     IN p_RUC CHAR(13),
-    IN p_num_factura CHAR(10),
     IN p_titulo VARCHAR(20),
     IN p_presupuesto INT,
     IN p_descripcion VARCHAR(300),
@@ -97,7 +95,6 @@ DELIMITER //
 
 CREATE PROCEDURE crear_PublicidadAnuncioWeb(
     IN p_RUC CHAR(13),
-    IN p_num_factura CHAR(10),
     IN p_titulo VARCHAR(20),
     IN p_presupuesto INT,
     IN p_descripcion VARCHAR(300),
@@ -138,7 +135,6 @@ DELIMITER //
 
 CREATE PROCEDURE crear_ProductoTienda(
     IN p_RUC CHAR(13),
-    IN p_num_factura CHAR(10),
     IN p_categoria VARCHAR(20),
     IN p_precio DECIMAL(5,2),
     IN p_titulo VARCHAR(20),
@@ -286,4 +282,4 @@ BEGIN
     COMMIT;
 END //
 
-DELIMITER 
+DELIMITER ;

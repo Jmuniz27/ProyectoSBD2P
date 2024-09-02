@@ -102,6 +102,7 @@ public class AnadirClienteController implements Initializable {
                 showAlert(Alert.AlertType.ERROR, "Error", "No se pudo crear el cliente.");
             }
         } catch (SQLException e) {
+            DatabaseConnection.handleSQLException(e);
             e.printStackTrace();
             showAlert(Alert.AlertType.ERROR, "Error de Base de Datos", e.getMessage());
         }

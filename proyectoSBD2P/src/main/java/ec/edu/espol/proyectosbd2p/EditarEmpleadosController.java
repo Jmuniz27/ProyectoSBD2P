@@ -75,7 +75,7 @@ public class EditarEmpleadosController implements Initializable {
             tfApellido.getText().trim().isEmpty() ||
             tfContrasena.getText().trim().isEmpty() ||
             tfSueldo.getText().trim().isEmpty() ||
-            cbDepartamento.getValue().trim().isEmpty()) {
+            cbDepartamento.getValue()==null) {
             
             showAlert(Alert.AlertType.ERROR, "Error", "Todos los campos deben estar llenos.");
             return;
@@ -93,6 +93,9 @@ public class EditarEmpleadosController implements Initializable {
             empleado.setDireccion(tfDireccion.getText());
             empleado.setContrasena(tfContrasena.getText());
             empleado.setSueldoBase(Integer.parseInt(tfSueldo.getText()));
+            empleado.setIdDepCreativo(null);
+            empleado.setIdDepFinanzas(null);
+            empleado.setIdDepProd(null);
             if(cbDepartamento.getValue().equals("Creativo")){
                 empleado.setIdDepCreativo("DC001");
             } else if(cbDepartamento.getValue().equals("Producción")){
@@ -107,8 +110,9 @@ public class EditarEmpleadosController implements Initializable {
             String idDepFinanzas = cbDepartamento.getValue().equals("Finanzas") ? "DF001" : null;
 
             // Llamar al procedimiento almacenado
-            try (Connection conn = DatabaseConnection.getConnection()) {
-                String sql = "{CALL actualizar_Empleado(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
+            try{
+                Connection conn = DatabaseConnection.getConnection();
+                String sql = "{CALL actualizar_Empleado(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
                 try (CallableStatement cstmt = conn.prepareCall(sql)) {
                     cstmt.setString(1, empleado.getIdEmpleado());
                     cstmt.setInt(2, empleado.getSueldoBase());

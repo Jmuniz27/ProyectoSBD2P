@@ -81,32 +81,21 @@ public class EditarClienteController implements Initializable {
             cliente.setDescripEmpresa(tfDescrip.getText());
             cliente.setDireccion(tfDireccion.getText());
             cliente.setSitioWeb(tfSitioWeb.getText());
-
-            // Llamar al procedimiento almacenado
-            try (Connection conn = DatabaseConnection.getConnection()) {
-                System.out.println('1');
-                String sql = "{CALL actualizar_Cliente(?, ?, ?, ?, ?, ?)}";
-                System.out.println('2');
-                CallableStatement cstmt = conn.prepareCall(sql);
-                System.out.println('3');
-                cstmt.setString(1, "'"+cliente.getRuc() +"'");
-                System.out.println('4');
-                cstmt.setString(2, "'"+cliente.getNombreEmpresa()+"'");
-                cstmt.setString(3, "'"+cliente.getDescripEmpresa()+"'");
-                cstmt.setString(4, "'"+cliente.getDireccion()+"'");
-                cstmt.setString(5, "'"+cliente.getSitioWeb()+"'");
-                cstmt.setString(6, "'"+cliente.getIdPersonaContacto()+"'");
-                System.out.println('5');
-                boolean hadResults = cstmt.execute();
-                System.out.println('6');
-                if (!hadResults) {
-                    showAlert(Alert.AlertType.INFORMATION, "Éxito", "Datos actualizados correctamente.");
-                } else {
-                    showAlert(Alert.AlertType.ERROR, "Error", "No se pudo actualizar los datos.");
-                }
-            } catch (SQLException e) {
-                showAlert(AlertType.ERROR, "Error al actualizar el cliente",e.getMessage());
-            }
+            
+            try{
+                Connection conn = DatabaseConnection.getConnection();
+                PreparedStatement pstmt = conn.prepareStatement("CALL actualizar_Cliente(?, ?, ?, ?, ?, ?)");
+                pstmt.setString(1, cliente.getRuc());
+                pstmt.setString(2, cliente.getNombreEmpresa());
+                pstmt.setString(3, cliente.getDescripEmpresa());
+                pstmt.setString(4, cliente.getDireccion());
+                pstmt.setString(5, cliente.getSitioWeb());
+                pstmt.setString(6, cliente.getIdPersonaContacto());
+                pstmt.executeUpdate();
+                showAlert(Alert.AlertType.INFORMATION, "Éxito", "Datos actualizados correctamente.");
+           } catch (SQLException e) {
+               showAlert(Alert.AlertType.ERROR, "SQL Error", e.getMessage());
+           }
 
             // Cerrar la ventana después de guardar
             Stage stage = (Stage) tfNombreEmpresa.getScene().getWindow();

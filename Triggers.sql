@@ -50,6 +50,10 @@ BEGIN
         SET MESSAGE_TEXT = 'Error: El precio debe ser un valor positivo.';
     END IF;
     SET NEW.fecha_inicio = NOW();
+    IF new.fecha_inicio < new.fecha_Fin THEN
+		SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT ='Error: La fecha de finalizacion no debe ser antes de la fecha de inicio dle proyecto';
+	END IF;
 END//
 DELIMITER ;
 
@@ -63,6 +67,10 @@ BEGIN
         SET MESSAGE_TEXT = 'Error: La duración del anuncio debe ser mayor a cero.';
     END IF;
     SET NEW.fechaInicio = NOW();
+    IF new.fechaInicio < new.fechaFin THEN
+		SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT ='Error: La fecha de finalizacion no debe ser antes de la fecha de inicio del proyecto';
+	END IF;
 END//
 DELIMITER ;
 
@@ -76,6 +84,10 @@ BEGIN
         SET MESSAGE_TEXT = 'Error: La duración del anuncio debe ser mayor a cero.';
     END IF;
     SET NEW.fechaInicio = NOW();
+    IF new.fechaInicio < new.fechaFin THEN
+		SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT ='Error: La fecha de finalizacion no debe ser antes de la fecha de inicio dle proyecto';
+	END IF;
 END//
 DELIMITER ;
 
@@ -88,6 +100,10 @@ BEGIN
         SIGNAL SQLSTATE '45000'
         SET MESSAGE_TEXT = 'Error: El tamaño del segmento debe ser un valor positivo.';
     END IF;
-    SET NEW.fecha_Inicio = NOW();
+    SET NEW.fecha_inicio = NOW();
+    IF new.fecha_inicio < new.fecha_Fin THEN
+		SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT ='Error: La fecha de finalizacion no debe ser antes de la fecha de inicio dle proyecto';
+	END IF;
 END//
 DELIMITER ;

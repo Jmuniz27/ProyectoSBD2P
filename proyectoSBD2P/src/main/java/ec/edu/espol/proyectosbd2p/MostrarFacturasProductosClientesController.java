@@ -44,7 +44,7 @@ public class MostrarFacturasProductosClientesController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
-            cargarDatos(report);
+            cargarDatos(report, title);
         } catch (SQLException e) {
             DatabaseConnection.handleSQLException(e);
             // TODO Auto-generated catch block
@@ -53,10 +53,10 @@ public class MostrarFacturasProductosClientesController implements Initializable
         
     }    
    
-    private void cargarDatos(String view) throws SQLException {
+    private void cargarDatos(String view, String tit) throws SQLException {
         Connection conn = DatabaseConnection.getConnection();
         if (conn != null) {
-                lblTítuloReporte.setText(view);
+                lblTítuloReporte.setText(tit);
                 String query = "SELECT * FROM "+view;
                 Statement stmt = conn.createStatement();
                 ResultSet rs = stmt.executeQuery(query);

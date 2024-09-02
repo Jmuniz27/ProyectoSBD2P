@@ -41,6 +41,7 @@ public class UsuariosController implements Initializable {
     private ImageView imgEmpleado11;
     @FXML
     private Button btnEmpleado32;
+    public static String usuario;
 
     /**
      * Initializes the controller class.
@@ -53,7 +54,7 @@ public class UsuariosController implements Initializable {
     }    
 
     @FXML
-    private void clickDGeneral(ActionEvent event) {
+    private void clickDGeneral(ActionEvent event) throws DatabaseException {
         DatabaseConnection.conectaBase("director_general", "password123");
         try{
             App.setRoot("opcionesGeneral");
@@ -63,26 +64,46 @@ public class UsuariosController implements Initializable {
     }
 
     @FXML
-    private void clickDCreativo(ActionEvent event) {
+    private void clickDCreativo(ActionEvent event) throws DatabaseException {
         DatabaseConnection.conectaBase("usuario_creativo", "password123");
+        usuario = "Creativo";
+        try{
+            App.setRoot("opcionesGeneral");
+        } catch(IOException e){
+            e.printStackTrace();
+        }
     }
 
     @FXML
-    private void clickDProduccion(ActionEvent event) {
+    private void clickDProduccion(ActionEvent event) throws DatabaseException {
         DatabaseConnection.conectaBase("usuario_produccion", "password123");
-
+        usuario = "Produccion";
+        try{
+            App.setRoot("opcionesGeneral");
+        } catch(IOException e){
+            e.printStackTrace();
+        }
     }
 
     @FXML
-    private void clickDFinanzas(ActionEvent event) {
+    private void clickDFinanzas(ActionEvent event) throws DatabaseException {
         DatabaseConnection.conectaBase("usuario_finanzas", "password123");
-
+        usuario = "Finanzas";
+        try{
+            App.setRoot("opcionesGeneral");
+        } catch(IOException e){
+            e.printStackTrace();
+        }
     }
 
     @FXML
-    private void clickCliente(ActionEvent event) {
+    private void clickCliente(ActionEvent event) throws DatabaseException {
         DatabaseConnection.conectaBase("cliente", "password123");
-
+        try{
+            App.setRoot("opcionesGeneral");
+        } catch(IOException e){
+            e.printStackTrace();
+        }
     }
     
 }

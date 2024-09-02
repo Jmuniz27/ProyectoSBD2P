@@ -11,9 +11,11 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<VBox alignment="TOP_CENTER" prefHeight="575.0" prefWidth="434.0" spacing="50.0" style="-fx-background-color: ffffff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.proyectosbd2p.anadirAnuncioWebController">
+<VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="600.0" spacing="20.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.proyectosbd2p.anadirAnuncioWebController">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
     <children>
       <HBox alignment="CENTER_RIGHT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="49.0" prefWidth="360.0">
          <children>
@@ -25,52 +27,59 @@
       </HBox>
         <Label text="Añadir Anuncio Web" textFill="#f96a17">
             <font>
-                <Font name="Arial Rounded MT Bold" size="24.0" />
+                <Font name="Arial Bold" size="24.0"/>
             </font>
         </Label>
-        <GridPane hgap="10" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="317.0" prefWidth="276.0" vgap="10">
+        <GridPane hgap="10" vgap="10">
+            <columnConstraints>
+                <ColumnConstraints minWidth="150.0" prefWidth="150.0"/>
+                <ColumnConstraints minWidth="200.0" prefWidth="200.0"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="30.0" prefHeight="30.0"/>
+                <RowConstraints minHeight="30.0" prefHeight="30.0"/>
+                <RowConstraints minHeight="30.0" prefHeight="30.0"/>
+                <RowConstraints minHeight="30.0" prefHeight="30.0"/>
+                <RowConstraints minHeight="30.0" prefHeight="30.0"/>
+                <RowConstraints minHeight="30.0" prefHeight="30.0"/>
+                <RowConstraints minHeight="30.0" prefHeight="30.0"/>
+                <RowConstraints minHeight="30.0" prefHeight="30.0"/>
+                <RowConstraints minHeight="30.0" prefHeight="30.0"/>
+            </rowConstraints>
             <children>
+                <Label text="Título:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <TextField fx:id="tfanadirWebTitulo" promptText="Ingrese el título" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
 
-                <Label text="Titulo" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-                <TextField fx:id="tfanadirWebTitulo" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <Label text="Presupuesto:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <TextField fx:id="tfanadirWebPresupuesto" promptText="Ingrese el presupuesto" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
 
-                <Label text="Presupuesto:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-                <TextField fx:id="tfanadirWebPresupuesto" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <Label text="Tamaño del Banner:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                <TextField fx:id="tfanadirTamano" promptText="Ingrese el tamaño del banner" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
 
-                <Label text="Tamaño del Banner:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
-                <TextField fx:id="tfanadirTamano" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Comisión:" GridPane.rowIndex="4" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Descripción:" GridPane.rowIndex="5" />
-            <TextField fx:id="tfanadirWebComision" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <TextField fx:id="tfanadirWebComision" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="RUC Cliente:" />
-            <TextField fx:id="tfanadirWebRuc" GridPane.columnIndex="1" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha de Inicio:" GridPane.rowIndex="6" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha Fin:" GridPane.rowIndex="7" />
-            <DatePicker fx:id="dtanadirWebFechaInicio" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-            <DatePicker fx:id="dtanadirWebFechaFin" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                <Label text="Comisión a la Empresa:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                <TextField fx:id="tfanadirWebComision" promptText="Ingrese la comisión (%)" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+                <Label text="RUC:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                <TextField fx:id="tfanadirWebRuc" promptText="Ingrese el RUC del cliente" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+                <Label text="Descripción:" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+                <TextField fx:id="tfanadirDescrip" promptText="Ingrese una descripción" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+
+                <Label text="Fecha de Inicio:" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
+                <DatePicker fx:id="dtanadirWebFechaInicio" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+
+                <Label text="Fecha de Fin:" GridPane.rowIndex="7" GridPane.columnIndex="0"/>
+                <DatePicker fx:id="dtanadirWebFechaFin" GridPane.rowIndex="7" GridPane.columnIndex="1"/>
+
+                <Label text="Número de Factura (Opcional):" GridPane.rowIndex="8" GridPane.columnIndex="0"/>
+                <TextField fx:id="tfNumFactura" promptText="Ingrese el número de factura (opcional)" GridPane.rowIndex="8" GridPane.columnIndex="1"/>
             </children>
-         <columnConstraints>
-            <ColumnConstraints maxWidth="129.5" minWidth="82.5" prefWidth="122.5" />
-            <ColumnConstraints maxWidth="152.5" minWidth="123.5" prefWidth="140.5" />
-         </columnConstraints>
-         <rowConstraints>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" />
-         </rowConstraints>
         </GridPane>
-        <Button onAction="#anadirAnuncioWeb" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #f96a17; -fx-background-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);" text="Guardar Cambios" textFill="WHITE">
-         <font>
-            <Font name="Arial Rounded MT Bold" size="13.0" />
-         </font></Button>
+        <HBox alignment="CENTER" spacing="20.0">
+            <children>
+                <Button text="Guardar" onAction="#anadirAnuncioWeb" prefWidth="100.0" style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
+                <Button text="Cancelar" onAction="#regresarBtn" prefWidth="100.0" style="-fx-background-color: #f44336; -fx-text-fill: white;"/>
+            </children>
+        </HBox>
     </children>
-    <padding>
-        <Insets bottom="20" left="20" right="20" top="20" />
-    </padding>
 </VBox>

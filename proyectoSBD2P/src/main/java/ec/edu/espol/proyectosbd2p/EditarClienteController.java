@@ -60,7 +60,7 @@ public class EditarClienteController implements Initializable {
     }
 
     @FXML
-    private void guardarCambios(ActionEvent event) {
+    private void guardarCambios(ActionEvent event) throws IOException {
         if (tfNombreEmpresa.getText().trim().isEmpty() ||
             tfDescrip.getText().trim().isEmpty() ||
             tfDireccion.getText().trim().isEmpty() ||
@@ -81,21 +81,43 @@ public class EditarClienteController implements Initializable {
             cliente.setDescripEmpresa(tfDescrip.getText());
             cliente.setDireccion(tfDireccion.getText());
             cliente.setSitioWeb(tfSitioWeb.getText());
-            
-            try{
-                Connection conn = DatabaseConnection.getConnection();
-                PreparedStatement pstmt = conn.prepareStatement("CALL actualizar_Cliente(?, ?, ?, ?, ?, ?)");
-                pstmt.setString(1, cliente.getRuc());
-                pstmt.setString(2, cliente.getNombreEmpresa());
-                pstmt.setString(3, cliente.getDescripEmpresa());
-                pstmt.setString(4, cliente.getDireccion());
-                pstmt.setString(5, cliente.getSitioWeb());
-                pstmt.setString(6, cliente.getIdPersonaContacto());
-                pstmt.executeUpdate();
-                showAlert(Alert.AlertType.INFORMATION, "Éxito", "Datos actualizados correctamente.");
-           } catch (SQLException e) {
-               showAlert(Alert.AlertType.ERROR, "SQL Error", e.getMessage());
-           }
+
+            // Llamar al procedimiento almacenado
+            try (Connection conn = DatabaseConnection.getConnection()) {
+                System.out.println('1');
+                String sql = "{CALL actualizar_Cliente(?, ?, ?, ?, ?, ?)}";
+                System.out.println('2');
+                CallableStatement cstmt = conn.prepareCall(sql);
+                System.out.println('3');
+                cstmt.setString(1, "'"+cliente.getRuc() +"'");
+                System.out.println('4');
+                cstmt.setString(2, "'"+cliente.getNombreEmpresa()+"'");
+                cstmt.setString(3, "'"+cliente.getDescripEmpresa()+"'");
+                cstmt.setString(4, "'"+cliente.getDireccion()+"'");
+                cstmt.setString(5, "'"+cliente.getSitioWeb()+"'");
+                cstmt.setString(6, "'"+cliente.getIdPersonaContacto()+"'");
+                System.out.println('5');
+                boolean hadResults = cstmt.execute();
+                System.out.println('6');
+                if (!hadResults) {
+                    showAlert(Alert.AlertType.INFORMATION, "Éxito", "Datos actualizados correctamente.");
+                } else {
+                    showAlert(Alert.AlertType.ERROR, "Error", "No se pudo actualizar los datos.");
+                }
+            } catch (SQLException e) {        // Verificar si el error es de acceso denegado
+                if (e.getErrorCode() == 1370||e.getErrorCode() == 1045 || e.getErrorCode() == 1142 || e.getErrorCode() == 1044) {
+                    // Código de error 1045: Acceso denegado para el usuario
+                    // Código de error 1142: Permiso denegado para una operación específica
+                    // Código de error 1044: Acceso denegado a la base de datos
+                    showAlert(Alert.AlertType.ERROR, "Acceso Denegado", "No tienes permisos suficientes para realizar esta operación.");
+                } else {
+                    // Mostrar cualquier otro error SQL
+                    showAlert(Alert.AlertType.ERROR, "Error SQL", "Ha ocurrido un error al intentar acceder a la base de datos: " + e.getMessage() + e.getErrorCode());
+                }
+                Stage stage = (Stage) tfNombreEmpresa.getScene().getWindow();
+                stage.close();
+                App.setRoot("usuarios");
+            }
 
             // Cerrar la ventana después de guardar
             Stage stage = (Stage) tfNombreEmpresa.getScene().getWindow();

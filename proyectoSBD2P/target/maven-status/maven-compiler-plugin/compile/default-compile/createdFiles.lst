@@ -34,7 +34,6 @@ ec\edu\espol\proyectosbd2p\GestionSegmentoController.class
 ec\edu\espol\proyectosbd2p\modelo\DepartamentoProduccion.class
 ec\edu\espol\proyectosbd2p\App.class
 ec\edu\espol\proyectosbd2p\PlantillaIndividualController.class
-ec\edu\espol\proyectosbd2p\UsuariosController.class
 ec\edu\espol\proyectosbd2p\VerIndividualRPController.class
 ec\edu\espol\proyectosbd2p\modelo\PublicidadAnuncioCanal.class
 ec\edu\espol\proyectosbd2p\VerIndividualEmpleadoController.class

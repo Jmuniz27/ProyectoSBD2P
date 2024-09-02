@@ -108,7 +108,7 @@ public class AnadirClienteController implements Initializable {
 
         // Volver a la vista de inicio después de añadir
         try {
-            App.setRoot("inicio");
+            App.setRoot("usuarios");
         } catch (IOException e) {
             e.printStackTrace();
         }

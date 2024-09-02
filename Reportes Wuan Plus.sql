@@ -1,4 +1,16 @@
 use wuanplus;
+DROP VIEW IF EXISTS reporte_empleados_creativo;
+DROP VIEW IF EXISTS reporte_empleados_produccion;
+DROP VIEW IF EXISTS reporte_empleados_finanzas;
+
+DROP VIEW IF EXISTS reporte_proyectos_creativo;
+DROP VIEW IF EXISTS reporte_proyectos_produccion;
+DROP VIEW IF EXISTS reporte_proyectos_finanzas;
+
+DROP VIEW IF EXISTS reporte_facturas_creativo;
+DROP VIEW IF EXISTS reporte_facturas_produccion;
+DROP VIEW IF EXISTS reporte_facturas_finanzas;
+
 
 -- Vista 1
 
@@ -100,4 +112,87 @@ WHERE
         SELECT AVG(comision_a_empresa) 
         FROM publicidad_anuncio_web
     );
+
+-- Reporte de Empleados por Departamento
+CREATE VIEW reporte_empleados_creativo AS
+SELECT e.id_empleado, e.nombre, e.apellido, e.puesto, e.sueldoBase
+FROM empleado e
+WHERE e.id_dep_creativo = e.id_dir_dep_creativo;
+
+CREATE VIEW reporte_empleados_produccion AS
+SELECT e.id_empleado, e.nombre, e.apellido, e.puesto, e.sueldoBase
+FROM empleado e
+WHERE e.id_dep_prod = e.id_dir_dep_prod;
+
+CREATE VIEW reporte_empleados_finanzas AS
+SELECT e.id_empleado, e.nombre, e.apellido, e.puesto, e.sueldoBase
+FROM empleado e
+WHERE e.id_dep_finanzas = e.id_dir_dep_finanzas;
+
+
+-- proyectos por depa
+CREATE VIEW reporte_proyectos_creativo AS
+SELECT p.id_proyecto, p.titulo, p.presupuesto, p.descripcion, p.fechaInicio, p.fechaFin
+FROM publicidad_anuncio_canal p
+WHERE p.id_dep_creativo = (SELECT id_dir_dep_creativo FROM empleado WHERE id_empleado = CURRENT_USER)
+UNION
+SELECT p.id_proyecto, p.titulo, p.presupuesto, p.descripcion, p.fechaInicio, p.fechaFin
+FROM publicidad_anuncio_web p
+WHERE p.id_dep_creativo = (SELECT id_dir_dep_creativo FROM empleado WHERE id_empleado = CURRENT_USER);
+
+CREATE VIEW reporte_proyectos_produccion AS
+SELECT p.id_proyecto, p.titulo, p.presupuesto, p.descripcion, p.fecha_inicio, p.fecha_fin
+FROM segmento p
+WHERE p.id_dep_prod = (SELECT id_dir_dep_prod FROM empleado WHERE id_empleado = CURRENT_USER)
+UNION
+SELECT p.id_proyecto, p.titulo, p.presupuesto, p.descripcion, p.fecha_inicio, p.fecha_fin
+FROM producto_tienda p
+WHERE p.id_dep_prod = (SELECT id_dir_dep_prod FROM empleado WHERE id_empleado = CURRENT_USER);
+
+CREATE VIEW reporte_proyectos_finanzas AS
+SELECT f.num_factura, f.precio_total, f.fecha, c.nombre_empresa
+FROM factura f
+JOIN cliente c ON f.RUC = c.RUC
+WHERE f.id_dep_finanzas = (SELECT id_dir_dep_finanzas FROM empleado WHERE id_empleado = CURRENT_USER);
+
+
+-- factura x depa
+
+CREATE VIEW reporte_facturas_creativo AS
+SELECT f.num_factura, f.precio_total, f.fecha, c.nombre_empresa
+FROM factura f
+JOIN cliente c ON f.RUC = c.RUC
+WHERE EXISTS (
+    SELECT 1
+    FROM publicidad_anuncio_canal p
+    WHERE p.num_factura = f.num_factura AND p.id_dep_creativo = (SELECT id_dir_dep_creativo FROM empleado WHERE id_empleado = CURRENT_USER)
+)
+OR EXISTS (
+    SELECT 1
+    FROM publicidad_anuncio_web p
+    WHERE p.num_factura = f.num_factura AND p.id_dep_creativo = (SELECT id_dir_dep_creativo FROM empleado WHERE id_empleado = CURRENT_USER)
+);
+
+CREATE VIEW reporte_facturas_produccion AS
+SELECT f.num_factura, f.precio_total, f.fecha, c.nombre_empresa
+FROM factura f
+JOIN cliente c ON f.RUC = c.RUC
+WHERE EXISTS (
+    SELECT 1
+    FROM segmento p
+    WHERE p.num_factura = f.num_factura AND p.id_dep_prod = (SELECT id_dir_dep_prod FROM empleado WHERE id_empleado = CURRENT_USER)
+)
+OR EXISTS (
+    SELECT 1
+    FROM producto_tienda p
+    WHERE p.num_factura = f.num_factura AND p.id_dep_prod = (SELECT id_dir_dep_prod FROM empleado WHERE id_empleado = CURRENT_USER)
+);
+
+CREATE VIEW reporte_facturas_finanzas AS
+SELECT f.num_factura, f.precio_total, f.fecha, c.nombre_empresa
+FROM factura f
+JOIN cliente c ON f.RUC = c.RUC
+WHERE f.id_dep_finanzas = (SELECT id_dir_dep_finanzas FROM empleado WHERE id_empleado = CURRENT_USER);
+
+
 

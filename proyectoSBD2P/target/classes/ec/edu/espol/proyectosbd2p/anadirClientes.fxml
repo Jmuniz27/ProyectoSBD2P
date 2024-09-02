@@ -11,72 +11,55 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" prefHeight="650.0" prefWidth="500.0" spacing="60.0" style="-fx-background-color: ffffff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.proyectosbd2p.anadirClientesController">
+<VBox alignment="TOP_CENTER" prefHeight="575.0" prefWidth="434.0" spacing="50.0" style="-fx-background-color: ffffff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.proyectosbd2p.anadirClientesController">
     <children>
-        <HBox alignment="CENTER_RIGHT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="49.0" prefWidth="360.0">
-            <children>
-                <Button mnemonicParsing="false" onAction="#regresarBtn" prefHeight="39.0" prefWidth="101.0" style="-fx-background-color: #f96a17; -fx-background-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);" text="Regresar" textFill="WHITE">
-                    <font>
-                        <Font name="Arial Rounded MT Bold" size="11.0" />
-                    </font>
-                </Button>
-            </children>
-        </HBox>
+      <HBox alignment="CENTER_RIGHT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="49.0" prefWidth="360.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#regresarBtn" prefHeight="39.0" prefWidth="101.0" style="-fx-background-color: #f96a17; -fx-background-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);" text="Regresar" textFill="WHITE">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="11.0" />
+               </font></Button>
+         </children>
+      </HBox>
         <Label text="Añadir Cliente" textFill="#f96a17">
             <font>
                 <Font name="Arial Rounded MT Bold" size="24.0" />
             </font>
         </Label>
-        <GridPane hgap="10" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="220.0" prefWidth="350.0" vgap="10">
+        <GridPane hgap="10" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="176.0" prefWidth="276.0" vgap="10">
             <children>
-                <Label text="RUC:" />
-                <TextField fx:id="tfAnadirRuc" GridPane.columnIndex="1" />
 
-                <Label text="Nombre Empresa:" GridPane.rowIndex="1" />
-                <TextField fx:id="tfanadirNombreEmpresa" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <Label text="Nombre Empresa:" GridPane.columnIndex="0" />
+                <TextField fx:id="tfanadirNombreEmpresa" GridPane.columnIndex="1" />
 
-                <Label text="Descripción:" GridPane.rowIndex="2" />
-                <TextField fx:id="tfanadirDescrip" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <Label text="Descripción:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                <TextField fx:id="tfanadirDescrip" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
-                <Label text="Dirección:" GridPane.rowIndex="3" />
-                <TextField fx:id="tfanadirDireccion" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                <Label text="Dirección:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                <TextField fx:id="tfanadirDireccion" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
-                <Label text="Sitio Web:" GridPane.rowIndex="4" />
-                <TextField fx:id="tfanadirSitioWeb" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                <Label text="Sitio Web:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                <TextField fx:id="tfanadirSitioWeb" GridPane.columnIndex="1" GridPane.rowIndex="3" />
 
-                <Label text="Nombre de Contacto:" GridPane.rowIndex="5" />
-                <TextField fx:id="tfanadirPersonaContacto" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-
-                <Label text="Cédula de Contacto:" GridPane.rowIndex="6" />
-                <TextField fx:id="tfCedulaContacto" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-
-                <Label text="Email de Contacto:" GridPane.rowIndex="7" />
-                <TextField fx:id="tfInfoContactoEmail" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-
-                <Label text="Teléfono de Contacto:" GridPane.rowIndex="8" />
-                <TextField fx:id="tfInfoContactoTelefono" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                <Label text="Id Persona Contacto:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                <TextField fx:id="tfanadirPersonaContacto" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             </children>
-            <columnConstraints>
-                <ColumnConstraints maxWidth="129.5" minWidth="82.5" prefWidth="122.5" />
-                <ColumnConstraints maxWidth="152.5" minWidth="123.5" prefWidth="140.5" />
-            </columnConstraints>
-            <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" />
-                <RowConstraints />
-                <RowConstraints />
-                <RowConstraints />
-                <RowConstraints />
-                <RowConstraints />
-                <RowConstraints />
-                <RowConstraints />
-                <RowConstraints />
-            </rowConstraints>
+         <columnConstraints>
+            <ColumnConstraints maxWidth="129.5" minWidth="82.5" prefWidth="122.5" />
+            <ColumnConstraints maxWidth="152.5" minWidth="123.5" prefWidth="140.5" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+         </rowConstraints>
         </GridPane>
         <Button onAction="#guardarCambios" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #f96a17; -fx-background-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);" text="Guardar Cambios" textFill="WHITE">
-            <font>
-                <Font name="Arial Rounded MT Bold" size="13.0" />
-            </font>
-        </Button>
+         <font>
+            <Font name="Arial Rounded MT Bold" size="13.0" />
+         </font></Button>
     </children>
     <padding>
         <Insets bottom="20" left="20" right="20" top="20" />

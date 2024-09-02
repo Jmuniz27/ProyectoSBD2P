@@ -49,7 +49,13 @@ public class EditarSegmentoController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        seg = GestionSegmentoController.segmentoEscogido;
+        tfTitulo.setText(seg.getTitulo());
+        tfDuracion.setText(seg.getDuracion()+"");
+        tfPresupuesto.setText(seg.getPresupuesto()+"");
+        tfDescri.setText(seg.getDescripcion());
+        tfComision.setText(seg.getComisionAEmpresa()+"");
+        tfRating.setText(seg.getRating());
     }    
 
     @FXML
@@ -87,7 +93,7 @@ public class EditarSegmentoController implements Initializable {
             // Llamar al procedimiento almacenado
             try{
                 Connection conn = DatabaseConnection.getConnection();
-                String sql = "{CALL actualizar_segmento(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
+                String sql = "{CALL actualizar_segmento(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
                 try (CallableStatement cstmt = conn.prepareCall(sql)) {
                     cstmt.setString(1, seg.getIdProyecto());
                     cstmt.setString(2, seg.getRuc());

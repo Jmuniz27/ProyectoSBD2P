@@ -36,13 +36,13 @@
                         <Font name="Arial Rounded MT" size="13.0" />
                      </font>
                   </Label>
-                      <TextField fx:id="tfTitulo" GridPane.columnIndex="1" />
+                      <TextField fx:id="tfPago" GridPane.columnIndex="1" />
                   <Label text="ID Empleado:" GridPane.rowIndex="1">
                      <font>
                         <Font name="Arial Rounded MT" size="13.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="tfTitulo1" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="tfEmpleado" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   </children>
                <columnConstraints>
                   <ColumnConstraints maxWidth="129.5" minWidth="82.5" prefWidth="122.5" />

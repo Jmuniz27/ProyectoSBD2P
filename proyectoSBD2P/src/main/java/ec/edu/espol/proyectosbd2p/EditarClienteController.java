@@ -55,8 +55,12 @@ public class EditarClienteController implements Initializable {
     @FXML
     private void regresarBtn(ActionEvent event) {
         // Cierra la ventana actual sin guardar cambios
-        Stage stage = (Stage) tfNombreEmpresa.getScene().getWindow();
-        stage.close();
+        try {
+            App.setRoot("usuarios");
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 
     @FXML

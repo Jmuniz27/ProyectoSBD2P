@@ -2,7 +2,6 @@ c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\e
 c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\VerIndividualSegmentoController.java
 c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\EditarClienteController.java
 c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\GestionRolPagoController.java
-c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\anadirProductosenTiendaController.java
 c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\GestionPublicidadWebController.java
 c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\modelo\Departamento.java
 c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\PrimaryController.java
@@ -35,6 +34,7 @@ c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\e
 c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\modelo\Proyecto.java
 c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\modelo\PersonaContacto.java
 c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\GestionClientesController.java
+c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\AnadirSegmentoController.java
 c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\App.java
 c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\VerIndividualPTController.java
 c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\EditarPWController.java
@@ -49,6 +49,7 @@ c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\e
 c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\modelo\RolPago.java
 c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\modelo\Segmento.java
 c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\anadirEmpleadosController.java
+c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\AnadirProductoTiendaController.java
 c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\InicioController.java
 c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\modelo\Publicidad.java
 c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\AnadirClienteController.java

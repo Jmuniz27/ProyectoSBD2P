@@ -25,7 +25,6 @@ ec\edu\espol\proyectosbd2p\PrimaryController.class
 ec\edu\espol\proyectosbd2p\anadirEmpleadosController.class
 ec\edu\espol\proyectosbd2p\modelo\Empleado.class
 module-info.class
-ec\edu\espol\proyectosbd2p\anadirProductosenTiendaController.class
 ec\edu\espol\proyectosbd2p\modelo\HorarioSegmento.class
 ec\edu\espol\proyectosbd2p\VerIndividualClientesController.class
 ec\edu\espol\proyectosbd2p\GestionPublicidadWebController.class

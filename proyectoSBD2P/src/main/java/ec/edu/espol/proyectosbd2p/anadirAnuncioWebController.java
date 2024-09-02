@@ -18,24 +18,32 @@ import javafx.scene.Node;
 
 public class anadirAnuncioWebController implements Initializable {
 
-    @FXML
     private TextField tfanadirWebTitulo;
-    @FXML
     private TextField tfanadirWebPresupuesto;
-    @FXML
     private TextField tfanadirTamano;
     @FXML
     private TextField tfanadirWebComision;
-    @FXML
     private TextField tfanadirWebRuc;
-    @FXML
     private DatePicker dtanadirWebFechaInicio;
-    @FXML
     private DatePicker dtanadirWebFechaFin;
-    @FXML
     private TextField tfanadirDescrip;
-    @FXML
     private TextField tfNumFactura;  // Campo para ingresar num_factura si se tiene, puede ser opcional
+    @FXML
+    private TextField tfanadirSegmentoTitulo;
+    @FXML
+    private TextField tfanadirSegmentoPresupuesto;
+    @FXML
+    private TextField tfanadirSegmentoRating;
+    @FXML
+    private TextField tfanadirSegmentoDescripcion;
+    @FXML
+    private TextField tfanadirSegmentoRuc;
+    @FXML
+    private DatePicker dtanadirSegmentoFechaInicio;
+    @FXML
+    private DatePicker dtanadirSegmentoFechaFin;
+    @FXML
+    private TextField tfanadirSegmentoDuracion;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {

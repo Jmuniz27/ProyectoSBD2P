@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.proyectosbd2p.OpcionesGeneralController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.proyectosbd2p.OpcionesDeReportesController">
    <top>
       <VBox alignment="CENTER" prefHeight="150.0" prefWidth="1280.0" BorderPane.alignment="CENTER">
          <children>
@@ -19,7 +19,7 @@
                <children>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
                      <children>
-                        <ImageView fx:id="imgLogo" fitHeight="76.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="imgLogo" fitHeight="77.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../../../../../../../../../../../../../OneDrive-EscuelaSuperiorPolitécnicadelLitoral/ESPOL/PAOI%20-%202024/Sistema%20de%20Bases%20de%20Datos/Segundo%20Parcial/ProyectoSBD2P/proyectoSBD2P/src/main/resources/imagenes/logo.jpg" />
                            </image>
@@ -31,14 +31,17 @@
                         </Text>
                      </children>
                   </HBox>
-                  <Button fx:id="btnRegresar" mnemonicParsing="false" onAction="#regresar" prefHeight="55.0" prefWidth="200.0" style="-fx-background-color: f96a17; -fx-background-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);" text="Regresar" textFill="WHITE">
-                     <font>
-                        <Font name="Arial Rounded MT Bold" size="18.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
+                  <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="55.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="btnRegresar" maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" onAction="#regresar" prefHeight="40.0" prefWidth="218.0" style="-fx-background-color: f96a17; -fx-background-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);" text="Regresar" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="18.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                     </children></HBox>
                </children>
             </HBox>
             <Line endX="1180.2928466796875" endY="0.20709306001663208" startX="2404.041015625" startY="0.20709538459777832" stroke="#dadada" strokeWidth="3.0" />
@@ -51,9 +54,9 @@
             <VBox prefHeight="18.0" prefWidth="1280.0" />
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="20.0">
                <children>
-                  <Text fill="#f96a17" strokeType="OUTSIDE" strokeWidth="0.0" text="¡Bienvenido Director General!" textAlignment="CENTER" wrappingWidth="923.6767730712891">
+                  <Text fill="#f96a17" strokeType="OUTSIDE" strokeWidth="0.0" text="Sistema de Reportes" textAlignment="CENTER" wrappingWidth="923.6767730712891">
                      <font>
-                        <Font name="Arial Rounded MT Bold" size="36.0" />
+                        <Font name="Arial Rounded MT Bold" size="48.0" />
                      </font>
                   </Text>
                   <VBox prefHeight="30.0" prefWidth="1280.0" />
@@ -72,7 +75,7 @@
                                           </ImageView>
                                        </children>
                                     </HBox>
-                                    <Button fx:id="btnEmpleado" maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" onAction="#clickCliente" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: f96a17; -fx-background-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);" text="Clientes" textFill="WHITE">
+                                    <Button fx:id="btnFacturas" maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" onAction="#clickReporteFacturas" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: f96a17; -fx-background-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);" text="Facturas" textFill="WHITE">
                                        <font>
                                           <Font name="Arial Rounded MT Bold" size="18.0" />
                                        </font>
@@ -97,7 +100,7 @@
                                           </ImageView>
                                        </children>
                                     </HBox>
-                                    <Button fx:id="btnEmpleado3" maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" onAction="#clickEmpleado" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: f96a17; -fx-background-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);" text="Empleados" textFill="WHITE">
+                                    <Button fx:id="btnProyectos" maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" onAction="#clickReporteGeneralProyectos" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: f96a17; -fx-background-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);" text="Proyectos" textFill="WHITE">
                                        <font>
                                           <Font name="Arial Rounded MT Bold" size="18.0" />
                                        </font>
@@ -122,32 +125,7 @@
                                           </ImageView>
                                        </children>
                                     </HBox>
-                                    <Button fx:id="btnEmpleado4" maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" onAction="#clickPubliCanal" prefHeight="40.0" prefWidth="218.0" style="-fx-background-color: f96a17; -fx-background-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);" text="Publicidad en Canal" textFill="WHITE">
-                                       <font>
-                                          <Font name="Arial Rounded MT Bold" size="18.0" />
-                                       </font>
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                    </Button>
-                                 </children>
-                              </VBox>
-                           </children>
-                        </VBox>
-                        <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="220.0" prefWidth="260.0">
-                           <children>
-                              <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="234.0" prefWidth="242.0" spacing="35.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 40; -fx-border-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);">
-                                 <children>
-                                    <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="82.0" prefWidth="140.0">
-                                       <children>
-                                          <ImageView fx:id="imgEmpleado3" fitHeight="82.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../../../../imagenes/employee_2572970.png" />
-                                             </image>
-                                          </ImageView>
-                                       </children>
-                                    </HBox>
-                                    <Button fx:id="btnEmpleado1" maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" onAction="#clickPubliWeb" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: f96a17; -fx-background-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);" text="Publicidad Web" textFill="WHITE">
+                                    <Button fx:id="btnCreativos1" maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" onAction="#clickReporteCreativoPresupuesto" prefHeight="40.0" prefWidth="218.0" style="-fx-background-color: f96a17; -fx-background-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);" text="Proyectos de Departamento Creativo" textFill="WHITE">
                                        <font>
                                           <Font name="Arial Rounded MT Bold" size="18.0" />
                                        </font>
@@ -176,7 +154,7 @@
                                           </ImageView>
                                        </children>
                                     </HBox>
-                                    <Button fx:id="btnEmpleado1" maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" onAction="#clickSegmento" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: f96a17; -fx-background-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);" text="Segmentos" textFill="WHITE">
+                                    <Button fx:id="btnNomina" maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" onAction="#clickPagoNomina" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: f96a17; -fx-background-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);" text="Pago de Nómina" textFill="WHITE">
                                        <font>
                                           <Font name="Arial Rounded MT Bold" size="18.0" />
                                        </font>
@@ -201,57 +179,7 @@
                                           </ImageView>
                                        </children>
                                     </HBox>
-                                    <Button fx:id="btnEmpleado31" maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" onAction="#clickEnTienda" prefHeight="40.0" prefWidth="208.0" style="-fx-background-color: f96a17; -fx-background-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);" text="Productos en Tienda" textFill="WHITE">
-                                       <font>
-                                          <Font name="Arial Rounded MT Bold" size="18.0" />
-                                       </font>
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                    </Button>
-                                 </children>
-                              </VBox>
-                           </children>
-                        </VBox>
-                        <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="220.0" prefWidth="260.0">
-                           <children>
-                              <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="234.0" prefWidth="242.0" spacing="35.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 40; -fx-border-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);">
-                                 <children>
-                                    <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="82.0" prefWidth="140.0">
-                                       <children>
-                                          <ImageView fx:id="imgEmpleado21" fitHeight="82.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../../../../imagenes/employee_2572970.png" />
-                                             </image>
-                                          </ImageView>
-                                       </children>
-                                    </HBox>
-                                    <Button fx:id="btnEmpleado41" maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" onAction="#clickRolPago" prefHeight="40.0" prefWidth="218.0" style="-fx-background-color: f96a17; -fx-background-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);" text="Rol de Pago" textFill="WHITE">
-                                       <font>
-                                          <Font name="Arial Rounded MT Bold" size="18.0" />
-                                       </font>
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                    </Button>
-                                 </children>
-                              </VBox>
-                           </children>
-                        </VBox>
-                        <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="220.0" prefWidth="260.0">
-                           <children>
-                              <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="234.0" prefWidth="242.0" spacing="35.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 40; -fx-border-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);">
-                                 <children>
-                                    <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="82.0" prefWidth="140.0">
-                                       <children>
-                                          <ImageView fx:id="imgEmpleado211" fitHeight="82.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../../../../imagenes/employee_2572970.png" />
-                                             </image>
-                                          </ImageView>
-                                       </children>
-                                    </HBox>
-                                    <Button maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" onAction="#clickReporte" prefHeight="40.0" prefWidth="218.0" style="-fx-background-color: f96a17; -fx-background-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);" text="Reportes" textFill="WHITE">
+                                    <Button fx:id="btnCreativos2" maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" onAction="#clickReporteCreativoComisiones" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: f96a17; -fx-background-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);" text="Proyectos de Departamento Creativo con Comisiones Altas" textFill="WHITE">
                                        <font>
                                           <Font name="Arial Rounded MT Bold" size="18.0" />
                                        </font>

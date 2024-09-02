@@ -133,6 +133,11 @@ public class OpcionesGeneralController implements Initializable {
 
     @FXML
     private void clickReporte(ActionEvent event) {
+        try{
+            App.setRoot("opcionesDeReportes");
+        } catch(IOException e){
+            e.printStackTrace();
+        }
     }
     
 }

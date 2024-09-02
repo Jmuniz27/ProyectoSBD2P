@@ -54,7 +54,7 @@ public class OpcionesDeReportesController implements Initializable {
     @FXML
     private void clickReporteFacturas(ActionEvent event) {
         try{
-            MostrarFacturasProductosClientesController.cambiarReporte("Facturas_Productos_Clientes");
+            MostrarFacturasProductosClientesController.cambiarReporte("Facturas_Productos_Clientes", "Reporte de Facturas con Detalles de Productos y Clientes" );
             App.setRoot("mostrarFacturasProductosClientes");
         } catch(IOException e){
             e.printStackTrace();
@@ -64,7 +64,7 @@ public class OpcionesDeReportesController implements Initializable {
     @FXML
     private void clickReporteGeneralProyectos(ActionEvent event) {
         try{
-            MostrarFacturasProductosClientesController.cambiarReporte("Proyectos_Departamento_Producción_Duracion");
+            MostrarFacturasProductosClientesController.cambiarReporte("Proyectos_Departamento_Producción_Duracion", "Reporte de Proyectos ordenados por duración");
             App.setRoot("mostrarFacturasProductosClientes");
         } catch(IOException e){
             e.printStackTrace();
@@ -74,7 +74,7 @@ public class OpcionesDeReportesController implements Initializable {
     @FXML
     private void clickReporteCreativoPresupuesto(ActionEvent event) {
         try{
-            MostrarFacturasProductosClientesController.cambiarReporte("Reporte_Proyectos_Departamento_Creativo");
+            MostrarFacturasProductosClientesController.cambiarReporte("Reporte_Proyectos_Departamento_Creativo","Reporte de Proyectos por Departamento Creativo Ordenados por Presupuesto");
             App.setRoot("mostrarFacturasProductosClientes");
         } catch(IOException e){
             e.printStackTrace();
@@ -84,7 +84,7 @@ public class OpcionesDeReportesController implements Initializable {
     @FXML
     private void clickPagoNomina(ActionEvent event) {
         try{
-            MostrarFacturasProductosClientesController.cambiarReporte("Pagos_Empleados_por_Departamento");
+            MostrarFacturasProductosClientesController.cambiarReporte("Pagos_Empleados_por_Departamento", "Pagos a Empleados con Información del Departamento");
             App.setRoot("mostrarFacturasProductosClientes");
         } catch(IOException e){
             e.printStackTrace();
@@ -94,7 +94,7 @@ public class OpcionesDeReportesController implements Initializable {
     @FXML
     private void clickReporteCreativoComisiones(ActionEvent event) {
         try{
-            MostrarFacturasProductosClientesController.cambiarReporte("Proyectos_Comisión_Alta");
+            MostrarFacturasProductosClientesController.cambiarReporte("Proyectos_Comisión_Alta","Reporte de Proyectos en Departamento Creativo con Subconsulta para comisiones altas");
             App.setRoot("mostrarFacturasProductosClientes");
         } catch(IOException e){
             e.printStackTrace();
@@ -104,7 +104,6 @@ public class OpcionesDeReportesController implements Initializable {
     @FXML
     private void regresar(ActionEvent event) {
         try{
-            MostrarFacturasProductosClientesController.cambiarReporte("Proyectos_Comisión_Alta");
             App.setRoot("opcionesGeneral");
         } catch(IOException e){
             e.printStackTrace();

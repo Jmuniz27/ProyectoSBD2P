@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\DatabaseManager.java
 c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\VerIndividualSegmentoController.java
 c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\EditarClienteController.java
@@ -63,3 +64,69 @@ c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\e
 c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\EditarPTController.java
 c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\anadirClientesController.java
 c:\Users\jmuni\OneDrive\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\modelo\HorarioSegmento.java
+=======
+C:\Users\creditos gonzalez\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\AnadirEmpleadoController.java
+C:\Users\creditos gonzalez\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\VerIndividualPTController.java
+C:\Users\creditos gonzalez\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\VerIndividualSegmentoController.java
+C:\Users\creditos gonzalez\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\InicioController.java
+C:\Users\creditos gonzalez\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\EditarEmpleadosController.java
+C:\Users\creditos gonzalez\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\PlantillaProyectoController.java
+C:\Users\creditos gonzalez\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\modelo\Publicidad.java
+C:\Users\creditos gonzalez\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\modelo\Telefono.java
+C:\Users\creditos gonzalez\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\GestionClientesController.java
+C:\Users\creditos gonzalez\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\EditarPWController.java
+C:\Users\creditos gonzalez\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\EditarRPController.java
+C:\Users\creditos gonzalez\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\modelo\DepartamentoProduccion.java
+C:\Users\creditos gonzalez\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\EditarClienteController.java
+C:\Users\creditos gonzalez\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\MostrarFacturasProductosClientesController.java
+C:\Users\creditos gonzalez\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\EditarPTController.java
+C:\Users\creditos gonzalez\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\DatabaseManager.java
+C:\Users\creditos gonzalez\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\SecondaryController.java
+C:\Users\creditos gonzalez\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\GestionEmpleadoController.java
+C:\Users\creditos gonzalez\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\modelo\Catalogo.java
+C:\Users\creditos gonzalez\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\modelo\PublicidadAnuncioWeb.java
+C:\Users\creditos gonzalez\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\EditarPCController.java
+C:\Users\creditos gonzalez\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\modelo\Cliente.java
+C:\Users\creditos gonzalez\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\DatabaseConnection.java
+C:\Users\creditos gonzalez\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\PlantillaIndividualController.java
+C:\Users\creditos gonzalez\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\modelo\Bono.java
+C:\Users\creditos gonzalez\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\modelo\DepartamentoFinanzas.java
+C:\Users\creditos gonzalez\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\module-info.java
+C:\Users\creditos gonzalez\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\modelo\Proyecto.java
+C:\Users\creditos gonzalez\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\DatabaseException.java
+C:\Users\creditos gonzalez\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\GestionProyectoController.java
+C:\Users\creditos gonzalez\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\modelo\RolPago.java
+C:\Users\creditos gonzalez\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\GestionPublicidadCanalController.java
+C:\Users\creditos gonzalez\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\modelo\Empleado.java
+C:\Users\creditos gonzalez\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\modelo\Segmento.java
+C:\Users\creditos gonzalez\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\anadirAnuncioCanalController.java
+C:\Users\creditos gonzalez\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\modelo\Departamento.java
+C:\Users\creditos gonzalez\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\VerIndividualPWController.java
+C:\Users\creditos gonzalez\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\AgregarProyectoController.java
+C:\Users\creditos gonzalez\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\VerIndividualEmpleadoController.java
+C:\Users\creditos gonzalez\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\modelo\PersonaContacto.java
+C:\Users\creditos gonzalez\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\PlantillaVerController.java
+C:\Users\creditos gonzalez\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\anadirProductosenTiendaController.java
+C:\Users\creditos gonzalez\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\OpcionesDeReportesController.java
+C:\Users\creditos gonzalez\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\App.java
+C:\Users\creditos gonzalez\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\modelo\DepartamentoCreativo.java
+C:\Users\creditos gonzalez\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\EditarSegmentoController.java
+C:\Users\creditos gonzalez\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\GestionProductoTiendaController.java
+C:\Users\creditos gonzalez\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\UsuariosController.java
+C:\Users\creditos gonzalez\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\modelo\HorarioSegmento.java
+C:\Users\creditos gonzalez\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\modelo\PublicidadAnuncioCanal.java
+C:\Users\creditos gonzalez\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\OpcionesGeneralController.java
+C:\Users\creditos gonzalez\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\VerIndvidualPCController.java
+C:\Users\creditos gonzalez\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\PrimaryController.java
+C:\Users\creditos gonzalez\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\modelo\Factura.java
+C:\Users\creditos gonzalez\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\anadirClientesController.java
+C:\Users\creditos gonzalez\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\VerIndividualClientesController.java
+C:\Users\creditos gonzalez\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\GestionPublicidadWebController.java
+C:\Users\creditos gonzalez\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\modelo\ProductoTienda.java
+C:\Users\creditos gonzalez\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\anadirEmpleadosController.java
+C:\Users\creditos gonzalez\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\AnadirClienteController.java
+C:\Users\creditos gonzalez\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\anadirAnuncioWebController.java
+C:\Users\creditos gonzalez\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\GestionRolPagoController.java
+C:\Users\creditos gonzalez\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\GestionSegmentoController.java
+C:\Users\creditos gonzalez\Documents\ProyectoSBD2P\proyectoSBD2P\src\main\java\ec\edu\espol\proyectosbd2p\VerIndividualRPController.java
+>>>>>>> fe316917a2e69d179c3f89da80589e300d6846e6

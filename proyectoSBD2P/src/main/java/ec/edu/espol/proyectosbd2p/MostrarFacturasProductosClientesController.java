@@ -35,6 +35,7 @@ public class MostrarFacturasProductosClientesController implements Initializable
     @FXML
     private TableView<ObservableList<String>> tablaDeReportes;
     public static String report;
+    public static String title;
     @FXML
     private Button btnRegresar;
     /**
@@ -78,8 +79,9 @@ public class MostrarFacturasProductosClientesController implements Initializable
                 tablaDeReportes.setItems(data);
         }
     }
-    public static void cambiarReporte(String reporte){
+    public static void cambiarReporte(String reporte, String tit){
         report = reporte;
+        title= tit;
     }
 
     @FXML

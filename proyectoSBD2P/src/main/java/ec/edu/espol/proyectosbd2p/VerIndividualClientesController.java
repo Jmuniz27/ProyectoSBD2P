@@ -7,6 +7,7 @@ package ec.edu.espol.proyectosbd2p;
 import ec.edu.espol.proyectosbd2p.modelo.Cliente;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -145,32 +146,26 @@ public class VerIndividualClientesController implements Initializable {
 
     @FXML
     private void eliminar(ActionEvent event) {
-        // Confirmar la eliminación con el usuario
         Alert confirmacion = new Alert(Alert.AlertType.CONFIRMATION);
         confirmacion.setTitle("Confirmar eliminación");
-        confirmacion.setHeaderText("¿Estás seguro de que deseas eliminar este cliente?");
+        confirmacion.setHeaderText("¿Estás seguro de que deseas eliminar este rol de pago?");
         confirmacion.setContentText("Esta acción no se puede deshacer.");
 
         Optional<ButtonType> resultado = confirmacion.showAndWait();
         if (resultado.isPresent() && resultado.get() == ButtonType.OK) {
-            // Proceder con la eliminación
+            String sql = "{CALL eliminar_Cliente(?)}";  // Llamada al procedimiento almacenado
             try {
                 Connection conn = DatabaseConnection.getConnection();
-                String sql = "DELETE FROM cliente WHERE RUC = ?";
-                PreparedStatement pstmt = conn.prepareStatement(sql);
-                pstmt.setString(1, cliente.getRuc());
+                CallableStatement cstmt = conn.prepareCall(sql);
 
-                int rowsAffected = pstmt.executeUpdate();
-                if (rowsAffected > 0) {
-                    showAlert(Alert.AlertType.INFORMATION, "Éxito", "Cliente eliminado correctamente.");
-                    // Navegar de regreso a la pantalla de gestión de clientes
-                    App.setRoot("gestionClientes");
-                } else {
-                    showAlert(Alert.AlertType.ERROR, "Error", "No se pudo eliminar el cliente.");
-                }
-            } catch (SQLException | IOException e) {
-                e.printStackTrace();
-                showAlert(Alert.AlertType.ERROR, "Error de Base de Datos", e.getMessage());
+                cstmt.setString(1, cliente.getRuc());  // Establecer el ID del pago como parámetro
+                cstmt.execute();  // Ejecutar el procedimiento almacenado
+
+                showAlert(Alert.AlertType.INFORMATION, "Eliminación Completa", "Cliente eliminado con éxito.");
+                regresar(event);
+                
+            } catch (SQLException e) {
+                showAlert(Alert.AlertType.ERROR, "Error de Base de Datos", "No se pudo eliminar el cliente: " + e.getMessage());
             }
         }
     }

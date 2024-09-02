@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" prefHeight="575.0" prefWidth="434.0" spacing="40.0" style="-fx-background-color: ffffff;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.proyectosbd2p.EditarPCController">
+<VBox alignment="TOP_CENTER" prefHeight="575.0" prefWidth="434.0" spacing="60.0" style="-fx-background-color: ffffff;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.proyectosbd2p.EditarRPController">
     <children>
       <HBox alignment="CENTER_RIGHT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="42.0" prefWidth="394.0">
          <children>
@@ -21,56 +21,34 @@
                </font></Button>
          </children>
       </HBox>
-        <Label prefHeight="67.0" prefWidth="324.0" text="Editar Publicidad Anuncio Canal" textAlignment="CENTER" textFill="#f96a17" wrapText="true">
+        <Label alignment="CENTER" prefHeight="41.0" prefWidth="324.0" text="Editar Rol de Pago" textAlignment="CENTER" textFill="#f96a17" wrapText="true">
             <font>
                 <Font name="Arial Rounded MT Bold" size="24.0" />
             </font>
         </Label>
-      <VBox alignment="CENTER" prefHeight="215.0" prefWidth="394.0" spacing="30.0">
+      <VBox alignment="CENTER" prefHeight="179.0" prefWidth="394.0" spacing="30.0">
          <children>
-              <GridPane hgap="10" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="192.0" prefWidth="276.0" vgap="15.0">
+              <GridPane hgap="10" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="74.0" prefWidth="276.0" vgap="15.0">
                   <children>
       
-                      <Label text="Título:" GridPane.columnIndex="0">
+                      <Label text="Pago Neto:" GridPane.columnIndex="0">
                      <font>
                         <Font name="Arial Rounded MT" size="13.0" />
                      </font>
                   </Label>
                       <TextField fx:id="tfTitulo" GridPane.columnIndex="1" />
-      
-                      <Label text="Duración:" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                  <Label text="ID Empleado:" GridPane.rowIndex="1">
                      <font>
                         <Font name="Arial Rounded MT" size="13.0" />
                      </font>
                   </Label>
-                      <TextField fx:id="tfDuracion" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Label text="Presupuesto:" GridPane.rowIndex="2">
-                     <font>
-                        <Font name="Arial Rounded MT" size="13.0" />
-                     </font>
-                  </Label>
-                  <Label text="Descripción:" GridPane.rowIndex="3">
-                     <font>
-                        <Font name="Arial Rounded MT" size="13.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="tfPresupuesto" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <TextField fx:id="tfDescri" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                  <Label text="Comisión:" GridPane.rowIndex="4">
-                     <font>
-                        <Font name="Arial Rounded MT" size="13.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="tfComision" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <TextField fx:id="tfTitulo1" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   </children>
                <columnConstraints>
                   <ColumnConstraints maxWidth="129.5" minWidth="82.5" prefWidth="122.5" />
                   <ColumnConstraints maxWidth="152.5" minWidth="123.5" prefWidth="140.5" />
                </columnConstraints>
                <rowConstraints>
-                  <RowConstraints />
-                  <RowConstraints />
-                  <RowConstraints />
                   <RowConstraints />
                   <RowConstraints />
                   <RowConstraints />

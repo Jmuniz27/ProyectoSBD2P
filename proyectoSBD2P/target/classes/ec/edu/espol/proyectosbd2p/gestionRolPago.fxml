@@ -39,7 +39,7 @@
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="500.0" spacing="50.0">
                      <children>
-                        <Button fx:id="btnAnadir" mnemonicParsing="false" onAction="#anadirRolPago" prefHeight="55.0" prefWidth="200.0" style="-fx-background-color: f96a17; -fx-background-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);" text="Añadir Rol de Pago" textFill="WHITE">
+                        <Button fx:id="btnAnadir" mnemonicParsing="false" onAction="#anadirRolPago" prefHeight="55.0" prefWidth="200.0" style="-fx-background-color: f96a17; -fx-background-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.6, 0, 0);" text="Añadir Rol de Pago" textFill="WHITE" visible="false">
                            <font>
                               <Font name="Arial Rounded MT Bold" size="18.0" />
                            </font>

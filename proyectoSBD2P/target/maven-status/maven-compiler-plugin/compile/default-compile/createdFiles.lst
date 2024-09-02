@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-ec/edu/espol/proyectosbd2p/modelo/RolPago.class
-ec/edu/espol/proyectosbd2p/EditarRPController.class
-ec/edu/espol/proyectosbd2p/PlantillaProyectoController.class
-ec/edu/espol/proyectosbd2p/GestionPublicidadCanalController.class
-module-info.class
-ec/edu/espol/proyectosbd2p/modelo/PublicidadAnuncioCanal.class
-ec/edu/espol/proyectosbd2p/modelo/Publicidad.class
-ec/edu/espol/proyectosbd2p/modelo/Proyecto.class
-=======
 ec\edu\espol\proyectosbd2p\modelo\Telefono.class
 ec\edu\espol\proyectosbd2p\VerIndividualPTController.class
 ec\edu\espol\proyectosbd2p\EditarEmpleadosController.class
@@ -34,7 +24,6 @@ ec\edu\espol\proyectosbd2p\PrimaryController.class
 ec\edu\espol\proyectosbd2p\anadirEmpleadosController.class
 ec\edu\espol\proyectosbd2p\modelo\Empleado.class
 module-info.class
-ec\edu\espol\proyectosbd2p\AnadirProductoTiendaController.class
 ec\edu\espol\proyectosbd2p\OpcionesDeReportesController.class
 ec\edu\espol\proyectosbd2p\modelo\HorarioSegmento.class
 ec\edu\espol\proyectosbd2p\VerIndividualClientesController.class
@@ -45,7 +34,6 @@ ec\edu\espol\proyectosbd2p\modelo\RolPago.class
 ec\edu\espol\proyectosbd2p\MostrarFacturasProductosClientesController.class
 ec\edu\espol\proyectosbd2p\EditarSegmentoController.class
 ec\edu\espol\proyectosbd2p\anadirClientesController.class
-ec\edu\espol\proyectosbd2p\anadirAnuncioWebController.class
 ec\edu\espol\proyectosbd2p\DatabaseManager.class
 ec\edu\espol\proyectosbd2p\GestionSegmentoController.class
 ec\edu\espol\proyectosbd2p\modelo\DepartamentoProduccion.class
@@ -70,4 +58,3 @@ ec\edu\espol\proyectosbd2p\PlantillaVerController.class
 ec\edu\espol\proyectosbd2p\modelo\DepartamentoCreativo.class
 ec\edu\espol\proyectosbd2p\modelo\Proyecto.class
 ec\edu\espol\proyectosbd2p\SecondaryController.class
->>>>>>> 02d1077301063655eabe2fba7dda57f35099959a
